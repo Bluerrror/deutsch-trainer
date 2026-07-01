@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Deutsch Trainer · A1–B2</title>
+<!-- PWA / iOS home-screen app -->
+<meta name="theme-color" content="#1b2340">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Deutsch Trainer">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
 <style>
   :root{
     --bg1:#1b2340; --bg2:#2b2150;
@@ -203,6 +212,74 @@
   .toast.show{opacity:1;}
   @media (prefers-reduced-motion: reduce){*{transition:none !important; animation:none !important;}}
   @media (max-width:360px){ .stem{font-size:21px;} .bigword{font-size:29px;} .sklab{width:76px;} }
+
+  /* ---------- v2: listening / speaker ---------- */
+  .speaker{margin:16px auto 4px;width:104px;height:104px;border-radius:28px;color:#fff;font-size:46px;
+    background:linear-gradient(135deg,#3f6fe0,#5566d6 60%,#7b5fe0);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 26px rgba(63,111,224,.5);transition:transform .08s;}
+  .speaker:active{transform:scale(.93);}
+  .speaker.pulse{animation:spk .5s ease;}
+  @keyframes spk{0%{transform:scale(1)}40%{transform:scale(1.08)}100%{transform:scale(1)}}
+  .replaybtn{display:flex;align-items:center;justify-content:center;gap:6px;margin:8px auto 0;color:#8a80c0;font-size:13px;font-weight:750;}
+  .minispk{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;
+    background:#eef0ff;color:#5566d6;font-size:16px;margin-left:8px;vertical-align:middle;}
+  .minispk:active{transform:scale(.9);}
+
+  /* ---------- v2: typing ---------- */
+  .typewrap.v2{margin-top:20px;}
+  .typewrap.v2 input{text-align:center;}
+
+  /* ---------- v2: match pairs ---------- */
+  .match{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:16px;}
+  .mcol{display:flex;flex-direction:column;gap:11px;}
+  .mtile{background:#fff;border:2.5px solid var(--line);border-radius:14px;padding:16px 8px;font-size:15.5px;font-weight:700;
+    color:var(--ink);box-shadow:0 2px 0 #e7e6ef;transition:transform .06s,border-color .12s,background .12s,opacity .25s;min-height:54px;
+    display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.2;}
+  .mtile:active{transform:translateY(2px);}
+  .mtile.sel{border-color:var(--sel);background:#f3f4ff;box-shadow:0 2px 0 #c9ccf0;}
+  .mtile.good{border-color:var(--ok);background:var(--okbg);color:var(--okd);}
+  .mtile.bad{border-color:var(--no);background:var(--nobg);color:var(--nod);animation:shake .32s;}
+  .mtile.gone{opacity:0;pointer-events:none;transform:scale(.85);}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}60%{transform:translateX(6px)}}
+  .matchhint{text-align:center;color:var(--muted);font-size:12.5px;margin-top:14px;font-weight:600;}
+
+  /* ---------- v2: option pop + xp burst ---------- */
+  .opt.sel{animation:pop .18s ease;}
+  @keyframes pop{0%{transform:scale(1)}55%{transform:scale(1.045)}100%{transform:scale(1)}}
+  .xppill{display:inline-block;background:linear-gradient(135deg,#f7c948,#f5b027);color:#7a4d00;font-weight:800;
+    font-size:12px;padding:4px 11px;border-radius:20px;margin-left:auto;box-shadow:0 2px 6px rgba(245,176,39,.4);}
+  .combo{position:absolute;top:64px;left:50%;transform:translateX(-50%) scale(.6);opacity:0;pointer-events:none;z-index:20;
+    background:linear-gradient(135deg,#ff8a3d,#ff5c7a);color:#fff;font-weight:800;font-size:14px;padding:8px 16px;border-radius:22px;
+    box-shadow:0 6px 18px rgba(255,92,122,.5);transition:transform .3s cubic-bezier(.3,1.5,.5,1),opacity .3s;white-space:nowrap;}
+  .combo.show{opacity:1;transform:translateX(-50%) scale(1);}
+
+  /* ---------- v2: confetti ---------- */
+  .confetti{position:fixed;top:-14px;width:9px;height:15px;z-index:90;border-radius:2px;pointer-events:none;
+    animation:fall linear forwards;}
+  @keyframes fall{to{transform:translateY(105vh) rotate(720deg);opacity:.85;}}
+
+  /* ---------- v2: level card ---------- */
+  .levelcard{background:var(--card);border-radius:18px;padding:15px 16px;box-shadow:0 5px 18px rgba(8,10,25,.22);margin-top:14px;}
+  .levelcard .top{display:flex;align-items:center;gap:11px;margin-bottom:11px;}
+  .levbadge{width:44px;height:44px;border-radius:13px;flex:none;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:16px;color:#fff;background:linear-gradient(135deg,#5566d6,#3f6fe0);box-shadow:0 5px 14px rgba(63,111,224,.4);}
+  .levelcard .lt{font-size:15px;font-weight:800;}
+  .levelcard .ls{font-size:12px;color:var(--muted);margin-top:1px;}
+  .levbar{height:13px;background:#eef0f6;border-radius:9px;overflow:hidden;}
+  .levfill{height:100%;background:linear-gradient(90deg,#7b5fe0,#5566d6);border-radius:9px;transition:width .6s cubic-bezier(.4,1.1,.5,1);}
+
+  /* ---------- v2: achievements ---------- */
+  .badges{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 8px;margin-top:4px;}
+  .badge2{text-align:center;}
+  .badge2 .ic{width:54px;height:54px;margin:0 auto;border-radius:16px;background:#f1effa;display:flex;align-items:center;
+    justify-content:center;font-size:27px;filter:grayscale(1);opacity:.38;transition:all .3s;}
+  .badge2.on .ic{filter:none;opacity:1;background:linear-gradient(135deg,#fff3d6,#ffe1a0);box-shadow:0 5px 14px rgba(245,176,39,.4);}
+  .badge2 .bt{font-size:10px;font-weight:750;margin-top:6px;color:var(--muted);line-height:1.25;}
+  .badge2.on .bt{color:var(--ink);}
+
+  /* ---------- v2: level-up banner on results ---------- */
+  .levup{background:linear-gradient(135deg,rgba(123,95,224,.22),rgba(85,102,214,.22));border:1px solid rgba(123,95,224,.5);
+    color:#c9bdff;border-radius:14px;padding:11px;font-weight:750;font-size:13.5px;margin-bottom:14px;width:100%;}
 </style>
 </head>
 <body>
@@ -212,7 +289,7 @@
   <div class="home scroll" id="home">
     <div class="brand">
       <div class="logo serif">D</div>
-      <div><h1>Deutsch Trainer</h1><div class="tag">Grammar &amp; vocabulary · A1 → B2</div></div>
+      <div><h1>Deutsch Trainer</h1><div class="tag" id="brandTag">Grammar &amp; vocabulary · A1 → B2</div></div>
       <div class="streakpill">🔥 <span id="dayStreak">0</span></div>
     </div>
 
@@ -246,9 +323,22 @@
       <div class="sumc green"><div class="n" id="sAcc">–</div><div class="l">Accuracy</div></div>
     </div>
 
+    <div class="levelcard">
+      <div class="top">
+        <div class="levbadge" id="levBadge">1</div>
+        <div><div class="lt" id="levTitle">Level 1</div><div class="ls" id="levSub">0 XP</div></div>
+      </div>
+      <div class="levbar"><div class="levfill" id="levFill" style="width:0%"></div></div>
+    </div>
+
     <div class="panel">
       <h4>📊 This week <span class="mini" id="weekTotal"></span></h4>
       <div id="weekChart"></div>
+    </div>
+
+    <div class="panel">
+      <h4>🏅 Achievements <span class="mini" id="achCount"></span></h4>
+      <div class="badges" id="badges"></div>
     </div>
 
     <div class="panel">
@@ -270,6 +360,7 @@
 
   <!-- ============ QUIZ ============ -->
   <div class="quiz hidden" id="quiz">
+    <div class="combo" id="combo"></div>
     <div class="topbar">
       <button class="xbtn" id="quitBtn" aria-label="Back to home">✕</button>
       <div class="pbar"><div class="pfill" id="pfill"></div></div>
@@ -289,6 +380,7 @@
       <div class="rstat green"><div class="n" id="rAcc">0%</div><div class="l">Accuracy</div></div>
       <div class="rstat"><div class="n" id="rBest">0</div><div class="l">Best run</div></div>
     </div>
+    <div class="levup hidden" id="rLevup"></div>
     <div class="goalmet hidden" id="goalMet">🎉 Daily goal reached — streak extended!</div>
     <button class="btn-primary" id="againBtn">Practice again</button>
     <button class="linkbtn" id="homeBtn">Back to home</button>
@@ -302,7 +394,7 @@
 
   <!-- feedback sheet -->
   <div class="sheet" id="sheet">
-    <div class="head"><span class="badge" id="sBadge">✓</span><span id="sTitle">Correct!</span></div>
+    <div class="head"><span class="badge" id="sBadge">✓</span><span id="sTitle">Correct!</span><span class="xppill hidden" id="sXP">+10 XP</span></div>
     <div class="ans" id="sAns"></div>
     <div class="explain" id="sExplain"></div>
     <button class="btn-cont" id="contBtn">Continue</button>
@@ -565,16 +657,70 @@ function gKonjunktiv(){const items=[
   {s:'An deiner Stelle ___ ich zum Arzt gehen.',a:'würde',o:['würde','werde','wurde','will'],ex:'Advice → <b>würde</b> + infinitive.',tr:'In your place I would go to the doctor.'}];
  const it=R(items);return {tag:'Konjunktiv II',prompt:'Choose the subjunctive form',mode:'mc',stem:it.s,trans:it.tr,answer:it.a,options:shuffle(it.o),explain:it.ex};}
 
+/* ---------- v2: everyday phrases (listening & translation) ---------- */
+const PHRASES=[
+ {de:'Guten Morgen',en:'Good morning'},{de:'Guten Tag',en:'Hello / Good day'},
+ {de:'Wie geht es dir?',en:'How are you?'},{de:'Mir geht es gut',en:'I am fine'},
+ {de:'Ich heiße Anna',en:'My name is Anna'},{de:'Ich komme aus Deutschland',en:'I come from Germany'},
+ {de:'Ich hätte gern einen Kaffee',en:'I would like a coffee'},{de:'Wo ist der Bahnhof?',en:'Where is the station?'},
+ {de:'Was kostet das?',en:'How much does that cost?'},{de:'Ich verstehe nicht',en:"I don't understand"},
+ {de:'Können Sie mir helfen?',en:'Can you help me?'},{de:'Ich spreche ein bisschen Deutsch',en:'I speak a little German'},
+ {de:'Danke schön',en:'Thank you very much'},{de:'Entschuldigung',en:'Excuse me / sorry'},
+ {de:'Bis später',en:'See you later'},{de:'Ich bin müde',en:'I am tired'},
+ {de:'Das ist sehr lecker',en:'That is very tasty'},{de:'Wie spät ist es?',en:'What time is it?'},
+ {de:'Ich liebe dich',en:'I love you'},{de:'Einen schönen Tag noch',en:'Have a nice day'}
+];
+const hasSpeech = typeof window!=='undefined' && 'speechSynthesis' in window;
+
+/* ---------- v2: new question generators ---------- */
+function gListenWord(){const n=R(NOUNS);const ans=n.de;
+ return {tag:'Listening',prompt:'Tap what you hear',mode:'mc',speak:n.de,autoSpeak:true,options:opts(ans,shuffle(NOUNS).map(x=>x.de)),answer:ans,
+  trans:`${ARTWORD[n.g]} ${n.de} — ${n.en}`,sayAnswer:n.de,
+  explain:`🔊 <b>${ARTWORD[n.g]} ${n.de}</b> = ${n.en}.`};}
+function gListenPhrase(){const p=R(PHRASES);const ans=p.en;
+ return {tag:'Listening',prompt:'What did you hear?',mode:'mc',speak:p.de,autoSpeak:true,options:opts(ans,shuffle(PHRASES).map(x=>x.en)),answer:ans,
+  trans:p.de,sayAnswer:p.de,explain:`🔊 <b>${p.de}</b> = ${p.en}.`};}
+function gTypeNoun(){const n=R(NOUNS);
+ return {tag:'Type it',prompt:'Type the German word (no article)',mode:'type',img:NOUN_IMG[n.de],big:n.en,answer:n.de,accept:[n.de],
+  trans:`${ARTWORD[n.g]} ${n.de}`,sayAnswer:n.de,explain:`${n.en} = <b>${ARTWORD[n.g]} ${n.de}</b>.`};}
+function gTypeVerb(){const v=R(VERBS);
+ return {tag:'Type it',prompt:'Type the German infinitive',mode:'type',big:v.en,answer:v.inf,accept:[v.inf],
+  sayAnswer:v.inf,explain:`${v.en} = <b>${v.inf}</b>.`};}
+function gTypeListen(){const n=R(NOUNS);
+ return {tag:'Listen & type',prompt:'Type the word you hear',mode:'type',speak:n.de,autoSpeak:true,big:'🎧',answer:n.de,accept:[n.de],
+  trans:`${ARTWORD[n.g]} ${n.de} — ${n.en}`,sayAnswer:n.de,explain:`🔊 <b>${ARTWORD[n.g]} ${n.de}</b> = ${n.en}.`};}
+function gMatch(){const set=shuffle(NOUNS.filter(n=>n.de.length<=9)).slice(0,5);
+ return {tag:'Match pairs',prompt:'Match German ↔ English',mode:'match',pairs:set.map(n=>({de:n.de,en:n.en})),explain:'Nice — all pairs matched!'};}
+function gMatchVerb(){const set=shuffle(VERBS).slice(0,5);
+ return {tag:'Match verbs',prompt:'Match verb ↔ meaning',mode:'match',pairs:set.map(v=>({de:v.inf,en:v.en.replace('to ','')})),explain:'Nice — all pairs matched!'};}
+function gTrueFalse(){const n=R(NOUNS);const truth=Math.random()<0.5;
+ const shown=truth?n.en:R(NOUNS.filter(x=>x.en!==n.en)).en;const ans=truth?'Richtig':'Falsch';
+ return {tag:'True or false',prompt:'Is this translation correct?',mode:'mc',stem:`${ARTWORD[n.g]} ${n.de} = „${shown}“`,answer:ans,options:['Richtig','Falsch'],
+  sayAnswer:n.de,explain:`${ARTWORD[n.g]} ${n.de} = <b>${n.en}</b> → the statement is <b>${truth?'richtig ✓':'falsch ✕'}</b>.`};}
+function gListenNumber(){const n=RI(0,99);const ans=numDE(n);
+ return {tag:'Listen · numbers',prompt:'Which number did you hear?',mode:'mc',speak:ans,autoSpeak:true,big:'🔢',answer:String(n),
+  options:opts(String(n),[String(n),String(RI(0,99)),String(RI(0,99)),String((n+1)%100),String((n+7)%100)]),sayAnswer:ans,
+  explain:`🔊 <b>${ans}</b> = ${n}.`};}
+
 const GEN={
   Articles:[gGender,gCaseArticle],Cases:[gCaseArticle,gVerbCase,gPrepCase,gTwoWay],
-  Adjectives:[gAdjEnding,gOpposite],Verbs:[gConjPresent,gModal,gPerfekt,gPraet,gSep,gKonjunktiv],
-  Prepositions:[gPrepCase,gTwoWay,gVerbPrep],Vocabulary:[gPicture,gTransDeEn,gTransEnDe,gOpposite,gPlural],
-  Pictures:[gPicture,gTransEnDe,gGender],Sentences:[gBuild],Numbers:[gNumber]
+  Adjectives:[gAdjEnding,gOpposite],Verbs:[gConjPresent,gModal,gPerfekt,gPraet,gSep,gKonjunktiv,gTypeVerb],
+  Prepositions:[gPrepCase,gTwoWay,gVerbPrep],
+  Vocabulary:[gPicture,gTransDeEn,gTransEnDe,gOpposite,gPlural,gTypeNoun,gMatch,gTrueFalse,gMatchVerb],
+  Pictures:[gPicture,gTransEnDe,gGender],Sentences:[gBuild],Numbers:[gNumber,gListenNumber],
+  Listening:hasSpeech?[gListenWord,gListenPhrase,gTypeListen,gListenNumber]:[gTransDeEn,gTransEnDe],
+  Typing:[gTypeNoun,gTypeVerb,gTrueFalse],
+  Match:[gMatch,gMatchVerb]
 };
-const ALLGEN=[gGender,gCaseArticle,gAdjEnding,gVerbCase,gPrepCase,gTwoWay,gConjPresent,gModal,gPerfekt,gPraet,gPlural,gPicture,gTransDeEn,gTransEnDe,gOpposite,gVerbPrep,gSep,gNumber,gBuild,gKonjunktiv];
+const ALLGEN=[gGender,gCaseArticle,gAdjEnding,gVerbCase,gPrepCase,gTwoWay,gConjPresent,gModal,gPerfekt,gPraet,gPlural,
+ gPicture,gTransDeEn,gTransEnDe,gOpposite,gVerbPrep,gSep,gNumber,gBuild,gKonjunktiv,
+ gTypeNoun,gTypeVerb,gMatch,gMatchVerb,gTrueFalse,...(hasSpeech?[gListenWord,gListenPhrase,gTypeListen,gListenNumber]:[])];
 const TOPICS=[
- {key:'Mixed',ic:'🎲',t:'Mixed',d:'A bit of everything',wide:true},
- {key:'Pictures',ic:'🖼️',t:'Pictures',d:'match image to word'},
+ {key:'Mixed',ic:'🎲',t:'Mixed practice',d:'A bit of everything',wide:true},
+ {key:'Listening',ic:'🎧',t:'Listening',d:'hear & choose'},
+ {key:'Match',ic:'🔗',t:'Match pairs',d:'German ↔ English'},
+ {key:'Typing',ic:'⌨️',t:'Typing',d:'write it yourself'},
+ {key:'Pictures',ic:'🖼️',t:'Pictures',d:'image to word'},
  {key:'Articles',ic:'📘',t:'Articles',d:'der · die · das'},
  {key:'Cases',ic:'🎯',t:'Cases',d:'Nom · Akk · Dat'},
  {key:'Adjectives',ic:'🎨',t:'Adjectives',d:'endings & opposites'},
@@ -584,7 +730,19 @@ const TOPICS=[
  {key:'Sentences',ic:'🧩',t:'Sentences',d:'build word order'},
  {key:'Numbers',ic:'🔢',t:'Numbers',d:'zero to hundreds'}
 ];
-const SKILL_LIST=['Articles','Cases','Adjectives','Verbs','Prepositions','Vocabulary','Sentences','Numbers'];
+const SKILL_LIST=['Articles','Cases','Adjectives','Verbs','Prepositions','Vocabulary','Listening','Sentences','Numbers'];
+
+/* ---------- v2: achievements ---------- */
+const ACHIEVEMENTS=[
+ {ic:'🌱',t:'First steps',test:()=>totalAnswered().a>=1},
+ {ic:'💯',t:'100 XP',test:()=>DB.xp>=100},
+ {ic:'🔥',t:'3-day streak',test:()=>computeDayStreak()>=3},
+ {ic:'🎯',t:'10 in a row',test:()=>DB.bestStreak>=10},
+ {ic:'⭐',t:'500 XP',test:()=>DB.xp>=500},
+ {ic:'🗓️',t:'7-day streak',test:()=>computeDayStreak()>=7},
+ {ic:'🧠',t:'1000 XP',test:()=>DB.xp>=1000},
+ {ic:'🏆',t:'20 in a row',test:()=>DB.bestStreak>=20}
+];
 
 /* ============================================================
    PERSISTENCE
@@ -633,6 +791,34 @@ const el={home:$('home'),stats:$('stats'),quiz:$('quiz'),results:$('results'),na
 const S={topic:null,q:null,i:0,total:10,correct:0,hearts:5,streak:0,picked:null,placed:[],locked:false};
 
 function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}
+
+/* ----- v2: sound, haptics, speech, confetti, levels ----- */
+let AC=null;
+function ac(){try{if(!AC)AC=new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();}catch(e){AC=null;}return AC;}
+function tone(freq,start,dur,vol){const c=ac();if(!c)return;const o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=freq;
+ const t0=c.currentTime+start;g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(vol,t0+0.012);g.gain.exponentialRampToValueAtTime(0.0001,t0+dur);
+ o.connect(g).connect(c.destination);o.start(t0);o.stop(t0+dur+0.02);}
+function sfxCorrect(){tone(660,0,0.14,0.16);tone(880,0.09,0.18,0.16);tone(1174,0.19,0.22,0.13);}
+function sfxWrong(){tone(220,0,0.22,0.14);tone(175,0.08,0.26,0.12);}
+function sfxLevel(){[523,659,784,1046].forEach((f,i)=>tone(f,i*0.1,0.25,0.14));}
+function haptic(ok){try{if(navigator.vibrate)navigator.vibrate(ok?18:[0,45,35,45]);}catch(e){}}
+
+let deVoice=null;
+function pickVoice(){if(!hasSpeech)return;const vs=speechSynthesis.getVoices()||[];
+ deVoice=vs.find(v=>/^de([-_]|$)/i.test(v.lang))||vs.find(v=>/german|deutsch/i.test(v.name))||null;}
+function speak(text,onEl){if(!hasSpeech||!text)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);
+ u.lang='de-DE';if(deVoice)u.voice=deVoice;u.rate=0.88;u.pitch=1;speechSynthesis.speak(u);
+ if(onEl){onEl.classList.remove('pulse');void onEl.offsetWidth;onEl.classList.add('pulse');}}catch(e){}}
+
+function confetti(){const cols=['#f5b027','#25b06e','#5566d6','#d24a80','#3f6fe0','#ff7a1a','#39d07f'];
+ for(let i=0;i<90;i++){const d=document.createElement('div');d.className='confetti';d.style.left=Math.random()*100+'%';
+  d.style.background=cols[Math.floor(Math.random()*cols.length)];d.style.animationDuration=(1.8+Math.random()*1.4)+'s';
+  d.style.animationDelay=(Math.random()*0.35)+'s';d.style.width=(6+Math.random()*6)+'px';d.style.height=(10+Math.random()*8)+'px';
+  document.body.appendChild(d);setTimeout(()=>d.remove(),3400);}}
+
+function levelFor(xp){let lvl=1,need=100,rem=Math.max(0,xp|0);while(rem>=need){rem-=need;lvl++;need=100+(lvl-1)*20;}return {lvl,into:rem,need};}
+function flashCombo(txt){const c=$('combo');if(!c)return;c.textContent=txt;c.classList.remove('show');void c.offsetWidth;c.classList.add('show');
+ setTimeout(()=>c.classList.remove('show'),1300);}
 
 /* ----- screen switching ----- */
 function show(screen){
@@ -686,6 +872,7 @@ function renderHome(){
   $('topics').innerHTML=TOPICS.map(tp=>`<button class="topic ${tp.wide?'wide':''}" data-key="${tp.key}"><div class="ic">${tp.ic}</div><div><div class="t">${tp.t}</div><div class="d">${tp.d}</div></div></button>`).join('');
   $('topics').querySelectorAll('.topic').forEach(b=>b.onclick=()=>startLesson(b.dataset.key));
   $('saveNote').textContent=Store.persistent?'✓ Your progress is saved on this device.':'Progress is kept for this session only.';
+  const lv=levelFor(DB.xp);$('brandTag').innerHTML=`Level ${lv.lvl} · ${lv.into}/${lv.need} XP to next`;
 }
 
 /* ----- stats ----- */
@@ -713,6 +900,17 @@ function renderStats(){
   $('heat').innerHTML=hd.map(d=>{const v=(DB.history[dateKey(d)]||{}).xp||0;if(v>0)active++;const lvl=v===0?0:v>=goal?3:v>=goal*0.5?2:1;const col=['#edecf3','#bfe6cf','#6dd39b','#25b06e'][lvl];
     return `<div class="cell" style="background:${col}" title="${dateKey(d)}: ${v} XP"></div>`;}).join('');
   $('activeDays').textContent=active+' active days';
+  // level card
+  const lv=levelFor(DB.xp);
+  $('levBadge').textContent=lv.lvl;
+  $('levTitle').textContent='Level '+lv.lvl;
+  $('levSub').textContent=`${lv.into} / ${lv.need} XP · ${DB.xp} total`;
+  $('levFill').style.width=Math.round(100*lv.into/lv.need)+'%';
+  // achievements
+  let un=0;
+  $('badges').innerHTML=ACHIEVEMENTS.map(a=>{const on=a.test();if(on)un++;
+    return `<div class="badge2 ${on?'on':''}"><div class="ic">${a.ic}</div><div class="bt">${a.t}</div></div>`;}).join('');
+  $('achCount').textContent=un+' / '+ACHIEVEMENTS.length;
 }
 
 /* ----- quiz flow ----- */
@@ -730,7 +928,7 @@ function startLesson(topic){
 async function nextQuestion(){
   hideSheet();
   if(S.i>=S.total){return showResults();}
-  S.picked=null;S.placed=[];S.locked=false;el.check.disabled=true;el.check.textContent='Check';
+  S.picked=null;S.placed=[];S.locked=false;S.matchSel=null;el.check.disabled=true;el.check.textContent='Check';
   el.pfill.style.width=Math.round(100*S.i/S.total)+'%';
   S.q=localQuestion();
   renderQuestion();
@@ -738,15 +936,47 @@ async function nextQuestion(){
 function localQuestion(){const pool=S.topic==='Mixed'?ALLGEN:GEN[S.topic];return R(pool)();}
 
 function renderQuestion(){
-  const q=S.q;let h=`<div class="qtag">${q.tag||'German'}</div>`;
+  const q=S.q;const action=document.querySelector('.action');
+  if(action)action.style.display=(q.mode==='match')?'none':'';
+  let h=`<div class="qtag">${q.tag||'German'}</div>`;
   h+=`<div class="prompt">${q.prompt||''}</div>`;
+  if(q.speak){h+=`<button class="speaker" id="speaker" aria-label="Play audio">🔊</button><button class="replaybtn" id="replay">↻ Play again</button>`;}
   if(q.img)h+=`<div class="qimg${q.bigImg?' big':''}">${q.img}</div>`;
+
+  /* ---- build (word bank) ---- */
   if(q.mode==='build'){
     h+=`<div class="assembled" id="assembled"></div><div class="spacer"></div><div class="bank" id="bank"></div>`;
     el.card.innerHTML=h;const bank=$('bank');
     q.words.forEach((w,idx)=>{const t=document.createElement('button');t.className='tile';t.textContent=w;t.onclick=()=>placeTile(idx,t);bank.appendChild(t);});
     return;
   }
+
+  /* ---- match pairs ---- */
+  if(q.mode==='match'){
+    h+=`<div class="match" id="match"></div><div class="matchhint" id="mhint">Tap a German word, then its English match</div>`;
+    el.card.innerHTML=h;
+    const wrap=$('match');
+    const left=document.createElement('div');left.className='mcol';
+    const right=document.createElement('div');right.className='mcol';
+    S.matchSel=null;S.matchLeft=q.pairs.length;
+    shuffle(q.pairs).forEach((p,i)=>{const b=document.createElement('button');b.className='mtile';b.textContent=p.de;b.dataset.k=i;b.dataset.side='de';b.onclick=()=>onMatch(b,i);left.appendChild(b);});
+    shuffle(q.pairs.map((_,i)=>i)).forEach(i=>{const p=q.pairs[i];const b=document.createElement('button');b.className='mtile';b.textContent=p.en;b.dataset.k=i;b.dataset.side='en';b.onclick=()=>onMatch(b,i);right.appendChild(b);});
+    wrap.appendChild(left);wrap.appendChild(right);
+    if(q.speak){wireSpeaker(q);} return;
+  }
+
+  /* ---- type ---- */
+  if(q.mode==='type'){
+    if(q.big)h+=`<div class="bigword ${q.bigClass||''}">${q.big}</div>`;
+    h+=`<div class="spacer"></div><div class="typewrap v2"><input id="typein" type="text" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Type in German…"></div>`;
+    el.card.innerHTML=h;
+    const inp=$('typein');
+    inp.oninput=()=>{el.check.disabled=inp.value.trim()==='';};
+    if(q.speak){wireSpeaker(q);} else {setTimeout(()=>inp.focus(),80);}
+    return;
+  }
+
+  /* ---- multiple choice (incl. listening) ---- */
   if(q.big){h+=`<div class="bigword ${q.bigClass||''}">${q.big}</div>`;if(q.sub)h+=`<div class="subword">${q.sub}</div>`;}
   else if(q.stem){h+=`<div class="stem">${q.stem.replace('___','<span class="blank"></span>')}</div>`;}
   h+=`<div class="spacer"></div>`;
@@ -755,6 +985,30 @@ function renderQuestion(){
   el.card.innerHTML=h;const wrap=$('opts');
   q.options.forEach(o=>{const b=document.createElement('button');let cls='opt';const first=String(o).split(' ')[0];if(q.colorArt&&['der','die','das'].includes(first))cls+=' '+first;b.className=cls;b.innerHTML=`<span class="k">${o}</span>`;
     b.onclick=()=>{if(S.locked)return;S.picked=o;wrap.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');el.check.disabled=false;};wrap.appendChild(b);});
+  if(q.speak){wireSpeaker(q);}
+}
+
+function wireSpeaker(q){const sp=$('speaker'),rp=$('replay');
+  if(sp)sp.onclick=()=>speak(q.speak,sp);
+  if(rp)rp.onclick=()=>speak(q.speak,sp);
+  if(q.autoSpeak)setTimeout(()=>speak(q.speak,sp),260);}
+
+/* match interaction */
+function onMatch(btn,key){
+  if(S.locked||btn.classList.contains('gone'))return;
+  if(!S.matchSel){S.matchSel=btn;btn.classList.add('sel');return;}
+  if(S.matchSel===btn){btn.classList.remove('sel');S.matchSel=null;return;}
+  if(S.matchSel.dataset.side===btn.dataset.side){S.matchSel.classList.remove('sel');S.matchSel=btn;btn.classList.add('sel');return;}
+  const a=S.matchSel,b=btn;a.classList.remove('sel');
+  if(a.dataset.k===b.dataset.k){
+    a.classList.add('good');b.classList.add('good');tone(880,0,0.1,0.1);haptic(true);
+    setTimeout(()=>{a.classList.add('gone');b.classList.add('gone');},260);
+    S.matchLeft--;S.matchSel=null;
+    if(S.matchLeft<=0){setTimeout(()=>grade(true,'matched'),380);}
+  }else{
+    a.classList.add('bad');b.classList.add('bad');sfxWrong();haptic(false);S.matchSel=null;
+    setTimeout(()=>{a.classList.remove('bad');b.classList.remove('bad');},350);
+  }
 }
 function placeTile(idx,tile){if(S.locked||tile.classList.contains('used'))return;tile.classList.add('used');
   const asm=$('assembled');const p=document.createElement('button');p.className='tile placed';p.textContent=tile.textContent;
@@ -764,11 +1018,21 @@ function placeTile(idx,tile){if(S.locked||tile.classList.contains('used'))return
 function onCheck(){
   if(S.locked)return;const q=S.q;let userAns,correct;
   if(q.mode==='build'){userAns=S.placed.map(x=>x.w).join(' ');const t=[q.answer,...(q.alts||[])].map(norm);correct=t.includes(norm(userAns));}
-  else{userAns=S.picked;correct=(userAns===q.answer);
-    $('opts').querySelectorAll('.opt').forEach(b=>{const tx=b.textContent.trim();if(tx===q.answer)b.classList.add('correct');else if(tx===userAns)b.classList.add('wrong');b.classList.remove('sel');});}
+  else if(q.mode==='type'){const inp=$('typein');userAns=inp?inp.value.trim():'';const t=[q.answer,...(q.accept||[])].map(norm);correct=t.includes(norm(userAns));
+    if(inp){inp.classList.add(correct?'correct':'wrong');inp.blur();}}
+  else{userAns=S.picked;correct=(String(userAns)===String(q.answer));
+    $('opts').querySelectorAll('.opt').forEach(b=>{const tx=b.textContent.trim();if(tx===String(q.answer))b.classList.add('correct');else if(tx===String(userAns))b.classList.add('wrong');b.classList.remove('sel');});}
+  grade(correct,userAns);
+}
+function grade(correct,userAns){
+  if(S.locked)return;const q=S.q;
   S.locked=true;el.check.disabled=true;
-  if(correct){S.correct++;S.streak++;if(S.streak>DB.bestStreak){DB.bestStreak=S.streak;}}
-  else{S.streak=0;S.hearts=Math.max(0,S.hearts-1);el.heartN.textContent=S.hearts;if(S.hearts===0)setTimeout(()=>{S.hearts=5;el.heartN.textContent=5;},600);}
+  if(correct){S.correct++;S.streak++;if(S.streak>DB.bestStreak)DB.bestStreak=S.streak;
+    sfxCorrect();haptic(true);
+    if(S.streak>=3)flashCombo('🔥 '+S.streak+' in a row!');}
+  else{S.streak=0;S.hearts=Math.max(0,S.hearts-1);el.heartN.textContent=S.hearts;
+    sfxWrong();haptic(false);
+    if(S.hearts===0)setTimeout(()=>{S.hearts=5;el.heartN.textContent=5;},700);}
   recordAnswer(S.topic,correct);
   S.i++;
   showSheet(correct,q,userAns);
@@ -776,25 +1040,35 @@ function onCheck(){
 function showSheet(correct,q,userAns){
   const sh=el.sheet;sh.className='sheet '+(correct?'ok':'no');
   $('sBadge').textContent=correct?'✓':'✕';
-  $('sTitle').textContent=correct?R(['Correct!','Nice!','Genau!','Richtig!','Perfekt!']):'Not quite';
-  let ans=`Answer: <b>${q.answer}</b>`;if(!correct&&userAns)ans=`You chose <b>${userAns||'—'}</b>. Answer: <b>${q.answer}</b>`;
+  $('sTitle').textContent=correct?R(['Correct!','Nice!','Genau!','Richtig!','Perfekt!','Super!','Toll!']):'Not quite';
+  const xpEl=$('sXP');if(xpEl)xpEl.classList.toggle('hidden',!correct);
+  let ans;
+  if(q.mode==='match'){ans='🎉 All pairs matched!';}
+  else{ans=`Answer: <b>${q.answer}</b>`;if(!correct&&userAns)ans=`You answered <b>${userAns||'—'}</b>. Correct: <b>${q.answer}</b>`;}
   if(q.trans)ans+=` &nbsp;·&nbsp; <span style="color:#888">${q.trans}</span>`;
   $('sAns').innerHTML=ans;$('sExplain').innerHTML=q.explain||'';
+  if(q.sayAnswer)setTimeout(()=>speak(q.sayAnswer),280);
   requestAnimationFrame(()=>sh.classList.add('show'));setTimeout(()=>$('contBtn').focus(),120);
 }
 function hideSheet(){el.sheet.classList.remove('show');}
 
 function showResults(){
-  const goalBefore = (today().xp - S.correct*10) < DB.dailyGoalXP;
+  const earned=S.correct*10;
+  const goalBefore = (today().xp - earned) < DB.dailyGoalXP;
+  const lvBefore=levelFor(DB.xp-earned).lvl, lvAfter=levelFor(DB.xp).lvl;
   recordLessonDone(S.topic);
   const acc=Math.round(100*S.correct/S.total);
-  $('rXP').textContent='+'+(S.correct*10);$('rAcc').textContent=acc+'%';$('rBest').textContent=DB.bestStreak;
+  $('rXP').textContent='+'+earned;$('rAcc').textContent=acc+'%';$('rBest').textContent=DB.bestStreak;
   $('rTrophy').textContent=acc>=90?'🏆':acc>=70?'🎉':acc>=50?'💪':'📚';
   $('rTitle').textContent=acc>=90?'Ausgezeichnet!':acc>=70?'Gut gemacht!':acc>=50?'Weiter so!':'Keep going!';
   $('rSub').textContent=`You got ${S.correct} of ${S.total} right.`;
   const metNow=today().xp>=DB.dailyGoalXP;
   $('goalMet').classList.toggle('hidden',!(metNow&&goalBefore));
+  const lu=$('rLevup');const leveled=lvAfter>lvBefore;
+  if(lu){lu.classList.toggle('hidden',!leveled);if(leveled)lu.textContent=`⬆️ Level up! You reached Level ${lvAfter}`;}
   show('results');
+  if(acc>=50)confetti();
+  if(leveled)setTimeout(sfxLevel,200);else if(acc>=70)sfxCorrect();
 }
 
 /* keyboard */
@@ -811,8 +1085,23 @@ document.addEventListener('keydown',e=>{
   const loaded=await Store.load();
   DB=Object.assign({xp:0,bestStreak:0,dailyGoalXP:30,history:{},skillStats:{}},loaded);
   if(!DB.history)DB.history={};if(!DB.skillStats)DB.skillStats={};
+  // speech voices load asynchronously on iOS/Safari
+  if(hasSpeech){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+  // unlock audio + speech on the first user tap (required by iOS)
+  const unlock=()=>{ac();if(hasSpeech){try{const u=new SpeechSynthesisUtterance('');speechSynthesis.speak(u);}catch(e){}}
+    document.removeEventListener('touchend',unlock);document.removeEventListener('click',unlock);};
+  document.addEventListener('touchend',unlock,{once:false});
+  document.addEventListener('click',unlock,{once:false});
   show('home');
 })();
+</script>
+<script>
+  /* Register service worker for offline use */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function(){});
+    });
+  }
 </script>
 </body>
 </html>
