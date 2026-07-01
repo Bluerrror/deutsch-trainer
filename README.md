@@ -33,13 +33,15 @@ Grammar, vocabulary, listening and more, in a fast Duolingo-style app that insta
 ## 📱 Screenshots
 
 <div align="center">
-<img src="docs/screen-home.png" width="220" alt="Home" />
+<img src="docs/screen-home.png" width="200" alt="Home" />
 &nbsp;
-<img src="docs/screen-listening.png" width="220" alt="Listening question" />
+<img src="docs/screen-listening.png" width="200" alt="Listening question" />
 &nbsp;
-<img src="docs/screen-match.png" width="220" alt="Match pairs" />
+<img src="docs/screen-match.png" width="200" alt="Match pairs" />
 &nbsp;
-<img src="docs/screen-typing.png" width="220" alt="Typing question" />
+<img src="docs/screen-typing.png" width="200" alt="Typing question" />
+&nbsp;
+<img src="docs/screen-results.png" width="200" alt="Lesson results" />
 </div>
 
 ## 🚀 Install on your iPhone (≈2 minutes)
