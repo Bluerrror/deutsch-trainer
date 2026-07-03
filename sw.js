@@ -1,12 +1,13 @@
 /* Deutsch Trainer service worker — offline caching */
-const CACHE = 'deutsch-trainer-v4';
+const CACHE = 'deutsch-trainer-v5';
 const ASSETS = [
   './',
   './index.html',
   './manifest.webmanifest',
   './icon-192.png',
   './icon-512.png',
-  './apple-touch-icon.png'
+  './apple-touch-icon.png',
+  './fonts/nunito.woff2'
 ];
 
 self.addEventListener('install', (e) => {

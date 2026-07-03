@@ -26,6 +26,7 @@ Grammar, vocabulary, listening and more, in a fast Duolingo-style app that insta
 - **🗓️ Daily quests & chest** — three rotating goals per day with a bonus-XP reward chest.
 - **📖 Built-in dictionary** — searchable word bank (nouns with articles & plurals, verbs with past forms, adjectives, phrases), each with audio.
 - **🎧 Listening** — hear real German (your device's voices): tap what you hear, type it, or rebuild the sentence from tiles.
+- **🔊 Read-aloud & voices** — questions, words and sentences are read to you in German; mute anytime from the lesson bar, and pick between 4 voices (2 female, 2 male) in Settings.
 - **🔗 Match pairs, ⌨️ typing, 🧩 sentence builder, 🖼️ pictures, ✅ true/false** — many distinct exercise types.
 - **📘 Full grammar coverage** — articles, all four cases, adjective endings, prepositions (incl. two-way), verb + case, present tense, modal verbs, Perfekt, Präteritum, separable verbs, Konjunktiv II, plurals, numbers.
 - **🎮 Game feel** — XP, hearts, daily goal ring, streaks, combos, sound effects, haptics, confetti and an achievements wall.
