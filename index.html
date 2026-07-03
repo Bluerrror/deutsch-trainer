@@ -1348,8 +1348,8 @@ const VOICE_PRESETS=[
  {label:'Max',icon:'👨',pitch:0.85,rate:0.88,voice:null},
  {label:'Karl',icon:'👨',pitch:0.68,rate:0.83,voice:null}
 ];
-const VOICE_FEM=/anna|petra|helena|marlene|vicki|katja|gisela|steffi|hedda|katrin|julia|ingrid|edda|female|frau/i;
-const VOICE_MAL=/markus|yannick|viktor|martin|stefan|hans|conrad|daniel|klaus|ralf|jonas|kevin|male|mann/i;
+const VOICE_FEM=/anna|petra|helena|marlene|vicki|katja|gisela|steffi|hedda|katrin|julia|ingrid|edda|grandma|oma|sandy|shelley|flo\b|zoe|female|frau/i;
+const VOICE_MAL=/markus|yannick|viktor|martin|stefan|hans|conrad|daniel|klaus|ralf|jonas|kevin|grandpa|opa|eddy|reed|rocko|male|mann/i;
 let DE_VOICES=[];
 function pickVoice(){if(!hasSpeech)return;const all=speechSynthesis.getVoices()||[];
  const vs=all.filter(v=>/^de([-_]|$)/i.test(v.lang));
@@ -1427,7 +1427,12 @@ function qReadText(q){return q.read||(q.stem?q.stem.replace(/_+/g,' … ').repla
 function autoRead(){const q=S.q;if(!q||q.speak)return;
  if(!DB.settings||DB.settings.autoRead===false||DB.settings.speech===false)return;
  const t=qReadText(q);
- if(t)setTimeout(()=>speak(t),380);}
+ if(t)setTimeout(()=>speak(t),380);
+ // once: if the device can't offer different voices, point the user to the fix
+ if(t&&!DB.voiceTip&&hasSpeech&&(speechSynthesis.getVoices()||[]).length>0&&DE_VOICES.length<2){
+   DB.voiceTip=true;Store.save(DB);
+   setTimeout(()=>toast('💡 Want different voices? Install more German voices in iOS Settings → Accessibility → Spoken Content'),2500);
+ }}
 function updReadBtn(){const b=$('readBtn');if(!b)return;
  b.textContent=(DB.settings.autoRead===false||DB.settings.speech===false)?'🔇':'🔊';}
 
@@ -1604,8 +1609,11 @@ function renderSettings(){
   });
   const hint=$('voiceHint');
   if(hint){
-    if(DE_VOICES.length>=2)hint.textContent='These are the German voices installed on your device.';
-    else hint.innerHTML='⚠️ Your device has only <b>one German voice</b>, so the four options may sound alike (iPhones ignore pitch). To get real different voices — including male ones — install more in <b>Settings → Accessibility → Spoken Content → Voices → German</b> (e.g. Helena, Markus, Viktor, Petra), then restart the app.';
+    const n=DE_VOICES.length;
+    const HOWTO='On iPhone: <b>Settings → Accessibility → Spoken Content → Voices → German</b> — download e.g. <b>Anna & Helena</b> (women) and <b>Markus & Viktor</b> (men), prefer “(Enhanced)”. Then fully close and reopen this app.';
+    if(n>=4)hint.innerHTML='✅ These are the German voices installed on your device — each option is a genuinely different speaker.';
+    else if(n>=2)hint.innerHTML=`Your device has ${n} German voices — they are listed above. For the full “2 women + 2 men” set, install more: ${HOWTO}`;
+    else hint.innerHTML='⚠️ Your device has only <b>one German voice</b>, so all options can only play that voice — apps cannot download voices themselves, and iPhones ignore pitch changes. '+HOWTO;
   }
 }
 $('togSound').onclick=()=>{DB.settings.sound=DB.settings.sound===false;Store.save(DB);renderSettings();if(DB.settings.sound)sfxCorrect();};
