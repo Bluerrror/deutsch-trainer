@@ -226,6 +226,7 @@
   .minispk{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;
     background:#eef0ff;color:#5566d6;font-size:16px;margin-left:8px;vertical-align:middle;}
   .minispk:active{transform:scale(.9);}
+  .minispk.pulse{animation:spk .5s ease;}
 
   /* ---------- v2: typing ---------- */
   .typewrap.v2{margin-top:20px;}
@@ -1348,15 +1349,24 @@ function pickVoice(){if(!hasSpeech)return;const all=speechSynthesis.getVoices()|
  if(m[1])VOICE_PRESETS[3].pitch=0.95;
  deVoice=any;}
 function speak(text,onEl){if(!hasSpeech||!text)return;if(DB.settings&&DB.settings.speech===false)return;
- try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);
- const p=VOICE_PRESETS[(DB.settings&&DB.settings.voice)||0]||VOICE_PRESETS[0];
- u.lang='de-DE';if(p.voice)u.voice=p.voice;else if(deVoice)u.voice=deVoice;
- u.rate=p.rate;u.pitch=p.pitch;speechSynthesis.speak(u);
- if(onEl){onEl.classList.remove('pulse');void onEl.offsetWidth;onEl.classList.add('pulse');}}catch(e){}}
-/* read the German part of the current question aloud (unless muted) */
+ try{
+  const synth=speechSynthesis;
+  try{synth.resume();}catch(e){} // iOS PWAs can wedge in a paused state
+  synth.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  const p=VOICE_PRESETS[(DB.settings&&DB.settings.voice)||0]||VOICE_PRESETS[0];
+  u.lang='de-DE';if(p.voice)u.voice=p.voice;else if(deVoice)u.voice=deVoice;
+  u.rate=p.rate;u.pitch=p.pitch;
+  // speaking in the same tick as cancel() silently drops the utterance on iOS/Chrome
+  setTimeout(()=>{try{synth.resume();synth.speak(u);}catch(e){}},60);
+  if(onEl){onEl.classList.remove('pulse');void onEl.offsetWidth;onEl.classList.add('pulse');}
+ }catch(e){}}
+/* the German text of the current question, if it has any to read */
+function qReadText(q){return q.read||(q.stem?q.stem.replace(/_+/g,' … ').replace(/[→·]/g,', '):null);}
+/* read the question aloud (unless muted) */
 function autoRead(){const q=S.q;if(!q||q.speak)return;
  if(!DB.settings||DB.settings.autoRead===false||DB.settings.speech===false)return;
- const t=q.read||(q.stem?q.stem.replace(/_+/g,' … ').replace(/[→·]/g,', '):null);
+ const t=qReadText(q);
  if(t)setTimeout(()=>speak(t),380);}
 function updReadBtn(){const b=$('readBtn');if(!b)return;
  b.textContent=(DB.settings.autoRead===false||DB.settings.speech===false)?'🔇':'🔊';}
@@ -1642,6 +1652,11 @@ $('readBtn').onclick=()=>{
   if(DB.settings.autoRead===false){try{speechSynthesis.cancel();}catch(e){}}
   else autoRead();
 };
+// per-question speaker (event delegation — the button is re-rendered each question)
+el.card.addEventListener('click',e=>{
+  const b=e.target.closest('#readNow');
+  if(b&&S.q){const t=qReadText(S.q);if(t)speak(t,b);}
+});
 function localQuestion(){
   if(S.topic==='Mistakes')return S.queue[Math.min(S.i,S.queue.length-1)];
   if(S.course)return freshQuestion(COURSE[S.course.u].gens);
@@ -1654,7 +1669,8 @@ function renderQuestion(){
   if(action)action.style.display=(q.mode==='match')?'none':'';
   el.card.classList.remove('qin');void el.card.offsetWidth;el.card.classList.add('qin');
   let h=`<div class="qtag">${q.tag||'German'}</div>`;
-  h+=`<div class="prompt">${q.prompt||''}</div>`;
+  const readable=!q.speak&&hasSpeech&&qReadText(q);
+  h+=`<div class="prompt">${q.prompt||''}${readable?' <button class="minispk" id="readNow" aria-label="Read aloud">🔊</button>':''}</div>`;
   if(q.speak){h+=`<button class="speaker" id="speaker" aria-label="Play audio">🔊</button><button class="replaybtn" id="replay">↻ Play again</button>`;}
   if(q.img)h+=`<div class="qimg${q.bigImg?' big':''}">${q.img}</div>`;
 
@@ -1838,11 +1854,15 @@ document.addEventListener('keydown',e=>{
   SEEN=new Set(DB.recentQ);
   // speech voices load asynchronously on iOS/Safari
   if(hasSpeech){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
-  // unlock audio + speech on the first user tap (required by iOS)
-  const unlock=()=>{ac();if(hasSpeech){try{const u=new SpeechSynthesisUtterance('');speechSynthesis.speak(u);}catch(e){}}
+  // unlock audio + speech on the first user tap (required by iOS).
+  // NOTE: iOS ignores empty utterances — a silent space is needed to count as activation.
+  const unlock=()=>{ac();if(hasSpeech){try{speechSynthesis.resume();
+      const u=new SpeechSynthesisUtterance(' ');u.volume=0;u.lang='de-DE';speechSynthesis.speak(u);}catch(e){}}
     document.removeEventListener('touchend',unlock);document.removeEventListener('click',unlock);};
   document.addEventListener('touchend',unlock,{once:false});
   document.addEventListener('click',unlock,{once:false});
+  // iOS suspends speechSynthesis when the PWA is backgrounded — resume on return
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&hasSpeech){try{speechSynthesis.resume();}catch(e){}}});
   show('home');
 })();
 </script>
