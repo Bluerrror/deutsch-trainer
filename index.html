@@ -301,6 +301,85 @@
   .opt{box-shadow:0 3px 0 #e7e6ef;border-color:#e6e5f0;}
   .opt:active{box-shadow:none;}
   .goalcard{background:linear-gradient(180deg,#ffffff,#fdfdff);}
+
+  /* ---------- v4: advanced app ---------- */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .scroll>*{animation:fadeUp .38s ease both;}
+  .scroll>*:nth-child(2){animation-delay:.05s}.scroll>*:nth-child(3){animation-delay:.09s}
+  .scroll>*:nth-child(4){animation-delay:.13s}.scroll>*:nth-child(5){animation-delay:.17s}
+  .practice,.words{padding:24px 20px 8px;}
+  .practice h2.page,.words h2.page{color:var(--ink);font-size:23px;font-weight:800;margin:6px 0 0;}
+
+  /* daily quests */
+  .quests{background:var(--card);border:1px solid #ecebf5;border-radius:20px;padding:16px;box-shadow:0 6px 20px rgba(20,24,60,.06);margin-top:14px;}
+  .quests h4{margin:0 0 4px;font-size:15px;font-weight:800;display:flex;align-items:center;gap:8px;}
+  .quests h4 .mini{margin-left:auto;font-size:11px;color:var(--muted);font-weight:700;}
+  .quest{display:flex;align-items:center;gap:12px;padding:10px 0;}
+  .quest+.quest{border-top:1px solid #f2f1f8;}
+  .quest .qic{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#eef0ff,#fdeef5);display:flex;align-items:center;justify-content:center;font-size:19px;flex:none;}
+  .quest .qtx{flex:1;min-width:0;}
+  .quest .qtx b{display:block;font-size:13.5px;font-weight:750;}
+  .qbar{height:9px;background:#eef0f6;border-radius:6px;overflow:hidden;margin-top:6px;}
+  .qfill{height:100%;background:linear-gradient(90deg,#f7c948,#f5a623);border-radius:6px;transition:width .5s;}
+  .quest .qn{font-size:11px;font-weight:800;color:var(--muted);flex:none;}
+  .quest.done .qn{color:var(--okd);}
+  .chest{margin-top:12px;width:100%;border-radius:14px;padding:13px;font-weight:800;font-size:14px;color:#7a4d00;
+    background:linear-gradient(135deg,#ffe9b3,#ffd465);box-shadow:0 4px 0 #e5b93e;transition:transform .06s;}
+  .chest:active{transform:translateY(3px);box-shadow:0 1px 0 #e5b93e;}
+  .chest:disabled{opacity:.6;box-shadow:none;color:#9a834f;}
+
+  /* course path */
+  .unit{margin-top:22px;}
+  .unithead{display:flex;align-items:center;gap:13px;border-radius:20px;padding:15px 17px;color:#fff;box-shadow:0 8px 22px rgba(20,24,60,.16);}
+  .unithead .uic{font-size:26px;}
+  .unithead .ut{font-weight:800;font-size:16px;}
+  .unithead .us{font-size:11.5px;opacity:.88;font-weight:650;margin-top:1px;}
+  .unithead .ulv{margin-left:auto;background:rgba(255,255,255,.22);border-radius:12px;padding:5px 10px;font-size:11.5px;font-weight:800;letter-spacing:.5px;flex:none;}
+  .upath{display:flex;flex-direction:column;align-items:center;padding:14px 0 8px;}
+  .unode{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:27px;position:relative;
+    background:#fff;border:1px solid #ecebf5;box-shadow:0 6px 0 #dfe0ec,0 8px 20px rgba(20,24,60,.08);transition:transform .08s;margin:11px 0;}
+  .unode:active{transform:translateY(3px);}
+  .unode.left{margin-right:112px;} .unode.right{margin-left:112px;}
+  .unode.locked{filter:grayscale(1);opacity:.5;font-size:22px;}
+  .unode.avail{border:none;color:#fff;}
+  .unode.done{border:none;background:linear-gradient(135deg,#ffd465,#f5b027);box-shadow:0 6px 0 #d9982a,0 8px 20px rgba(245,176,39,.35);}
+  .unode .stars{position:absolute;bottom:-15px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:-1px;white-space:nowrap;}
+  .unode .ring{position:absolute;inset:-7px;border-radius:50%;border:3px solid;opacity:.5;animation:ringpulse 1.6s ease infinite;}
+  @keyframes ringpulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.08);opacity:.95}}
+
+  /* dictionary */
+  .searchbox{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid #ecebf5;border-radius:15px;padding:12px 14px;margin-top:14px;box-shadow:0 4px 14px rgba(20,24,60,.05);}
+  .searchbox input{flex:1;border:none;outline:none;font-size:15px;font-family:inherit;color:var(--ink);background:transparent;}
+  .wchips{display:flex;gap:7px;margin-top:12px;flex-wrap:wrap;}
+  .wchip{border:1.5px solid #e3e2ee;background:#fff;border-radius:20px;padding:7px 13px;font-size:12.5px;font-weight:750;color:var(--muted);}
+  .wchip.on{border-color:var(--sel);background:#eef0ff;color:var(--sel);}
+  .wlist{margin-top:14px;display:flex;flex-direction:column;gap:9px;}
+  .wrow{background:#fff;border:1px solid #ecebf5;border-radius:15px;padding:12px 14px;display:flex;align-items:center;gap:11px;box-shadow:0 3px 10px rgba(20,24,60,.04);}
+  .wrow .wde{font-weight:800;font-size:15.5px;}
+  .art.der{color:var(--der);} .art.die{color:var(--die);} .art.das{color:var(--das);}
+  .wrow .wen{font-size:12.5px;color:var(--muted);margin-top:1px;}
+  .wrow .wpl{font-size:11px;color:#a2a8c4;margin-top:2px;}
+  .wrow .spk{margin-left:auto;width:36px;height:36px;border-radius:11px;background:#eef0ff;color:#5566d6;font-size:17px;display:flex;align-items:center;justify-content:center;flex:none;}
+  .wrow .spk:active{transform:scale(.9);}
+
+  /* settings */
+  .setrow{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid #f2f1f8;}
+  .setrow b{flex:1;font-size:14px;font-weight:750;}
+  .tog{width:52px;height:30px;border-radius:16px;background:#e3e4ee;position:relative;transition:background .2s;flex:none;}
+  .tog::after{content:'';position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:left .2s;}
+  .tog.on{background:var(--ok);}
+  .tog.on::after{left:25px;}
+  .dangerbtn{width:100%;margin-top:14px;background:#fdecf0;color:#c0356b;font-weight:800;border-radius:13px;padding:12px;font-size:13.5px;border:1px solid #f5c9d6;}
+
+  /* results stars */
+  .rstars{font-size:38px;letter-spacing:8px;margin:0 0 10px;min-height:46px;}
+  .rstars .dim{filter:grayscale(1);opacity:.3;}
+
+  /* level selector */
+  .levselect{display:flex;align-items:center;gap:7px;margin-top:14px;flex-wrap:wrap;}
+  .levselect .lab{font-size:12px;font-weight:800;color:#8189ad;margin-right:2px;letter-spacing:.4px;}
+  .levselect .gchip{background:#fff;}
+  .levselect .gchip.on{border-color:var(--sel);background:#eef0ff;color:var(--sel);}
 </style>
 </head>
 <body>
@@ -326,13 +405,41 @@
       </div>
     </div>
 
+    <div class="levselect" id="levSelect"></div>
+
+    <div class="quests" id="quests"></div>
+
+    <h2 class="sec-title">Your course · A1 → B2</h2>
+    <div id="course"></div>
+
+    <div class="savenote" id="saveNote"></div>
+  </div>
+
+  <!-- ============ PRACTICE ============ -->
+  <div class="practice scroll hidden" id="practice">
+    <h2 class="page">Practice</h2>
+
+    <button class="task" id="mistBtn" style="margin-top:16px;width:100%">
+      <div class="tic">🔁</div>
+      <div class="ttxt"><b>Review mistakes</b><span id="mistSub"></span></div>
+      <div class="go" id="mistGo">Start ›</div>
+    </button>
+
     <h2 class="sec-title">Today's plan</h2>
     <div class="plan" id="plan"></div>
 
-    <h2 class="sec-title">Practice any skill</h2>
+    <h2 class="sec-title">All skills</h2>
     <div class="topics" id="topics"></div>
+    <div style="height:10px"></div>
+  </div>
 
-    <div class="savenote" id="saveNote"></div>
+  <!-- ============ WORDS / DICTIONARY ============ -->
+  <div class="words scroll hidden" id="words">
+    <h2 class="page">Dictionary</h2>
+    <div class="searchbox">🔍<input id="wsearch" type="text" placeholder="Search German or English…" autocomplete="off"></div>
+    <div class="wchips" id="wchips"></div>
+    <div class="wlist" id="wlist"></div>
+    <div style="height:10px"></div>
   </div>
 
   <!-- ============ STATS (PROGRESS) ============ -->
@@ -376,6 +483,13 @@
         <span class="cell" style="background:#6dd39b"></span>
         <span class="cell" style="background:#25b06e"></span>more</div>
     </div>
+
+    <div class="panel">
+      <h4>⚙️ Settings</h4>
+      <div class="setrow"><b>Sound effects</b><button class="tog" id="togSound" aria-label="Toggle sound"></button></div>
+      <div class="setrow"><b>Speech &amp; listening audio</b><button class="tog" id="togSpeech" aria-label="Toggle speech"></button></div>
+      <button class="dangerbtn" id="resetBtn">Reset all progress</button>
+    </div>
     <div style="height:8px"></div>
   </div>
 
@@ -394,6 +508,7 @@
   <!-- ============ RESULTS ============ -->
   <div class="results hidden" id="results">
     <div class="trophy" id="rTrophy">🏆</div>
+    <div class="rstars hidden" id="rStars"></div>
     <h2 id="rTitle">Lesson complete!</h2>
     <p id="rSub">Great work.</p>
     <div class="rstats">
@@ -410,7 +525,9 @@
   <!-- bottom nav -->
   <div class="nav" id="nav">
     <button id="navLearn" class="on"><span class="ni">🏠</span>Learn</button>
-    <button id="navStats"><span class="ni">📈</span>Progress</button>
+    <button id="navPractice"><span class="ni">🏋️</span>Practice</button>
+    <button id="navWords"><span class="ni">📖</span>Words</button>
+    <button id="navStats"><span class="ni">👤</span>Profile</button>
   </div>
 
   <!-- feedback sheet -->
@@ -723,24 +840,116 @@ function gListenNumber(){const n=RI(0,99);const ans=numDE(n);
   options:opts(String(n),[String(n),String(RI(0,99)),String(RI(0,99)),String((n+1)%100),String((n+7)%100)]),sayAnswer:ans,
   explain:`🔊 <b>${ans}</b> = ${n}.`};}
 
+/* ---------- v4: expanded content ---------- */
+NOUNS.push(
+ {de:'Banane',en:'banana',g:'f',pl:'Bananen'},{de:'Orange',en:'orange',g:'f',pl:'Orangen'},
+ {de:'Tomate',en:'tomato',g:'f',pl:'Tomaten'},{de:'Kartoffel',en:'potato',g:'f',pl:'Kartoffeln'},
+ {de:'Käse',en:'cheese',g:'m',pl:null},{de:'Milch',en:'milk',g:'f',pl:null},
+ {de:'Suppe',en:'soup',g:'f',pl:'Suppen'},{de:'Kuchen',en:'cake',g:'m',pl:'Kuchen'},
+ {de:'Wein',en:'wine',g:'m',pl:'Weine'},{de:'Bier',en:'beer',g:'n',pl:'Biere'},
+ {de:'Tee',en:'tea',g:'m',pl:null},{de:'Schlüssel',en:'key',g:'m',pl:'Schlüssel'},
+ {de:'Tasche',en:'bag',g:'f',pl:'Taschen'},{de:'Schuh',en:'shoe',g:'m',pl:'Schuhe'},
+ {de:'Hemd',en:'shirt',g:'n',pl:'Hemden'},{de:'Kleid',en:'dress',g:'n',pl:'Kleider'},
+ {de:'Brille',en:'glasses',g:'f',pl:'Brillen'},{de:'Regen',en:'rain',g:'m',pl:null},
+ {de:'Schnee',en:'snow',g:'m',pl:null},{de:'Sonne',en:'sun',g:'f',pl:'Sonnen'},
+ {de:'Mond',en:'moon',g:'m',pl:'Monde'},{de:'Stern',en:'star',g:'m',pl:'Sterne'},
+ {de:'Berg',en:'mountain',g:'m',pl:'Berge'},{de:'Meer',en:'sea',g:'n',pl:'Meere'},
+ {de:'Insel',en:'island',g:'f',pl:'Inseln'},{de:'Flugzeug',en:'airplane',g:'n',pl:'Flugzeuge'},
+ {de:'Schiff',en:'ship',g:'n',pl:'Schiffe'},{de:'Fahrrad',en:'bicycle',g:'n',pl:'Fahrräder'},
+ {de:'Bus',en:'bus',g:'m',pl:'Busse'},{de:'Arzt',en:'doctor',g:'m',pl:'Ärzte'},
+ {de:'Krankenhaus',en:'hospital',g:'n',pl:'Krankenhäuser'},{de:'Kirche',en:'church',g:'f',pl:'Kirchen'},
+ {de:'Markt',en:'market',g:'m',pl:'Märkte'},{de:'Hotel',en:'hotel',g:'n',pl:'Hotels'},
+ {de:'Woche',en:'week',g:'f',pl:'Wochen'},{de:'Monat',en:'month',g:'m',pl:'Monate'},
+ {de:'Jahr',en:'year',g:'n',pl:'Jahre'},{de:'Nacht',en:'night',g:'f',pl:'Nächte'}
+);
+Object.assign(NOUN_IMG,{Banane:'🍌',Orange:'🍊',Tomate:'🍅',Kartoffel:'🥔',Käse:'🧀',Milch:'🥛',
+ Suppe:'🍲',Kuchen:'🍰',Wein:'🍷',Bier:'🍺',Tee:'🫖',Schlüssel:'🔑',Tasche:'👜',Schuh:'👟',
+ Hemd:'👔',Kleid:'👗',Brille:'👓',Regen:'🌧️',Schnee:'☃️',Sonne:'☀️',Mond:'🌙',Stern:'⭐',
+ Berg:'⛰️',Meer:'🌊',Insel:'🏝️',Flugzeug:'✈️',Schiff:'🚢',Fahrrad:'🚲',Bus:'🚌',Arzt:'🧑‍⚕️',
+ Krankenhaus:'🏥',Kirche:'⛪',Markt:'🛒',Hotel:'🏨',Nacht:'🌃'});
+PIC.push('Banane','Orange','Tomate','Käse','Kuchen','Wein','Schlüssel','Tasche','Schuh','Kleid','Brille',
+ 'Sonne','Mond','Stern','Berg','Insel','Flugzeug','Schiff','Fahrrad','Bus','Kirche','Hotel');
+VERBS.push(
+ {inf:'denken',en:'to think',pt:'dachte',pp:'gedacht',aux:'haben'},
+ {inf:'bringen',en:'to bring',pt:'brachte',pp:'gebracht',aux:'haben'},
+ {inf:'stehen',en:'to stand',pt:'stand',pp:'gestanden',aux:'haben'},
+ {inf:'sitzen',en:'to sit',du:'sitzt',er:'sitzt',pt:'saß',pp:'gesessen',aux:'haben'},
+ {inf:'liegen',en:'to lie (down)',pt:'lag',pp:'gelegen',aux:'haben'},
+ {inf:'heißen',en:'to be called',du:'heißt',er:'heißt',pt:'hieß',pp:'geheißen',aux:'haben'},
+ {inf:'tragen',en:'to carry / wear',du:'trägst',er:'trägt',pt:'trug',pp:'getragen',aux:'haben'},
+ {inf:'waschen',en:'to wash',du:'wäschst',er:'wäscht',pt:'wusch',pp:'gewaschen',aux:'haben'},
+ {inf:'helfen',en:'to help',du:'hilfst',er:'hilft',pt:'half',pp:'geholfen',aux:'haben'},
+ {inf:'fliegen',en:'to fly',pt:'flog',pp:'geflogen',aux:'sein'},
+ {inf:'schwimmen',en:'to swim',pt:'schwamm',pp:'geschwommen',aux:'sein'},
+ {inf:'singen',en:'to sing',pt:'sang',pp:'gesungen',aux:'haben'},
+ {inf:'tanzen',en:'to dance',du:'tanzt',er:'tanzt',pt:'tanzte',pp:'getanzt',aux:'haben'},
+ {inf:'warten',en:'to wait',pt:'wartete',pp:'gewartet',aux:'haben'},
+ {inf:'bezahlen',en:'to pay',pt:'bezahlte',pp:'bezahlt',aux:'haben'},
+ {inf:'suchen',en:'to search',pt:'suchte',pp:'gesucht',aux:'haben'}
+);
+ADJ.push(
+ {de:'müde',en:'tired',opp:null},{de:'hungrig',en:'hungry',opp:null},
+ {de:'durstig',en:'thirsty',opp:null},{de:'freundlich',en:'friendly',opp:null},
+ {de:'gesund',en:'healthy',opp:'krank'},{de:'krank',en:'sick',opp:'gesund'},
+ {de:'richtig',en:'correct',opp:'falsch'},{de:'falsch',en:'wrong',opp:'richtig'},
+ {de:'früh',en:'early',opp:'spät'},{de:'spät',en:'late',opp:'früh'},
+ {de:'süß',en:'sweet',opp:'sauer'},{de:'sauer',en:'sour',opp:'süß'},
+ {de:'heiß',en:'hot',opp:'kalt'},{de:'nass',en:'wet',opp:'trocken'},{de:'trocken',en:'dry',opp:'nass'}
+);
+Object.assign(ADJ_IMG,{müde:'🥱',hungrig:'😋',gesund:'💚',krank:'🤒',früh:'🌅',spät:'🌜',süß:'🍬',sauer:'🍋',heiß:'🥵',nass:'💦',trocken:'🏜️'});
+PHRASES.push(
+ {de:'Wie heißt du?',en:'What is your name?'},{de:'Ich habe Hunger',en:'I am hungry'},
+ {de:'Ich habe Durst',en:'I am thirsty'},{de:'Wo wohnst du?',en:'Where do you live?'},
+ {de:'Es tut mir leid',en:'I am sorry'},{de:'Kein Problem',en:'No problem'},
+ {de:'Ich weiß nicht',en:'I do not know'},{de:'Natürlich',en:'Of course'},
+ {de:'Vielleicht',en:'Maybe'},{de:'Ich bin einverstanden',en:'I agree'},
+ {de:'Das macht nichts',en:'That does not matter'},{de:'Viel Glück',en:'Good luck'},
+ {de:'Gute Besserung',en:'Get well soon'},{de:'Herzlichen Glückwunsch',en:'Congratulations'},
+ {de:'Schönes Wochenende',en:'Have a nice weekend'},{de:'Mach dir keine Sorgen',en:'Do not worry'},
+ {de:'Ich freue mich',en:'I am glad'},{de:'Das klingt gut',en:'That sounds good'},
+ {de:'Ich bin gleich zurück',en:'I will be right back'},{de:'Pass auf dich auf',en:'Take care'}
+);
+SENTENCES.push(
+ {w:['Ich','gehe','morgen','ins','Kino'],a:'Ich gehe morgen ins Kino',en:'I go to the cinema tomorrow',alts:['Morgen gehe ich ins Kino']},
+ {w:['Er','hat','ein','neues','Auto','gekauft'],a:'Er hat ein neues Auto gekauft',en:'He bought a new car'},
+ {w:['Wir','wollen','im','Sommer','nach','Italien','fahren'],a:'Wir wollen im Sommer nach Italien fahren',en:'We want to go to Italy in summer',alts:['Im Sommer wollen wir nach Italien fahren']},
+ {w:['Sie','kann','sehr','gut','singen'],a:'Sie kann sehr gut singen',en:'She can sing very well'},
+ {w:['Ich','denke,','dass','Deutsch','schön','ist'],a:'Ich denke, dass Deutsch schön ist',en:'I think that German is beautiful'},
+ {w:['Wenn','es','regnet,','bleiben','wir','zu','Hause'],a:'Wenn es regnet, bleiben wir zu Hause',en:'If it rains, we stay home'},
+ {w:['Ich','habe','keine','Zeit'],a:'Ich habe keine Zeit',en:'I have no time'}
+);
+
+/* ---------- v4: new question generators ---------- */
+function gTypeConj(){const v=R(VERBS);const f=presentForms(v);const s=R(SUBJECTS);const ans=f[s[0]];
+ return {tag:'Conjugate & type',prompt:`Type the present form of “${v.inf}” (${v.en})`,mode:'type',stem:`${cap(s[0])} ___`,answer:ans,accept:[ans],
+  sayAnswer:`${s[0]} ${ans}`,explain:`${s[0]} → <b>${ans}</b> (${v.inf}).${v.du?' Watch the stem-vowel change.':''}`};}
+function gPhraseTrans(){const p=R(PHRASES);
+ if(Math.random()<0.5)return {tag:'Phrases',prompt:'What does this mean?',mode:'mc',big:p.de,answer:p.en,options:opts(p.en,shuffle(PHRASES).map(x=>x.en)),sayAnswer:p.de,trans:'',explain:`<b>${p.de}</b> = ${p.en}.`};
+ return {tag:'Phrases',prompt:'Say it in German',mode:'mc',big:p.en,answer:p.de,options:opts(p.de,shuffle(PHRASES).map(x=>x.de)),sayAnswer:p.de,trans:'',explain:`${p.en} = <b>${p.de}</b>.`};}
+function gBuildListen(){const cands=PHRASES.filter(x=>{const n=x.de.split(' ').length;return n>=3&&n<=6;});const p=R(cands);
+ const wds=p.de.replace(/[?!.]/g,'').split(' ');
+ return {tag:'Listen & build',prompt:'Tap what you hear, in order',mode:'build',speak:p.de,autoSpeak:true,words:shuffle(wds),answer:wds.join(' '),alts:[],trans:p.en,sayAnswer:p.de,explain:`🔊 <b>${p.de}</b> = ${p.en}.`};}
+
 const GEN={
   Articles:[gGender,gCaseArticle],Cases:[gCaseArticle,gVerbCase,gPrepCase,gTwoWay],
-  Adjectives:[gAdjEnding,gOpposite],Verbs:[gConjPresent,gModal,gPerfekt,gPraet,gSep,gKonjunktiv,gTypeVerb],
+  Adjectives:[gAdjEnding,gOpposite],Verbs:[gConjPresent,gModal,gPerfekt,gPraet,gSep,gKonjunktiv,gTypeVerb,gTypeConj],
   Prepositions:[gPrepCase,gTwoWay,gVerbPrep],
   Vocabulary:[gPicture,gTransDeEn,gTransEnDe,gOpposite,gPlural,gTypeNoun,gMatch,gTrueFalse,gMatchVerb],
   Pictures:[gPicture,gTransEnDe,gGender],Sentences:[gBuild],Numbers:[gNumber,gListenNumber],
-  Listening:hasSpeech?[gListenWord,gListenPhrase,gTypeListen,gListenNumber]:[gTransDeEn,gTransEnDe],
-  Typing:[gTypeNoun,gTypeVerb,gTrueFalse],
-  Match:[gMatch,gMatchVerb]
+  Listening:hasSpeech?[gListenWord,gListenPhrase,gTypeListen,gListenNumber,gBuildListen]:[gTransDeEn,gTransEnDe],
+  Typing:[gTypeNoun,gTypeVerb,gTypeConj,gTrueFalse],
+  Match:[gMatch,gMatchVerb],
+  Phrases:hasSpeech?[gPhraseTrans,gListenPhrase,gBuildListen,gBuild]:[gPhraseTrans,gBuild]
 };
 const ALLGEN=[gGender,gCaseArticle,gAdjEnding,gVerbCase,gPrepCase,gTwoWay,gConjPresent,gModal,gPerfekt,gPraet,gPlural,
  gPicture,gTransDeEn,gTransEnDe,gOpposite,gVerbPrep,gSep,gNumber,gBuild,gKonjunktiv,
- gTypeNoun,gTypeVerb,gMatch,gMatchVerb,gTrueFalse,...(hasSpeech?[gListenWord,gListenPhrase,gTypeListen,gListenNumber]:[])];
+ gTypeNoun,gTypeVerb,gTypeConj,gPhraseTrans,gMatch,gMatchVerb,gTrueFalse,...(hasSpeech?[gListenWord,gListenPhrase,gTypeListen,gListenNumber,gBuildListen]:[])];
 const TOPICS=[
  {key:'Mixed',ic:'🎲',t:'Mixed practice',d:'A bit of everything',wide:true},
  {key:'Listening',ic:'🎧',t:'Listening',d:'hear & choose'},
  {key:'Match',ic:'🔗',t:'Match pairs',d:'German ↔ English'},
  {key:'Typing',ic:'⌨️',t:'Typing',d:'write it yourself'},
+ {key:'Phrases',ic:'🗣️',t:'Phrases',d:'everyday expressions'},
  {key:'Pictures',ic:'🖼️',t:'Pictures',d:'image to word'},
  {key:'Articles',ic:'📘',t:'Articles',d:'der · die · das'},
  {key:'Cases',ic:'🎯',t:'Cases',d:'Nom · Akk · Dat'},
@@ -762,8 +971,103 @@ const ACHIEVEMENTS=[
  {ic:'⭐',t:'500 XP',test:()=>DB.xp>=500},
  {ic:'🗓️',t:'7-day streak',test:()=>computeDayStreak()>=7},
  {ic:'🧠',t:'1000 XP',test:()=>DB.xp>=1000},
- {ic:'🏆',t:'20 in a row',test:()=>DB.bestStreak>=20}
+ {ic:'🏆',t:'20 in a row',test:()=>DB.bestStreak>=20},
+ {ic:'🚀',t:'Finish Unit 1',test:()=>unitProgress(0)>=LPU},
+ {ic:'🎓',t:'Finish 3 units',test:()=>[0,1,2].every(u=>unitProgress(u)>=LPU)},
+ {ic:'🔁',t:'Clear 20 mistakes',test:()=>(DB.mistakesCleared||0)>=20},
+ {ic:'💎',t:'2500 XP',test:()=>DB.xp>=2500}
 ];
+
+/* ---------- v4: second content batch (massive vocabulary) ---------- */
+NOUNS.push(
+ {de:'Bett',en:'bed',g:'n',pl:'Betten'},{de:'Lampe',en:'lamp',g:'f',pl:'Lampen'},
+ {de:'Spiegel',en:'mirror',g:'m',pl:'Spiegel'},{de:'Teppich',en:'carpet',g:'m',pl:'Teppiche'},
+ {de:'Sofa',en:'sofa',g:'n',pl:'Sofas'},{de:'Regal',en:'shelf',g:'n',pl:'Regale'},
+ {de:'Treppe',en:'stairs',g:'f',pl:'Treppen'},{de:'Keller',en:'basement',g:'m',pl:'Keller'},
+ {de:'Dach',en:'roof',g:'n',pl:'Dächer'},{de:'Wand',en:'wall',g:'f',pl:'Wände'},
+ {de:'Boden',en:'floor',g:'m',pl:'Böden'},{de:'Papier',en:'paper',g:'n',pl:'Papiere'},
+ {de:'Stift',en:'pen',g:'m',pl:'Stifte'},{de:'Schere',en:'scissors',g:'f',pl:'Scheren'},
+ {de:'Karte',en:'map / card',g:'f',pl:'Karten'},{de:'Musik',en:'music',g:'f',pl:null},
+ {de:'Lied',en:'song',g:'n',pl:'Lieder'},{de:'Film',en:'film',g:'m',pl:'Filme'},
+ {de:'Spiel',en:'game',g:'n',pl:'Spiele'},{de:'Ball',en:'ball',g:'m',pl:'Bälle'},
+ {de:'Pferd',en:'horse',g:'n',pl:'Pferde'},{de:'Kuh',en:'cow',g:'f',pl:'Kühe'},
+ {de:'Schwein',en:'pig',g:'n',pl:'Schweine'},{de:'Schaf',en:'sheep',g:'n',pl:'Schafe'},
+ {de:'Maus',en:'mouse',g:'f',pl:'Mäuse'},{de:'Bär',en:'bear',g:'m',pl:'Bären'},
+ {de:'Löwe',en:'lion',g:'m',pl:'Löwen'},{de:'Affe',en:'monkey',g:'m',pl:'Affen'},
+ {de:'Wetter',en:'weather',g:'n',pl:null},{de:'Wald',en:'forest',g:'m',pl:'Wälder'},
+ {de:'Fluss',en:'river',g:'m',pl:'Flüsse'},{de:'Brücke',en:'bridge',g:'f',pl:'Brücken'},
+ {de:'Platz',en:'square / place',g:'m',pl:'Plätze'},{de:'Weg',en:'path / way',g:'m',pl:'Wege'},
+ {de:'Reise',en:'journey',g:'f',pl:'Reisen'},{de:'Urlaub',en:'vacation',g:'m',pl:'Urlaube'},
+ {de:'Sprache',en:'language',g:'f',pl:'Sprachen'},{de:'Wort',en:'word',g:'n',pl:'Wörter'},
+ {de:'Frage',en:'question',g:'f',pl:'Fragen'},{de:'Antwort',en:'answer',g:'f',pl:'Antworten'}
+);
+Object.assign(NOUN_IMG,{Bett:'🛏️',Lampe:'💡',Sofa:'🛋️',Papier:'📄',Stift:'🖊️',Schere:'✂️',
+ Karte:'🗺️',Musik:'🎵',Lied:'🎶',Film:'🎬',Spiel:'🎮',Ball:'⚽',Pferd:'🐴',Kuh:'🐄',
+ Schwein:'🐷',Schaf:'🐑',Maus:'🐭',Bär:'🐻',Löwe:'🦁',Affe:'🐵',Wald:'🌲',Brücke:'🌉',
+ Reise:'🧳',Urlaub:'🏖️',Frage:'❓'});
+PIC.push('Bett','Lampe','Sofa','Stift','Schere','Film','Ball','Pferd','Kuh','Schwein','Schaf','Maus','Bär','Löwe','Wald','Brücke');
+VERBS.push(
+ {inf:'zeigen',en:'to show',pt:'zeigte',pp:'gezeigt',aux:'haben'},
+ {inf:'erklären',en:'to explain',pt:'erklärte',pp:'erklärt',aux:'haben'},
+ {inf:'verstehen',en:'to understand',pt:'verstand',pp:'verstanden',aux:'haben'},
+ {inf:'vergessen',en:'to forget',du:'vergisst',er:'vergisst',pt:'vergaß',pp:'vergessen',aux:'haben'},
+ {inf:'beginnen',en:'to begin',pt:'begann',pp:'begonnen',aux:'haben'},
+ {inf:'gewinnen',en:'to win',pt:'gewann',pp:'gewonnen',aux:'haben'},
+ {inf:'verlieren',en:'to lose',pt:'verlor',pp:'verloren',aux:'haben'},
+ {inf:'bekommen',en:'to receive',pt:'bekam',pp:'bekommen',aux:'haben'}
+);
+PHRASES.push(
+ {de:'Das ist eine gute Idee',en:'That is a good idea'},{de:'Wir sehen uns morgen',en:'See you tomorrow'},
+ {de:'Es ist mir egal',en:'I do not care'},{de:'Ich habe eine Frage',en:'I have a question'},
+ {de:'Können Sie das wiederholen?',en:'Can you repeat that?'},{de:'Sprechen Sie bitte langsamer',en:'Please speak more slowly'},
+ {de:'Ich komme sofort',en:'I am coming right away'},{de:'Das war lecker',en:'That was delicious'},
+ {de:'Wo sind die Toiletten?',en:'Where are the toilets?'},{de:'Die Rechnung, bitte',en:'The bill, please'},
+ {de:'Ich lerne seit einem Jahr Deutsch',en:'I have been learning German for a year'},
+ {de:'Ich bin morgen beschäftigt',en:'I am busy tomorrow'}
+);
+
+/* ---------- v4: structured course (A1 → B2) ---------- */
+const LPU=5; // lessons per unit
+const COURSE=[
+ {t:'Basics I',lv:'A1',ic:'🌱',col:'#25b06e',d:'First words & der/die/das',sk:'Articles',gens:[gGender,gPicture,gTransDeEn,gTransEnDe]},
+ {t:'Numbers & Time',lv:'A1',ic:'🔢',col:'#3f6fe0',d:'Count and tell time',sk:'Numbers',gens:[gNumber,gListenNumber,gTransDeEn,gTrueFalse]},
+ {t:'Present Tense',lv:'A1',ic:'⚡',col:'#e0952e',d:'Conjugate everyday verbs',sk:'Verbs',gens:[gConjPresent,gTypeVerb,gTypeConj,gMatchVerb]},
+ {t:'Everyday Phrases',lv:'A1',ic:'💬',col:'#d24a80',d:'Greetings & small talk',sk:'Listening',gens:hasSpeech?[gPhraseTrans,gListenPhrase,gBuildListen,gBuild]:[gPhraseTrans,gBuild]},
+ {t:'Plurals & Words',lv:'A1',ic:'🧺',col:'#1f9d6a',d:'Plural patterns & word power',sk:'Vocabulary',gens:[gPlural,gMatch,gTypeNoun,gTrueFalse]},
+ {t:'Akkusativ',lv:'A2',ic:'🎯',col:'#5566d6',d:'Direct objects & accusative',sk:'Cases',gens:[gCaseArticle,gVerbCase,gPrepCase]},
+ {t:'Dativ & Two-way',lv:'A2',ic:'🧭',col:'#7b5fe0',d:'Dative & Wechselpräpositionen',sk:'Cases',gens:[gVerbCase,gPrepCase,gTwoWay]},
+ {t:'Modals & Separables',lv:'A2',ic:'🔧',col:'#f0791a',d:'können, müssen & aufstehen',sk:'Verbs',gens:[gModal,gSep,gConjPresent]},
+ {t:'Past Tenses',lv:'B1',ic:'⏳',col:'#c0356b',d:'Perfekt & Präteritum',sk:'Verbs',gens:[gPerfekt,gPraet,gBuild]},
+ {t:'Adjective Endings',lv:'B1',ic:'🎨',col:'#17864f',d:'The famous ending tables',sk:'Adjectives',gens:[gAdjEnding,gOpposite,gTrueFalse]},
+ {t:'Verb + Preposition',lv:'B1',ic:'🔗',col:'#2f6fd0',d:'warten auf, denken an…',sk:'Prepositions',gens:[gVerbPrep,gTwoWay,gPrepCase]},
+ {t:'Konjunktiv & Style',lv:'B2',ic:'🏔️',col:'#5a4bc0',d:'Polite, unreal, advanced',sk:'Verbs',gens:[gKonjunktiv,gBuild,gAdjEnding]}
+];
+function lessonStars(u,l){const e=(DB.course||{})[u+'_'+l];return e?e.stars:0;}
+function lessonUnlocked(u,l){if(u===0&&l===0)return true;if(l>0)return lessonStars(u,l-1)>0;return lessonStars(u-1,LPU-1)>0;}
+function unitProgress(u){let n=0;for(let l=0;l<LPU;l++)if(lessonStars(u,l)>0)n++;return n;}
+function shade(hex){const n=parseInt(hex.slice(1),16);const r=Math.max(0,(n>>16)-34),g=Math.max(0,((n>>8)&255)-34),b=Math.max(0,(n&255)-34);
+ return '#'+((r<<16)|(g<<8)|b).toString(16).padStart(6,'0');}
+
+/* ---------- v4: learner level (A1–B2) & question freshness ---------- */
+const LEVELS=['A1','A2','B1','B2'];
+const GLV=new Map([
+ [gGender,1],[gPicture,1],[gTransDeEn,1],[gTransEnDe,1],[gOpposite,1],[gNumber,1],[gListenNumber,1],
+ [gConjPresent,1],[gTypeNoun,1],[gTypeVerb,1],[gTypeListen,1],[gListenWord,1],[gListenPhrase,1],
+ [gPhraseTrans,1],[gMatch,1],[gMatchVerb,1],[gTrueFalse,1],[gBuild,1],[gBuildListen,1],
+ [gPlural,2],[gCaseArticle,2],[gVerbCase,2],[gPrepCase,2],[gTwoWay,2],[gModal,2],[gSep,2],[gPerfekt,2],[gTypeConj,2],
+ [gPraet,3],[gAdjEnding,3],[gVerbPrep,3],
+ [gKonjunktiv,4]
+]);
+function byLevel(pool){const f=pool.filter(g=>(GLV.get(g)||1)<=(DB.level||4));return f.length?f:pool;}
+let SEEN=new Set();
+function qKey(q){return (q.tag||'')+'|'+(q.stem||q.big||q.speak||(q.pairs?q.pairs.map(p=>p.de).join(','):''))+'|'+(q.answer||'');}
+function freshQuestion(pool){
+  for(let t=0;t<30;t++){const q=R(pool)();const k=qKey(q);
+    if(!SEEN.has(k)){SEEN.add(k);DB.recentQ=DB.recentQ||[];DB.recentQ.push(k);
+      if(DB.recentQ.length>250){const drop=DB.recentQ.shift();SEEN.delete(drop);}
+      return q;}}
+  return R(pool)(); // pool exhausted — allow a repeat rather than stall
+}
 
 /* ============================================================
    PERSISTENCE
@@ -808,7 +1112,7 @@ function recordLessonDone(skill){const h=today();h.lessons=(h.lessons||0)+1;h.sk
    UI
    ============================================================ */
 const $=id=>document.getElementById(id);
-const el={home:$('home'),stats:$('stats'),quiz:$('quiz'),results:$('results'),nav:$('nav'),card:$('card'),sheet:$('sheet'),pfill:$('pfill'),heartN:$('heartN'),check:$('checkBtn')};
+const el={home:$('home'),practice:$('practice'),words:$('words'),stats:$('stats'),quiz:$('quiz'),results:$('results'),nav:$('nav'),card:$('card'),sheet:$('sheet'),pfill:$('pfill'),heartN:$('heartN'),check:$('checkBtn')};
 const S={topic:null,q:null,i:0,total:10,correct:0,hearts:5,streak:0,picked:null,placed:[],locked:false};
 
 function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}
@@ -816,7 +1120,8 @@ function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');set
 /* ----- v2: sound, haptics, speech, confetti, levels ----- */
 let AC=null;
 function ac(){try{if(!AC)AC=new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();}catch(e){AC=null;}return AC;}
-function tone(freq,start,dur,vol){const c=ac();if(!c)return;const o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=freq;
+function tone(freq,start,dur,vol){if(DB.settings&&DB.settings.sound===false)return;
+ const c=ac();if(!c)return;const o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=freq;
  const t0=c.currentTime+start;g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(vol,t0+0.012);g.gain.exponentialRampToValueAtTime(0.0001,t0+dur);
  o.connect(g).connect(c.destination);o.start(t0);o.stop(t0+dur+0.02);}
 function sfxCorrect(){tone(660,0,0.14,0.16);tone(880,0.09,0.18,0.16);tone(1174,0.19,0.22,0.13);}
@@ -827,7 +1132,8 @@ function haptic(ok){try{if(navigator.vibrate)navigator.vibrate(ok?18:[0,45,35,45
 let deVoice=null;
 function pickVoice(){if(!hasSpeech)return;const vs=speechSynthesis.getVoices()||[];
  deVoice=vs.find(v=>/^de([-_]|$)/i.test(v.lang))||vs.find(v=>/german|deutsch/i.test(v.name))||null;}
-function speak(text,onEl){if(!hasSpeech||!text)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);
+function speak(text,onEl){if(!hasSpeech||!text)return;if(DB.settings&&DB.settings.speech===false)return;
+ try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);
  u.lang='de-DE';if(deVoice)u.voice=deVoice;u.rate=0.88;u.pitch=1;speechSynthesis.speak(u);
  if(onEl){onEl.classList.remove('pulse');void onEl.offsetWidth;onEl.classList.add('pulse');}}catch(e){}}
 
@@ -843,15 +1149,19 @@ function flashCombo(txt){const c=$('combo');if(!c)return;c.textContent=txt;c.cla
 
 /* ----- screen switching ----- */
 function show(screen){
-  ['home','stats','quiz','results'].forEach(s=>el[s].classList.toggle('hidden',s!==screen));
-  const nav = (screen==='home'||screen==='stats');
+  ['home','practice','words','stats','quiz','results'].forEach(s=>el[s].classList.toggle('hidden',s!==screen));
+  const nav=['home','practice','words','stats'].includes(screen);
   el.nav.classList.toggle('hidden',!nav);
-  $('navLearn').classList.toggle('on',screen==='home');
-  $('navStats').classList.toggle('on',screen==='stats');
+  [['navLearn','home'],['navPractice','practice'],['navWords','words'],['navStats','stats']]
+    .forEach(([b,s])=>$(b).classList.toggle('on',screen===s));
   if(screen==='home')renderHome();
+  if(screen==='practice')renderPractice();
+  if(screen==='words')renderWords();
   if(screen==='stats')renderStats();
 }
 $('navLearn').onclick=()=>show('home');
+$('navPractice').onclick=()=>show('practice');
+$('navWords').onclick=()=>show('words');
 $('navStats').onclick=()=>show('stats');
 
 /* ----- ring ----- */
@@ -877,23 +1187,144 @@ function renderHome(){
   const chips=[['Casual',20],['Regular',30],['Serious',50],['Intense',80]];
   $('goalChips').innerHTML=chips.map(([lab,v])=>`<button class="gchip ${DB.dailyGoalXP===v?'on':''}" data-g="${v}">${lab} · ${v}</button>`).join('');
   $('goalChips').querySelectorAll('.gchip').forEach(b=>b.onclick=()=>{DB.dailyGoalXP=+b.dataset.g;Store.save(DB);renderHome();});
-  // plan
+  // learner level selector
+  $('levSelect').innerHTML=`<span class="lab">MY LEVEL</span>`+LEVELS.map((L,i)=>
+    `<button class="gchip ${(DB.level||1)===i+1?'on':''}" data-l="${i+1}">${L}</button>`).join('');
+  $('levSelect').querySelectorAll('.gchip').forEach(b=>b.onclick=()=>{DB.level=+b.dataset.l;Store.save(DB);
+    toast('Practice level set to '+LEVELS[DB.level-1]);renderHome();});
+  renderQuests();
+  renderCourse();
+  $('saveNote').textContent=Store.persistent?'✓ Your progress is saved on this device.':'Progress is kept for this session only.';
+  const lv=levelFor(DB.xp);$('brandTag').innerHTML=`Level ${lv.lvl} · ${lv.into}/${lv.need} XP to next`;
+}
+
+/* ----- v4: quests, course path, practice, words ----- */
+function renderQuests(){
+  const h=today();
+  const qs=[
+   {ic:'⚡',t:'Earn 60 XP',cur:h.xp||0,goal:60},
+   {ic:'🎯',t:'Answer 20 questions',cur:h.answered||0,goal:20},
+   {ic:'📚',t:'Finish 3 lessons',cur:h.lessons||0,goal:3}
+  ];
+  const all=qs.every(q=>q.cur>=q.goal);
+  let inner=qs.map(q=>{const p=Math.min(1,q.cur/q.goal);const d=q.cur>=q.goal;
+    return `<div class="quest ${d?'done':''}"><div class="qic">${q.ic}</div><div class="qtx"><b>${q.t}</b><div class="qbar"><div class="qfill" style="width:${Math.round(p*100)}%"></div></div></div><div class="qn">${d?'✓ done':Math.min(q.cur,q.goal)+' / '+q.goal}</div></div>`;}).join('');
+  inner+=`<button class="chest" id="chestBtn" ${all&&!h.chest?'':'disabled'}>${h.chest?'🎁 Chest opened — see you tomorrow!':all?'🎁 Open your chest · +20 XP':'🎁 Finish all quests to open the chest'}</button>`;
+  $('quests').innerHTML=`<h4>🗺️ Daily quests <span class="mini">reset daily</span></h4>`+inner;
+  const cb=$('chestBtn');
+  if(cb&&all&&!h.chest)cb.onclick=()=>{h.chest=true;h.xp+=20;DB.xp+=20;Store.save(DB);sfxLevel();confetti();renderHome();};
+}
+function renderCourse(){
+  let h='';
+  COURSE.forEach((U,u)=>{
+    h+=`<div class="unit"><div class="unithead" style="background:linear-gradient(135deg,${U.col},${shade(U.col)})">
+      <div class="uic">${U.ic}</div><div><div class="ut">Unit ${u+1} · ${U.t}</div><div class="us">${U.d}</div></div>
+      <div class="ulv">${U.lv} · ${unitProgress(u)}/${LPU}</div></div><div class="upath">`;
+    for(let l=0;l<LPU;l++){
+      const st=lessonStars(u,l);const un=lessonUnlocked(u,l);
+      const side=l===1?'left':l===3?'right':'';
+      const boss=l===LPU-1;
+      let cls='unode '+side,style='',inner='';
+      if(st>0){cls+=' done';inner=boss?'🏆':'✓';inner+=`<span class="stars">${'⭐'.repeat(st)}</span>`;}
+      else if(un){cls+=' avail';style=`background:linear-gradient(135deg,${U.col},${shade(U.col)});box-shadow:0 6px 0 ${shade(U.col)},0 8px 20px rgba(20,24,60,.18);`;
+        inner=(boss?'🏆':U.ic)+`<span class="ring" style="border-color:${U.col}"></span>`;}
+      else {cls+=' locked';inner='🔒';}
+      h+=`<button class="${cls}" style="${style}" data-u="${u}" data-l="${l}" aria-label="Unit ${u+1} lesson ${l+1}">${inner}</button>`;
+    }
+    h+=`</div></div>`;
+  });
+  $('course').innerHTML=h;
+  $('course').querySelectorAll('.unode').forEach(b=>b.onclick=()=>{
+    const u=+b.dataset.u,l=+b.dataset.l;
+    if(!lessonUnlocked(u,l)){toast('Finish the previous lesson to unlock 🔒');return;}
+    startCourse(u,l);
+  });
+}
+function renderPractice(){
+  const n=(DB.mistakes||[]).length;
+  $('mistSub').textContent=n?n+' saved mistake'+(n>1?'s':'')+' to clear':'No mistakes saved — nice and clean!';
+  $('mistGo').textContent=n?'Start ›':'—';
+  $('mistBtn').onclick=()=>startMistakes();
   const weak=weakestSkill();
+  const h=today();const done=h.skillsDone||[];
   const tasks=[
-   {label:'Warm-up',sub:'Mixed practice',skill:'Mixed',ic:'🔥'},
+   {label:'Warm-up',sub:'Mixed practice at your level',skill:'Mixed',ic:'🔥'},
    {label:'Grammar focus',sub:weak+' drill',skill:weak,ic:'🎯'},
    {label:'Build vocabulary',sub:'Words & plurals',skill:'Vocabulary',ic:'💬'}
   ];
-  const done=h.skillsDone||[];
-  $('plan').innerHTML=tasks.map((t,i)=>{const d=done.includes(t.skill);
+  $('plan').innerHTML=tasks.map(t=>{const d=done.includes(t.skill);
     return `<button class="task ${d?'done':''}" data-skill="${t.skill}"><div class="tic">${d?'✓':t.ic}</div>
       <div class="ttxt"><b>${t.label}</b><span>${t.sub}</span></div>${d?'<div class="check">✓</div>':'<div class="go">Start ›</div>'}</button>`;}).join('');
   $('plan').querySelectorAll('.task').forEach(b=>b.onclick=()=>startLesson(b.dataset.skill));
-  // skills grid
   $('topics').innerHTML=TOPICS.map(tp=>`<button class="topic ${tp.wide?'wide':''}" data-key="${tp.key}"><div class="ic">${tp.ic}</div><div><div class="t">${tp.t}</div><div class="d">${tp.d}</div></div></button>`).join('');
   $('topics').querySelectorAll('.topic').forEach(b=>b.onclick=()=>startLesson(b.dataset.key));
-  $('saveNote').textContent=Store.persistent?'✓ Your progress is saved on this device.':'Progress is kept for this session only.';
-  const lv=levelFor(DB.xp);$('brandTag').innerHTML=`Level ${lv.lvl} · ${lv.into}/${lv.need} XP to next`;
+}
+let wcat='Nouns';
+function renderWords(){
+  const cats=['Nouns','Verbs','Adjectives','Phrases'];
+  $('wchips').innerHTML=cats.map(c=>`<button class="wchip ${wcat===c?'on':''}" data-c="${c}">${c}</button>`).join('');
+  $('wchips').querySelectorAll('.wchip').forEach(b=>b.onclick=()=>{wcat=b.dataset.c;renderWords();});
+  const q=norm($('wsearch').value||'');
+  let items=[];
+  if(wcat==='Nouns')items=NOUNS.map(n=>({art:ARTWORD[n.g],word:n.de,en:n.en,sub:n.pl?'plural: die '+n.pl:'no plural',say:ARTWORD[n.g]+' '+n.de,img:NOUN_IMG[n.de]||''}));
+  if(wcat==='Verbs')items=VERBS.map(v=>({word:v.inf,en:v.en,sub:`Präteritum: ${v.pt} · Perfekt: ${v.aux==='sein'?'ist':'hat'} ${v.pp}`,say:v.inf,img:''}));
+  if(wcat==='Adjectives')items=ADJ.map(a=>({word:a.de,en:a.en,sub:a.opp?'opposite: '+a.opp:'',say:a.de,img:ADJ_IMG[a.de]||''}));
+  if(wcat==='Phrases')items=PHRASES.map(p=>({word:p.de,en:p.en,sub:'',say:p.de,img:''}));
+  if(q)items=items.filter(it=>norm(it.word).includes(q)||norm(it.en).includes(q));
+  items.sort((a,b)=>a.word.localeCompare(b.word,'de'));
+  $('wlist').innerHTML=items.map(it=>
+    `<div class="wrow"><div style="flex:1;min-width:0"><div class="wde">${it.img?it.img+' ':''}${it.art?`<span class="art ${it.art}">${it.art}</span> `:''}${it.word}</div><div class="wen">${it.en}</div>${it.sub?`<div class="wpl">${it.sub}</div>`:''}</div>${hasSpeech?`<button class="spk" data-say="${it.say.replace(/"/g,'&quot;')}" aria-label="Pronounce">🔊</button>`:''}</div>`
+  ).join('')||'<div class="savenote">No matches found.</div>';
+  $('wlist').querySelectorAll('.spk').forEach(b=>b.onclick=()=>speak(b.dataset.say));
+}
+$('wsearch').oninput=()=>renderWords();
+
+/* ----- v4: settings ----- */
+function renderSettings(){
+  $('togSound').classList.toggle('on',DB.settings.sound!==false);
+  $('togSpeech').classList.toggle('on',DB.settings.speech!==false);
+}
+$('togSound').onclick=()=>{DB.settings.sound=DB.settings.sound===false;Store.save(DB);renderSettings();if(DB.settings.sound)sfxCorrect();};
+$('togSpeech').onclick=()=>{DB.settings.speech=DB.settings.speech===false;Store.save(DB);renderSettings();if(DB.settings.speech)speak('Hallo!');};
+$('resetBtn').onclick=()=>{
+  if(confirm('Really reset ALL progress (XP, streak, course, mistakes)? This cannot be undone.')){
+    DB={xp:0,bestStreak:0,dailyGoalXP:30,level:DB.level,history:{},skillStats:{},course:{},mistakes:[],recentQ:[],settings:DB.settings};
+    SEEN=new Set();Store.save(DB);toast('Progress reset');show('home');
+  }
+};
+
+/* ----- v4: course lessons & mistake review ----- */
+function startCourse(u,l){
+  S.course={u,l};S.queue=null;S.topic='Course';S.i=0;S.correct=0;S.hearts=5;S.streak=0;S.total=10;
+  el.heartN.textContent=5;el.pfill.style.width='0%';
+  show('quiz');nextQuestion();
+}
+function startMistakes(){
+  const n=(DB.mistakes||[]).length;
+  if(!n){toast('No mistakes to review — great job! 🎉');return;}
+  S.course=null;S.topic='Mistakes';S.queue=shuffle(DB.mistakes.slice()).slice(0,10);
+  S.total=S.queue.length;S.i=0;S.correct=0;S.hearts=5;S.streak=0;
+  el.heartN.textContent=5;el.pfill.style.width='0%';
+  show('quiz');nextQuestion();
+}
+function pushMistake(q){
+  if(!q||q.mode==='match')return;
+  DB.mistakes=DB.mistakes||[];
+  const key=(q.stem||q.big||'')+'|'+q.answer;
+  if(DB.mistakes.some(m=>((m.stem||m.big||'')+'|'+m.answer)===key))return;
+  DB.mistakes.push(JSON.parse(JSON.stringify(q)));
+  if(DB.mistakes.length>40)DB.mistakes.shift();
+  Store.save(DB);
+}
+function clearMistake(q){
+  const key=(q.stem||q.big||'')+'|'+q.answer;
+  const i=(DB.mistakes||[]).findIndex(m=>((m.stem||m.big||'')+'|'+m.answer)===key);
+  if(i>-1){DB.mistakes.splice(i,1);DB.mistakesCleared=(DB.mistakesCleared||0)+1;Store.save(DB);}
+}
+function recSkill(){
+  if(S.course)return COURSE[S.course.u].sk;
+  if(S.topic==='Mistakes')return 'Vocabulary';
+  return S.topic;
 }
 
 /* ----- stats ----- */
@@ -932,17 +1363,18 @@ function renderStats(){
   $('badges').innerHTML=ACHIEVEMENTS.map(a=>{const on=a.test();if(on)un++;
     return `<div class="badge2 ${on?'on':''}"><div class="ic">${a.ic}</div><div class="bt">${a.t}</div></div>`;}).join('');
   $('achCount').textContent=un+' / '+ACHIEVEMENTS.length;
+  renderSettings();
 }
 
 /* ----- quiz flow ----- */
 $('quitBtn').onclick=()=>show('home');
 el.check.onclick=onCheck;
 $('contBtn').onclick=nextQuestion;
-$('againBtn').onclick=()=>startLesson(S.topic||'Mixed');
+$('againBtn').onclick=()=>S.course?startCourse(S.course.u,S.course.l):(S.topic==='Mistakes'?startMistakes():startLesson(S.topic||'Mixed'));
 $('homeBtn').onclick=()=>show('home');
 
 function startLesson(topic){
-  S.topic=topic;S.i=0;S.correct=0;S.hearts=5;S.streak=0;
+  S.course=null;S.queue=null;S.topic=topic;S.i=0;S.correct=0;S.hearts=5;S.streak=0;S.total=10;
   el.heartN.textContent=5;el.pfill.style.width='0%';
   show('quiz');nextQuestion();
 }
@@ -954,7 +1386,12 @@ async function nextQuestion(){
   S.q=localQuestion();
   renderQuestion();
 }
-function localQuestion(){const pool=S.topic==='Mixed'?ALLGEN:GEN[S.topic];return R(pool)();}
+function localQuestion(){
+  if(S.topic==='Mistakes')return S.queue[Math.min(S.i,S.queue.length-1)];
+  if(S.course)return freshQuestion(COURSE[S.course.u].gens);
+  const pool=S.topic==='Mixed'?ALLGEN:GEN[S.topic];
+  return freshQuestion(byLevel(pool));
+}
 
 function renderQuestion(){
   const q=S.q;const action=document.querySelector('.action');
@@ -969,6 +1406,7 @@ function renderQuestion(){
     h+=`<div class="assembled" id="assembled"></div><div class="spacer"></div><div class="bank" id="bank"></div>`;
     el.card.innerHTML=h;const bank=$('bank');
     q.words.forEach((w,idx)=>{const t=document.createElement('button');t.className='tile';t.textContent=w;t.onclick=()=>placeTile(idx,t);bank.appendChild(t);});
+    if(q.speak)wireSpeaker(q);
     return;
   }
 
@@ -991,6 +1429,7 @@ function renderQuestion(){
   /* ---- type ---- */
   if(q.mode==='type'){
     if(q.big)h+=`<div class="bigword ${q.bigClass||''}">${q.big}</div>`;
+    else if(q.stem)h+=`<div class="stem">${q.stem.replace('___','<span class="blank"></span>')}</div>`;
     h+=`<div class="spacer"></div><div class="typewrap v2"><input id="typein" type="text" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Type in German…"></div>`;
     el.card.innerHTML=h;
     const inp=$('typein');
@@ -1058,11 +1497,12 @@ function grade(correct,userAns){
   S.locked=true;el.check.disabled=true;
   if(correct){S.correct++;S.streak++;if(S.streak>DB.bestStreak)DB.bestStreak=S.streak;
     sfxCorrect();haptic(true);
-    if(S.streak>=3)flashCombo('🔥 '+S.streak+' in a row!');}
+    if(S.streak>=3)flashCombo('🔥 '+S.streak+' in a row!');
+    if(S.topic==='Mistakes')clearMistake(q);}
   else{S.streak=0;S.hearts=Math.max(0,S.hearts-1);el.heartN.textContent=S.hearts;
-    sfxWrong();haptic(false);
+    sfxWrong();haptic(false);pushMistake(q);
     if(S.hearts===0)setTimeout(()=>{S.hearts=5;el.heartN.textContent=5;},700);}
-  recordAnswer(S.topic,correct);
+  recordAnswer(recSkill(),correct);
   S.i++;
   showSheet(correct,q,userAns);
 }
@@ -1089,7 +1529,15 @@ function showResults(){
   const lvBefore=levelFor(DB.xp-earned).lvl, lvAfter=levelFor(DB.xp).lvl;
   recordLessonDone(S.topic);
   const acc=Math.round(100*S.correct/S.total);
-  $('rXP').textContent='+'+earned;$('rAcc').textContent=acc+'%';$('rBest').textContent=DB.bestStreak;
+  const rs=$('rStars');
+  if(S.course){
+    const stars=acc>=90?3:acc>=70?2:acc>=50?1:0;
+    const key=S.course.u+'_'+S.course.l;DB.course=DB.course||{};
+    const prev=(DB.course[key]||{}).stars||0;
+    if(stars>prev){DB.course[key]={stars:stars};Store.save(DB);}
+    rs.classList.remove('hidden');
+    rs.innerHTML=[1,2,3].map(i=>`<span class="${i<=stars?'':'dim'}">⭐</span>`).join('');
+  } else rs.classList.add('hidden');
   $('rTrophy').textContent=acc>=90?'🏆':acc>=70?'🎉':acc>=50?'💪':'📚';
   $('rTitle').textContent=acc>=90?'Ausgezeichnet!':acc>=70?'Gut gemacht!':acc>=50?'Weiter so!':'Keep going!';
   $('rSub').textContent=`You got ${S.correct} of ${S.total} right.`;
@@ -1114,8 +1562,12 @@ document.addEventListener('keydown',e=>{
 /* ----- init ----- */
 (async function init(){
   const loaded=await Store.load();
-  DB=Object.assign({xp:0,bestStreak:0,dailyGoalXP:30,history:{},skillStats:{}},loaded);
+  DB=Object.assign({xp:0,bestStreak:0,dailyGoalXP:30,level:1,history:{},skillStats:{},course:{},mistakes:[],recentQ:[],mistakesCleared:0},loaded);
   if(!DB.history)DB.history={};if(!DB.skillStats)DB.skillStats={};
+  DB.settings=Object.assign({sound:true,speech:true},DB.settings||{});
+  DB.course=DB.course||{};DB.mistakes=DB.mistakes||[];DB.recentQ=DB.recentQ||[];
+  if(!DB.level)DB.level=1;
+  SEEN=new Set(DB.recentQ);
   // speech voices load asynchronously on iOS/Safari
   if(hasSpeech){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
   // unlock audio + speech on the first user tap (required by iOS)

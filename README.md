@@ -19,21 +19,29 @@ Grammar, vocabulary, listening and more, in a fast Duolingo-style app that insta
 
 ## ✨ Features
 
-- **🎧 Listening** — hear real German pronunciation (your device's built-in voices) and tap or type what you hear.
-- **🔗 Match pairs** — quick German ↔ English matching drills.
-- **⌨️ Typing** — produce the language yourself, with smart answer-checking (umlaut/ß tolerant).
-- **🧩 Sentence builder** — tap word tiles into the correct German word order.
-- **🖼️ Picture questions** — connect images to words.
-- **📘 Full grammar coverage** — articles (der/die/das), all four cases, adjective endings, prepositions, two-way prepositions, verb + case, present tense, modal verbs, Perfekt, Präteritum, separable verbs, Konjunktiv II, plurals, numbers.
-- **🎮 Duolingo-style game feel** — XP, hearts, daily goal ring, streaks, combos, sound effects, haptics and confetti.
-- **📈 Progress tracking** — levels, weekly XP chart, per-skill mastery, a 4-week activity heatmap, and an achievements wall.
-- **💾 Saves on your device** — progress persists locally; nothing leaves your phone.
-- **📴 Fully offline** — after the first load, it runs with no internet.
+- **🗺️ Structured course (A1 → B2)** — 12 themed units × 5 lessons on a Duolingo-style path with locks, star ratings and a boss lesson per unit.
+- **📊 Pick your level** — choose A1–B2 and every practice session adapts its question mix.
+- **🔁 Mistake review** — wrong answers are saved automatically and replayed until you clear them.
+- **🎯 No repeats** — the question engine remembers what it asked and always serves fresh questions.
+- **🗓️ Daily quests & chest** — three rotating goals per day with a bonus-XP reward chest.
+- **📖 Built-in dictionary** — searchable word bank (nouns with articles & plurals, verbs with past forms, adjectives, phrases), each with audio.
+- **🎧 Listening** — hear real German (your device's voices): tap what you hear, type it, or rebuild the sentence from tiles.
+- **🔗 Match pairs, ⌨️ typing, 🧩 sentence builder, 🖼️ pictures, ✅ true/false** — many distinct exercise types.
+- **📘 Full grammar coverage** — articles, all four cases, adjective endings, prepositions (incl. two-way), verb + case, present tense, modal verbs, Perfekt, Präteritum, separable verbs, Konjunktiv II, plurals, numbers.
+- **🎮 Game feel** — XP, hearts, daily goal ring, streaks, combos, sound effects, haptics, confetti and an achievements wall.
+- **⚙️ Settings** — toggle sound and speech; reset progress anytime.
+- **💾 Private & offline** — progress saves on your device only; after the first load it runs with no internet.
 
 ## 📱 Screenshots
 
 <div align="center">
-<img src="docs/screen-home.png" width="200" alt="Home" />
+<img src="docs/screen-home.png" width="200" alt="Home with daily quests" />
+&nbsp;
+<img src="docs/screen-course.png" width="200" alt="Course path" />
+&nbsp;
+<img src="docs/screen-practice.png" width="200" alt="Practice tab" />
+&nbsp;
+<img src="docs/screen-words.png" width="200" alt="Dictionary" />
 &nbsp;
 <img src="docs/screen-listening.png" width="200" alt="Listening question" />
 &nbsp;
