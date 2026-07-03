@@ -630,6 +630,7 @@
   <div class="toast" id="toast"></div>
 </div>
 
+<script src="vocab.js"></script>
 <script>
 /* ============================================================
    DATA
@@ -1215,6 +1216,21 @@ PHRASES.push(
  {de:'Ich lerne seit einem Jahr Deutsch',en:'I have been learning German for a year'},
  {de:'Ich bin morgen beschäftigt',en:'I am busy tomorrow'}
 );
+
+/* ---------- v7: merge the extended vocabulary pack (vocab.js) with dedup ---------- */
+if(window.EXTRA_VOCAB){
+  const V=window.EXTRA_VOCAB;
+  const sN=new Set(NOUNS.map(n=>n.de));
+  (V.nouns||[]).forEach(n=>{if(n&&n.de&&!sN.has(n.de)){sN.add(n.de);NOUNS.push(n);}});
+  const sV=new Set(VERBS.map(v=>v.inf));
+  (V.verbs||[]).forEach(v=>{if(v&&v.inf&&!sV.has(v.inf)){sV.add(v.inf);VERBS.push(v);}});
+  const sA=new Set(ADJ.map(a=>a.de));
+  (V.adjs||[]).forEach(a=>{if(a&&a.de&&!sA.has(a.de)){sA.add(a.de);ADJ.push(a);}});
+  const sP=new Set(PHRASES.map(p=>p.de));
+  (V.phrases||[]).forEach(p=>{if(p&&p.de&&!sP.has(p.de)){sP.add(p.de);PHRASES.push(p);}});
+  Object.keys(V.imgs||{}).forEach(k=>{if(!NOUN_IMG[k])NOUN_IMG[k]=V.imgs[k];});
+  (V.pics||[]).forEach(p=>{if(!PIC.includes(p)&&NOUN_IMG[p]&&sN.has(p))PIC.push(p);});
+}
 
 /* ---------- v4: structured course (A1 → B2) ---------- */
 const LPU=5; // lessons per unit

@@ -24,7 +24,7 @@ Grammar, vocabulary, listening and more, in a fast Duolingo-style app that insta
 - **🔁 Mistake review** — wrong answers are saved automatically and replayed until you clear them.
 - **🎯 No repeats** — the question engine remembers what it asked and always serves fresh questions.
 - **🗓️ Daily quests & chest** — three rotating goals per day with a bonus-XP reward chest.
-- **📖 Built-in dictionary** — searchable word bank (nouns with articles & plurals, verbs with past forms, adjectives, phrases), each with audio.
+- **📖 Massive built-in dictionary** — 1000+ nouns with articles & plurals, 250+ verbs with past forms, 130 adjectives and 100+ phrases, all searchable and each with audio.
 - **🎧 Listening** — hear real German (your device's voices): tap what you hear, type it, or rebuild the sentence from tiles.
 - **🔊 Read-aloud & voices** — questions, words and sentences are read to you in German; mute anytime from the lesson bar, and pick between 4 voices (2 female, 2 male) in Settings.
 - **🔗 Match pairs, ⌨️ typing, 🧩 sentence builder, 🖼️ pictures, ✅ true/false** — many distinct exercise types.
