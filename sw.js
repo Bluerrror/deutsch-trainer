@@ -1,5 +1,5 @@
 /* Deutsch Trainer service worker — offline caching */
-const CACHE = 'deutsch-trainer-v7';
+const CACHE = 'deutsch-trainer-v8';
 const ASSETS = [
   './',
   './index.html',

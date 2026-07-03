@@ -1364,19 +1364,41 @@ function pickVoice(){if(!hasSpeech)return;const all=speechSynthesis.getVoices()|
  if(m[0])VOICE_PRESETS[2].pitch=1.0;
  if(m[1])VOICE_PRESETS[3].pitch=0.95;
  deVoice=any;}
+let SPEAK_SEQ=0;
 function speak(text,onEl){if(!hasSpeech||!text)return;if(DB.settings&&DB.settings.speech===false)return;
- try{
-  const synth=speechSynthesis;
-  try{synth.resume();}catch(e){} // iOS PWAs can wedge in a paused state
-  synth.cancel();
-  const u=new SpeechSynthesisUtterance(text);
-  const p=VOICE_PRESETS[(DB.settings&&DB.settings.voice)||0]||VOICE_PRESETS[0];
-  u.lang='de-DE';if(p.voice)u.voice=p.voice;else if(deVoice)u.voice=deVoice;
-  u.rate=p.rate;u.pitch=p.pitch;
-  // speaking in the same tick as cancel() silently drops the utterance on iOS/Chrome
-  setTimeout(()=>{try{synth.resume();synth.speak(u);}catch(e){}},60);
-  if(onEl){onEl.classList.remove('pulse');void onEl.offsetWidth;onEl.classList.add('pulse');}
- }catch(e){}}
+ const my=++SPEAK_SEQ;           // newer calls supersede older ones
+ const synth=speechSynthesis;
+ try{synth.cancel();}catch(e){}
+ const p=VOICE_PRESETS[(DB.settings&&DB.settings.voice)||0]||VOICE_PRESETS[0];
+ const mkU=()=>{const u=new SpeechSynthesisUtterance(text);
+   let v=p.voice||deVoice;
+   if(v){ // stale voice objects silently fail — re-resolve from the live list
+     try{const fresh=(synth.getVoices()||[]).find(x=>x.name===v.name&&x.lang===v.lang);if(fresh)v=fresh;}catch(e){}
+     u.voice=v;}
+   u.lang='de-DE';u.rate=p.rate;u.pitch=p.pitch;return u;};
+ let waited=0,started=false;
+ const attempt=()=>{
+   if(my!==SPEAK_SEQ)return;
+   // after cancel() the engine can stay "busy" for a while on iOS/Chrome —
+   // speaking into a busy engine is silently dropped, so wait until it is free
+   if((synth.speaking||synth.pending)&&waited<1600){waited+=80;setTimeout(attempt,80);return;}
+   if(synth.speaking||synth.pending){try{synth.cancel();}catch(e){}}
+   try{synth.resume();}catch(e){}   // iOS PWAs can wedge in a paused state
+   const u=mkU();u.onstart=()=>{started=true;};
+   try{synth.speak(u);}catch(e){}
+   // watchdog: if the utterance never started, force-reset the engine and retry once
+   setTimeout(()=>{
+     if(my!==SPEAK_SEQ||started)return;
+     try{synth.cancel();}catch(e){}
+     setTimeout(()=>{
+       if(my!==SPEAK_SEQ||started)return;
+       const u2=mkU();u2.onstart=()=>{started=true;};
+       try{synth.resume();synth.speak(u2);}catch(e){}
+     },260);
+   },1300);
+ };
+ setTimeout(attempt,90);
+ if(onEl){onEl.classList.remove('pulse');void onEl.offsetWidth;onEl.classList.add('pulse');}}
 /* the German text of the current question, if it has any to read */
 function qReadText(q){return q.read||(q.stem?q.stem.replace(/_+/g,' … ').replace(/[→·]/g,', '):null);}
 /* read the question aloud (unless muted) */
