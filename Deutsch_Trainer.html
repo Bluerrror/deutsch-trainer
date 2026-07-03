@@ -575,7 +575,8 @@
       <div class="setrow"><b>Sound effects</b><button class="tog" id="togSound" aria-label="Toggle sound"></button></div>
       <div class="setrow"><b>Speech &amp; listening audio</b><button class="tog" id="togSpeech" aria-label="Toggle speech"></button></div>
       <div class="setrow"><b>Read questions aloud</b><button class="tog" id="togRead" aria-label="Toggle read-aloud"></button></div>
-      <div class="setrow" style="flex-wrap:wrap"><b style="flex-basis:100%;margin-bottom:9px">Voice</b><div class="wchips" style="margin:0" id="voiceChips"></div></div>
+      <div class="setrow" style="flex-wrap:wrap"><b style="flex-basis:100%;margin-bottom:9px">Voice</b><div class="wchips" style="margin:0" id="voiceChips"></div>
+      <div class="savenote" id="voiceHint" style="text-align:left;margin-top:10px;flex-basis:100%"></div></div>
       <button class="dangerbtn" id="resetBtn">Reset all progress</button>
     </div>
     <div style="height:8px"></div>
@@ -1347,10 +1348,13 @@ const VOICE_PRESETS=[
  {label:'Max',icon:'👨',pitch:0.85,rate:0.88,voice:null},
  {label:'Karl',icon:'👨',pitch:0.68,rate:0.83,voice:null}
 ];
+const VOICE_FEM=/anna|petra|helena|marlene|vicki|katja|gisela|steffi|hedda|katrin|julia|ingrid|edda|female|frau/i;
+const VOICE_MAL=/markus|yannick|viktor|martin|stefan|hans|conrad|daniel|klaus|ralf|jonas|kevin|male|mann/i;
+let DE_VOICES=[];
 function pickVoice(){if(!hasSpeech)return;const all=speechSynthesis.getVoices()||[];
  const vs=all.filter(v=>/^de([-_]|$)/i.test(v.lang));
- const FEM=/anna|petra|helena|marlene|vicki|katja|gisela|steffi|hedda|katrin|julia|ingrid|edda|female|frau/i;
- const MAL=/markus|yannick|viktor|martin|stefan|hans|conrad|daniel|klaus|ralf|jonas|kevin|male|mann/i;
+ DE_VOICES=vs;
+ const FEM=VOICE_FEM,MAL=VOICE_MAL;
  const f=vs.filter(v=>FEM.test(v.name)),m=vs.filter(v=>MAL.test(v.name));
  const rest=vs.filter(v=>!f.includes(v)&&!m.includes(v));
  const any=vs[0]||all.find(v=>/german|deutsch/i.test(v.name))||null;
@@ -1364,17 +1368,35 @@ function pickVoice(){if(!hasSpeech)return;const all=speechSynthesis.getVoices()|
  if(m[0])VOICE_PRESETS[2].pitch=1.0;
  if(m[1])VOICE_PRESETS[3].pitch=0.95;
  deVoice=any;}
+/* the voice options offered to the user: the device's real German voices when it
+   has several; otherwise the 4 pitch-shaped presets (pitch is ignored on iOS,
+   so with a single installed voice they can sound identical — hence the hint). */
+function voiceChoices(){
+  if(DE_VOICES.length>=2){
+    return DE_VOICES.slice(0,8).map(v=>({
+      id:'v:'+v.name,
+      label:v.name.replace(/\s*\(.*?\)\s*/g,'').replace(/^(Google|Microsoft)\s+/i,'').slice(0,14),
+      icon:VOICE_FEM.test(v.name)?'👩':VOICE_MAL.test(v.name)?'👨':'🎙️',
+      voice:v,pitch:1,rate:0.9}));
+  }
+  return VOICE_PRESETS.map((p,i)=>({id:'p:'+i,label:p.label,icon:p.icon,voice:p.voice,pitch:p.pitch,rate:p.rate}));
+}
+function currentVoiceChoice(){
+  const cs=voiceChoices();
+  const id=DB.settings&&DB.settings.voiceId;
+  return cs.find(c=>c.id===id)||cs[(DB.settings&&DB.settings.voice)||0]||cs[0];
+}
 let SPEAK_SEQ=0;
 function speak(text,onEl){if(!hasSpeech||!text)return;if(DB.settings&&DB.settings.speech===false)return;
  const my=++SPEAK_SEQ;           // newer calls supersede older ones
  const synth=speechSynthesis;
  try{synth.cancel();}catch(e){}
- const p=VOICE_PRESETS[(DB.settings&&DB.settings.voice)||0]||VOICE_PRESETS[0];
+ const p=currentVoiceChoice()||VOICE_PRESETS[0];
  const mkU=()=>{const u=new SpeechSynthesisUtterance(text);
    let v=p.voice||deVoice;
    if(v){ // stale voice objects silently fail — re-resolve from the live list
      try{const fresh=(synth.getVoices()||[]).find(x=>x.name===v.name&&x.lang===v.lang);if(fresh)v=fresh;}catch(e){}
-     u.voice=v;}
+     try{u.voice=v;}catch(e){}}
    u.lang='de-DE';u.rate=p.rate;u.pitch=p.pitch;return u;};
  let waited=0,started=false;
  const attempt=()=>{
@@ -1572,13 +1594,19 @@ function renderSettings(){
   $('togSound').classList.toggle('on',DB.settings.sound!==false);
   $('togSpeech').classList.toggle('on',DB.settings.speech!==false);
   $('togRead').classList.toggle('on',DB.settings.autoRead!==false);
-  const cur=DB.settings.voice||0;
-  $('voiceChips').innerHTML=VOICE_PRESETS.map((p,i)=>
-    `<button class="wchip ${cur===i?'on':''}" data-v="${i}">${p.icon} ${p.label}</button>`).join('');
+  const cs=voiceChoices();const curId=currentVoiceChoice().id;
+  $('voiceChips').innerHTML=cs.map(c=>
+    `<button class="wchip ${c.id===curId?'on':''}" data-v="${c.id}">${c.icon} ${c.label}</button>`).join('');
   $('voiceChips').querySelectorAll('.wchip').forEach(b=>b.onclick=()=>{
-    DB.settings.voice=+b.dataset.v;Store.save(DB);renderSettings();
-    speak('Hallo! Ich bin '+VOICE_PRESETS[DB.settings.voice].label+'. Lass uns Deutsch lernen!');
+    DB.settings.voiceId=b.dataset.v;Store.save(DB);renderSettings();
+    const c=currentVoiceChoice();
+    speak('Hallo! Ich bin '+c.label+'. Lass uns Deutsch lernen!');
   });
+  const hint=$('voiceHint');
+  if(hint){
+    if(DE_VOICES.length>=2)hint.textContent='These are the German voices installed on your device.';
+    else hint.innerHTML='⚠️ Your device has only <b>one German voice</b>, so the four options may sound alike (iPhones ignore pitch). To get real different voices — including male ones — install more in <b>Settings → Accessibility → Spoken Content → Voices → German</b> (e.g. Helena, Markus, Viktor, Petra), then restart the app.';
+  }
 }
 $('togSound').onclick=()=>{DB.settings.sound=DB.settings.sound===false;Store.save(DB);renderSettings();if(DB.settings.sound)sfxCorrect();};
 $('togSpeech').onclick=()=>{DB.settings.speech=DB.settings.speech===false;Store.save(DB);renderSettings();if(DB.settings.speech)speak('Hallo!');};
@@ -1891,7 +1919,9 @@ document.addEventListener('keydown',e=>{
     nc[(u>=8?u+2:u)+'_'+p[1]]=DB.course[k];});DB.course=nc;DB.courseV=2;Store.save(DB);}
   SEEN=new Set(DB.recentQ);
   // speech voices load asynchronously on iOS/Safari
-  if(hasSpeech){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+  if(hasSpeech){pickVoice();speechSynthesis.onvoiceschanged=()=>{pickVoice();
+    // refresh the voice picker if the user is looking at Settings when voices arrive
+    try{if(!el.stats.classList.contains('hidden'))renderSettings();}catch(e){}};}
   // unlock audio + speech on the first user tap (required by iOS).
   // NOTE: iOS ignores empty utterances — a silent space is needed to count as activation.
   const unlock=()=>{ac();if(hasSpeech){try{speechSynthesis.resume();
