@@ -61,6 +61,16 @@ Grammar, vocabulary, listening and more, in a fast Duolingo-style app that insta
 
 You'll get a **"D" icon** on your home screen that opens **fullscreen** and **works offline**. On Android/Chrome, use the **⋮ menu → Install app**.
 
+## 🤖 Install on Android
+
+Download the ready-made app: **[deutsch-trainer.apk](https://github.com/Bluerrror/deutsch-trainer/releases/latest/download/deutsch-trainer.apk)** (from the [Releases](https://github.com/Bluerrror/deutsch-trainer/releases) page).
+
+1. Open the downloaded file on your phone.
+2. If asked, allow installing from this source.
+3. Launch **Deutsch Trainer** from your app drawer — fullscreen, offline-capable (requires Chrome installed).
+
+Alternatively, open the web app in Chrome and use **⋮ → Install app**.
+
 ## 🧠 Question types
 
 | Type | What you do |
