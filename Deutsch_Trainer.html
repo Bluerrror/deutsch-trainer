@@ -377,6 +377,8 @@
   .rstars{font-size:38px;letter-spacing:8px;margin:0 0 10px;min-height:46px;}
   .rstars .dim{filter:grayscale(1);opacity:.3;}
 
+  .wen,.subword,.sheet .ans{unicode-bidi:plain-text;}
+
   /* level selector */
   .levselect{display:flex;align-items:center;gap:7px;margin-top:14px;flex-wrap:wrap;}
   .levselect .lab{font-size:12px;font-weight:800;color:#8189ad;margin-right:2px;letter-spacing:.4px;}
@@ -621,7 +623,7 @@
   <!-- ============ WORDS / DICTIONARY ============ -->
   <div class="words scroll hidden" id="words">
     <h2 class="page">Dictionary</h2>
-    <div class="searchbox">🔍<input id="wsearch" type="text" placeholder="Search German or English…" autocomplete="off"></div>
+    <div class="searchbox">🔍<input id="wsearch" type="text" placeholder="Search…" autocomplete="off"></div>
     <div class="wchips" id="wchips"></div>
     <div class="wlist" id="wlist"></div>
     <div style="height:10px"></div>
@@ -674,6 +676,7 @@
       <div class="setrow"><b>Sound effects</b><button class="tog" id="togSound" aria-label="Toggle sound"></button></div>
       <div class="setrow"><b>Speech &amp; listening audio</b><button class="tog" id="togSpeech" aria-label="Toggle speech"></button></div>
       <div class="setrow"><b>Read questions aloud</b><button class="tog" id="togRead" aria-label="Toggle read-aloud"></button></div>
+      <div class="setrow" style="flex-wrap:wrap"><b style="flex-basis:100%;margin-bottom:9px">Translation language</b><div class="wchips" style="margin:0" id="xlangChips"></div></div>
       <div class="setrow" style="flex-wrap:wrap"><b style="flex-basis:100%;margin-bottom:9px">Voice</b><div class="wchips" style="margin:0" id="voiceChips"></div>
       <div class="savenote" id="voiceHint" style="text-align:left;margin-top:10px;flex-basis:100%"></div></div>
       <button class="dangerbtn" id="resetBtn">Reset all progress</button>
@@ -731,6 +734,7 @@
 </div>
 
 <script src="vocab.js"></script>
+<script src="fa.js"></script>
 <script>
 /* ============================================================
    DATA
@@ -894,7 +898,7 @@ function numDE(n){
    QUESTION GENERATORS
    ============================================================ */
 function gGender(){const n=R(NOUNS);const a=ARTWORD[n.g];
- return {tag:'Gender',prompt:'Which article?',mode:'mc',img:NOUN_IMG[n.de],stem:`___ ${n.de}`,trans:`the ${n.en}`,answer:a,options:['der','die','das'],colorArt:true,
+ return {tag:'Gender',prompt:'Which article?',mode:'mc',img:NOUN_IMG[n.de],stem:`___ ${n.de}`,trans:trN(n),answer:a,options:['der','die','das'],colorArt:true,
   explain:`${NOUN_IMG[n.de]?NOUN_IMG[n.de]+' ':''}“${n.de}” is ${GN[n.g]} → <b>${a} ${n.de}</b>. Learn every noun with its article.`};}
 function gCaseArticle(){const n=R(NOUNS.filter(x=>x.g!=='p'));const g=n.g;const c=R(['akk','akk','dat','dat','nom']);const a=ART.def[c][g];
  let s,ex,tr;
@@ -926,7 +930,7 @@ function gTwoWay(){const [p,pen]=R(PREP_2WAY);const n=R(NOUNS.filter(x=>x.g!=='p
  return {tag:`Two-way · ${motion?'wohin?':'wo?'}`,prompt:'Motion → Akk, location → Dat',mode:'mc',stem:s,trans:tr,answer:a,options:opts(a,pool),
   explain:`${motion?'Movement toward a goal (<b>wohin?</b>) → Akkusativ':'No movement (<b>wo?</b>) → Dativ'} → ${p} ${a} ${n.de}.`};}
 function gConjPresent(){const v=R(VERBS);const f=presentForms(v);const [subj,sen]=R(SUBJECTS);const ans=f[subj];const pool=[f.ich,f.du,f.er,f.wir,f.ihr,v.inf];
- return {tag:'Present tense',prompt:`Conjugate: ${v.inf} (${v.en})`,mode:'mc',stem:`${cap(subj)} ___ .`,trans:`${cap(sen)} ${v.en.replace('to ','')}.`,answer:ans,options:opts(ans,pool),
+ return {tag:'Present tense',prompt:`Conjugate: ${v.inf} (${trV(v)})`,mode:'mc',stem:`${cap(subj)} ___ .`,trans:`${cap(sen)} ${v.en.replace('to ','')}.`,answer:ans,options:opts(ans,pool),
   explain:`${subj} → <b>${ans}</b>. ${v.du?'Note the stem-vowel change in du/er forms.':''}`};}
 function gModal(){const mk=R(Object.keys(MODALS));const m=MODALS[mk];const [subj,sen]=R(SUBJECTS);const ans=m[subj];const pool=[m.ich,m.du,m.er,m.wir,m.ihr];
  return {tag:'Modal verb',prompt:`${mk} (${m.en}) — conjugate`,mode:'mc',stem:`${cap(subj)} ___ Deutsch lernen.`,trans:`${cap(sen)} ${m.en} learn German.`,answer:ans,options:opts(ans,pool),
@@ -945,16 +949,16 @@ function gPlural(){const n=R(NOUNS.filter(x=>x.pl));const wrong=[n.de+'s',n.de+'
  return {tag:'Plural',prompt:`Plural of “${ARTWORD[n.g]} ${n.de}”`,mode:'mc',img:NOUN_IMG[n.de],stem:`ein ${n.de} → viele ___`,trans:`one ${n.en} → many`,answer:n.pl,options:opts(n.pl,wrong),
   explain:`die <b>${n.pl}</b>. German has five plural patterns — memorise each plural with its noun.`};}
 function gTransDeEn(){const kind=R(['noun','verb','adj']);
- if(kind==='noun'){const n=R(NOUNS);return {tag:'Vocabulary',prompt:'What does this mean?',mode:'mc',big:`${ARTWORD[n.g]} ${n.de}`,bigClass:ARTWORD[n.g],read:`${ARTWORD[n.g]} ${n.de}`,answer:n.en,options:opts(n.en,shuffle(NOUNS).slice(0,8).map(x=>x.en)),trans:'',explain:`${NOUN_IMG[n.de]?NOUN_IMG[n.de]+' ':''}<b>${ARTWORD[n.g]} ${n.de}</b> = ${n.en}.`};}
- if(kind==='verb'){const v=R(VERBS);return {tag:'Vocabulary',prompt:'What does this verb mean?',mode:'mc',big:v.inf,read:v.inf,answer:v.en,options:opts(v.en,shuffle(VERBS).slice(0,8).map(x=>x.en)),trans:'',explain:`<b>${v.inf}</b> = ${v.en}.`};}
- const a=R(ADJ);return {tag:'Vocabulary',prompt:'What does this word mean?',mode:'mc',img:ADJ_IMG[a.de],big:a.de,read:a.de,answer:a.en,options:opts(a.en,shuffle(ADJ).slice(0,8).map(x=>x.en)),trans:'',explain:`${ADJ_IMG[a.de]?ADJ_IMG[a.de]+' ':''}<b>${a.de}</b> = ${a.en}.`};}
-function gTransEnDe(){const n=R(NOUNS);return {tag:'Vocabulary',prompt:'Say it in German (with article)',mode:'mc',img:NOUN_IMG[n.de],big:n.en,answer:`${ARTWORD[n.g]} ${n.de}`,colorArt:true,options:opts(`${ARTWORD[n.g]} ${n.de}`,shuffle(NOUNS).slice(0,8).map(x=>`${ARTWORD[x.g]} ${x.de}`)),trans:'',explain:`${NOUN_IMG[n.de]?NOUN_IMG[n.de]+' ':''}${n.en} = <b>${ARTWORD[n.g]} ${n.de}</b>.`};}
-function gOpposite(){const a=R(ADJ.filter(x=>x.opp));return {tag:'Opposites',prompt:`Opposite of “${a.de}” (${a.en})`,mode:'mc',img:ADJ_IMG[a.de],big:a.de,read:a.de,answer:a.opp,options:opts(a.opp,shuffle(ADJ).slice(0,10).map(x=>x.de)),trans:'',explain:`Opposite of <b>${a.de}</b> is <b>${a.opp}</b>${ADJ_IMG[a.opp]?' '+ADJ_IMG[a.opp]:''}.`};}
+ if(kind==='noun'){const n=R(NOUNS);return {tag:'Vocabulary',prompt:'What does this mean?',mode:'mc',big:`${ARTWORD[n.g]} ${n.de}`,bigClass:ARTWORD[n.g],read:`${ARTWORD[n.g]} ${n.de}`,answer:trN(n),options:opts(trN(n),shuffle(NOUNS).slice(0,8).map(x=>trN(x))),trans:'',explain:`${NOUN_IMG[n.de]?NOUN_IMG[n.de]+' ':''}<b>${ARTWORD[n.g]} ${n.de}</b> = ${trN(n)}.`};}
+ if(kind==='verb'){const v=R(VERBS);return {tag:'Vocabulary',prompt:'What does this verb mean?',mode:'mc',big:v.inf,read:v.inf,answer:trV(v),options:opts(trV(v),shuffle(VERBS).slice(0,8).map(x=>trV(x))),trans:'',explain:`<b>${v.inf}</b> = ${trV(v)}.`};}
+ const a=R(ADJ);return {tag:'Vocabulary',prompt:'What does this word mean?',mode:'mc',img:ADJ_IMG[a.de],big:a.de,read:a.de,answer:trA(a),options:opts(trA(a),shuffle(ADJ).slice(0,8).map(x=>trA(x))),trans:'',explain:`${ADJ_IMG[a.de]?ADJ_IMG[a.de]+' ':''}<b>${a.de}</b> = ${trA(a)}.`};}
+function gTransEnDe(){const n=R(NOUNS);return {tag:'Vocabulary',prompt:'Say it in German (with article)',mode:'mc',img:NOUN_IMG[n.de],big:trN(n),answer:`${ARTWORD[n.g]} ${n.de}`,colorArt:true,options:opts(`${ARTWORD[n.g]} ${n.de}`,shuffle(NOUNS).slice(0,8).map(x=>`${ARTWORD[x.g]} ${x.de}`)),trans:'',explain:`${NOUN_IMG[n.de]?NOUN_IMG[n.de]+' ':''}${trN(n)} = <b>${ARTWORD[n.g]} ${n.de}</b>.`};}
+function gOpposite(){const a=R(ADJ.filter(x=>x.opp));return {tag:'Opposites',prompt:`Opposite of “${a.de}” (${trA(a)})`,mode:'mc',img:ADJ_IMG[a.de],big:a.de,read:a.de,answer:a.opp,options:opts(a.opp,shuffle(ADJ).slice(0,10).map(x=>x.de)),trans:'',explain:`Opposite of <b>${a.de}</b> is <b>${a.opp}</b>${ADJ_IMG[a.opp]?' '+ADJ_IMG[a.opp]:''}.`};}
 function gPicture(){const pics=NOUNS.filter(n=>PIC.includes(n.de)&&NOUN_IMG[n.de]);const n=R(pics);
  const distract=shuffle(pics.filter(x=>x.de!==n.de)).slice(0,3);
  const answer=`${ARTWORD[n.g]} ${n.de}`;const options=shuffle([answer,...distract.map(x=>`${ARTWORD[x.g]} ${x.de}`)]);
- return {tag:'Picture',prompt:'Which word matches the picture?',mode:'mc',img:NOUN_IMG[n.de],bigImg:true,answer,options,colorArt:true,trans:n.en,
-  explain:`${NOUN_IMG[n.de]} <b>${answer}</b> = ${n.en}.`};}
+ return {tag:'Picture',prompt:'Which word matches the picture?',mode:'mc',img:NOUN_IMG[n.de],bigImg:true,answer,options,colorArt:true,trans:trN(n),
+  explain:`${NOUN_IMG[n.de]} <b>${answer}</b> = ${trN(n)}.`};}
 function gVerbPrep(){const vp=R(VERBPREP);return {tag:'Verb + preposition',prompt:`Which preposition goes with “${vp.v}”?`,mode:'mc',stem:`${cap(vp.v)} ___ …`,trans:vp.en,answer:vp.p,options:opts(vp.p,['auf','an','für','um','mit','von','nach','zu','über','aus','bei']),
   explain:`<b>${vp.v} ${vp.p}</b> (+ ${vp.c==='akk'?'Akkusativ':'Dativ'}) = ${vp.en}.`};}
 function gSep(){const v=R(SEPV);return {tag:'Separable verb',prompt:`Where does the prefix go? (${v.inf})`,mode:'mc',stem:`Ich ${v.ich} um 7 Uhr ___ .`,trans:`${v.en} at 7.`,answer:v.pre,options:opts(v.pre,['auf','an','aus','ein','mit','ab','vor']),
@@ -977,7 +981,7 @@ const SENTENCES=[
  {w:['Ich','bleibe','zu','Hause,','weil','ich','krank','bin'],a:'Ich bleibe zu Hause, weil ich krank bin',en:'I stay home because I am sick'},
  {w:['Möchtest','du','einen','Tee'],a:'Möchtest du einen Tee',en:'Would you like a tea?'}
 ];
-function gBuild(){const s=R(SENTENCES);return {tag:'Build the sentence',prompt:'Tap the words in the right order',mode:'build',words:shuffle(s.w),answer:s.a,alts:s.alts||[],trans:s.en,explain:`Correct order: <b>${s.a}</b>.`};}
+function gBuild(){const s=R(SENTENCES);return {tag:'Build the sentence',prompt:'Tap the words in the right order',mode:'build',words:shuffle(s.w),answer:s.a,alts:s.alts||[],trans:trS(s),explain:`Correct order: <b>${s.a}</b>.`};}
 function gKonjunktiv(){const items=[
   {s:'Wenn ich reich ___, würde ich reisen.',a:'wäre',o:['wäre','war','bin','gewesen'],ex:'Konjunktiv II of sein → <b>wäre</b> (unreal condition).',tr:'If I were rich, I would travel.'},
   {s:'Ich ___ gern einen Kaffee.',a:'hätte',o:['hätte','habe','hatte','haben'],ex:'Polite wish → <b>ich hätte gern</b> (K II of haben).',tr:'I would like a coffee.'},
@@ -1003,28 +1007,28 @@ const hasSpeech = typeof window!=='undefined' && 'speechSynthesis' in window;
 /* ---------- v2: new question generators ---------- */
 function gListenWord(){const n=R(NOUNS);const ans=n.de;
  return {tag:'Listening',prompt:'Tap what you hear',mode:'mc',speak:n.de,autoSpeak:true,options:opts(ans,shuffle(NOUNS).map(x=>x.de)),answer:ans,
-  trans:`${ARTWORD[n.g]} ${n.de} — ${n.en}`,sayAnswer:n.de,
-  explain:`🔊 <b>${ARTWORD[n.g]} ${n.de}</b> = ${n.en}.`};}
-function gListenPhrase(){const p=R(PHRASES);const ans=p.en;
- return {tag:'Listening',prompt:'What did you hear?',mode:'mc',speak:p.de,autoSpeak:true,options:opts(ans,shuffle(PHRASES).map(x=>x.en)),answer:ans,
-  trans:p.de,sayAnswer:p.de,explain:`🔊 <b>${p.de}</b> = ${p.en}.`};}
+  trans:`${ARTWORD[n.g]} ${n.de} — ${trN(n)}`,sayAnswer:n.de,
+  explain:`🔊 <b>${ARTWORD[n.g]} ${n.de}</b> = ${trN(n)}.`};}
+function gListenPhrase(){const p=R(PHRASES);const ans=trP(p);
+ return {tag:'Listening',prompt:'What did you hear?',mode:'mc',speak:p.de,autoSpeak:true,options:opts(ans,shuffle(PHRASES).map(x=>trP(x))),answer:ans,
+  trans:p.de,sayAnswer:p.de,explain:`🔊 <b>${p.de}</b> = ${trP(p)}.`};}
 function gTypeNoun(){const n=R(NOUNS);
- return {tag:'Type it',prompt:'Type the German word (no article)',mode:'type',img:NOUN_IMG[n.de],big:n.en,answer:n.de,accept:[n.de],
-  trans:`${ARTWORD[n.g]} ${n.de}`,sayAnswer:n.de,explain:`${n.en} = <b>${ARTWORD[n.g]} ${n.de}</b>.`};}
+ return {tag:'Type it',prompt:'Type the German word (no article)',mode:'type',img:NOUN_IMG[n.de],big:trN(n),answer:n.de,accept:[n.de],
+  trans:`${ARTWORD[n.g]} ${n.de}`,sayAnswer:n.de,explain:`${trN(n)} = <b>${ARTWORD[n.g]} ${n.de}</b>.`};}
 function gTypeVerb(){const v=R(VERBS);
- return {tag:'Type it',prompt:'Type the German infinitive',mode:'type',big:v.en,answer:v.inf,accept:[v.inf],
-  sayAnswer:v.inf,explain:`${v.en} = <b>${v.inf}</b>.`};}
+ return {tag:'Type it',prompt:'Type the German infinitive',mode:'type',big:trV(v),answer:v.inf,accept:[v.inf],
+  sayAnswer:v.inf,explain:`${trV(v)} = <b>${v.inf}</b>.`};}
 function gTypeListen(){const n=R(NOUNS);
  return {tag:'Listen & type',prompt:'Type the word you hear',mode:'type',speak:n.de,autoSpeak:true,big:'🎧',answer:n.de,accept:[n.de],
-  trans:`${ARTWORD[n.g]} ${n.de} — ${n.en}`,sayAnswer:n.de,explain:`🔊 <b>${ARTWORD[n.g]} ${n.de}</b> = ${n.en}.`};}
+  trans:`${ARTWORD[n.g]} ${n.de} — ${trN(n)}`,sayAnswer:n.de,explain:`🔊 <b>${ARTWORD[n.g]} ${n.de}</b> = ${trN(n)}.`};}
 function gMatch(){const set=shuffle(NOUNS.filter(n=>n.de.length<=9)).slice(0,5);
- return {tag:'Match pairs',prompt:'Match German ↔ English',mode:'match',pairs:set.map(n=>({de:n.de,en:n.en})),explain:'Nice — all pairs matched!'};}
+ return {tag:'Match pairs',prompt:'Match German ↔ English',mode:'match',pairs:set.map(n=>({de:n.de,en:trN(n)})),explain:'Nice — all pairs matched!'};}
 function gMatchVerb(){const set=shuffle(VERBS).slice(0,5);
- return {tag:'Match verbs',prompt:'Match verb ↔ meaning',mode:'match',pairs:set.map(v=>({de:v.inf,en:v.en.replace('to ','')})),explain:'Nice — all pairs matched!'};}
+ return {tag:'Match verbs',prompt:'Match verb ↔ meaning',mode:'match',pairs:set.map(v=>({de:v.inf,en:(XL()==='fa'?v.fa:v.en.replace('to ',''))})),explain:'Nice — all pairs matched!'};}
 function gTrueFalse(){const n=R(NOUNS);const truth=Math.random()<0.5;
- const shown=truth?n.en:R(NOUNS.filter(x=>x.en!==n.en)).en;const ans=truth?'Richtig':'Falsch';
+ const shown=truth?trN(n):trN(R(NOUNS.filter(x=>x.en!==n.en)));const ans=truth?'Richtig':'Falsch';
  return {tag:'True or false',prompt:'Is this translation correct?',mode:'mc',stem:`${ARTWORD[n.g]} ${n.de} = „${shown}“`,answer:ans,options:['Richtig','Falsch'],
-  sayAnswer:n.de,explain:`${ARTWORD[n.g]} ${n.de} = <b>${n.en}</b> → the statement is <b>${truth?'richtig ✓':'falsch ✕'}</b>.`};}
+  sayAnswer:n.de,explain:`${ARTWORD[n.g]} ${n.de} = <b>${trN(n)}</b> → the statement is <b>${truth?'richtig ✓':'falsch ✕'}</b>.`};}
 function gListenNumber(){const n=RI(0,99);const ans=numDE(n);
  return {tag:'Listen · numbers',prompt:'Which number did you hear?',mode:'mc',speak:ans,autoSpeak:true,big:'🔢',answer:String(n),
   options:opts(String(n),[String(n),String(RI(0,99)),String(RI(0,99)),String((n+1)%100),String((n+7)%100)]),sayAnswer:ans,
@@ -1111,14 +1115,14 @@ SENTENCES.push(
 
 /* ---------- v4: new question generators ---------- */
 function gTypeConj(){const v=R(VERBS);const f=presentForms(v);const s=R(SUBJECTS);const ans=f[s[0]];
- return {tag:'Conjugate & type',prompt:`Type the present form of “${v.inf}” (${v.en})`,mode:'type',stem:`${cap(s[0])} ___`,answer:ans,accept:[ans],
+ return {tag:'Conjugate & type',prompt:`Type the present form of “${v.inf}” (${trV(v)})`,mode:'type',stem:`${cap(s[0])} ___`,answer:ans,accept:[ans],
   sayAnswer:`${s[0]} ${ans}`,explain:`${s[0]} → <b>${ans}</b> (${v.inf}).${v.du?' Watch the stem-vowel change.':''}`};}
 function gPhraseTrans(){const p=R(PHRASES);
- if(Math.random()<0.5)return {tag:'Phrases',prompt:'What does this mean?',mode:'mc',big:p.de,read:p.de,answer:p.en,options:opts(p.en,shuffle(PHRASES).map(x=>x.en)),sayAnswer:p.de,trans:'',explain:`<b>${p.de}</b> = ${p.en}.`};
- return {tag:'Phrases',prompt:'Say it in German',mode:'mc',big:p.en,answer:p.de,options:opts(p.de,shuffle(PHRASES).map(x=>x.de)),sayAnswer:p.de,trans:'',explain:`${p.en} = <b>${p.de}</b>.`};}
+ if(Math.random()<0.5)return {tag:'Phrases',prompt:'What does this mean?',mode:'mc',big:p.de,read:p.de,answer:trP(p),options:opts(trP(p),shuffle(PHRASES).map(x=>trP(x))),sayAnswer:p.de,trans:'',explain:`<b>${p.de}</b> = ${trP(p)}.`};
+ return {tag:'Phrases',prompt:'Say it in German',mode:'mc',big:trP(p),answer:p.de,options:opts(p.de,shuffle(PHRASES).map(x=>x.de)),sayAnswer:p.de,trans:'',explain:`${trP(p)} = <b>${p.de}</b>.`};}
 function gBuildListen(){const cands=PHRASES.filter(x=>{const n=x.de.split(' ').length;return n>=3&&n<=6;});const p=R(cands);
  const wds=p.de.replace(/[?!.]/g,'').split(' ');
- return {tag:'Listen & build',prompt:'Tap what you hear, in order',mode:'build',speak:p.de,autoSpeak:true,words:shuffle(wds),answer:wds.join(' '),alts:[],trans:p.en,sayAnswer:p.de,explain:`🔊 <b>${p.de}</b> = ${p.en}.`};}
+ return {tag:'Listen & build',prompt:'Tap what you hear, in order',mode:'build',speak:p.de,autoSpeak:true,words:shuffle(wds),answer:wds.join(' '),alts:[],trans:trP(p),sayAnswer:p.de,explain:`🔊 <b>${p.de}</b> = ${trP(p)}.`};}
 
 /* ---------- v5: third content batch — family, food, body, city ---------- */
 NOUNS.push(
@@ -1331,6 +1335,22 @@ if(window.EXTRA_VOCAB){
   Object.keys(V.imgs||{}).forEach(k=>{if(!NOUN_IMG[k])NOUN_IMG[k]=V.imgs[k];});
   (V.pics||[]).forEach(p=>{if(!PIC.includes(p)&&NOUN_IMG[p]&&sN.has(p))PIC.push(p);});
 }
+/* Persian (فارسی) pack — keyed by the English glosses, so it maps 1:1 onto this data */
+if(window.FA){
+  const eb=t=>String(t||'').replace(/^to /,'').split(/[\/(]/)[0].trim().split(' ')[0];
+  NOUNS.forEach(n=>{n.fa=FA.n[n.en]||n.en;});
+  VERBS.forEach(v=>{v.fa=FA.v[eb(v.en)]||v.en;});
+  ADJ.forEach(a=>{a.fa=FA.a[a.en]||a.en;});
+  PHRASES.forEach(p=>{p.fa=FA.p[p.en]||p.en;});
+  SENTENCES.forEach(x=>{x.fa=FA.s[x.en]||'';});
+}
+/* translation-language layer: English (default) or Persian */
+function XL(){return (DB.settings&&DB.settings.xlang)||'en';}
+function trN(n){return XL()==='fa'?(n.fa||n.en):n.en;}
+function trV(v){return XL()==='fa'?(v.fa||v.en):v.en;}
+function trA(a){return XL()==='fa'?(a.fa||a.en):a.en;}
+function trP(p){return XL()==='fa'?(p.fa||p.en):p.en;}
+function trS(x){return XL()==='fa'?(x.fa||x.en):x.en;}
 
 /* ---------- v4: structured course (A1 → B2) ---------- */
 const LPU=5; // lessons per unit
@@ -1680,10 +1700,10 @@ function renderWords(){
   $('wchips').querySelectorAll('.wchip').forEach(b=>b.onclick=()=>{wcat=b.dataset.c;renderWords();});
   const q=norm($('wsearch').value||'');
   let items=[];
-  if(wcat==='Nouns')items=NOUNS.map(n=>({art:ARTWORD[n.g],word:n.de,en:n.en,sub:n.pl?'plural: die '+n.pl:'no plural',say:ARTWORD[n.g]+' '+n.de,img:NOUN_IMG[n.de]||''}));
-  if(wcat==='Verbs')items=VERBS.map(v=>({word:v.inf,en:v.en,sub:`Präteritum: ${v.pt} · Perfekt: ${v.aux==='sein'?'ist':'hat'} ${v.pp}`,say:v.inf,img:''}));
-  if(wcat==='Adjectives')items=ADJ.map(a=>({word:a.de,en:a.en,sub:a.opp?'opposite: '+a.opp:'',say:a.de,img:ADJ_IMG[a.de]||''}));
-  if(wcat==='Phrases')items=PHRASES.map(p=>({word:p.de,en:p.en,sub:'',say:p.de,img:''}));
+  if(wcat==='Nouns')items=NOUNS.map(n=>({art:ARTWORD[n.g],word:n.de,en:trN(n),sub:n.pl?'plural: die '+n.pl:'no plural',say:ARTWORD[n.g]+' '+n.de,img:NOUN_IMG[n.de]||''}));
+  if(wcat==='Verbs')items=VERBS.map(v=>({word:v.inf,en:trV(v),sub:`Präteritum: ${v.pt} · Perfekt: ${v.aux==='sein'?'ist':'hat'} ${v.pp}`,say:v.inf,img:''}));
+  if(wcat==='Adjectives')items=ADJ.map(a=>({word:a.de,en:trA(a),sub:a.opp?'opposite: '+a.opp:'',say:a.de,img:ADJ_IMG[a.de]||''}));
+  if(wcat==='Phrases')items=PHRASES.map(p=>({word:p.de,en:trP(p),sub:'',say:p.de,img:''}));
   if(q)items=items.filter(it=>norm(it.word).includes(q)||norm(it.en).includes(q));
   items.sort((a,b)=>a.word.localeCompare(b.word,'de'));
   $('wlist').innerHTML=items.map(it=>
@@ -1706,6 +1726,12 @@ function renderSettings(){
     const c=currentVoiceChoice();
     speak('Hallo! Ich bin '+c.label+'. Lass uns Deutsch lernen!');
   });
+  const xl=XL();
+  $('xlangChips').innerHTML=[['en','🇬🇧 English'],['fa','🇮🇷 فارسی']].map(([k,l])=>
+    `<button class="wchip ${xl===k?'on':''}" data-x="${k}">${l}</button>`).join('');
+  $('xlangChips').querySelectorAll('.wchip').forEach(b=>b.onclick=()=>{
+    DB.settings.xlang=b.dataset.x;Store.save(DB);renderSettings();
+    toast(b.dataset.x==='fa'?'ترجمه‌ها به فارسی نمایش داده می‌شوند':'Translations now shown in English');});
   const hint=$('voiceHint');
   if(hint){
     const n=DE_VOICES.length;
