@@ -1548,7 +1548,9 @@ function lastNDays(n){const arr=[];const d=new Date();for(let i=n-1;i>=0;i--){co
 function today(){return DB.history[todayKey()]||(DB.history[todayKey()]={xp:0,answered:0,correct:0,lessons:0,skillsDone:[]});}
 function computeDayStreak(){let s=0;for(let i=0;i<400;i++){const x=new Date();x.setDate(x.getDate()-i);const day=DB.history[dateKey(x)];const met=day&&day.xp>=DB.dailyGoalXP;if(met)s++;else if(i===0)continue;else break;}return s;}
 function totalAnswered(){let a=0,c=0;for(const k in DB.history){a+=DB.history[k].answered||0;c+=DB.history[k].correct||0;}return {a,c};}
-function weakestSkill(){const cand=['Cases','Adjectives','Verbs','Prepositions','Articles'];let best=null,bestAcc=200;cand.forEach(s=>{const st=DB.skillStats[s];if(st&&st.answered){const acc=100*st.correct/st.answered;if(acc<bestAcc){bestAcc=acc;best=s;}}});return best||'Cases';}
+function weakestSkill(){const sks=(typeof availableSkills==='function'?availableSkills():['Vocabulary']);
+  let best=null,lo=2;sks.forEach(sk=>{const m=DB.mastery&&DB.mastery[sk];if(m&&(m.n||0)>=3&&m.v<lo){lo=m.v;best=sk;}});
+  return best||sks.find(s=>s!=='Mixed'&&s!=='Beginner')||sks[0]||'Vocabulary';}
 
 function recordAnswer(skill,correct){
   const h=today();h.answered++;if(correct){h.correct++;h.xp+=10;DB.xp+=10;}
@@ -1927,8 +1929,10 @@ function pushMistake(q){
   DB.mistakes=DB.mistakes||[];
   const key=(q.stem||q.big||'')+'|'+q.answer;
   if(DB.mistakes.some(m=>((m.stem||m.big||'')+'|'+m.answer)===key))return;
-  DB.mistakes.push(JSON.parse(JSON.stringify(q)));
-  if(DB.mistakes.length>40)DB.mistakes.shift();
+  const item=JSON.parse(JSON.stringify(q));delete item._review;delete item._mkey;delete item._skill;
+  item._box=0;item._due=Date.now()+SR_INT[0]*60000;   // schedule its first spaced review
+  DB.mistakes.push(item);
+  if(DB.mistakes.length>60)DB.mistakes.shift();
   Store.save(DB);
 }
 function clearMistake(q){
@@ -2013,11 +2017,53 @@ el.card.addEventListener('click',e=>{
   const b=e.target.closest('#readNow');
   if(b&&S.q){const t=qReadText(S.q);if(t)speak(t,b);}
 });
+/* ---------- adaptive engine: learns your weak spots + spaced repetition ---------- */
+function skillMastery(sk){const m=DB.mastery&&DB.mastery[sk];return (m&&m.v!=null)?m.v:0.5;}
+function bumpMastery(sk,correct){
+  if(!sk||sk==='Mixed'||sk==='Mistakes')return;
+  DB.mastery=DB.mastery||{};
+  const m=DB.mastery[sk]||(DB.mastery[sk]={v:0.5,n:0});
+  m.v=Math.max(0,Math.min(1,m.v+0.25*((correct?1:0)-m.v)));  // EMA of recent correctness
+  m.n=(m.n||0)+1;
+}
+function availableSkills(){return Object.keys(GEN).filter(sk=>(GEN[sk]||[]).some(g=>(GLV.get(g)||1)<=(DB.level||5)));}
+function pickWeakSkill(){
+  const sks=availableSkills();if(!sks.length)return 'Vocabulary';
+  const w=sks.map(sk=>{const m=skillMastery(sk),n=(DB.mastery&&DB.mastery[sk]?DB.mastery[sk].n:0)||0;
+    return Math.pow(1-m,1.6)+0.15+(n<4?0.5:0);});   // weaker & unexplored skills weighted higher
+  const tot=w.reduce((a,b)=>a+b,0);let r=Math.random()*tot;
+  for(let i=0;i<sks.length;i++){r-=w[i];if(r<=0)return sks[i];}
+  return sks[sks.length-1];
+}
+const SR_INT=[1,10,60,360,1440,5760];  // Leitner box intervals, minutes
+function mistakeKey(q){return (q.stem||q.big||'')+'|'+q.answer;}
+function dueMistake(){
+  const now=Date.now();const ms=(DB.mistakes||[]).filter(m=>(m._due==null||m._due<=now));
+  if(!ms.length)return null;
+  ms.sort((a,b)=>(a._due||0)-(b._due||0));
+  const q=JSON.parse(JSON.stringify(ms[0]));q._review=true;q._mkey=mistakeKey(ms[0]);return q;
+}
+function reviewGraded(mkey,correct){
+  const i=(DB.mistakes||[]).findIndex(m=>mistakeKey(m)===mkey);if(i<0)return;
+  const m=DB.mistakes[i];
+  if(correct){m._box=Math.min(SR_INT.length-1,(m._box||0)+1);
+    if(m._box>=SR_INT.length-1){DB.mistakes.splice(i,1);DB.mistakesCleared=(DB.mistakesCleared||0)+1;}
+    else m._due=Date.now()+SR_INT[m._box]*60000;}
+  else{m._box=0;m._due=Date.now()+SR_INT[0]*60000;}
+  Store.save(DB);
+}
+function adaptiveMixed(){
+  const due=dueMistake();
+  if(due&&Math.random()<0.3)return due;           // resurface a weak item on schedule
+  const sk=pickWeakSkill();                         // else target a weak skill
+  let pool=byLevel(GEN[sk]||[]);if(!pool.length)pool=byLevel(ALLGEN);
+  const q=freshQuestion(pool);q._skill=sk;return q;
+}
 function localQuestion(){
   if(S.topic==='Mistakes')return S.queue[Math.min(S.i,S.queue.length-1)];
   if(S.course)return freshQuestion(COURSE[S.course.u].gens);
-  const pool=S.topic==='Mixed'?ALLGEN:GEN[S.topic];
-  return freshQuestion(byLevel(pool));
+  if(S.topic==='Mixed')return adaptiveMixed();
+  return freshQuestion(byLevel(GEN[S.topic]||ALLGEN));
 }
 
 function renderQuestion(){
@@ -2129,11 +2175,14 @@ function grade(correct,userAns){
     if(S.streak>=3)flashCombo('🔥 '+S.streak+' in a row!');
     if(S.topic==='Mistakes')clearMistake(q);}
   else{S.streak=0;S.hearts=Math.max(0,S.hearts-1);el.heartN.textContent=S.hearts;
-    sfxWrong();haptic(false);pushMistake(q);
+    sfxWrong();haptic(false);if(!q._review)pushMistake(q);
     const hz=document.querySelector('.hearts');
     if(hz){hz.classList.remove('hshake');void hz.offsetWidth;hz.classList.add('hshake');}
     if(S.hearts===0)setTimeout(()=>{S.hearts=5;el.heartN.textContent=5;},700);}
-  recordAnswer(recSkill(),correct);
+  const sk=q._skill||recSkill();
+  recordAnswer(sk,correct);
+  bumpMastery(sk,correct);
+  if(q._review)reviewGraded(q._mkey,correct);
   S.i++;
   showSheet(correct,q,userAns);
 }
@@ -2203,7 +2252,7 @@ document.addEventListener('keydown',e=>{
   DB=Object.assign({xp:0,bestStreak:0,dailyGoalXP:30,level:1,history:{},skillStats:{},course:{},mistakes:[],recentQ:[],mistakesCleared:0},loaded);
   if(!DB.history)DB.history={};if(!DB.skillStats)DB.skillStats={};
   DB.settings=Object.assign({sound:true,speech:true,autoRead:true,voice:0},DB.settings||{});
-  DB.course=DB.course||{};DB.mistakes=DB.mistakes||[];DB.recentQ=DB.recentQ||[];
+  DB.course=DB.course||{};DB.mistakes=DB.mistakes||[];DB.recentQ=DB.recentQ||[];DB.mastery=DB.mastery||{};
   if(!DB.level)DB.level=1;
   // v5 migration: two units were inserted at course position 8
   if(!DB.courseV){const nc={};Object.keys(DB.course).forEach(k=>{const p=k.split('_');const u=+p[0];
