@@ -779,6 +779,7 @@
 
 <script src="vocab.js"></script>
 <script src="fa.js"></script>
+<script src="bank.js"></script>
 <script>
 /* ============================================================
    DATA
@@ -2052,18 +2053,40 @@ function reviewGraded(mkey,correct){
   else{m._box=0;m._due=Date.now()+SR_INT[0]*60000;}
   Store.save(DB);
 }
+/* ---- authored question bank (bank.js) blended with the generators ---- */
+let BANK=[];
+if(window.BANKDATA){BANK=window.BANKDATA.map(b=>({
+  tag:b.tag||'German',prompt:b.p||'Choose the correct answer',mode:'mc',
+  stem:b.s,big:b.big,read:b.read||b.say||b.big||(b.s?b.s.replace(/_+/g,' … '):''),
+  answer:b.a,_ans:b.a,_distr:b.o,explain:b.ex,trans:b.tr,sayAnswer:b.say,
+  colorArt:['der','die','das'].includes(String(b.a).split(' ')[0]),
+  _lv:b.lv,_sk:b.sk}));}
+function bankPool(sk){return BANK.filter(b=>b._lv<=(DB.level||5)&&(!sk||b._sk===sk));}
+function freshBank(pool){
+  for(let t=0;t<30;t++){const src=R(pool);const q=Object.assign({},src);
+    q.options=shuffle([q._ans,...q._distr]);q._skill=q._sk;
+    const k=qKey(q);
+    if(!SEEN.has(k)){SEEN.add(k);DB.recentQ=DB.recentQ||[];DB.recentQ.push(k);
+      if(DB.recentQ.length>400){SEEN.delete(DB.recentQ.shift());}return q;}}
+  const q=Object.assign({},R(pool));q.options=shuffle([q._ans,...q._distr]);q._skill=q._sk;return q;
+}
+function pickQuestion(sk,genPool){
+  const bp=bankPool(sk);
+  if(bp.length&&Math.random()<0.4)return freshBank(bp);   // authored natural-language items
+  let gp=byLevel(genPool&&genPool.length?genPool:ALLGEN);if(!gp.length)gp=byLevel(ALLGEN);
+  const q=freshQuestion(gp);if(sk)q._skill=sk;return q;
+}
 function adaptiveMixed(){
   const due=dueMistake();
   if(due&&Math.random()<0.3)return due;           // resurface a weak item on schedule
   const sk=pickWeakSkill();                         // else target a weak skill
-  let pool=byLevel(GEN[sk]||[]);if(!pool.length)pool=byLevel(ALLGEN);
-  const q=freshQuestion(pool);q._skill=sk;return q;
+  return pickQuestion(sk,GEN[sk]);
 }
 function localQuestion(){
   if(S.topic==='Mistakes')return S.queue[Math.min(S.i,S.queue.length-1)];
   if(S.course)return freshQuestion(COURSE[S.course.u].gens);
   if(S.topic==='Mixed')return adaptiveMixed();
-  return freshQuestion(byLevel(GEN[S.topic]||ALLGEN));
+  return pickQuestion(S.topic,GEN[S.topic]);
 }
 
 function renderQuestion(){

@@ -1,10 +1,11 @@
 /* Deutsch Trainer service worker — offline caching */
-const CACHE = 'deutsch-trainer-v13';
+const CACHE = 'deutsch-trainer-v14';
 const ASSETS = [
   './',
   './index.html',
   './vocab.js',
   './fa.js',
+  './bank.js',
   './manifest.webmanifest',
   './icon-192.png',
   './icon-512.png',
