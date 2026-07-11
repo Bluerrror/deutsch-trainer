@@ -557,6 +557,38 @@
   /* level select chips get a gradient ring when active */
   .levselect .gchip.on,.wchip.on{border-color:transparent;
     background:linear-gradient(#eef0ff,#eef0ff) padding-box,var(--grad) border-box;}
+
+  /* ---------- continue / resume card ---------- */
+  .contcard{width:100%;display:flex;align-items:center;gap:14px;color:#fff;border-radius:20px;padding:16px 18px;margin-top:6px;
+    box-shadow:0 12px 30px rgba(20,24,60,.22);text-align:left;position:relative;overflow:hidden;transition:transform .1s;}
+  .contcard:active{transform:scale(.985);}
+  .contcard::after{content:'';position:absolute;inset:0;background:radial-gradient(300px 120px at 90% -30%,rgba(255,255,255,.4),transparent 60%);pointer-events:none;}
+  .contcard .cc-ic{font-size:30px;flex:none;}
+  .contcard .cc-tx{flex:1;min-width:0;}
+  .contcard .cc-lab{font-weight:900;font-size:17px;}
+  .contcard .cc-sub{font-size:12px;opacity:.9;font-weight:650;margin-top:2px;}
+  .contcard .cc-go{font-size:26px;font-weight:800;opacity:.85;flex:none;}
+  [dir=rtl] .contcard{text-align:right;}
+
+  /* ---------- first-run level picker ---------- */
+  .levpicker{position:fixed;inset:0;z-index:200;background:linear-gradient(180deg,#1b2340,#2b2150);
+    display:flex;align-items:center;justify-content:center;padding:22px;overflow-y:auto;}
+  .lpcard{width:100%;max-width:460px;}
+  .lpcard .lpbrand{text-align:center;color:#fff;margin-bottom:18px;}
+  .lpcard .lpbrand .lg{width:56px;height:56px;border-radius:16px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;
+    font-family:Georgia,serif;font-weight:800;font-size:26px;color:#fff;background:linear-gradient(135deg,#3f6fe0,#d24a80 60%,#1f9d6a);box-shadow:0 8px 22px rgba(0,0,0,.3);}
+  .lpcard h2{margin:0;font-size:24px;font-weight:900;}
+  .lpcard p{margin:6px 0 0;color:#aeb6e0;font-size:13.5px;}
+  .lpopt{width:100%;display:flex;align-items:center;gap:13px;text-align:left;background:rgba(255,255,255,.07);
+    border:1.5px solid rgba(255,255,255,.14);border-radius:16px;padding:14px 15px;margin-top:11px;color:#fff;transition:transform .08s,background .15s;}
+  .lpopt:active{transform:scale(.98);}
+  .lpopt:hover{background:rgba(255,255,255,.12);}
+  .lpopt .lo-ic{font-size:26px;flex:none;}
+  .lpopt .lo-tx{flex:1;min-width:0;}
+  .lpopt .lo-code{display:inline-block;background:rgba(255,255,255,.16);border-radius:8px;padding:1px 8px;font-size:11px;font-weight:800;margin-right:7px;}
+  .lpopt .lo-t{font-weight:800;font-size:15px;}
+  .lpopt .lo-d{font-size:12px;color:#c3cae6;margin-top:2px;font-weight:600;}
+  [dir=rtl] .lpopt,[dir=rtl] .lpcard p{text-align:right;}
   /* if animations are disabled (reduced motion), elements that rely on an
      entrance animation must still end up visible */
   @media (prefers-reduced-motion: reduce){
@@ -596,7 +628,7 @@
 
     <div class="quests" id="quests"></div>
 
-    <h2 class="sec-title">Your course · A1 → B2</h2>
+    <h2 class="sec-title">Your course · A0 → B2</h2>
     <div id="course"></div>
 
     <div class="savenote" id="saveNote"></div>
@@ -728,6 +760,18 @@
     <div class="ans" id="sAns"></div>
     <div class="explain" id="sExplain"></div>
     <button class="btn-cont" id="contBtn">Continue</button>
+  </div>
+
+  <!-- first-run level picker -->
+  <div class="levpicker hidden" id="levPicker">
+    <div class="lpcard">
+      <div class="lpbrand">
+        <div class="lg serif">D</div>
+        <h2 id="lpTitle">Willkommen! 👋</h2>
+        <p id="lpSub">Which level should we start at? You can change it anytime.</p>
+      </div>
+      <div id="lpOpts"></div>
+    </div>
   </div>
 
   <div class="toast" id="toast"></div>
@@ -1222,7 +1266,53 @@ function gTypePlural(){const n=R(NOUNS.filter(x=>x.pl));
  return {tag:'Plural · type',prompt:`Type the plural of “${ARTWORD[n.g]} ${n.de}”`,mode:'type',img:NOUN_IMG[n.de],stem:`die ___`,answer:n.pl,accept:[n.pl],
   sayAnswer:'die '+n.pl,explain:`die <b>${n.pl}</b>.`};}
 
+/* ===================== A0 · absolute-beginner content ===================== */
+const A0_COLORS=[
+ {de:'rot',en:'red',fa:'قرمز',sw:'🟥'},{de:'blau',en:'blue',fa:'آبی',sw:'🟦'},
+ {de:'grün',en:'green',fa:'سبز',sw:'🟩'},{de:'gelb',en:'yellow',fa:'زرد',sw:'🟨'},
+ {de:'schwarz',en:'black',fa:'سیاه',sw:'⬛'},{de:'weiß',en:'white',fa:'سفید',sw:'⬜'},
+ {de:'orange',en:'orange',fa:'نارنجی',sw:'🟧'},{de:'lila',en:'purple',fa:'بنفش',sw:'🟪'},
+ {de:'braun',en:'brown',fa:'قهوه‌ای',sw:'🟫'},{de:'rosa',en:'pink',fa:'صورتی',sw:'🌸'},
+ {de:'grau',en:'grey',fa:'خاکستری',sw:'🩶'}
+];
+const A0_DAYS=[
+ {de:'Montag',en:'Monday',fa:'دوشنبه'},{de:'Dienstag',en:'Tuesday',fa:'سه‌شنبه'},
+ {de:'Mittwoch',en:'Wednesday',fa:'چهارشنبه'},{de:'Donnerstag',en:'Thursday',fa:'پنجشنبه'},
+ {de:'Freitag',en:'Friday',fa:'جمعه'},{de:'Samstag',en:'Saturday',fa:'شنبه'},
+ {de:'Sonntag',en:'Sunday',fa:'یکشنبه'}
+];
+const A0_GREET=[
+ {de:'Hallo',en:'Hello',fa:'سلام'},{de:'Guten Morgen',en:'Good morning',fa:'صبح بخیر'},
+ {de:'Guten Tag',en:'Good day',fa:'روز بخیر'},{de:'Guten Abend',en:'Good evening',fa:'عصر بخیر'},
+ {de:'Gute Nacht',en:'Good night',fa:'شب بخیر'},{de:'Tschüss',en:'Bye',fa:'خداحافظ'},
+ {de:'Danke',en:'Thank you',fa:'ممنون'},{de:'Bitte',en:'Please / welcome',fa:'لطفاً'},
+ {de:'Ja',en:'Yes',fa:'بله'},{de:'Nein',en:'No',fa:'نه'},
+ {de:'Entschuldigung',en:'Sorry / excuse me',fa:'ببخشید'}
+];
+function A0m(o){return XL()==='fa'?o.fa:o.en;}   /* meaning in the chosen support language */
+function gColorPic(){const c=R(A0_COLORS);
+ return {tag:'Colours',prompt:'Which colour is this?',mode:'mc',big:c.sw,answer:c.de,options:opts(c.de,shuffle(A0_COLORS).map(x=>x.de)),trans:A0m(c),sayAnswer:c.de,read:c.de,explain:`${c.sw} = <b>${c.de}</b> (${A0m(c)}).`};}
+function gColorWord(){const c=R(A0_COLORS);
+ return {tag:'Colours',prompt:'What does this mean?',mode:'mc',img:c.sw,big:c.de,read:c.de,answer:A0m(c),options:opts(A0m(c),shuffle(A0_COLORS).map(A0m)),sayAnswer:c.de,explain:`${c.sw} <b>${c.de}</b> = ${A0m(c)}.`};}
+function gDayMean(){const d=R(A0_DAYS);
+ return {tag:'Days',prompt:'What does this day mean?',mode:'mc',big:d.de,read:d.de,answer:A0m(d),options:opts(A0m(d),A0_DAYS.map(A0m)),sayAnswer:d.de,explain:`<b>${d.de}</b> = ${A0m(d)}.`};}
+function gDayNext(){const i=RI(0,6),d=A0_DAYS[i],nx=A0_DAYS[(i+1)%7];
+ return {tag:'Days',prompt:`Which day comes after ${d.de}?`,mode:'mc',stem:`${d.de} → ___`,answer:nx.de,options:opts(nx.de,A0_DAYS.map(x=>x.de)),trans:A0m(nx),sayAnswer:nx.de,explain:`After <b>${d.de}</b> comes <b>${nx.de}</b> (${A0m(nx)}).`};}
+function gGreetMean(){const g=R(A0_GREET);
+ if(Math.random()<0.5)return {tag:'Greetings',prompt:'Say it in German',mode:'mc',big:A0m(g),answer:g.de,options:opts(g.de,shuffle(A0_GREET).map(x=>x.de)),sayAnswer:g.de,explain:`${A0m(g)} = <b>${g.de}</b>.`};
+ return {tag:'Greetings',prompt:'What does this mean?',mode:'mc',big:g.de,read:g.de,answer:A0m(g),options:opts(A0m(g),shuffle(A0_GREET).map(A0m)),sayAnswer:g.de,explain:`<b>${g.de}</b> = ${A0m(g)}.`};}
+function gGreetMatch(){const set=shuffle(A0_GREET).slice(0,5);
+ return {tag:'Greetings',prompt:'Match German ↔ meaning',mode:'match',pairs:set.map(x=>({de:x.de,en:A0m(x)})),explain:'Nice — all matched!'};}
+function gNumSmall(){const n=RI(0,12),ans=numDE(n);
+ return {tag:'Numbers 0–12',prompt:'Which number is this?',mode:'mc',big:String(n),answer:ans,options:opts(ans,[numDE(n),numDE((n+1)%13),numDE((n+2)%13),numDE((n+7)%13),numDE(Math.max(0,n-1))]),sayAnswer:ans,explain:`${n} = <b>${ans}</b>.`};}
+function gNumSmallWord(){const n=RI(0,12),w=numDE(n);
+ return {tag:'Numbers 0–12',prompt:'Which digit is this?',mode:'mc',big:w,read:w,answer:String(n),options:opts(String(n),[String(n),String((n+1)%13),String((n+3)%13),String((n+5)%13),String((n+8)%13)]),sayAnswer:w,explain:`<b>${w}</b> = ${n}.`};}
+function gCountPic(){const n=RI(1,6),ans=numDE(n);
+ return {tag:'Count',prompt:'How many? (in German)',mode:'mc',big:'🍎'.repeat(n),answer:ans,options:opts(ans,[numDE(n),numDE(n+1),numDE(Math.max(1,n-1)),numDE(n+2)]),sayAnswer:ans,explain:`${n} × 🍎 = <b>${ans}</b>.`};}
+const A0GEN=[gColorPic,gColorWord,gDayMean,gDayNext,gGreetMean,gGreetMatch,gNumSmall,gNumSmallWord,gCountPic];
+
 const GEN={
+  Beginner:[gColorPic,gColorWord,gGreetMean,gGreetMatch,gDayMean,gNumSmall,gCountPic],
   Articles:[gGender,gCaseArticle],Cases:[gCaseArticle,gVerbCase,gPrepCase,gTwoWay],
   Adjectives:[gAdjEnding,gOpposite],Verbs:[gConjPresent,gModal,gPerfekt,gPraet,gSep,gKonjunktiv,gTypeVerb,gTypeConj],
   Prepositions:[gPrepCase,gTwoWay,gVerbPrep],
@@ -1234,12 +1324,13 @@ const GEN={
   Phrases:hasSpeech?[gPhraseTrans,gListenPhrase,gBuildListen,gBuild]:[gPhraseTrans,gBuild],
   Gaps:[gCloze,gWFrage]
 };
-const ALLGEN=[gGender,gCaseArticle,gAdjEnding,gVerbCase,gPrepCase,gTwoWay,gConjPresent,gModal,gPerfekt,gPraet,gPlural,
+const ALLGEN=[...A0GEN,gGender,gCaseArticle,gAdjEnding,gVerbCase,gPrepCase,gTwoWay,gConjPresent,gModal,gPerfekt,gPraet,gPlural,
  gPicture,gTransDeEn,gTransEnDe,gOpposite,gVerbPrep,gSep,gNumber,gBuild,gKonjunktiv,
  gTypeNoun,gTypeVerb,gTypeConj,gPhraseTrans,gMatch,gMatchVerb,gTrueFalse,gCloze,gWFrage,gTypeNumber,gTypePlural,
  ...(hasSpeech?[gListenWord,gListenPhrase,gTypeListen,gListenNumber,gBuildListen]:[])];
 const TOPICS=[
  {key:'Mixed',ic:'🎲',t:'Mixed practice',d:'A bit of everything',col:'#5566d6',wide:true},
+ {key:'Beginner',ic:'🐣',t:'First steps',d:'colours · days · greetings',col:'#2bb5a0'},
  {key:'Listening',ic:'🎧',t:'Listening',d:'hear & choose',col:'#3f6fe0'},
  {key:'Match',ic:'🔗',t:'Match pairs',d:'German ↔ English',col:'#0ea5a5'},
  {key:'Typing',ic:'⌨️',t:'Typing',d:'write it yourself',col:'#7b5fe0'},
@@ -1255,7 +1346,7 @@ const TOPICS=[
  {key:'Sentences',ic:'🧩',t:'Sentences',d:'build word order',col:'#5a4bc0'},
  {key:'Numbers',ic:'🔢',t:'Numbers',d:'zero to hundreds',col:'#0e87a5'}
 ];
-const SKILL_LIST=['Articles','Cases','Adjectives','Verbs','Prepositions','Vocabulary','Listening','Sentences','Numbers'];
+const SKILL_LIST=['Beginner','Articles','Cases','Adjectives','Verbs','Prepositions','Vocabulary','Listening','Sentences','Numbers'];
 
 /* ---------- v2: achievements ---------- */
 const ACHIEVEMENTS=[
@@ -1355,6 +1446,9 @@ function trS(x){return XL()==='fa'?(x.fa||x.en):x.en;}
 /* ---------- v4: structured course (A1 → B2) ---------- */
 const LPU=5; // lessons per unit
 const COURSE=[
+ {t:'First Words',lv:'A0',ic:'🐣',col:'#2bb5a0',d:'Colours, greetings, yes & no',sk:'Beginner',gens:[gColorPic,gColorWord,gGreetMean,gGreetMatch]},
+ {t:'Numbers 0–12',lv:'A0',ic:'🔢',col:'#4b8bbe',d:'Count from zero to twelve',sk:'Numbers',gens:[gNumSmall,gNumSmallWord,gCountPic]},
+ {t:'Days & First Nouns',lv:'A0',ic:'📅',col:'#7b5fe0',d:'Days of the week & first words',sk:'Beginner',gens:[gDayMean,gDayNext,gGreetMean,gPicture]},
  {t:'Basics I',lv:'A1',ic:'🌱',col:'#25b06e',d:'First words & der/die/das',sk:'Articles',gens:[gGender,gPicture,gTransDeEn,gTransEnDe]},
  {t:'Numbers & Time',lv:'A1',ic:'🔢',col:'#3f6fe0',d:'Count and tell time',sk:'Numbers',gens:[gNumber,gListenNumber,gTransDeEn,gTrueFalse]},
  {t:'Present Tense',lv:'A1',ic:'⚡',col:'#e0952e',d:'Conjugate everyday verbs',sk:'Verbs',gens:[gConjPresent,gTypeVerb,gTypeConj,gMatchVerb]},
@@ -1371,23 +1465,49 @@ const COURSE=[
  {t:'Konjunktiv & Style',lv:'B2',ic:'🏔️',col:'#5a4bc0',d:'Polite, unreal, advanced',sk:'Verbs',gens:[gKonjunktiv,gBuild,gAdjEnding]}
 ];
 function lessonStars(u,l){const e=(DB.course||{})[u+'_'+l];return e?e.stars:0;}
-function lessonUnlocked(u,l){if(u===0&&l===0)return true;if(l>0)return lessonStars(u,l-1)>0;return lessonStars(u-1,LPU-1)>0;}
+function lessonUnlocked(u,l){
+  if(u===0&&l===0)return true;
+  if(unitLevelNum(u)<=(DB.level||1))return true;      // your level and below: fully open
+  if(l>0)return lessonStars(u,l-1)>0;                  // above your level: sequential
+  return lessonStars(u-1,LPU-1)>0;
+}
 function unitProgress(u){let n=0;for(let l=0;l<LPU;l++)if(lessonStars(u,l)>0)n++;return n;}
+function entryUnitIndex(){const lv=DB.level||1;for(let u=0;u<COURSE.length;u++)if(unitLevelNum(u)===lv)return u;
+  let idx=0;for(let u=0;u<COURSE.length;u++)if(unitLevelNum(u)<=lv)idx=u;return idx;}
+/* the lesson the "Continue" button targets: first unfinished unlocked lesson from your level onward */
+function currentLesson(){
+  const start=entryUnitIndex();
+  for(let u=start;u<COURSE.length;u++)for(let l=0;l<LPU;l++)
+    if(lessonUnlocked(u,l)&&lessonStars(u,l)===0)return {u,l};
+  for(let u=0;u<start;u++)for(let l=0;l<LPU;l++)
+    if(lessonUnlocked(u,l)&&lessonStars(u,l)===0)return {u,l};
+  return null;  // whole course finished
+}
 function shade(hex){const n=parseInt(hex.slice(1),16);const r=Math.max(0,(n>>16)-34),g=Math.max(0,((n>>8)&255)-34),b=Math.max(0,(n&255)-34);
  return '#'+((r<<16)|(g<<8)|b).toString(16).padStart(6,'0');}
 
-/* ---------- v4: learner level (A1–B2) & question freshness ---------- */
-const LEVELS=['A1','A2','B1','B2'];
+/* ---------- learner level (A0–B2) & question freshness ---------- */
+const LEVELS=['A0','A1','A2','B1','B2'];
+const LEVEL_INFO=[
+ {code:'A0',t:{en:'Absolute beginner',de:'Absoluter Anfänger',fa:'کاملاً مبتدی'},d:{en:'Brand new to German — start from the very first words.',de:'Ganz neu — beginne bei den ersten Wörtern.',fa:'تازه‌کار — از اولین کلمه‌ها شروع کن.'},ic:'🐣'},
+ {code:'A1',t:{en:'Beginner',de:'Anfänger',fa:'مبتدی'},d:{en:'I know a few words, greetings and numbers.',de:'Ich kenne ein paar Wörter und Zahlen.',fa:'چند کلمه و عدد بلدم.'},ic:'🌱'},
+ {code:'A2',t:{en:'Elementary',de:'Grundstufe',fa:'پایه'},d:{en:'I can handle simple everyday sentences.',de:'Einfache Alltagssätze schaffe ich.',fa:'جمله‌های ساده روزمره را می‌فهمم.'},ic:'🌿'},
+ {code:'B1',t:{en:'Intermediate',de:'Mittelstufe',fa:'متوسط'},d:{en:'I can hold basic conversations.',de:'Ich kann einfache Gespräche führen.',fa:'می‌توانم گفتگوی ساده داشته باشم.'},ic:'💬'},
+ {code:'B2',t:{en:'Upper-intermediate',de:'Fortgeschritten',fa:'پیشرفته'},d:{en:'I want to refine and go advanced.',de:'Ich will verfeinern und weiter.',fa:'می‌خواهم پیشرفته‌تر شوم.'},ic:'🏔️'}
+];
+const LVNUM={A0:1,A1:2,A2:3,B1:4,B2:5};
+function unitLevelNum(u){return LVNUM[COURSE[u].lv]||1;}
 const GLV=new Map([
- [gGender,1],[gPicture,1],[gTransDeEn,1],[gTransEnDe,1],[gOpposite,1],[gNumber,1],[gListenNumber,1],
- [gConjPresent,1],[gTypeNoun,1],[gTypeVerb,1],[gTypeListen,1],[gListenWord,1],[gListenPhrase,1],
- [gPhraseTrans,1],[gMatch,1],[gMatchVerb,1],[gTrueFalse,1],[gBuild,1],[gBuildListen,1],
- [gPlural,2],[gCaseArticle,2],[gVerbCase,2],[gPrepCase,2],[gTwoWay,2],[gModal,2],[gSep,2],[gPerfekt,2],[gTypeConj,2],
- [gWFrage,1],[gTypeNumber,1],[gTypePlural,2],[gCloze,2],
- [gPraet,3],[gAdjEnding,3],[gVerbPrep,3],
- [gKonjunktiv,4]
+ [gGender,2],[gPicture,2],[gTransDeEn,2],[gTransEnDe,2],[gOpposite,2],[gNumber,2],[gListenNumber,2],
+ [gConjPresent,2],[gTypeNoun,2],[gTypeVerb,2],[gTypeListen,2],[gListenWord,2],[gListenPhrase,2],
+ [gPhraseTrans,2],[gMatch,2],[gMatchVerb,2],[gTrueFalse,2],[gBuild,2],[gBuildListen,2],
+ [gPlural,3],[gCaseArticle,3],[gVerbCase,3],[gPrepCase,3],[gTwoWay,3],[gModal,3],[gSep,3],[gPerfekt,3],[gTypeConj,3],
+ [gWFrage,2],[gTypeNumber,2],[gTypePlural,3],[gCloze,3],
+ [gPraet,4],[gAdjEnding,4],[gVerbPrep,4],
+ [gKonjunktiv,5],
+ [gColorPic,1],[gColorWord,1],[gDayMean,1],[gDayNext,1],[gGreetMean,1],[gGreetMatch,1],[gNumSmall,1],[gNumSmallWord,1],[gCountPic,1]
 ]);
-function byLevel(pool){const f=pool.filter(g=>(GLV.get(g)||1)<=(DB.level||4));return f.length?f:pool;}
+function byLevel(pool){const f=pool.filter(g=>(GLV.get(g)||1)<=(DB.level||5));return f.length?f:pool;}
 let SEEN=new Set();
 function qKey(q){return (q.tag||'')+'|'+(q.stem||q.big||q.speak||(q.pairs?q.pairs.map(p=>p.de).join(','):''))+'|'+(q.answer||'');}
 function freshQuestion(pool){
@@ -1602,6 +1722,23 @@ function countUp(elm,target,suffix,prefix){let t0=null;const dur=750;prefix=pref
  setTimeout(()=>{elm.textContent=prefix+target+suffix;},dur+150);}
 
 /* ----- home ----- */
+function pickerLang(){return XL()==='fa'?'fa':'en';}
+function showLevelPicker(){
+  const L=pickerLang();
+  $('lpTitle').textContent=L==='fa'?'خوش آمدید! 👋':'Welcome! 👋';
+  $('lpSub').textContent=L==='fa'?'از کدام سطح شروع کنیم؟ هر زمان می‌توانی تغییرش دهی.':'Which level should we start at? You can change it anytime.';
+  $('lpOpts').innerHTML=LEVEL_INFO.map((li,i)=>
+    `<button class="lpopt" data-l="${i+1}"><div class="lo-ic">${li.ic}</div>
+      <div class="lo-tx"><div class="lo-t"><span class="lo-code">${li.code}</span>${li.t[L]||li.t.en}</div>
+      <div class="lo-d">${li.d[L]||li.d.en}</div></div></button>`).join('');
+  $('lpOpts').querySelectorAll('.lpopt').forEach(b=>b.onclick=()=>{
+    DB.level=+b.dataset.l;DB.levelChosen=true;Store.save(DB);
+    $('levPicker').classList.add('hidden');
+    renderHome();
+    setTimeout(()=>{const e=$('entryUnit');if(e)e.scrollIntoView({behavior:'smooth',block:'start'});},250);
+  });
+  $('levPicker').classList.remove('hidden');
+}
 function renderHome(){
   const h=today();const goal=DB.dailyGoalXP;const xp=h.xp||0;const pct=goal?xp/goal:0;
   const streak=computeDayStreak();
@@ -1621,11 +1758,15 @@ function renderHome(){
   const chips=[['Casual',20],['Regular',30],['Serious',50],['Intense',80]];
   $('goalChips').innerHTML=chips.map(([lab,v])=>`<button class="gchip ${DB.dailyGoalXP===v?'on':''}" data-g="${v}">${lab} · ${v}</button>`).join('');
   $('goalChips').querySelectorAll('.gchip').forEach(b=>b.onclick=()=>{DB.dailyGoalXP=+b.dataset.g;Store.save(DB);renderHome();});
-  // learner level selector
+  // learner level selector — reshapes the course (unlocks up to level) & jumps to entry
   $('levSelect').innerHTML=`<span class="lab">MY LEVEL</span>`+LEVELS.map((L,i)=>
     `<button class="gchip ${(DB.level||1)===i+1?'on':''}" data-l="${i+1}">${L}</button>`).join('');
-  $('levSelect').querySelectorAll('.gchip').forEach(b=>b.onclick=()=>{DB.level=+b.dataset.l;Store.save(DB);
-    toast('Practice level set to '+LEVELS[DB.level-1]);renderHome();});
+  $('levSelect').querySelectorAll('.gchip').forEach(b=>b.onclick=()=>{
+    DB.level=+b.dataset.l;DB.levelChosen=true;Store.save(DB);
+    toast('Level: '+LEVELS[DB.level-1]+' — course unlocked up to here');
+    renderHome();
+    setTimeout(()=>{const e=$('entryUnit');if(e)e.scrollIntoView({behavior:'smooth',block:'start'});},120);
+  });
   renderQuests();
   renderCourse();
   $('saveNote').textContent=Store.persistent?'✓ Your progress is saved on this device.':'Progress is kept for this session only.';
@@ -1650,8 +1791,22 @@ function renderQuests(){
 }
 function renderCourse(){
   let h='';
+  // ----- Continue / resume card -----
+  const cl=currentLesson();
+  if(cl){const U=COURSE[cl.u];const started=Object.keys(DB.course||{}).length>0;
+    h+=`<button class="contcard" id="contCard" style="background:linear-gradient(120deg,${U.col},${shade(U.col)})">
+      <div class="cc-ic">${U.ic}</div>
+      <div class="cc-tx"><div class="cc-lab">${started?'▶ Continue':'▶ Start learning'}</div>
+        <div class="cc-sub">${U.lv} · Unit ${cl.u+1} · ${U.t} — Lesson ${cl.l+1}/${LPU}</div></div>
+      <div class="cc-go">›</div></button>`;
+  } else {
+    h+=`<button class="contcard" id="contCard" style="background:linear-gradient(120deg,#25b06e,#17864f)">
+      <div class="cc-ic">🎉</div><div class="cc-tx"><div class="cc-lab">Course complete!</div>
+      <div class="cc-sub">Keep sharp with Practice</div></div><div class="cc-go">›</div></button>`;
+  }
+  const entry=entryUnitIndex();
   COURSE.forEach((U,u)=>{
-    h+=`<div class="unit"><div class="unithead" style="background:linear-gradient(135deg,${U.col},${shade(U.col)})">
+    h+=`<div class="unit" ${u===entry?'id="entryUnit"':''}><div class="unithead" style="background:linear-gradient(135deg,${U.col},${shade(U.col)})">
       <div class="uic">${U.ic}</div><div><div class="ut">Unit ${u+1} · ${U.t}</div><div class="us">${U.d}</div></div>
       <div class="ulv">${U.lv} · ${unitProgress(u)}/${LPU}</div></div><div class="upath">`;
     for(let l=0;l<LPU;l++){
@@ -1668,6 +1823,8 @@ function renderCourse(){
     h+=`</div></div>`;
   });
   $('course').innerHTML=h;
+  const cc=$('contCard');
+  if(cc)cc.onclick=()=>{const c=currentLesson();if(c)startCourse(c.u,c.l);else show('practice');};
   $('course').querySelectorAll('.unode').forEach(b=>b.onclick=()=>{
     const u=+b.dataset.u,l=+b.dataset.l;
     if(!lessonUnlocked(u,l)){toast('Finish the previous lesson to unlock 🔒');return;}
@@ -1746,7 +1903,7 @@ $('togSpeech').onclick=()=>{DB.settings.speech=DB.settings.speech===false;Store.
 $('togRead').onclick=()=>{DB.settings.autoRead=DB.settings.autoRead===false;Store.save(DB);renderSettings();};
 $('resetBtn').onclick=()=>{
   if(confirm('Really reset ALL progress (XP, streak, course, mistakes)? This cannot be undone.')){
-    DB={xp:0,bestStreak:0,dailyGoalXP:30,level:DB.level,history:{},skillStats:{},course:{},mistakes:[],recentQ:[],settings:DB.settings};
+    DB={xp:0,bestStreak:0,dailyGoalXP:30,level:DB.level,levelChosen:DB.levelChosen,levelV:DB.levelV,courseV:DB.courseV,history:{},skillStats:{},course:{},mistakes:[],recentQ:[],settings:DB.settings};
     SEEN=new Set();Store.save(DB);toast('Progress reset');show('home');
   }
 };
@@ -2042,6 +2199,7 @@ document.addEventListener('keydown',e=>{
 /* ----- init ----- */
 (async function init(){
   const loaded=await Store.load();
+  const hadLevel=loaded&&typeof loaded.level==='number';
   DB=Object.assign({xp:0,bestStreak:0,dailyGoalXP:30,level:1,history:{},skillStats:{},course:{},mistakes:[],recentQ:[],mistakesCleared:0},loaded);
   if(!DB.history)DB.history={};if(!DB.skillStats)DB.skillStats={};
   DB.settings=Object.assign({sound:true,speech:true,autoRead:true,voice:0},DB.settings||{});
@@ -2050,7 +2208,13 @@ document.addEventListener('keydown',e=>{
   // v5 migration: two units were inserted at course position 8
   if(!DB.courseV){const nc={};Object.keys(DB.course).forEach(k=>{const p=k.split('_');const u=+p[0];
     nc[(u>=8?u+2:u)+'_'+p[1]]=DB.course[k];});DB.course=nc;DB.courseV=2;Store.save(DB);}
+  // v6 migration: three A0 units prepended → shift all course keys +3
+  if((DB.courseV||0)<3){const nc={};Object.keys(DB.course).forEach(k=>{const p=k.split('_');
+    nc[(+p[0]+3)+'_'+p[1]]=DB.course[k];});DB.course=nc;DB.courseV=3;Store.save(DB);}
+  // v6 migration: level scale gained A0 at the bottom (old A1..B2 = 1..4 → new = 2..5)
+  if(!DB.levelV){if(hadLevel){DB.level=Math.min(5,(DB.level||1)+1);DB.levelChosen=true;}DB.levelV=1;Store.save(DB);}
   SEEN=new Set(DB.recentQ);
+  if(!DB.levelChosen)showLevelPicker();
   // speech voices load asynchronously on iOS/Safari
   if(hasSpeech){pickVoice();speechSynthesis.onvoiceschanged=()=>{pickVoice();
     // refresh the voice picker if the user is looking at Settings when voices arrive
