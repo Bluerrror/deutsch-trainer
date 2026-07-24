@@ -362,6 +362,8 @@
   .wrow .wen{font-size:12.5px;color:var(--muted);margin-top:1px;}
   .wrow .wpl{font-size:11px;color:#a2a8c4;margin-top:2px;}
   .wrow .spk{margin-left:auto;width:36px;height:36px;border-radius:11px;background:#eef0ff;color:#5566d6;font-size:17px;display:flex;align-items:center;justify-content:center;flex:none;}
+  .wrow .spk.slowspk{margin-left:6px;background:#fff3e0;font-size:15px;}
+  [dir=rtl] .wrow .spk{margin-left:0;margin-right:auto;}[dir=rtl] .wrow .spk.slowspk{margin-right:6px;}
   .wrow .spk:active{transform:scale(.9);}
 
   /* settings */
@@ -589,6 +591,64 @@
   .lpopt .lo-t{font-weight:800;font-size:15px;}
   .lpopt .lo-d{font-size:12px;color:#c3cae6;margin-top:2px;font-weight:600;}
   [dir=rtl] .lpopt,[dir=rtl] .lpcard p{text-align:right;}
+
+  /* ---------- Grammar reference ---------- */
+  .gsub{color:#7b81a3;font-size:13px;font-weight:600;margin:8px 2px 4px;}
+  .glevhead{color:#8189ad;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;margin:20px 2px 10px;font-weight:800;}
+  .gcard{width:100%;display:flex;align-items:center;gap:13px;background:#fff;border:1px solid #ecebf5;border-radius:16px;
+    padding:14px 15px;margin-top:10px;box-shadow:0 4px 14px rgba(20,24,60,.05);text-align:left;transition:transform .1s,box-shadow .12s;}
+  .gcard:active{transform:scale(.99);} .gcard:hover{box-shadow:0 8px 20px rgba(20,24,60,.1);}
+  .gcard .gic{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;flex:none;
+    background:linear-gradient(135deg,#eef0ff,#f7edfb);}
+  .gcard .gt{flex:1;min-width:0;}
+  .gcard .gt b{font-size:14.5px;font-weight:800;display:block;}
+  .gcard .gt span{font-size:12px;color:var(--muted);}
+  .gcard .gchev{color:#c0c4dc;font-size:20px;font-weight:800;flex:none;}
+  .gcard.done .gic{background:linear-gradient(135deg,#e7f8ef,#d6f2e2);}
+  .gcard .gcode{font-size:10px;font-weight:800;color:#8189ad;background:#eef0f7;border-radius:7px;padding:1px 7px;margin-left:6px;}
+  [dir=rtl] .gcard{text-align:right;}
+
+  /* grammar lesson reader */
+  .glesson-title{font-size:24px;font-weight:900;margin:8px 2px 2px;}
+  .glesson-lv{display:inline-block;font-size:11px;font-weight:800;color:#fff;border-radius:8px;padding:2px 9px;margin-bottom:4px;background:var(--grad);}
+  .gblock{background:#fff;border:1px solid #ecebf5;border-radius:16px;padding:15px 16px;margin-top:12px;box-shadow:0 4px 14px rgba(20,24,60,.05);
+    font-size:14.5px;line-height:1.7;}
+  .gblock.tip{background:linear-gradient(180deg,#fffdf4,#fff8e6);border-color:#f2e6bf;}
+  .gblock.tip::before{content:'💡 ';}
+  .gblock b{color:#24507c;}
+  .gblock .deword{font-weight:800;color:#1b2340;}
+  .gblock code,.gex code{background:#eef3fa;border-radius:6px;padding:1px 6px;font-family:ui-monospace,Menlo,monospace;font-size:.92em;}
+  .gtable{width:100%;border-collapse:collapse;margin-top:12px;font-size:13.5px;overflow:hidden;border-radius:12px;box-shadow:0 4px 14px rgba(20,24,60,.06);}
+  .gtable th,.gtable td{border:1px solid #eceaf4;padding:8px 9px;text-align:center;}
+  .gtable th{background:#f2f4fb;font-weight:800;color:#24507c;font-size:12px;}
+  .gtable td:first-child,.gtable th:first-child{text-align:left;font-weight:750;background:#fafbff;}
+  .gtable .hl{color:#c0356b;font-weight:800;}
+  .gscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .gex{display:flex;align-items:center;gap:11px;padding:10px 0;border-top:1px solid #f2f1f8;}
+  .gex:first-child{border-top:none;}
+  .gex .gtx{flex:1;min-width:0;}
+  .gex .gde{font-weight:800;font-size:15px;color:#1b2340;}
+  .gex .gen{font-size:12.5px;color:var(--muted);margin-top:1px;}
+  .gexlist{margin-top:6px;}
+  .gspk{width:38px;height:38px;border-radius:11px;background:#eef0ff;color:#5566d6;font-size:17px;display:flex;align-items:center;justify-content:center;flex:none;}
+  .gspk:active{transform:scale(.9);}
+  .gspk.slow{background:#fff3e0;color:#e0952e;font-size:13px;font-weight:800;}
+  [dir=rtl] .gex,[dir=rtl] .gtable td:first-child{text-align:right;}
+
+  /* flashcards */
+  .fcard{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+    background:#fff;border-radius:22px;margin-top:14px;padding:26px 20px;box-shadow:0 14px 36px rgba(20,24,60,.1);border:1px solid rgba(255,255,255,.9);position:relative;}
+  .fcard .fimg{font-size:76px;line-height:1;margin-bottom:6px;}
+  .fcard .fart{font-size:15px;font-weight:800;}
+  .fcard .fart.der{color:var(--der,#3f6fe0);} .fcard .fart.die{color:var(--die,#d24a80);} .fcard .fart.das{color:var(--das,#1f9d6a);}
+  .fcard .fword{font-size:34px;font-weight:900;letter-spacing:-.5px;margin:2px 0 4px;}
+  .fcard .fmean{font-size:17px;color:var(--muted);font-weight:700;}
+  .fcard .fex{margin-top:16px;font-size:14px;color:#444;background:#f6f8fd;border-radius:12px;padding:11px 13px;line-height:1.5;}
+  .fcard .fspk{margin-top:18px;display:flex;gap:10px;justify-content:center;}
+  .fcard .fspk button{background:linear-gradient(135deg,#4b8bbe,#3f6fb0);color:#fff;font-weight:800;font-size:14px;border-radius:13px;padding:11px 18px;box-shadow:0 4px 0 #2f5590;}
+  .fcard .fspk button.slow{background:linear-gradient(135deg,#f0a93e,#e0952e);box-shadow:0 4px 0 #b9791f;}
+  .fcard .fspk button:active{transform:translateY(3px);box-shadow:none;}
+  .fcard .fsub{position:absolute;top:12px;left:0;right:0;font-size:11px;color:#b3b8d0;font-weight:700;letter-spacing:.5px;text-transform:uppercase;}
   /* if animations are disabled (reduced motion), elements that rely on an
      entrance animation must still end up visible */
   @media (prefers-reduced-motion: reduce){
@@ -655,10 +715,42 @@
   <!-- ============ WORDS / DICTIONARY ============ -->
   <div class="words scroll hidden" id="words">
     <h2 class="page">Dictionary</h2>
-    <div class="searchbox">🔍<input id="wsearch" type="text" placeholder="Search…" autocomplete="off"></div>
+    <button class="task" id="flashBtn" style="margin-top:14px;width:100%">
+      <div class="tic">🃏</div>
+      <div class="ttxt"><b>Learn words — flashcards</b><span id="flashSub">Study a set with audio &amp; examples</span></div>
+      <div class="go">Start ›</div>
+    </button>
+    <div class="searchbox" style="margin-top:14px">🔍<input id="wsearch" type="text" placeholder="Search…" autocomplete="off"></div>
     <div class="wchips" id="wchips"></div>
     <div class="wlist" id="wlist"></div>
     <div style="height:10px"></div>
+  </div>
+
+  <!-- ============ GRAMMAR (reference lessons) ============ -->
+  <div class="grammar scroll hidden" id="grammar">
+    <h2 class="page">Grammar</h2>
+    <p class="gsub" id="gramIntro">Tap a topic to learn it — clear explanations, tables, examples and audio.</p>
+    <div id="gramList"></div>
+    <div style="height:10px"></div>
+  </div>
+
+  <!-- Grammar lesson reader -->
+  <div class="glesson scroll hidden" id="glesson">
+    <div class="backrow"><button class="backbtn" id="gramBack">‹ Grammar</button></div>
+    <div id="gramBody"></div>
+    <button class="btn-primary" id="gramPractice" style="margin-top:16px">Practise this ➜</button>
+    <div style="height:12px"></div>
+  </div>
+
+  <!-- Flashcard learner -->
+  <div class="hidden" id="flash" style="flex:1;display:flex;flex-direction:column;">
+    <div class="qtop" style="padding:16px 18px 0;display:flex;align-items:center;gap:13px">
+      <button class="xbtn" id="flashQuit">✕</button>
+      <div class="pbar"><div class="pfill" id="flashPfill"></div></div>
+      <div style="font-weight:800;color:#7b81a3;font-size:13px" id="flashCount">1/10</div>
+    </div>
+    <div id="flashCard" style="flex:1;display:flex;flex-direction:column;padding:16px 18px 0;"></div>
+    <div class="action"><button class="btn-check" id="flashNext">Got it ➜</button></div>
   </div>
 
   <!-- ============ STATS (PROGRESS) ============ -->
@@ -749,6 +841,7 @@
   <!-- bottom nav -->
   <div class="nav" id="nav">
     <button id="navLearn" class="on"><span class="ni">🏠</span>Learn</button>
+    <button id="navGrammar"><span class="ni">📚</span>Grammar</button>
     <button id="navPractice"><span class="ni">🏋️</span>Practice</button>
     <button id="navWords"><span class="ni">📖</span>Words</button>
     <button id="navStats"><span class="ni">👤</span>Profile</button>
@@ -780,6 +873,7 @@
 <script src="vocab.js"></script>
 <script src="fa.js"></script>
 <script src="bank.js"></script>
+<script src="grammar.js"></script>
 <script>
 /* ============================================================
    DATA
@@ -1564,7 +1658,7 @@ function recordLessonDone(skill){const h=today();h.lessons=(h.lessons||0)+1;h.sk
    UI
    ============================================================ */
 const $=id=>document.getElementById(id);
-const el={home:$('home'),practice:$('practice'),words:$('words'),stats:$('stats'),quiz:$('quiz'),results:$('results'),nav:$('nav'),card:$('card'),sheet:$('sheet'),pfill:$('pfill'),heartN:$('heartN'),check:$('checkBtn')};
+const el={home:$('home'),practice:$('practice'),words:$('words'),grammar:$('grammar'),glesson:$('glesson'),flash:$('flash'),stats:$('stats'),quiz:$('quiz'),results:$('results'),nav:$('nav'),card:$('card'),sheet:$('sheet'),pfill:$('pfill'),heartN:$('heartN'),check:$('checkBtn')};
 const S={topic:null,q:null,i:0,total:10,correct:0,hearts:5,streak:0,picked:null,placed:[],locked:false};
 
 function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}
@@ -1629,7 +1723,7 @@ function currentVoiceChoice(){
   return cs.find(c=>c.id===id)||cs[(DB.settings&&DB.settings.voice)||0]||cs[0];
 }
 let SPEAK_SEQ=0;
-function speak(text,onEl){if(!hasSpeech||!text)return;if(DB.settings&&DB.settings.speech===false)return;
+function speak(text,onEl,slow){if(!hasSpeech||!text)return;if(DB.settings&&DB.settings.speech===false)return;
  const my=++SPEAK_SEQ;           // newer calls supersede older ones
  const synth=speechSynthesis;
  try{synth.cancel();}catch(e){}
@@ -1639,7 +1733,7 @@ function speak(text,onEl){if(!hasSpeech||!text)return;if(DB.settings&&DB.setting
    if(v){ // stale voice objects silently fail — re-resolve from the live list
      try{const fresh=(synth.getVoices()||[]).find(x=>x.name===v.name&&x.lang===v.lang);if(fresh)v=fresh;}catch(e){}
      try{u.voice=v;}catch(e){}}
-   u.lang='de-DE';u.rate=p.rate;u.pitch=p.pitch;return u;};
+   u.lang='de-DE';u.rate=slow?Math.max(0.4,p.rate*0.55):p.rate;u.pitch=p.pitch;return u;};
  let waited=0,started=false;
  const attempt=()=>{
    if(my!==SPEAK_SEQ)return;
@@ -1690,18 +1784,20 @@ function flashCombo(txt){const c=$('combo');if(!c)return;c.textContent=txt;c.cla
 
 /* ----- screen switching ----- */
 function show(screen){
-  ['home','practice','words','stats','quiz','results'].forEach(s=>el[s].classList.toggle('hidden',s!==screen));
-  const nav=['home','practice','words','stats'].includes(screen);
+  ['home','practice','words','grammar','glesson','flash','stats','quiz','results'].forEach(s=>el[s].classList.toggle('hidden',s!==screen));
+  const nav=['home','grammar','practice','words','stats'].includes(screen);
   el.nav.classList.toggle('hidden',!nav);
-  [['navLearn','home'],['navPractice','practice'],['navWords','words'],['navStats','stats']]
+  [['navLearn','home'],['navGrammar','grammar'],['navPractice','practice'],['navWords','words'],['navStats','stats']]
     .forEach(([b,s])=>$(b).classList.toggle('on',screen===s));
   const sc=el[screen];sc.classList.remove('screenin');void sc.offsetWidth;sc.classList.add('screenin');
   if(screen==='home')renderHome();
   if(screen==='practice')renderPractice();
   if(screen==='words')renderWords();
+  if(screen==='grammar')renderGrammar();
   if(screen==='stats')renderStats();
 }
 $('navLearn').onclick=()=>show('home');
+$('navGrammar').onclick=()=>show('grammar');
 $('navPractice').onclick=()=>show('practice');
 $('navWords').onclick=()=>show('words');
 $('navStats').onclick=()=>show('stats');
@@ -1867,11 +1963,93 @@ function renderWords(){
   if(q)items=items.filter(it=>norm(it.word).includes(q)||norm(it.en).includes(q));
   items.sort((a,b)=>a.word.localeCompare(b.word,'de'));
   $('wlist').innerHTML=items.map(it=>
-    `<div class="wrow"><div style="flex:1;min-width:0"><div class="wde">${it.img?it.img+' ':''}${it.art?`<span class="art ${it.art}">${it.art}</span> `:''}${it.word}</div><div class="wen">${it.en}</div>${it.sub?`<div class="wpl">${it.sub}</div>`:''}</div>${hasSpeech?`<button class="spk" data-say="${it.say.replace(/"/g,'&quot;')}" aria-label="Pronounce">🔊</button>`:''}</div>`
+    `<div class="wrow"><div style="flex:1;min-width:0"><div class="wde">${it.img?it.img+' ':''}${it.art?`<span class="art ${it.art}">${it.art}</span> `:''}${it.word}</div><div class="wen">${it.en}</div>${it.sub?`<div class="wpl">${it.sub}</div>`:''}</div>${hasSpeech?`<button class="spk" data-say="${it.say.replace(/"/g,'&quot;')}" aria-label="Pronounce">🔊</button><button class="spk slowspk" data-say="${it.say.replace(/"/g,'&quot;')}" aria-label="Slow">🐢</button>`:''}</div>`
   ).join('')||'<div class="savenote">No matches found.</div>';
-  $('wlist').querySelectorAll('.spk').forEach(b=>b.onclick=()=>speak(b.dataset.say));
+  $('wlist').querySelectorAll('.spk').forEach(b=>b.onclick=()=>speak(b.dataset.say,b,b.classList.contains('slowspk')));
 }
 $('wsearch').oninput=()=>renderWords();
+
+/* ================= Grammar reference lessons ================= */
+function Gt(o){if(o==null)return '';if(typeof o==='string')return o;return o[XL()]||o.en||o.de||'';}
+const GRAM=(window.GRAMMAR||[]);
+function renderGrammar(){
+  if(!GRAM.length){$('gramList').innerHTML='<div class="savenote">Grammar lessons are loading…</div>';return;}
+  DB.gramRead=DB.gramRead||{};
+  const byLv={};GRAM.forEach(g=>{(byLv[g.lv]=byLv[g.lv]||[]).push(g);});
+  let h='';
+  Object.keys(byLv).sort().forEach(lv=>{
+    h+=`<div class="glevhead">${LEVELS[lv-1]||('Level '+lv)}</div>`;
+    byLv[lv].forEach(g=>{const done=DB.gramRead[g.id];
+      h+=`<button class="gcard ${done?'done':''}" data-id="${g.id}"><div class="gic">${g.ic}</div>
+        <div class="gt"><b>${Gt(g.title)}${done?' ✓':''}</b><span>${Gt(g.sub)||''}</span></div>
+        <div class="gchev">›</div></button>`;});
+  });
+  $('gramList').innerHTML=h;
+  $('gramList').querySelectorAll('.gcard').forEach(b=>b.onclick=()=>openGram(b.dataset.id));
+}
+let curGram=null;
+function openGram(id){
+  const g=GRAM.find(x=>x.id===id);if(!g)return;curGram=g;
+  DB.gramRead=DB.gramRead||{};DB.gramRead[id]=true;Store.save(DB);
+  let h=`<div class="glesson-lv">${LEVELS[g.lv-1]||''}</div><div class="glesson-title">${g.ic} ${Gt(g.title)}</div>`;
+  (g.blocks||[]).forEach(bl=>{
+    if(bl.type==='text'||bl.type==='tip'){
+      h+=`<div class="gblock ${bl.type==='tip'?'tip':''}">${Gt(bl.md)}</div>`;
+    }else if(bl.type==='table'){
+      let t='<div class="gblock gscroll"><table class="gtable"><thead><tr>'+bl.head.map(x=>`<th>${x}</th>`).join('')+'</tr></thead><tbody>';
+      bl.rows.forEach(r=>{t+='<tr>'+r.map((c,i)=>`<td>${c&&c.indexOf&&c.indexOf('*')===0?`<span class="hl">${c.slice(1)}</span>`:c}</td>`).join('')+'</tr>';});
+      t+='</tbody></table></div>';
+      if(bl.cap)t+=`<div class="gsub" style="margin-top:2px">${Gt(bl.cap)}</div>`;
+      h+=t;
+    }else if(bl.type==='examples'){
+      let e='<div class="gblock"><div class="gexlist">';
+      bl.items.forEach((it,i)=>{const say=(it.say||it.de||'').replace(/"/g,'&quot;');
+        e+=`<div class="gex"><div class="gtx"><div class="gde">${it.de}</div><div class="gen">${it.en||Gt(it.tr)||''}</div></div>
+          ${hasSpeech?`<button class="gspk" data-say="${say}" aria-label="Play">🔊</button><button class="gspk slow" data-say="${say}" data-slow="1" aria-label="Slow">0.5×</button>`:''}</div>`;});
+      e+='</div></div>';h+=e;
+    }
+  });
+  $('gramBody').innerHTML=h;
+  $('gramBody').querySelectorAll('.gspk').forEach(b=>b.onclick=()=>speak(b.dataset.say,b,b.dataset.slow==='1'));
+  $('gramPractice').style.display=g.sk?'':'none';
+  $('gramPractice').onclick=()=>{if(g.sk)startLesson(g.sk);};
+  show('glesson');$('glesson').scrollTop=0;
+}
+$('gramBack').onclick=()=>show('grammar');
+
+/* ================= Flashcard word learning ================= */
+let FLASH={list:[],i:0};
+function startFlashcards(cat){
+  let pool=[];
+  if(!cat||cat==='Nouns')pool=NOUNS.filter(n=>NOUN_IMG[n.de]).map(n=>({img:NOUN_IMG[n.de],art:ARTWORD[n.g],word:n.de,mean:trN(n),say:ARTWORD[n.g]+' '+n.de,ex:bankExampleFor?bankExampleFor(n.de):''}));
+  if(!pool.length)pool=NOUNS.map(n=>({img:NOUN_IMG[n.de]||'📝',art:ARTWORD[n.g],word:n.de,mean:trN(n),say:ARTWORD[n.g]+' '+n.de}));
+  FLASH={list:shuffle(pool).slice(0,12),i:0};
+  show('flash');renderFlash();
+}
+function renderFlash(){
+  const c=FLASH.list[FLASH.i];if(!c)return show('words');
+  $('flashPfill').style.width=Math.round(100*FLASH.i/FLASH.list.length)+'%';
+  $('flashCount').textContent=(FLASH.i+1)+'/'+FLASH.list.length;
+  $('flashCard').innerHTML=`<div class="fcard"><div class="fsub">New word</div>
+    ${c.img?`<div class="fimg">${c.img}</div>`:''}
+    ${c.art?`<div class="fart ${c.art}">${c.art}</div>`:''}
+    <div class="fword">${c.word}</div>
+    <div class="fmean">${c.mean}</div>
+    ${c.ex?`<div class="fex">${c.ex}</div>`:''}
+    <div class="fspk"><button id="fPlay">🔊 Hear it</button><button class="slow" id="fSlow">🐢 Slow</button></div></div>`;
+  const say=c.say;
+  $('fPlay').onclick=()=>speak(say);$('fSlow').onclick=()=>speak(say,null,true);
+  if(hasSpeech&&DB.settings.autoRead!==false)setTimeout(()=>speak(say),320);
+}
+$('flashBtn') && ($('flashBtn').onclick=()=>startFlashcards(wcat));
+$('flashQuit').onclick=()=>show('words');
+$('flashNext').onclick=()=>{FLASH.i++;if(FLASH.i>=FLASH.list.length){toast('Nice! Words learned 🎉');show('words');}else renderFlash();};
+/* pull a short example sentence for a noun from the bank, if any */
+function bankExampleFor(de){
+  if(!window.BANKDATA)return '';
+  const hit=window.BANKDATA.find(b=>b.s&&b.s.indexOf(de)>=0);
+  return hit?hit.s.replace('___',hit.a):'';
+}
 
 /* ----- v4: settings ----- */
 function renderSettings(){
@@ -2275,7 +2453,7 @@ document.addEventListener('keydown',e=>{
   DB=Object.assign({xp:0,bestStreak:0,dailyGoalXP:30,level:1,history:{},skillStats:{},course:{},mistakes:[],recentQ:[],mistakesCleared:0},loaded);
   if(!DB.history)DB.history={};if(!DB.skillStats)DB.skillStats={};
   DB.settings=Object.assign({sound:true,speech:true,autoRead:true,voice:0},DB.settings||{});
-  DB.course=DB.course||{};DB.mistakes=DB.mistakes||[];DB.recentQ=DB.recentQ||[];DB.mastery=DB.mastery||{};
+  DB.course=DB.course||{};DB.mistakes=DB.mistakes||[];DB.recentQ=DB.recentQ||[];DB.mastery=DB.mastery||{};DB.gramRead=DB.gramRead||{};
   if(!DB.level)DB.level=1;
   // v5 migration: two units were inserted at course position 8
   if(!DB.courseV){const nc={};Object.keys(DB.course).forEach(k=>{const p=k.split('_');const u=+p[0];
