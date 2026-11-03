@@ -235,6 +235,65 @@
   /* ---------- v2: match pairs ---------- */
   .match{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;align-items:start;}
   .mcol{display:flex;flex-direction:column;gap:12px;}
+  /* ---------- v13: new question modes ---------- */
+  .qtext{background:#f8f9ff;border:1px solid #e8e7f3;border-left:4px solid var(--sel);border-radius:12px;
+    padding:13px 14px;margin-top:10px;font-size:14.5px;line-height:1.62;color:#2a3050;max-height:34vh;overflow-y:auto;
+    white-space:normal;}
+  .qdlg{display:flex;flex-direction:column;gap:8px;margin-top:12px;}
+  .dline{display:flex;gap:9px;align-items:flex-start;max-width:92%;}
+  .dline.b{align-self:flex-end;flex-direction:row-reverse;text-align:right;}
+  .dwho{flex:none;width:24px;height:24px;border-radius:50%;background:#e9e8f6;color:#5a51a0;font-size:12px;
+    font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+  .dline.b .dwho{background:#e3f4ec;color:#17864f;}
+  .dtx{background:#f3f3fb;border-radius:14px 14px 14px 4px;padding:9px 12px;font-size:15px;line-height:1.5;
+    font-weight:600;color:var(--ink);}
+  .dline.b .dtx{background:#e7f8ef;border-radius:14px 14px 4px 14px;}
+  .dgap{display:inline-block;min-width:44px;border-bottom:3px solid #c9cde3;color:#9aa0c0;font-weight:800;}
+
+  .opts.multi{gap:9px;}
+  .opt.mopt{display:flex;align-items:center;gap:11px;text-align:left;padding:13px 13px;font-size:16px;}
+  .opt.mopt .box{flex:none;width:24px;height:24px;border-radius:7px;border:2.5px solid #d9d8e8;background:#fff;
+    color:transparent;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;transition:.15s;}
+  .opt.mopt.on{border-color:var(--sel);background:#f3f4ff;}
+  .opt.mopt.on .box{background:var(--sel);border-color:var(--sel);color:#fff;}
+  .opt.mopt.correct .box{background:var(--ok);border-color:var(--ok);color:#fff;}
+  .opt.mopt.wrong .box{background:var(--no);border-color:var(--no);color:#fff;}
+
+  .tapsent{display:flex;flex-wrap:wrap;gap:6px;align-items:baseline;font-size:20px;line-height:1.9;}
+  .tword{background:#f7f7fc;border:2px solid #ebeaf4;border-radius:10px;padding:5px 9px;font-size:19px;
+    font-weight:700;color:var(--ink);transition:.14s;}
+  .tword.sel{border-color:var(--sel);background:#f3f4ff;}
+  .tword.correct{border-color:var(--ok);background:var(--okbg);color:var(--okd);}
+  .tword.wrong{border-color:var(--no);background:var(--nobg);color:var(--nod);}
+  .tpunct{font-size:19px;font-weight:700;color:var(--muted);margin-left:-3px;}
+
+  .gapstem{line-height:2;}
+  .gapslot{display:inline-block;min-width:62px;border:none;border-bottom:3px solid #cfd3e6;background:#f6f6fc;
+    border-radius:7px 7px 0 0;padding:1px 8px;margin:0 3px;font-size:19px;font-weight:750;color:#a7adc9;
+    font-family:inherit;transition:.15s;}
+  .gapslot.filled{color:var(--ink);background:#eef0fe;border-bottom-color:var(--sel);}
+  .gapslot.ok{background:var(--okbg);border-bottom-color:var(--ok);color:var(--okd);}
+  .gapslot.no{background:var(--nobg);border-bottom-color:var(--no);color:var(--nod);}
+
+  .sortpool{display:flex;flex-wrap:wrap;gap:8px;min-height:46px;margin-top:12px;align-content:flex-start;
+    padding-bottom:10px;border-bottom:2px dashed #e0e0ec;}
+  .sitem{background:#fff;border:2px solid var(--line);border-radius:11px;padding:8px 11px;font-size:14.5px;
+    font-weight:700;color:var(--ink);box-shadow:0 2px 0 #ebeaf4;transition:.14s;}
+  .sitem.sel{border-color:var(--sel);background:#f3f4ff;transform:translateY(-1px);}
+  .sitem.ok{border-color:var(--ok);background:var(--okbg);color:var(--okd);box-shadow:none;}
+  .sitem.no{border-color:var(--no);background:var(--nobg);color:var(--nod);box-shadow:none;}
+  .buckets{display:grid;grid-template-columns:repeat(var(--bn,3),1fr);gap:8px;margin-top:14px;flex:1;min-height:0;}
+  .bucket{background:#f7f7fc;border:2px dashed #dcdbe8;border-radius:14px;padding:8px 7px;display:flex;
+    flex-direction:column;gap:7px;min-height:96px;}
+  .bhead{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;color:#6a709a;text-align:center;}
+  .bbody{display:flex;flex-direction:column;gap:6px;align-items:stretch;}
+  .bbody .sitem{font-size:13px;padding:7px 8px;text-align:center;}
+
+  .assembled.scram{gap:5px;}
+  .bank.letters{gap:7px;}
+  .tile.ltile{min-width:40px;text-align:center;font-size:20px;font-weight:800;padding:10px 8px;letter-spacing:.5px;}
+  .assembled.ok{border-bottom-color:var(--ok);} .assembled.no{border-bottom-color:var(--no);}
+
   .mtile{background:#fff;border:2.5px solid var(--line);border-radius:15px;padding:17px 8px;font-size:16px;font-weight:750;
     color:var(--ink);box-shadow:0 3px 0 #e7e6ef;min-height:60px;overflow:hidden;
     transition:transform .08s,border-color .12s,background .12s,box-shadow .12s;
@@ -624,6 +683,147 @@
   .gtable td:first-child,.gtable th:first-child{text-align:left;font-weight:750;background:#fafbff;}
   .gtable .hl{color:#c0356b;font-weight:800;}
   .gscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  /* ================= v13: exam trainer ================= */
+  .skills,.exam{padding:24px 20px 8px;}
+  .lvbadge{display:inline-block;background:#eef0fe;color:#4b57c0;font-size:12px;font-weight:800;
+    padding:6px 12px;border-radius:999px;margin:4px 0 14px;letter-spacing:.2px;}
+  .skgrid{display:grid;grid-template-columns:1fr;gap:11px;}
+  @media (min-width:560px){ .skgrid{grid-template-columns:1fr 1fr;} }
+  .skcard{display:flex;align-items:center;gap:13px;background:var(--card);border:none;border-radius:18px;
+    padding:15px 15px;text-align:left;box-shadow:0 5px 18px rgba(8,10,25,.18);border-left:5px solid var(--c);}
+  .skic{font-size:27px;flex:none;}
+  .sktx{flex:1;min-width:0;}
+  .sktx b{display:block;font-size:16px;color:var(--ink);}
+  .sktx span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px;}
+  .skmeta{flex:none;font-size:12px;font-weight:800;color:var(--c);background:#f5f5fb;padding:5px 9px;border-radius:9px;}
+
+  .exhead{display:flex;align-items:flex-start;gap:13px;margin-bottom:6px;}
+  .exhead>div:last-child{padding-top:2px;}
+  .exic{font-size:30px;flex:none;}
+  .extitle{font-size:20px;font-weight:800;color:var(--ink);line-height:1.25;}
+  .exsub{font-size:12.5px;color:var(--muted);font-weight:650;margin-top:2px;}
+  .exlist{display:flex;flex-direction:column;gap:9px;margin-top:14px;}
+  .extask{display:flex;align-items:center;gap:12px;background:var(--card);border:none;border-radius:16px;
+    padding:14px 14px;text-align:left;box-shadow:0 4px 14px rgba(8,10,25,.14);}
+  .extask.done{opacity:.72;}
+  .etlv{flex:none;font-size:11px;font-weight:800;color:#5566d6;background:#eef0fe;padding:5px 8px;border-radius:8px;}
+  .ettx{flex:1;min-width:0;}
+  .ettx b{display:block;font-size:15px;color:var(--ink);}
+  .ettx span{display:block;font-size:12px;color:var(--muted);margin-top:2px;}
+
+  .exintro{font-size:14px;color:var(--muted);font-weight:650;margin-top:12px;line-height:1.55;}
+  .extext{background:#fff;border:1px solid #ecebf5;border-left:4px solid var(--sel);border-radius:14px;
+    padding:15px 16px;margin-top:13px;font-size:15px;line-height:1.72;color:#242a48;
+    box-shadow:0 4px 14px rgba(20,24,60,.05);white-space:normal;}
+  .extask2{background:#f7f8ff;border:1px solid #e6e8fa;border-radius:14px;padding:14px 15px;margin-top:13px;
+    font-size:15px;line-height:1.65;font-weight:650;color:#2a3050;}
+  .exads{display:flex;flex-direction:column;gap:8px;margin-top:13px;}
+  .exad{display:flex;gap:11px;background:#fff;border:1px solid #ecebf5;border-radius:13px;padding:12px 13px;
+    font-size:14px;line-height:1.55;color:#2a3050;box-shadow:0 3px 10px rgba(20,24,60,.05);}
+  .adk{flex:none;width:26px;height:26px;border-radius:8px;background:#eef0fe;color:#4b57c0;
+    font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;}
+
+  .exsec{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#8a90b4;
+    margin:18px 0 9px;display:flex;align-items:center;gap:8px;}
+  .exqs{display:flex;flex-direction:column;gap:12px;margin-top:16px;}
+  .exq{background:#fff;border:1px solid #ecebf5;border-radius:16px;padding:14px 15px;
+    box-shadow:0 4px 14px rgba(20,24,60,.05);}
+  .exqq{display:flex;gap:10px;font-size:15px;font-weight:700;line-height:1.55;color:var(--ink);margin-bottom:11px;}
+  .exqn{flex:none;width:22px;height:22px;border-radius:50%;background:#eef0fe;color:#4b57c0;
+    font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+  .exopts{display:flex;flex-direction:column;gap:8px;}
+  .exopts.tf{flex-direction:row;}
+  .exopts.tf .exopt{flex:1;text-align:center;}
+  .exopt{background:#fafafe;border:2px solid var(--line);border-radius:12px;padding:11px 13px;font-size:14.5px;
+    font-weight:700;color:var(--ink);text-align:left;transition:.15s;overflow-wrap:anywhere;}
+  .exopt.ok{border-color:var(--ok);background:var(--okbg);color:var(--okd);}
+  .exopt.no{border-color:var(--no);background:var(--nobg);color:var(--nod);}
+  .exopt.seen{pointer-events:none;}
+  .exex{margin-top:11px;padding-top:10px;border-top:1px solid #f1f0f8;font-size:13.5px;line-height:1.6;color:#5c6287;}
+
+  .exaudio{background:#fff;border:1px solid #ecebf5;border-radius:18px;padding:18px 16px;margin-top:14px;
+    text-align:center;box-shadow:0 5px 18px rgba(20,24,60,.06);}
+  .exbigplay{width:72px;height:72px;border-radius:50%;border:none;background:var(--grad);color:#fff;
+    font-size:27px;box-shadow:0 6px 20px rgba(85,102,214,.4);}
+  .exarow{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px;}
+  .exbtn{background:#f3f3fb;border:2px solid #e9e8f4;border-radius:11px;padding:9px 13px;font-size:13px;
+    font-weight:750;color:#4a5080;transition:.15s;}
+  .exbtn.primary{background:var(--sel);border-color:var(--sel);color:#fff;}
+  .exbtn:disabled{opacity:.45;}
+  .exbtn.rec{background:var(--nobg);border-color:var(--no);color:var(--nod);}
+  .exnote{font-size:12px;color:var(--muted);margin-top:11px;line-height:1.5;}
+
+  .expoints{display:flex;flex-direction:column;gap:8px;}
+  .expoint{display:flex;align-items:flex-start;gap:11px;background:#fff;border:2px solid var(--line);
+    border-radius:12px;padding:11px 12px;font-size:14px;line-height:1.5;font-weight:650;color:var(--ink);
+    text-align:left;transition:.15s;}
+  .expoint .box{flex:none;width:22px;height:22px;border-radius:6px;border:2.5px solid #d9d8e8;background:#fff;
+    color:transparent;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;}
+  .expoint.on{border-color:var(--ok);background:var(--okbg);}
+  .expoint.on .box{background:var(--ok);border-color:var(--ok);color:#fff;}
+  .exphr{display:flex;flex-wrap:wrap;gap:7px;}
+  .exph{background:#f6f6fc;border:1.5px solid #e9e8f4;border-radius:999px;padding:7px 12px;font-size:13px;
+    font-weight:650;color:#454b78;transition:.15s;overflow-wrap:anywhere;max-width:100%;}
+  .exph:active{background:#eef0fe;border-color:var(--sel);}
+  .extextarea{width:100%;border:2px solid var(--line);border-radius:14px;padding:13px 14px;font-size:15px;
+    line-height:1.65;font-family:inherit;color:var(--ink);background:#fff;resize:vertical;min-height:170px;}
+  .exwc{margin-left:auto;font-size:11px;font-weight:800;color:#a0a6c6;text-transform:none;letter-spacing:0;}
+  .exwc.hit{color:var(--okd);}
+  .exmodel{background:#f6fdf9;border:1px solid #d9f0e4;border-left:4px solid var(--ok);border-radius:14px;
+    padding:15px 16px;font-size:14.5px;line-height:1.75;color:#20314a;white-space:normal;}
+  .extips{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:7px;}
+  .extips li{font-size:13.5px;line-height:1.6;color:#4a5080;}
+
+  .extimer{background:#fff;border:1px solid #ecebf5;border-radius:18px;padding:17px 16px;margin-top:14px;
+    text-align:center;box-shadow:0 5px 18px rgba(20,24,60,.06);}
+  .extimer.running{border-color:var(--sel);}
+  .tphase{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:#8a90b4;}
+  .tclock{font-size:42px;font-weight:800;color:var(--ink);letter-spacing:-1px;margin-top:4px;
+    font-variant-numeric:tabular-nums;}
+  .extimer.running .tclock{color:var(--sel);}
+  .exselfrow{display:flex;gap:8px;}
+  .exself{flex:1;background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 6px;
+    font-size:12px;font-weight:750;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:5px;}
+  .exself span{font-size:25px;}
+  .exself:active{border-color:var(--sel);background:#f3f4ff;}
+
+  .exresult{background:var(--card);border-radius:20px;padding:22px 18px;margin-top:20px;text-align:center;
+    box-shadow:0 8px 26px rgba(8,10,25,.2);}
+  .exscore{font-size:38px;font-weight:800;color:var(--ink);letter-spacing:-1px;}
+  .exmsg{font-size:14.5px;color:var(--muted);font-weight:650;margin-top:7px;line-height:1.55;}
+  .exresult .xppill{display:inline-block;margin-top:11px;}
+
+  /* ---- v13: richer grammar lesson blocks ---- */
+  .glab{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#8a90b4;margin-bottom:7px;}
+  .gblock.rule{border-left:4px solid var(--sel);background:#f7f8ff;}
+  .gblock.rule .glab{color:#5566d6;}
+  .gblock.warn{border-left:4px solid #e0952e;background:#fff9ef;}
+  .gblock.warn .glab{color:#b9781f;}
+  .gsteps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:9px;}
+  .gsteps li{font-size:14.5px;line-height:1.6;color:#2a3050;}
+  .gsteps li::marker{font-weight:800;color:var(--sel);}
+  .gcontrast{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px;}
+  @media (min-width:560px){ .gcontrast{grid-template-columns:1fr 1fr;} }
+  .gcol{background:#fff;border:1px solid #ecebf5;border-radius:16px;padding:13px 14px;
+    box-shadow:0 4px 14px rgba(20,24,60,.05);}
+  .gcolt{font-size:12.5px;font-weight:800;color:#24507c;margin-bottom:7px;padding-bottom:7px;
+    border-bottom:1px solid #f0eff7;}
+  .gcolb{font-size:14px;line-height:1.65;color:#2a3050;}
+  .gdlg{display:flex;flex-direction:column;gap:9px;}
+  .gdlg .dtx{font-size:14.5px;}
+  .gdlg .den{display:block;font-size:12px;color:#8a90b4;font-weight:600;margin-top:3px;}
+  .gspk.mini{flex:none;font-size:14px;opacity:.65;}
+  .gblock.gquiz{border-left:4px solid var(--ok);background:#f6fdf9;}
+  .gblock.gquiz .glab{color:var(--okd);}
+  .gqq{font-size:15px;font-weight:700;color:var(--ink);line-height:1.55;margin-bottom:11px;}
+  .gqopts{display:flex;flex-direction:column;gap:8px;}
+  .gqo{background:#fff;border:2px solid var(--line);border-radius:12px;padding:11px 13px;font-size:15px;
+    font-weight:700;color:var(--ink);text-align:left;transition:.15s;overflow-wrap:anywhere;}
+  .gqo.ok{border-color:var(--ok);background:var(--okbg);color:var(--okd);}
+  .gqo.no{border-color:var(--no);background:var(--nobg);color:var(--nod);}
+  .gqo.seen{pointer-events:none;}
+  .gqex{margin-top:11px;padding-top:11px;border-top:1px solid #e6f3ec;font-size:14px;line-height:1.62;color:#2a3050;}
+  .gcard.done .gic{opacity:.75;}
   .gex{display:flex;align-items:center;gap:11px;padding:10px 0;border-top:1px solid #f2f1f8;}
   .gex:first-child{border-top:none;}
   .gex .gtx{flex:1;min-width:0;}
@@ -655,6 +855,53 @@
     .rstars span{opacity:1 !important;transform:none !important;}
     .rstats .rstat,.scroll>*{opacity:1 !important;}
   }
+
+  /* ================= v13: responsive & accessibility ================= */
+  /* safe areas on notched phones */
+  .nav{padding-bottom:calc(6px + env(safe-area-inset-bottom));}
+  .quiz{padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right));}
+  .home,.stats,.practice,.words,.grammar,.glesson{
+    padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));}
+
+  /* very small phones */
+  @media (max-width:340px){
+    .opt{font-size:16px;padding:12px 9px;} .tile{font-size:14px;padding:8px 10px;}
+    .tword{font-size:16px;} .tapsent{font-size:17px;}
+    .buckets{grid-template-columns:1fr 1fr;} .gapslot{min-width:50px;font-size:16px;}
+    .card{padding:18px 15px 16px;border-radius:18px;}
+  }
+  /* short screens in landscape — keep the Check button reachable */
+  @media (max-height:520px) and (orientation:landscape){
+    .card{margin-top:10px;padding:14px 16px 12px;}
+    .bigword{font-size:26px;margin:10px 0 4px;} .stem{font-size:20px;}
+    .prompt{margin:8px 0 2px;} .qimg{font-size:40px;}
+    .qtext{max-height:26vh;}
+  }
+  /* tablets and up — the app stays a readable column, not a stretched phone */
+  @media (min-width:700px){
+    .app{max-width:640px;box-shadow:0 0 60px rgba(8,10,25,.28);}
+    .nav{max-width:614px;}
+    .opts{grid-template-columns:1fr 1fr;gap:13px;}
+    .topics{grid-template-columns:repeat(3,1fr);}
+    .stem{font-size:27px;} .bigword{font-size:40px;}
+    .qtext{font-size:15.5px;max-height:40vh;}
+    .gtable{font-size:14.5px;}
+  }
+  @media (min-width:1024px){
+    .app{max-width:760px;}
+    .nav{max-width:734px;}
+    .topics{grid-template-columns:repeat(4,1fr);}
+  }
+  /* real keyboards: make the focus ring visible */
+  button:focus-visible,input:focus-visible,textarea:focus-visible{
+    outline:3px solid #8b93ff;outline-offset:2px;border-radius:10px;}
+  /* respect the OS setting */
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+      transition-duration:.001ms!important;scroll-behavior:auto!important;}
+  }
+  /* let long German compounds break instead of overflowing */
+  .opt,.tile,.sitem,.mtile,.stem,.bigword,.gde,.wde,.dtx{overflow-wrap:anywhere;}
 </style>
 </head>
 <body>
@@ -753,6 +1000,28 @@
     <div class="action"><button class="btn-check" id="flashNext">Got it ➜</button></div>
   </div>
 
+  <!-- ============ SKILLS / EXAM TRAINER (Goethe formats) ============ -->
+  <div class="skills scroll hidden" id="skills">
+    <h2 class="page">Exam trainer</h2>
+    <p class="gsub">All four skills in Goethe-Zertifikat formats — pick your level in <b>Profile</b> and the tasks follow.</p>
+    <div class="lvbadge" id="skLvBadge">A1</div>
+    <div class="skgrid" id="skGrid"></div>
+    <h2 class="sec-title">Mock exam</h2>
+    <button class="task" id="mockBtn" style="width:100%">
+      <div class="tic">🎓</div>
+      <div class="ttxt"><b>Full mock exam</b><span id="mockSub">Lesen → Hören → Schreiben → Sprechen, in order</span></div>
+      <div class="go">Start ›</div>
+    </button>
+    <div style="height:10px"></div>
+  </div>
+
+  <!-- Exam task runner -->
+  <div class="exam scroll hidden" id="exam">
+    <div class="backrow"><button class="backbtn" id="examBack">‹ Exam trainer</button></div>
+    <div id="examBody"></div>
+    <div style="height:16px"></div>
+  </div>
+
   <!-- ============ STATS (PROGRESS) ============ -->
   <div class="stats scroll hidden" id="stats">
     <h2 class="page">Your progress</h2>
@@ -844,6 +1113,7 @@
     <button id="navGrammar"><span class="ni">📚</span>Grammar</button>
     <button id="navPractice"><span class="ni">🏋️</span>Practice</button>
     <button id="navWords"><span class="ni">📖</span>Words</button>
+    <button id="navSkills"><span class="ni">🎓</span>Exam</button>
     <button id="navStats"><span class="ni">👤</span>Profile</button>
   </div>
 
@@ -874,6 +1144,10 @@
 <script src="fa.js"></script>
 <script src="bank.js"></script>
 <script src="grammar.js"></script>
+<script src="advanced.js"></script>
+<script src="spoken.js"></script>
+<script src="exams.js"></script>
+<script src="goethe.js"></script>
 <script>
 /* ============================================================
    DATA
@@ -993,7 +1267,7 @@ const END={
 };
 const CASE_NAME={nom:'Nominativ',akk:'Akkusativ',dat:'Dativ',gen:'Genitiv'};
 const GN={m:'maskulin',f:'feminin',n:'neutrum',p:'plural'};
-const ARTWORD={m:'der',f:'die',n:'das'};
+const ARTWORD={m:'der',f:'die',n:'das',p:'die'};
 
 /* picture cues (emoji → work offline, everywhere, no broken links) */
 const NOUN_IMG={
@@ -1036,7 +1310,15 @@ function numDE(n){
 /* ============================================================
    QUESTION GENERATORS
    ============================================================ */
-function gGender(){const n=R(NOUNS);const a=ARTWORD[n.g];
+/* v13: pools built after the vocabulary packs merge, so the conjugation
+   generators never get a multi-word or reflexive infinitive. */
+let _CONJV=null,_PERFV=null,_PRAETV=null,_SGN=null;
+function sgNouns(){if(!_SGN)_SGN=NOUNS.filter(n=>n.g!=='p');return _SGN.length?_SGN:NOUNS;}
+function conjVerbs(){if(!_CONJV)_CONJV=VERBS.filter(v=>v.inf&&!/\s/.test(v.inf));return _CONJV.length?_CONJV:VERBS;}
+function perfVerbs(){if(!_PERFV)_PERFV=conjVerbs().filter(v=>v.pp&&!/\s/.test(v.pp));return _PERFV.length?_PERFV:conjVerbs();}
+function praetVerbs(){if(!_PRAETV)_PRAETV=conjVerbs().filter(v=>v.pt&&!/\s/.test(v.pt)&&!/te$/.test(v.pt));return _PRAETV.length?_PRAETV:conjVerbs();}
+
+function gGender(){const n=R(sgNouns());const a=ARTWORD[n.g];
  return {tag:'Gender',prompt:'Which article?',mode:'mc',img:NOUN_IMG[n.de],stem:`___ ${n.de}`,trans:trN(n),answer:a,options:['der','die','das'],colorArt:true,
   explain:`${NOUN_IMG[n.de]?NOUN_IMG[n.de]+' ':''}“${n.de}” is ${GN[n.g]} → <b>${a} ${n.de}</b>. Learn every noun with its article.`};}
 function gCaseArticle(){const n=R(NOUNS.filter(x=>x.g!=='p'));const g=n.g;const c=R(['akk','akk','dat','dat','nom']);const a=ART.def[c][g];
@@ -1068,23 +1350,23 @@ function gTwoWay(){const [p,pen]=R(PREP_2WAY);const n=R(NOUNS.filter(x=>x.g!=='p
  const pool=[ART.def.akk[g],ART.def.dat[g],ART.def.nom[g]];
  return {tag:`Two-way · ${motion?'wohin?':'wo?'}`,prompt:'Motion → Akk, location → Dat',mode:'mc',stem:s,trans:tr,answer:a,options:opts(a,pool),
   explain:`${motion?'Movement toward a goal (<b>wohin?</b>) → Akkusativ':'No movement (<b>wo?</b>) → Dativ'} → ${p} ${a} ${n.de}.`};}
-function gConjPresent(){const v=R(VERBS);const f=presentForms(v);const [subj,sen]=R(SUBJECTS);const ans=f[subj];const pool=[f.ich,f.du,f.er,f.wir,f.ihr,v.inf];
+function gConjPresent(){const v=R(conjVerbs());const f=presentForms(v);const [subj,sen]=R(SUBJECTS);const ans=f[subj];const pool=[f.ich,f.du,f.er,f.wir,f.ihr,v.inf];
  return {tag:'Present tense',prompt:`Conjugate: ${v.inf} (${trV(v)})`,mode:'mc',stem:`${cap(subj)} ___ .`,trans:`${cap(sen)} ${v.en.replace('to ','')}.`,answer:ans,options:opts(ans,pool),
   explain:`${subj} → <b>${ans}</b>. ${v.du?'Note the stem-vowel change in du/er forms.':''}`};}
 function gModal(){const mk=R(Object.keys(MODALS));const m=MODALS[mk];const [subj,sen]=R(SUBJECTS);const ans=m[subj];const pool=[m.ich,m.du,m.er,m.wir,m.ihr];
  return {tag:'Modal verb',prompt:`${mk} (${m.en}) — conjugate`,mode:'mc',stem:`${cap(subj)} ___ Deutsch lernen.`,trans:`${cap(sen)} ${m.en} learn German.`,answer:ans,options:opts(ans,pool),
   explain:`${subj} + ${mk} → <b>${ans}</b>. The main verb (lernen) stays as an infinitive at the end.`};}
-function gPerfekt(){const v=R(VERBS);
- if(Math.random()<0.5){const aux=v.aux==='sein'?'bin':'habe';
+function gPerfekt(){const v=R(perfVerbs());const vaux=v.aux||'haben';
+ if(Math.random()<0.5){const aux=vaux==='sein'?'bin':'habe';
   return {tag:'Perfekt · haben/sein',prompt:'Choose the correct helper verb',mode:'mc',stem:`Ich ___ ${v.pp}.`,trans:`I have ${v.en.replace('to ','')} (past).`,answer:aux,options:shuffle(['habe','bin']),
-   explain:`<i>${v.inf}</i> forms the Perfekt with <b>${v.aux}</b>${v.aux==='sein'?' (motion / change of state)':''} → Ich ${aux} ${v.pp}.`};}
+   explain:`<i>${v.inf}</i> forms the Perfekt with <b>${vaux}</b>${vaux==='sein'?' (motion / change of state)':''} → Ich ${aux} ${v.pp}.`};}
  const pool=[v.pp,'ge'+stem(v.inf)+'t','ge'+stem(v.inf)+'en',v.inf];
- return {tag:'Perfekt · participle',prompt:`Past participle of “${v.inf}”`,mode:'mc',stem:`Ich ${v.aux==='sein'?'bin':'habe'} ___ .`,trans:`I have ${v.en.replace('to ','')}.`,answer:v.pp,options:opts(v.pp,pool),
+ return {tag:'Perfekt · participle',prompt:`Past participle of “${v.inf}”`,mode:'mc',stem:`Ich ${vaux==='sein'?'bin':'habe'} ___ .`,trans:`I have ${v.en.replace('to ','')}.`,answer:v.pp,options:opts(v.pp,pool),
   explain:`Partizip II of <i>${v.inf}</i> → <b>${v.pp}</b>.`};}
-function gPraet(){const strong=VERBS.filter(v=>v.pt&&!/te$/.test(v.pt));const v=R(strong);
+function gPraet(){const v=R(praetVerbs());
  return {tag:'Präteritum',prompt:`Simple past (er-form) of “${v.inf}”`,mode:'mc',stem:`Gestern ___ er.`,trans:`Yesterday he ${v.en.replace('to ','')}.`,answer:v.pt,options:opts(v.pt,[v.pt,v.inf,v.pp.replace(/^ge/,''),stem(v.inf)+'te']),
   explain:`Strong verb <i>${v.inf}</i> → Präteritum <b>${v.pt}</b> (stem-vowel change, no -te).`};}
-function gPlural(){const n=R(NOUNS.filter(x=>x.pl));const wrong=[n.de+'s',n.de+'e',n.de+'en',n.de+'er'].filter(w=>w!==n.pl);
+function gPlural(){const n=R(NOUNS.filter(x=>x.pl&&x.g!=='p'&&x.pl!==x.de));const wrong=[n.de+'s',n.de+'e',n.de+'en',n.de+'er'].filter(w=>w!==n.pl);
  return {tag:'Plural',prompt:`Plural of “${ARTWORD[n.g]} ${n.de}”`,mode:'mc',img:NOUN_IMG[n.de],stem:`ein ${n.de} → viele ___`,trans:`one ${n.en} → many`,answer:n.pl,options:opts(n.pl,wrong),
   explain:`die <b>${n.pl}</b>. German has five plural patterns — memorise each plural with its noun.`};}
 function gTransDeEn(){const kind=R(['noun','verb','adj']);
@@ -1154,7 +1436,7 @@ function gListenPhrase(){const p=R(PHRASES);const ans=trP(p);
 function gTypeNoun(){const n=R(NOUNS);
  return {tag:'Type it',prompt:'Type the German word (no article)',mode:'type',img:NOUN_IMG[n.de],big:trN(n),answer:n.de,accept:[n.de],
   trans:`${ARTWORD[n.g]} ${n.de}`,sayAnswer:n.de,explain:`${trN(n)} = <b>${ARTWORD[n.g]} ${n.de}</b>.`};}
-function gTypeVerb(){const v=R(VERBS);
+function gTypeVerb(){const v=R(conjVerbs());
  return {tag:'Type it',prompt:'Type the German infinitive',mode:'type',big:trV(v),answer:v.inf,accept:[v.inf],
   sayAnswer:v.inf,explain:`${trV(v)} = <b>${v.inf}</b>.`};}
 function gTypeListen(){const n=R(NOUNS);
@@ -1253,7 +1535,7 @@ SENTENCES.push(
 );
 
 /* ---------- v4: new question generators ---------- */
-function gTypeConj(){const v=R(VERBS);const f=presentForms(v);const s=R(SUBJECTS);const ans=f[s[0]];
+function gTypeConj(){const v=R(conjVerbs());const f=presentForms(v);const s=R(SUBJECTS);const ans=f[s[0]];
  return {tag:'Conjugate & type',prompt:`Type the present form of “${v.inf}” (${trV(v)})`,mode:'type',stem:`${cap(s[0])} ___`,answer:ans,accept:[ans],
   sayAnswer:`${s[0]} ${ans}`,explain:`${s[0]} → <b>${ans}</b> (${v.inf}).${v.du?' Watch the stem-vowel change.':''}`};}
 function gPhraseTrans(){const p=R(PHRASES);
@@ -1357,7 +1639,7 @@ function gWFrage(){const w=R(WFRAGEN);const pool=['Wer','Was','Wo','Wann','Warum
 function gTypeNumber(){const n=RI(0,99);const ans=numDE(n);
  return {tag:'Numbers · type',prompt:'Write this number in German',mode:'type',big:String(n),answer:ans,accept:[ans],
   sayAnswer:ans,explain:`${n} = <b>${ans}</b> (units before tens).`};}
-function gTypePlural(){const n=R(NOUNS.filter(x=>x.pl));
+function gTypePlural(){const n=R(NOUNS.filter(x=>x.pl&&x.g!=='p'&&x.pl!==x.de));
  return {tag:'Plural · type',prompt:`Type the plural of “${ARTWORD[n.g]} ${n.de}”`,mode:'type',img:NOUN_IMG[n.de],stem:`die ___`,answer:n.pl,accept:[n.pl],
   sayAnswer:'die '+n.pl,explain:`die <b>${n.pl}</b>.`};}
 
@@ -1404,44 +1686,566 @@ function gNumSmallWord(){const n=RI(0,12),w=numDE(n);
  return {tag:'Numbers 0–12',prompt:'Which digit is this?',mode:'mc',big:w,read:w,answer:String(n),options:opts(String(n),[String(n),String((n+1)%13),String((n+3)%13),String((n+5)%13),String((n+8)%13)]),sayAnswer:w,explain:`<b>${w}</b> = ${n}.`};}
 function gCountPic(){const n=RI(1,6),ans=numDE(n);
  return {tag:'Count',prompt:'How many? (in German)',mode:'mc',big:'🍎'.repeat(n),answer:ans,options:opts(ans,[numDE(n),numDE(n+1),numDE(Math.max(1,n-1)),numDE(n+2)]),sayAnswer:ans,explain:`${n} × 🍎 = <b>${ans}</b>.`};}
+/* ============================================================
+   v13: ADVANCED GENERATORS (B1 → C2) · data from advanced.js,
+   spoken.js. Also: five new question modes — multi, tapword,
+   gaps, sort, scramble — plus dialogue & reading-text formats.
+   ============================================================ */
+const AD=window.ADVDATA||{}, SP=window.SPOKEN||{};
+function lvPool(arr){const lv=DB.level||7;const f=(arr||[]).filter(x=>(x.lv||1)<=lv);return f.length?f:(arr||[]);}
+function advIch(inf){const base=inf.replace(/^sich /,'');return conjIch(base);}
+function advRefl(inf){return inf.startsWith('sich ')?advIch(inf)+' mich':conjIch(inf);}
+
+/* ---------- relative clauses ---------- */
+function gRelPron(){const s=R(AD.RELSENT);const c=R(['nom','akk','dat']);const ans=AD.REL[c][s.g];
+ return {tag:'Relative clause',prompt:'Choose the relative pronoun',mode:'mc',
+  stem:`${cap(s.head)}, ${s[c]}, ist hier.`,
+  trans:`${s.en} — inside the clause it is ${CASE_NAME[c]}.`,answer:ans,
+  options:opts(ans,[AD.REL.nom[s.g],AD.REL.akk[s.g],AD.REL.dat[s.g],AD.REL.gen[s.g],'denen','dem','den']),
+  explain:`<b>${s.head}</b> is ${GN[s.g]}; its job inside the relative clause is <b>${CASE_NAME[c]}</b> → <b>${ans}</b>.`,
+  sayAnswer:`${cap(s.head)}, ${s[c].replace('___',ans)}, ist hier.`};}
+
+function gRelPronGen(){const s=R(AD.RELSENT);const ans=AD.REL.gen[s.g];
+ return {tag:'Relative clause · Genitiv',prompt:'Whose? Pick the genitive relative pronoun',mode:'mc',
+  stem:`${cap(s.head)}, ${s.gen}, wohnt hier.`,trans:s.en,answer:ans,
+  options:opts(ans,['dessen','deren','denen','dem','der','das']),
+  explain:`Genitive relative pronoun: <b>dessen</b> for masculine & neuter, <b>deren</b> for feminine & plural. ${s.head} is ${GN[s.g]} → <b>${ans}</b>.`};}
+
+function gRelPrep(){const x=R(AD.RELPREP);const ans=x.p+' '+AD.REL[x.c][x.g];
+ const wrongC=x.c==='dat'?'akk':'dat';
+ return {tag:'Relative clause + preposition',prompt:'Preposition + relative pronoun',mode:'mc',
+  stem:`${cap(x.head)}, ___ ${x.tail}, …`,trans:x.en,answer:ans,
+  options:opts(ans,[x.p+' '+AD.REL[wrongC][x.g],x.p+' '+AD.REL.nom[x.g],x.p+' dessen','wo '+x.p]),
+  explain:`<b>${x.p}</b> governs the <b>${CASE_NAME[x.c]}</b>, and ${x.head} is ${GN[x.g]} → <b>${ans}</b>. German never leaves the preposition at the end.`};}
+
+/* ---------- Konjunktiv I · reported speech ---------- */
+function gKonj1(){const v=R(AD.K1);
+ return {tag:'Konjunktiv I',prompt:'Reported speech — pick the right form',mode:'mc',
+  stem:`Er sagt, er ___ …`,trans:`He says he … (${v.inf} — ${v.en})`,answer:v.k1,
+  options:opts(v.k1,[v.ind,v.inf,...shuffle(AD.K1).slice(0,4).map(x=>x.k1)]),
+  explain:`Konjunktiv I = infinitive stem + <b>-e</b>: ${v.inf} → er <b>${v.k1}</b>. The indicative would be “er ${v.ind}”.`};}
+
+function gReport(){const x=R(AD.REPORT);
+ return {tag:'Reported speech',prompt:'Report this statement',mode:'mc',
+  big:x.d,sub:x.i,answer:x.a,options:opts(x.a,x.o),trans:x.en,
+  explain:`${x.d} → <b>${x.i.replace('___','<b>'+x.a+'</b>')}</b><br>Konjunktiv I marks the words as someone else’s.`,
+  read:x.d};}
+
+function gKonj1Why(){
+ const items=[
+  {q:'Why does a journalist write „Er sagte, er sei krank“ instead of „ist krank“?',
+   a:'to report neutrally, without vouching for it',
+   o:['because „ist“ would be ungrammatical','because „sein“ has no indicative','to make the sentence shorter']},
+  {q:'When does German switch to Konjunktiv II in reported speech?',
+   a:'when Konjunktiv I looks identical to the indicative',
+   o:['always in the plural','only after „dass“','only in spoken German']},
+  {q:'„Sie sagte, sie habe das Buch gelesen.“ When did the reading happen?',
+   a:'before she spoke',
+   o:['while she was speaking','after she spoke','the time is unknown']},
+  {q:'Which form reports a future statement?',
+   a:'werde + Infinitiv',o:['wäre + Partizip II','würde + Präteritum','sei + Infinitiv']}
+ ];
+ const it=R(items);
+ return {tag:'Konjunktiv I · usage',prompt:'Pick the best explanation',mode:'mc',stem:it.q,
+  answer:it.a,options:shuffle([it.a,...it.o]),
+  explain:'Konjunktiv I marks a statement as <i>someone else’s</i> so the writer stays neutral. Where it would look like the indicative (<i>sie haben</i>), German uses Konjunktiv II (<i>sie hätten</i>) instead.'};}
+
+/* ---------- connectors & word order ---------- */
+const CONNLABEL={k0:'position 0 — nothing changes (…, und ich bleibe hier)',
+                 adv:'position 1 — the verb inverts (…, deshalb bleibe ich hier)',
+                 sub:'subordinating — the verb goes last (…, weil ich hier bleibe)'};
+function gConnKind(){const c=R(AD.CONN);
+ return {tag:'Connectors',prompt:`What does “${c.w}” do to the word order?`,mode:'mc',
+  big:c.w,sub:XL()==='fa'?c.fa:c.en,answer:CONNLABEL[c.kind],options:shuffle(Object.values(CONNLABEL)),
+  explain:`<b>${c.w}</b> (${c.en}) is ${c.kind==='k0'?'a coordinating conjunction':c.kind==='adv'?'a conjunctional adverb':'a subordinating conjunction'} → ${CONNLABEL[c.kind]}.`,read:c.w};}
+
+function gConnPick(){const kind=R(['k0','adv','sub']);
+ const good=AD.CONN.filter(c=>c.kind===kind),bad=AD.CONN.filter(c=>c.kind!==kind);
+ const ans=R(good).w;
+ const frame={k0:'Es regnet, ___ ich bleibe zu Hause.',
+              adv:'Es regnet, ___ bleibe ich zu Hause.',
+              sub:'Ich bleibe zu Hause, ___ es regnet.'}[kind];
+ return {tag:'Connectors',prompt:'Which connector fits this word order?',mode:'mc',
+  stem:frame,trans:'It is raining, so I am staying home.',answer:ans,
+  options:opts(ans,shuffle(bad).slice(0,5).map(c=>c.w)),
+  explain:kind==='k0'?'After <b>und / aber / oder / denn / sondern</b> the next clause keeps subject–verb order.'
+         :kind==='adv'?'A conjunctional adverb (<b>deshalb, trotzdem, außerdem …</b>) fills position 1, so the verb follows immediately.'
+         :'A subordinating conjunction (<b>weil, obwohl, dass …</b>) pushes the verb to the very end.'};}
+
+function gTwoPart(){const t=R(AD.TWOPART);
+ return {tag:'Two-part connectors',prompt:'Complete the pair',mode:'mc',
+  stem:t.ex,trans:t.en,answer:t.b,options:opts(t.b,AD.TWOPART.map(x=>x.b)),
+  explain:`<b>${t.a} … ${t.b}</b> = ${t.en}.`,sayAnswer:t.ex.replace('___',t.b)};}
+
+function gAdvType(){const x=R(AD.ADVTYPE);
+ return {tag:'Clause types',prompt:`What kind of clause does “${x.w}” introduce?`,mode:'mc',
+  big:x.w,sub:x.en,answer:x.t,options:opts(x.t,AD.ADVTYPE.map(y=>y.t)),
+  explain:`<b>${x.w}</b> (${x.en}) introduces a <b>${x.t}</b> clause.`};}
+
+function gConnBuild(){
+ const items=[
+  {w:['weil','ich','müde','bin'],a:'weil ich müde bin',tr:'because I am tired'},
+  {w:['obwohl','es','geregnet','hat'],a:'obwohl es geregnet hat',tr:'although it rained'},
+  {w:['dass','er','zu','spät','kommt'],a:'dass er zu spät kommt',tr:'that he is coming too late'},
+  {w:['nachdem','wir','gegessen','hatten'],a:'nachdem wir gegessen hatten',tr:'after we had eaten'},
+  {w:['damit','du','mich','verstehst'],a:'damit du mich verstehst',tr:'so that you understand me'},
+  {w:['wenn','du','Zeit','hast'],a:'wenn du Zeit hast',tr:'if you have time'},
+  {w:['sobald','der','Zug','ankommt'],a:'sobald der Zug ankommt',tr:'as soon as the train arrives'},
+  {w:['indem','man','jeden','Tag','übt'],a:'indem man jeden Tag übt',tr:'by practising every day'},
+  {w:['obwohl','ich','es','versucht','habe'],a:'obwohl ich es versucht habe',tr:'although I tried'}
+ ];
+ const it=R(items);
+ return {tag:'Subordinate clause',prompt:'Build the clause — the verb goes last',mode:'build',
+  words:shuffle(it.w),answer:it.a,trans:it.tr,
+  explain:`Correct: <b>${it.a}</b> — the conjugated verb sits at the very end.`};}
+
+/* ---------- weak (n-) declension ---------- */
+function gNDekl(){const n=R(AD.NDEKL);const c=R(['akk','dat']);
+ const frame=c==='akk'?'Ich kenne ___ .':'Ich spreche mit ___ .';
+ const ans=c==='akk'?n.obl:n.obl.replace(/^den /,'dem ');
+ return {tag:'n-declension',prompt:'Weak masculine nouns add -(e)n',mode:'mc',
+  stem:frame,trans:`I ${c==='akk'?'know':'am speaking with'} ${n.en}.`,answer:ans,
+  options:opts(ans,[n.nom,n.obl,n.nom.replace(/^der /,'dem '),n.obl.replace(/^den /,'dem '),n.nom.replace(/^der /,'den ')]),
+  explain:`<b>${n.nom}</b> is an n-noun: in every case except the nominative singular it ends in <b>-(e)n</b> → ${ans}.`};}
+
+function gNDeklSpot(){const n=R(AD.NDEKL);const other=R(['der Tisch','der Hund','der Baum','der Stuhl','der Zug','der Schrank']);
+ return {tag:'n-declension',prompt:'Which noun takes -(e)n in the accusative?',mode:'mc',
+  answer:n.nom,options:shuffle([n.nom,other,'das Haus','die Frau']),
+  explain:`<b>${n.nom}</b> → ${n.obl}. Ordinary masculines keep their form: ${other} → ${other.replace('der ','den ')}.`};}
+
+/* ---------- da- / wo- compounds ---------- */
+function gDaCompound(){const x=R(AD.DAWO);
+ return {tag:'da-compound',prompt:'Replace the thing with a da-word',mode:'mc',
+  stem:`Ich ${advRefl(x.v)} ___ .`,trans:`${x.en} it`,answer:x.da,
+  options:opts(x.da,[...shuffle(AD.DAWO).slice(0,5).map(y=>y.da),x.wo]),
+  explain:`<b>${x.v} ${x.p}</b> + a thing → <b>${x.da}</b>. A preposition starting with a vowel takes <i>dar-</i>.`};}
+
+function gWoCompound(){const x=R(AD.DAWO);
+ return {tag:'wo-question',prompt:'Ask about the thing',mode:'mc',
+  stem:'___ ?',trans:`${x.en} what? (${x.v} ${x.p})`,answer:x.wo,
+  options:opts(x.wo,[...shuffle(AD.DAWO).slice(0,5).map(y=>y.wo),x.da]),
+  explain:`For things German asks with <b>wo(r)-</b>: ${x.v} ${x.p} → <b>${x.wo}</b>. For people it stays <i>${x.p} wen / wem</i>.`};}
+
+function gDaWoPerson(){const x=R(AD.DAWO);
+ return {tag:'da-compound · person',prompt:'Thing or person?',mode:'mc',
+  stem:`Ich ${advRefl(x.v)} ___ meinen Bruder.`,trans:`${x.en} my brother`,answer:x.p,
+  options:opts(x.p,[x.da,x.wo,'für','mit','über','an','auf']),
+  explain:`da-words are only for <i>things</i>. With a person the preposition stays: <b>${x.p}</b> meinen Bruder.`};}
+
+/* ---------- passive ---------- */
+function gPassiv(){const x=R(AD.PASSIV);
+ return {tag:'Passiv · '+x.t,prompt:'Complete the passive sentence',mode:'mc',
+  stem:x.pas,trans:x.en,answer:x.a,
+  options:opts(x.a,['wird','wurde','wurden','ist','sind','werden','war','beachtet']),
+  explain:`Aktiv: ${x.act}<br>Passiv (${x.t}): ${x.pas.replace('___','<b>'+x.a+'</b>')}`,
+  sayAnswer:x.pas.replace('___',x.a)};}
+
+function gZustand(){const x=R(AD.ZUSTAND);
+ return {tag:'Vorgangs- vs. Zustandspassiv',prompt:'werden or sein?',mode:'mc',
+  stem:x.s,answer:x.a,options:shuffle([x.a,...x.o]),
+  explain:`${x.ex}<br><b>werden</b> + Partizip II = the action is happening · <b>sein</b> + Partizip II = the result lasts.`};}
+
+function gPassErs(){const x=R(AD.PASSERS);
+ return {tag:'Passive alternatives',prompt:'Which construction is this?',mode:'mc',
+  stem:x.pas,answer:x.a,options:shuffle(AD.PASSERS.map(y=>y.a)),
+  explain:`<b>${x.a}</b>: ${x.en}. All four say the same as “Das wird leicht repariert.”`};}
+
+function gPassivBuild(){
+ const items=[
+  {w:['Das','Auto','wird','repariert'],a:'Das Auto wird repariert',tr:'The car is being repaired.'},
+  {w:['Die','Tür','wurde','geschlossen'],a:'Die Tür wurde geschlossen',tr:'The door was closed.'},
+  {w:['Der','Brief','ist','geschrieben','worden'],a:'Der Brief ist geschrieben worden',tr:'The letter has been written.'},
+  {w:['Die','Regel','muss','beachtet','werden'],a:'Die Regel muss beachtet werden',tr:'The rule must be observed.'},
+  {w:['Dem','Kunden','wird','geholfen'],a:'Dem Kunden wird geholfen',tr:'The customer is being helped.'}
+ ];
+ const it=R(items);
+ return {tag:'Build the passive',prompt:'Tap the words in the right order',mode:'build',
+  words:shuffle(it.w),answer:it.a,trans:it.tr,
+  explain:`<b>${it.a}.</b> The Partizip II stays at the end; an extra infinitive (<i>werden</i>) follows it.`};}
+
+/* ---------- nominal vs verbal style ---------- */
+function gNominal(){const x=R(AD.NOMINAL);
+ if(Math.random()<0.5)return {tag:'Nominalstil',prompt:'Say it with a noun phrase',mode:'mc',
+  stem:x.clause,trans:x.en,answer:x.nom,options:opts(x.nom,AD.NOMINAL.map(y=>y.nom)),
+  explain:`<b>${x.clause}</b> → <b>${x.nom}</b>. Formal writing prefers the noun version.`};
+ return {tag:'Verbalstil',prompt:'Say it with a clause',mode:'mc',
+  stem:x.nom,trans:x.en,answer:x.clause,options:opts(x.clause,AD.NOMINAL.map(y=>y.clause)),
+  explain:`<b>${x.nom}</b> → <b>${x.clause}</b>. Spoken German prefers the clause.`};}
+
+/* ---------- genitive ---------- */
+function gGenPrep(){const p=R(AD.GENPREP);const n=R(AD.GENNOUN);
+ const dat=n.de.replace(/^der /,'dem ').replace(/^das /,'dem ').replace(/^die /,'der ');
+ return {tag:'Genitive prepositions',prompt:`Which form follows “${p.p}”?`,mode:'mc',
+  stem:`${cap(p.p)} ___ bleiben wir hier.`,trans:`${p.en} ${n.en} we stay here.`,answer:n.gen,
+  options:opts(n.gen,[n.de,dat,n.de.replace(/^(der|die|das) /,'den '),
+    ...shuffle(AD.GENNOUN).filter(x=>x.gen!==n.gen).slice(0,3).map(x=>x.gen)]),
+  explain:`<b>${p.p}</b> (${p.en}) takes the <b>Genitiv</b> → ${n.gen}. In speech you will hear the dative — in writing it counts as an error.`};}
+
+function gGenNoun(){const n=R(AD.GENNOUN);
+ return {tag:'Genitiv',prompt:'Whose? Build the genitive',mode:'mc',
+  stem:'das Auto ___',trans:`${n.en}’s car`,answer:n.gen,
+  options:opts(n.gen,AD.GENNOUN.map(x=>x.gen)),
+  explain:`Masculine & neuter take <b>des …(e)s</b>, feminine & plural take <b>der …</b> → ${n.gen}.`};}
+
+function gGenPrepList(){const p=R(AD.GENPREP);
+ return {tag:'Genitive prepositions',prompt:'What does this preposition mean?',mode:'mc',
+  big:p.p,answer:p.en,options:opts(p.en,AD.GENPREP.map(x=>x.en)),read:p.p,
+  explain:`<b>${p.p}</b> = ${p.en} — and it always takes the Genitiv.`};}
+
+/* ---------- participles ---------- */
+function gPartizip(){const pool=AD.PARTIZIP.filter(x=>x.ph1&&x.ph2);const x=R(pool.length?pool:AD.PARTIZIP);
+ const active=!!x.ph1&&(Math.random()<0.5||!x.ph2);
+ const ans=active?x.p1:x.p2, phrase=active?x.ph1:x.ph2;
+ return {tag:'Partizip als Adjektiv',prompt:active?'Partizip I — it is doing it now':'Partizip II — it has been done',mode:'mc',
+  stem:phrase.replace(new RegExp(ans+'[a-z]*'),'___'),
+  trans:active?x.en1:x.en2,answer:phrase.split(' ')[1],
+  options:opts(phrase.split(' ')[1],[x.p1+'e',x.p2+'e',x.p1+'en',x.p2+'en',x.inf]),
+  explain:`<b>Partizip I</b> (${x.p1}) = active, ongoing. <b>Partizip II</b> (${x.p2}) = passive, finished. Then add the normal adjective ending.`};}
+
+function gErwPart(){const x=R(AD.ERWPART);
+ if(Math.random()<0.5)return {tag:'Participial attribute',prompt:'Unpack into a relative clause',mode:'mc',
+  stem:x.attr,trans:x.en,answer:x.rel,options:opts(x.rel,AD.ERWPART.map(y=>y.rel)),
+  explain:`<b>${x.attr}</b> = <b>${x.rel}</b>. Find the article, jump to the noun, and the word just before it is the participle.`};
+ return {tag:'Participial attribute',prompt:'Compress into a participial attribute',mode:'mc',
+  stem:x.rel,trans:x.en,answer:x.attr,options:opts(x.attr,AD.ERWPART.map(y=>y.attr)),
+  explain:`<b>${x.rel}</b> → <b>${x.attr}</b>. The participle takes the adjective ending of its noun.`};}
+
+/* ---------- subjective modals ---------- */
+function gSubjMod(){const x=R(AD.SUBJMOD);
+ return {tag:'Modal verbs · assumption',prompt:'Which modal matches this degree of certainty?',mode:'mc',
+  stem:x.s,trans:x.en,answer:x.a,options:opts(x.a,AD.SUBJMOD.map(y=>y.a).concat(['mag','müsste'])),
+  explain:`Here <b>${x.a}</b> is not obligation — it means: ${x.en}.`,sayAnswer:x.s.replace('___',x.a)};}
+
+function gSubjModMean(){const x=R(AD.SUBJMOD_MEAN);
+ return {tag:'Modal verbs · assumption',prompt:'What does this modal signal?',mode:'mc',
+  big:'Er '+x.w+' krank sein.',answer:x.en,options:opts(x.en,AD.SUBJMOD_MEAN.map(y=>y.en)),
+  read:'Er '+x.w+' krank sein.',explain:`Subjective <b>${x.w}</b> = ${x.en}.`};}
+
+/* ---------- Konjunktiv II ---------- */
+function gK2Form(){const v=R(AD.K2);
+ return {tag:'Konjunktiv II',prompt:'Give the Konjunktiv II form',mode:'mc',
+  big:v.inf,sub:'ich / er …',answer:v.k2,options:opts(v.k2,AD.K2.map(x=>x.k2)),
+  explain:`<b>${v.inf}</b> → <b>${v.k2}</b> (${v.en}).`,read:v.inf,sayAnswer:v.k2};}
+
+function gK2Use(){const x=R(AD.K2USE);
+ return {tag:'Konjunktiv II · usage',prompt:'Complete the sentence',mode:'mc',
+  stem:x.s,trans:x.en,answer:x.a,options:shuffle([x.a,...x.o]),explain:x.ex,
+  sayAnswer:x.s.replace('___',x.a)};}
+
+function gK2Type(){
+ return {tag:'Konjunktiv II',prompt:'würde + infinitive, or the one-word form?',mode:'mc',
+  stem:'Ich ___ das nicht machen.',trans:'I would not do that.',answer:'würde',
+  options:shuffle(['würde','werde','wurde','will']),
+  explain:'For most verbs modern German prefers <b>würde + Infinitiv</b>. Keep the one-word form for <i>sein, haben, werden</i> and the modals — <i>ich täte, ich käme</i> sound literary.'};}
+
+/* ---------- Infinitiv mit zu · Futur · reflexive · comparison ---------- */
+function gInfZu(){const x=R(AD.INFZU);
+ return {tag:'Infinitiv mit zu',prompt:'Complete the construction',mode:'mc',
+  stem:x.s,trans:x.en,answer:x.a,options:shuffle([x.a,...x.o]),explain:x.ex,sayAnswer:x.s.replace('___',x.a)};}
+
+function gFutur2(){const x=R(AD.FUTUR);
+ return {tag:'Futur II',prompt:'Complete the sentence',mode:'mc',
+  stem:x.s,trans:x.en,answer:x.a,options:shuffle([x.a,...x.o]),explain:x.ex,sayAnswer:x.s.replace('___',x.a)};}
+
+function gReflex(){const x=R(AD.REFLEX);
+ return {tag:'Reflexive verbs',prompt:'Choose the reflexive pronoun',mode:'mc',
+  stem:x.s,trans:x.en,answer:x.a,options:shuffle([x.a,...x.o]),explain:x.ex,sayAnswer:x.s.replace('___',x.a)};}
+
+function gCompare(){const c=R(AD.COMPARE);const sup=Math.random()<0.5;const ans=sup?c.sup:c.comp;
+ return {tag:'Comparison',prompt:sup?'Superlative form':'Comparative form',mode:'mc',
+  big:c.adj,sub:c.en,answer:ans,options:opts(ans,AD.COMPARE.map(x=>sup?x.sup:x.comp)),
+  explain:`<b>${c.adj}</b> → ${c.comp} → ${c.sup}.`,read:c.adj,sayAnswer:ans};}
+
+function gCompareSent(){const c=R(AD.COMPARE);const kind=R(['als','wie','je']);
+ if(kind==='als')return {tag:'Comparison',prompt:'Complete the comparison',mode:'mc',
+  stem:`Berlin ist ${c.comp} ___ Bonn.`,trans:'Berlin is …er than Bonn.',answer:'als',
+  options:shuffle(['als','wie','denn','so']),explain:'After a comparative German uses <b>als</b>.'};
+ if(kind==='wie')return {tag:'Comparison',prompt:'Complete the comparison',mode:'mc',
+  stem:`Er ist so ${c.adj} ___ ich.`,trans:`He is as ${c.en} as I am.`,answer:'wie',
+  options:shuffle(['wie','als','denn','so']),explain:'For equality: <b>so … wie</b>. Only comparatives take <i>als</i>.'};
+ return {tag:'Comparison',prompt:'Complete the proportional pair',mode:'mc',
+  stem:`Je mehr ich übe, ___ ${c.comp} werde ich.`,trans:'The more I practise, the … I get.',answer:'desto',
+  options:shuffle(['desto','als','wie','dann']),
+  explain:'<b>je</b> + comparative …, <b>desto / umso</b> + comparative — and the second half inverts.'};}
+
+function gNegation(){const x=R(AD.NEGATION);
+ return {tag:'Negation',prompt:'nicht, kein — or something else?',mode:'mc',
+  stem:x.s,trans:x.en,answer:x.a,options:shuffle([x.a,...x.o]),explain:x.ex,sayAnswer:x.s.replace('___',x.a)};}
+
+function gPossessive(){const p=R(AD.POSS);const g=R(['m','f','n','pl']);
+ const noun={m:'Bruder',f:'Schwester',n:'Buch',pl:'Eltern'}[g];
+ const ans=p[g];
+ return {tag:'Possessives',prompt:`How do you say “${p.en}” here?`,mode:'mc',
+  stem:`Das ist ___ ${noun}.`,trans:`That is ${p.en} ${({m:'brother',f:'sister',n:'book',pl:'parents'})[g]}.`,
+  answer:ans,options:opts(ans,[p.m,p.f,p.n,p.pl,...shuffle(AD.POSS).slice(0,3).map(x=>x[g])]),
+  explain:`Possessives take the <i>ein</i>-endings, agreeing with the thing owned (${GN[g==='pl'?'p':g]}) → <b>${ans} ${noun}</b>.`};}
+
+function gImperativ(){const v=R(AD.IMPER);const form=R(['du','ihr','sie']);const ans=v[form];
+ return {tag:'Imperative',prompt:`Tell ${form==='du'?'a friend':form==='ihr'?'several friends':'someone formally'} to ${v.en}`,mode:'mc',
+  big:v.inf,answer:ans,options:opts(ans,[v.du,v.ihr,v.sie,v.inf+'!']),
+  explain:`${v.inf}: du → <b>${v.du}</b> · ihr → <b>${v.ihr}</b> · Sie → <b>${v.sie}</b>`,sayAnswer:ans};}
+
+function gOrdinal(){const o=R(AD.ORDINAL);const ans='der '+o.w;
+ return {tag:'Ordinal numbers',prompt:'Write it as an ordinal',mode:'mc',
+  big:o.n+'.',answer:ans,options:opts(ans,AD.ORDINAL.map(x=>'der '+x.w)),
+  explain:`${o.n}. = <b>der ${o.w}</b>. Up to 19 add <i>-te</i>, from 20 add <i>-ste</i>; erste, dritte, siebte, achte are irregular.`,
+  sayAnswer:ans};}
+
+/* ---------- Funktionsverbgefüge · Modalpartikeln · word formation ---------- */
+function gFVG(){const f=R(AD.FVG);
+ return {tag:'Noun + verb collocation',prompt:'Which verb goes with this noun?',mode:'mc',
+  stem:`${cap(f.n)} ___`,trans:f.en,answer:f.v,options:opts(f.v,AD.FVG.map(x=>x.v)),
+  explain:`<b>${f.n} ${f.v}</b> = ${f.en} (plain verb: <i>${f.verb}</i>). The pairing is fixed — “machen” is almost always wrong.`,
+  sayAnswer:`${f.n} ${f.v}`};}
+
+function gFVGVerb(){const f=R(AD.FVG);
+ return {tag:'Noun + verb collocation',prompt:'Say it with a single verb instead',mode:'mc',
+  stem:`${cap(f.n)} ${f.v}`,trans:f.en,answer:f.verb,options:opts(f.verb,AD.FVG.map(x=>x.verb)),
+  explain:`<b>${f.n} ${f.v}</b> ≈ <b>${f.verb}</b>. The noun version sounds more formal.`};}
+
+function gModPart(){const m=R(AD.MODPART);
+ return {tag:'Modalpartikel',prompt:'Which particle gives this effect?',mode:'mc',
+  stem:m.s,trans:XL()==='fa'?m.fa:m.en,answer:m.w,options:opts(m.w,AD.MODPART.map(x=>x.w)),
+  explain:`<b>${m.w}</b>: ${m.en}. Modalpartikeln are never stressed and cannot be translated word for word.`,
+  sayAnswer:m.s.replace('___',m.w)};}
+
+function gModPartMean(){const m=R(AD.MODPART);
+ return {tag:'Modalpartikel',prompt:`What does “${m.w}” add here?`,mode:'mc',
+  big:m.s.replace('___',m.w),answer:m.en,options:opts(m.en,AD.MODPART.map(x=>x.en)),
+  read:m.s.replace('___',m.w),explain:`<b>${m.w}</b> = ${m.en}.`};}
+
+function gWordForm(){const w=R(AD.WORDFORM);
+ return {tag:'Word formation',prompt:'Build the derived word',mode:'mc',
+  big:w.base,sub:w.suf,answer:w.out,options:opts(w.out,AD.WORDFORM.map(x=>x.out)),
+  explain:`<b>${w.base}</b> + <b>${w.suf}</b> → <b>${w.out}</b> (${w.en}).`,sayAnswer:w.out,read:w.base};}
+
+function gWordFormType(){const w=R(AD.WORDFORM);
+ return {tag:'Word formation',prompt:'Which affix builds this word?',mode:'mc',
+  stem:`${w.base} → ${w.out}`,answer:w.suf,options:opts(w.suf,AD.WORDFORM.map(x=>x.suf)),
+  explain:`<b>${w.suf}</b> turns ${w.base} into ${w.out} (${w.en}). Nouns in <i>-ung, -heit, -keit, -schaft</i> are always feminine.`};}
+
+function gVPrefix(){const p=R(AD.VPREFIX);
+ return {tag:'Verb prefixes',prompt:'What does the prefixed verb mean?',mode:'mc',
+  big:p.out,answer:p.en,options:opts(p.en,AD.VPREFIX.map(x=>x.en)),read:p.out,
+  explain:`<b>${p.pre}</b> + ${p.base} → ${p.out} = ${p.en} — ${p.note}.`};}
+
+/* ---------- idioms, proverbs, register, false friends ---------- */
+function gIdiom(){const i=R(AD.IDIOM);
+ return {tag:'Redewendung',prompt:'What does this idiom mean?',mode:'mc',
+  big:i.de,answer:i.en,options:opts(i.en,AD.IDIOM.map(x=>x.en)),read:i.de,
+  explain:`<b>${i.de}</b> = ${i.en}.`};}
+
+function gIdiomGap(){const i=R(AD.IDIOM);
+ return {tag:'Redewendung',prompt:'Complete the idiom',mode:'mc',
+  stem:i.gap,trans:i.en,answer:i.w,options:opts(i.w,AD.IDIOM.map(x=>x.w)),
+  explain:`<b>${i.de}</b> = ${i.en}. The image is fixed — no word in it can be swapped.`,sayAnswer:i.de};}
+
+function gIdiomType(){const i=R(AD.IDIOM);
+ return {tag:'Redewendung',prompt:'Type the missing word',mode:'type',
+  stem:i.gap,trans:i.en,answer:i.w,accept:[i.w.toLowerCase()],
+  explain:`<b>${i.de}</b> = ${i.en}.`,sayAnswer:i.de};}
+
+function gSprichwort(){const s=R(AD.SPRICHWORT);
+ return {tag:'Sprichwort',prompt:'What does this proverb mean?',mode:'mc',
+  big:s.de,answer:s.en,options:opts(s.en,AD.SPRICHWORT.map(x=>x.en)),read:s.de,
+  explain:`<b>${s.de}</b> — ${s.en}`};}
+
+function gRegister(){const r=R(AD.REGISTER);
+ if(Math.random()<0.5)return {tag:'Register',prompt:'Which word fits a formal text?',mode:'mc',
+  big:r.casual,sub:r.en,answer:r.formal,options:opts(r.formal,AD.REGISTER.map(x=>x.formal)),
+  explain:`Colloquial <b>${r.casual}</b> → formal <b>${r.formal}</b> (${r.en}).`,read:r.formal};
+ return {tag:'Register',prompt:'Which word fits a casual chat?',mode:'mc',
+  big:r.formal,sub:r.en,answer:r.casual,options:opts(r.casual,AD.REGISTER.map(x=>x.casual)),
+  explain:`Formal <b>${r.formal}</b> → everyday <b>${r.casual}</b> (${r.en}).`,read:r.casual};}
+
+/* ---------- slang & spoken German ---------- */
+function gSlang(){const s=R(SP.SLANG);
+ return {tag:'Umgangssprache',prompt:'What does this colloquial expression mean?',mode:'mc',
+  big:s.de,answer:s.en,options:opts(s.en,SP.SLANG.map(x=>x.en)),read:s.de,
+  explain:`<b>${s.de}</b> = ${s.en}${s.neutral&&s.neutral!=='—'?` · neutral: <i>${s.neutral}</i>`:''}<br><i>${s.ex}</i>`};}
+
+function gSlangNeutral(){const pool=SP.SLANG.filter(s=>s.neutral&&s.neutral!=='—');const s=R(pool);
+ return {tag:'Umgangssprache',prompt:'What is the neutral equivalent?',mode:'mc',
+  big:s.de,sub:s.en,answer:s.neutral,options:opts(s.neutral,pool.map(x=>x.neutral)),
+  explain:`<b>${s.de}</b> is colloquial; in a neutral or formal text use <b>${s.neutral}</b>.`,read:s.de};}
+
+function gSlangRegion(){const pool=SP.SLANG.filter(s=>s.reg==='reg');const s=R(pool);
+ const map={'Moin':'the north','Servus':'Bavaria & Austria','Grüß Gott':'the south','Grüezi':'Switzerland',
+            'gell? / gelle?':'the south','dufte / schnieke':'Berlin'};
+ const ans=map[s.de]||'the north';
+ return {tag:'Regional German',prompt:'Where would you hear this?',mode:'mc',
+  big:s.de,sub:s.en,answer:ans,options:opts(ans,['the north','the south','Bavaria & Austria','Switzerland','Berlin']),
+  explain:`<b>${s.de}</b> (${s.en}) belongs to <b>${ans}</b>.`,read:s.de};}
+
+function gRedemittel(){const pool=lvPool(SP.REDEMITTEL);const r=R(pool);
+ return {tag:'Redemittel · '+r.fn,prompt:'What is this phrase for?',mode:'mc',
+  big:r.de,answer:r.fn,options:opts(r.fn,[...new Set(SP.REDEMITTEL.map(x=>x.fn))]),
+  read:r.de,explain:`<b>${r.de}</b> = ${r.en}<br>Function: <b>${r.fn}</b>.`};}
+
+function gRedemittelMean(){const pool=lvPool(SP.REDEMITTEL);const r=R(pool);
+ const same=SP.REDEMITTEL.filter(x=>x.fn===r.fn&&x.de!==r.de);
+ return {tag:'Redemittel',prompt:'What does this phrase mean?',mode:'mc',
+  big:r.de,answer:r.en,options:opts(r.en,[...same.map(x=>x.en),...shuffle(SP.REDEMITTEL).slice(0,6).map(x=>x.en)]),
+  read:r.de,explain:`<b>${r.de}</b> = ${r.en} (${r.fn}).`};}
+
+function gFalseFriend(){const f=R(SP.FALSEFRIEND);
+ return {tag:'False friend',prompt:'Careful — what does this German word really mean?',mode:'mc',
+  big:f.de,sub:'looks like “'+f.looks+'”',answer:f.means,options:opts(f.means,SP.FALSEFRIEND.map(x=>x.means)),
+  read:f.de,explain:`<b>${f.de}</b> = ${f.means} — <i>not</i> “${f.looks}”. For “${f.looks}” say <b>${f.right}</b>.`};}
+
+function gPronounce(){const p=R(SP.PRONOUN);const w=R(p.words);
+ return {tag:'Pronunciation',prompt:`How is “${p.de}” pronounced here?`,mode:'mc',
+  big:w,answer:p.hint,options:opts(p.hint,SP.PRONOUN.map(x=>x.hint)),read:w,sayAnswer:w,
+  explain:`<b>${p.de}</b> → ${p.hint}. Examples: ${p.words.join(' · ')}`};}
+
+/* ---------- conversation (multi-turn) ---------- */
+function gConvo(){const pool=lvPool(SP.CONVO);const c=R(pool);
+ const dlg=c.lines.map((l,i)=>({who:l.who,de:i===c.gapAt?'___':l.de,en:l.en}));
+ return {tag:'Conversation · '+c.title,prompt:'Choose the line that fits',mode:'mc',
+  dlg:dlg,dlgIc:c.ic,answer:c.a,options:shuffle([c.a,...c.o]),explain:c.ex,_sk:c.sk,
+  read:c.lines.filter((_,i)=>i<c.gapAt).map(l=>l.de).join(' '),sayAnswer:c.a};}
+
+function gDialog(){const pool=lvPool(AD.DIALOG);const d=R(pool);
+ return {tag:'Conversation',prompt:'Choose the fitting reply',mode:'mc',
+  dlg:[{who:'A',de:d.a,en:''},{who:'B',de:'___',en:''}],
+  answer:d.r,options:shuffle([d.r,...d.o]),explain:d.ex,read:d.a,sayAnswer:d.r};}
+
+/* ---------- reading comprehension ---------- */
+function gReading(){const pool=lvPool(SP.READING);const r=R(pool);const q=R(r.qs);
+ return {tag:'Reading · '+r.title,prompt:q.q,mode:'mc',text:r.text,
+  answer:q.a,options:shuffle([q.a,...q.o]),explain:q.ex,_sk:r.sk,read:r.text};}
+
+/* ---------- dictation (listen & type a whole sentence) ---------- */
+function gDictate(){const pool=lvPool(AD.DICTATE);const d=R(pool);
+ return {tag:'Dictation',prompt:'Listen and type the whole sentence',mode:'type',
+  speak:d.s,autoSpeak:true,answer:d.s,accept:[d.s.replace(/[.?!]$/,'')],
+  trans:d.en,explain:`<b>${d.s}</b> — ${d.en}`};}
+
+/* ---------- NEW MODE: multi-select ---------- */
+function gMulti(){const pool=lvPool(AD.MULTI);const m=R(pool);
+ const items=shuffle(m.items.slice());
+ return {tag:'Select all',prompt:m.q,mode:'multi',items:items,
+  answer:items.filter(x=>x.ok).map(x=>x.t).join(' · '),explain:m.ex,_sk:m.sk};}
+
+/* ---------- NEW MODE: tap the word ---------- */
+function gTapWord(){const pool=lvPool(AD.TAPSET);const t=R(pool);
+ return {tag:'Find the word',prompt:t.q,mode:'tapword',words:t.words,hit:t.hit,
+  answer:t.words[t.hit],explain:t.ex,_sk:t.sk,
+  read:t.words.join(' ').replace(/ ([.!?,])/g,'$1')};}
+
+/* ---------- NEW MODE: multi-gap cloze ---------- */
+function gGaps(){const pool=lvPool(AD.GAPSET);const g=R(pool);
+ return {tag:'Fill the gaps',prompt:'Tap a word, then the gap it belongs in',mode:'gaps',
+  stem:g.s,gapAnswers:g.a,tiles:shuffle([...g.a,...(g.extra||[])]),
+  answer:g.a.join(' · '),trans:g.tr,explain:g.ex,_sk:g.sk};}
+
+/* ---------- NEW MODE: sort into buckets ---------- */
+function gSort(){const pool=lvPool(SP.SORTSET);const s=R(pool);
+ return {tag:'Sort them',prompt:s.q,mode:'sort',buckets:s.buckets,
+  items:shuffle(s.items.slice()),answer:s.buckets.join(' / '),explain:s.ex,_sk:s.sk};}
+
+/* ---------- NEW MODE: letter scramble ---------- */
+function gScramble(){const pool=lvPool(SP.SCRAMBLE);const w=R(pool);
+ let letters=shuffle(w.w.split(''));
+ if(letters.join('')===w.w)letters=shuffle(letters);
+ return {tag:'Unscramble',prompt:'Tap the letters in the right order',mode:'scramble',
+  letters:letters,answer:w.w,hint:`${w.art} … — ${w.en}`,
+  explain:`<b>${w.art} ${w.w}</b> = ${w.en}.`,sayAnswer:`${w.art} ${w.w}`,_sk:'Vocabulary'};}
+
+/* ---------- odd one out ---------- */
+function gOddOne(){
+ const sets=[
+  {g:['der Hund','die Katze','das Pferd','der Tisch'],odd:'der Tisch',ex:'All the others are animals.',lv:2},
+  {g:['Montag','Dienstag','Januar','Freitag'],odd:'Januar',ex:'Januar is a month, the rest are weekdays.',lv:2},
+  {g:['essen','trinken','Apfel','kochen'],odd:'Apfel',ex:'Apfel is a noun; the rest are verbs.',lv:2},
+  {g:['mit','bei','seit','für'],odd:'für',ex:'mit, bei, seit take the Dativ — für takes the Akkusativ.',lv:3},
+  {g:['gehen','fahren','kommen','kaufen'],odd:'kaufen',ex:'The others form the Perfekt with sein.',lv:3},
+  {g:['weil','obwohl','dass','deshalb'],odd:'deshalb',ex:'deshalb is an adverb (verb inverts); the rest send the verb last.',lv:4},
+  {g:['wegen','trotz','während','nach'],odd:'nach',ex:'The others take the Genitiv; nach takes the Dativ.',lv:5},
+  {g:['wäre','hätte','käme','war'],odd:'war',ex:'war is Präteritum; the rest are Konjunktiv II.',lv:5},
+  {g:['jedoch','allerdings','infolgedessen','halt'],odd:'halt',ex:'halt is a colloquial particle; the rest are formal connectors.',lv:6},
+  {g:['erhalten','erwerben','kriegen','ermitteln'],odd:'kriegen',ex:'kriegen is colloquial; the rest are formal.',lv:6},
+  {g:['Schwein haben','über den Berg sein','Hand und Fuß haben','ins Fettnäpfchen treten'],odd:'ins Fettnäpfchen treten',
+   ex:'The others are positive; stepping in the Fettnäpfchen is an embarrassing blunder.',lv:7}
+ ];
+ const s=R(lvPool(sets));
+ return {tag:'Odd one out',prompt:'Which one does not belong?',mode:'mc',
+  answer:s.odd,options:shuffle(s.g.slice()),explain:s.ex};}
+
 const A0GEN=[gColorPic,gColorWord,gDayMean,gDayNext,gGreetMean,gGreetMatch,gNumSmall,gNumSmallWord,gCountPic];
 
 const GEN={
-  Beginner:[gColorPic,gColorWord,gGreetMean,gGreetMatch,gDayMean,gNumSmall,gCountPic],
-  Articles:[gGender,gCaseArticle],Cases:[gCaseArticle,gVerbCase,gPrepCase,gTwoWay],
-  Adjectives:[gAdjEnding,gOpposite],Verbs:[gConjPresent,gModal,gPerfekt,gPraet,gSep,gKonjunktiv,gTypeVerb,gTypeConj],
-  Prepositions:[gPrepCase,gTwoWay,gVerbPrep],
-  Vocabulary:[gPicture,gTransDeEn,gTransEnDe,gOpposite,gPlural,gTypeNoun,gMatch,gTrueFalse,gMatchVerb,gTypePlural],
-  Pictures:[gPicture,gTransEnDe,gGender],Sentences:[gBuild,gCloze,gWFrage],Numbers:[gNumber,gListenNumber,gTypeNumber],
-  Listening:hasSpeech?[gListenWord,gListenPhrase,gTypeListen,gListenNumber,gBuildListen]:[gTransDeEn,gTransEnDe],
-  Typing:[gTypeNoun,gTypeVerb,gTypeConj,gTypeNumber,gTypePlural,gTrueFalse],
+  Beginner:[gColorPic,gColorWord,gGreetMean,gGreetMatch,gDayMean,gNumSmall,gCountPic,gPronounce],
+  Articles:[gGender,gCaseArticle,gPossessive,gSort],
+  Cases:[gCaseArticle,gVerbCase,gPrepCase,gTwoWay,gGenNoun,gNDekl,gReflex,gTapWord],
+  Adjectives:[gAdjEnding,gOpposite,gCompare,gCompareSent,gPartizip],
+  Verbs:[gConjPresent,gModal,gPerfekt,gPraet,gSep,gKonjunktiv,gTypeVerb,gTypeConj,gImperativ,gFutur2,gSubjMod],
+  Prepositions:[gPrepCase,gTwoWay,gVerbPrep,gDaCompound,gWoCompound,gGenPrep,gGenPrepList],
+  Vocabulary:[gPicture,gTransDeEn,gTransEnDe,gOpposite,gPlural,gTypeNoun,gMatch,gTrueFalse,gMatchVerb,gTypePlural,gScramble,gOddOne],
+  Plurals:[gPlural,gTypePlural,gTransEnDe,gGender],
+  Pictures:[gPicture,gTransEnDe,gGender],
+  Sentences:[gBuild,gCloze,gWFrage,gNegation,gConnBuild,gTapWord,gGaps],
+  Numbers:[gNumber,gListenNumber,gTypeNumber,gOrdinal],
+  Listening:hasSpeech?[gListenWord,gListenPhrase,gTypeListen,gListenNumber,gBuildListen,gDictate]:[gTransDeEn,gTransEnDe],
+  Typing:[gTypeNoun,gTypeVerb,gTypeConj,gTypeNumber,gTypePlural,gTrueFalse,gScramble,gIdiomType],
   Match:[gMatch,gMatchVerb],
-  Phrases:hasSpeech?[gPhraseTrans,gListenPhrase,gBuildListen,gBuild]:[gPhraseTrans,gBuild],
-  Gaps:[gCloze,gWFrage]
+  Phrases:hasSpeech?[gPhraseTrans,gListenPhrase,gBuildListen,gBuild,gRedemittelMean,gConvo]:[gPhraseTrans,gBuild,gRedemittelMean,gConvo],
+  Gaps:[gCloze,gWFrage,gGaps],
+  /* --- v13: advanced & four-skill skills --- */
+  Clauses:[gRelPron,gRelPronGen,gRelPrep,gInfZu,gAdvType,gConnBuild,gErwPart,gNDekl],
+  Connectors:[gConnKind,gConnPick,gTwoPart,gAdvType,gMulti],
+  Konjunktiv:[gK2Form,gK2Use,gK2Type,gKonj1,gReport,gKonj1Why],
+  Passive:[gPassiv,gZustand,gPassErs,gPassivBuild,gMulti],
+  Style:[gNominal,gRegister,gFVG,gFVGVerb,gModPart,gModPartMean,gWordForm,gWordFormType,gVPrefix,gSort],
+  Idioms:[gIdiom,gIdiomGap,gIdiomType,gSprichwort],
+  Slang:[gSlang,gSlangNeutral,gSlangRegion,gFalseFriend],
+  Conversation:[gConvo,gDialog,gRedemittel,gRedemittelMean],
+  Reading:[gReading,gOddOne,gMulti],
+  Discussion:[gConvo,gRedemittel,gRegister,gNominal],
+  Drills:[gSort,gScramble,gMulti,gTapWord,gGaps,gOddOne]
 };
 const ALLGEN=[...A0GEN,gGender,gCaseArticle,gAdjEnding,gVerbCase,gPrepCase,gTwoWay,gConjPresent,gModal,gPerfekt,gPraet,gPlural,
  gPicture,gTransDeEn,gTransEnDe,gOpposite,gVerbPrep,gSep,gNumber,gBuild,gKonjunktiv,
  gTypeNoun,gTypeVerb,gTypeConj,gPhraseTrans,gMatch,gMatchVerb,gTrueFalse,gCloze,gWFrage,gTypeNumber,gTypePlural,
- ...(hasSpeech?[gListenWord,gListenPhrase,gTypeListen,gListenNumber,gBuildListen]:[])];
+ /* v13 */
+ gRelPron,gRelPronGen,gRelPrep,gKonj1,gReport,gKonj1Why,gConnKind,gConnPick,gTwoPart,gAdvType,gConnBuild,
+ gNDekl,gNDeklSpot,gDaCompound,gWoCompound,gDaWoPerson,gPassiv,gZustand,gPassErs,gPassivBuild,
+ gNominal,gGenPrep,gGenNoun,gGenPrepList,gPartizip,gErwPart,gSubjMod,gSubjModMean,
+ gK2Form,gK2Use,gK2Type,gInfZu,gFutur2,gReflex,gCompare,gCompareSent,gNegation,gPossessive,gImperativ,gOrdinal,
+ gFVG,gFVGVerb,gModPart,gModPartMean,gWordForm,gWordFormType,gVPrefix,
+ gIdiom,gIdiomGap,gIdiomType,gSprichwort,gRegister,gSlang,gSlangNeutral,gSlangRegion,
+ gRedemittel,gRedemittelMean,gFalseFriend,gPronounce,gConvo,gDialog,gReading,
+ gMulti,gTapWord,gGaps,gSort,gScramble,gOddOne,
+ ...(hasSpeech?[gListenWord,gListenPhrase,gTypeListen,gListenNumber,gBuildListen,gDictate]:[])];
 const TOPICS=[
  {key:'Mixed',ic:'🎲',t:'Mixed practice',d:'A bit of everything',col:'#5566d6',wide:true},
  {key:'Beginner',ic:'🐣',t:'First steps',d:'colours · days · greetings',col:'#2bb5a0'},
  {key:'Listening',ic:'🎧',t:'Listening',d:'hear & choose',col:'#3f6fe0'},
+ {key:'Conversation',ic:'💬',t:'Conversation',d:'reply in real dialogues',col:'#d24a80'},
+ {key:'Drills',ic:'⚡',t:'Quick drills',d:'sort · scramble · tap',col:'#f0791a'},
  {key:'Match',ic:'🔗',t:'Match pairs',d:'German ↔ English',col:'#0ea5a5'},
  {key:'Typing',ic:'⌨️',t:'Typing',d:'write it yourself',col:'#7b5fe0'},
- {key:'Phrases',ic:'🗣️',t:'Phrases',d:'everyday expressions',col:'#d24a80'},
- {key:'Gaps',ic:'✏️',t:'Fill the gap',d:'cloze & W-questions',col:'#e0642e'},
- {key:'Pictures',ic:'🖼️',t:'Pictures',d:'image to word',col:'#f0791a'},
+ {key:'Phrases',ic:'🗣️',t:'Phrases',d:'everyday expressions',col:'#c0356b'},
+ {key:'Slang',ic:'😎',t:'Slang & regions',d:'how people really talk',col:'#e0642e'},
+ {key:'Gaps',ic:'✏️',t:'Fill the gap',d:'cloze & multi-gap',col:'#e0952e'},
+ {key:'Pictures',ic:'🖼️',t:'Pictures',d:'image to word',col:'#f5801a'},
  {key:'Articles',ic:'📘',t:'Articles',d:'der · die · das',col:'#3f6fe0'},
- {key:'Cases',ic:'🎯',t:'Cases',d:'Nom · Akk · Dat',col:'#c0356b'},
- {key:'Adjectives',ic:'🎨',t:'Adjectives',d:'endings & opposites',col:'#17864f'},
+ {key:'Cases',ic:'🎯',t:'Cases',d:'Nom · Akk · Dat · Gen',col:'#c0356b'},
+ {key:'Adjectives',ic:'🎨',t:'Adjectives',d:'endings & comparison',col:'#17864f'},
  {key:'Verbs',ic:'⚡',t:'Verbs & tenses',d:'present, past, modals',col:'#e0952e'},
- {key:'Prepositions',ic:'🧭',t:'Prepositions',d:'case & two-way',col:'#2f6fd0'},
+ {key:'Prepositions',ic:'🧭',t:'Prepositions',d:'case · two-way · da-words',col:'#2f6fd0'},
  {key:'Vocabulary',ic:'💬',t:'Vocabulary',d:'words & plurals',col:'#25b06e'},
  {key:'Sentences',ic:'🧩',t:'Sentences',d:'build word order',col:'#5a4bc0'},
- {key:'Numbers',ic:'🔢',t:'Numbers',d:'zero to hundreds',col:'#0e87a5'}
+ {key:'Numbers',ic:'🔢',t:'Numbers',d:'zero to ordinals',col:'#0e87a5'},
+ {key:'Clauses',ic:'🪢',t:'Clauses',d:'relative · infinitive · zu',col:'#6a4bd0'},
+ {key:'Connectors',ic:'🧷',t:'Connectors',d:'word order after each one',col:'#2bb5a0'},
+ {key:'Konjunktiv',ic:'🌙',t:'Konjunktiv',d:'wäre, hätte & reported speech',col:'#7b5fe0'},
+ {key:'Passive',ic:'🔁',t:'Passive',d:'werden, sein & substitutes',col:'#0ea5a5'},
+ {key:'Style',ic:'🎩',t:'Style & register',d:'formal ↔ casual, Nominalstil',col:'#4b5bbe'},
+ {key:'Idioms',ic:'🧿',t:'Idioms',d:'Redewendungen & Sprichwörter',col:'#d2694a'},
+ {key:'Reading',ic:'📰',t:'Reading',d:'short texts & questions',col:'#1f9d6a'}
 ];
-const SKILL_LIST=['Beginner','Articles','Cases','Adjectives','Verbs','Prepositions','Vocabulary','Listening','Sentences','Numbers'];
+const SKILL_LIST=['Beginner','Articles','Cases','Adjectives','Verbs','Prepositions','Vocabulary','Listening','Sentences','Numbers','Clauses','Connectors','Konjunktiv','Passive','Style','Idioms'];
 
 /* ---------- v2: achievements ---------- */
 const ACHIEVEMENTS=[
@@ -1521,6 +2325,18 @@ if(window.EXTRA_VOCAB){
   Object.keys(V.imgs||{}).forEach(k=>{if(!NOUN_IMG[k])NOUN_IMG[k]=V.imgs[k];});
   (V.pics||[]).forEach(p=>{if(!PIC.includes(p)&&NOUN_IMG[p]&&sN.has(p))PIC.push(p);});
 }
+/* ---------- v13: Goethe-aligned wordlist pack (goethe.js), same dedup ---------- */
+if(window.GOETHE_VOCAB){
+  const G=window.GOETHE_VOCAB;
+  const sN2=new Set(NOUNS.map(n=>n.de));
+  (G.nouns||[]).forEach(n=>{if(n&&n.de&&!sN2.has(n.de)){sN2.add(n.de);NOUNS.push(n);}});
+  const sV2=new Set(VERBS.map(v=>v.inf));
+  (G.verbs||[]).forEach(v=>{if(v&&v.inf&&!sV2.has(v.inf)){sV2.add(v.inf);VERBS.push(v);}});
+  const sA2=new Set(ADJ.map(a=>a.de));
+  (G.adjs||[]).forEach(a=>{if(a&&a.de&&!sA2.has(a.de)){sA2.add(a.de);ADJ.push(a);}});
+  const sP2=new Set(PHRASES.map(p=>p.de));
+  (G.phrases||[]).forEach(p=>{if(p&&p.de&&!sP2.has(p.de)){sP2.add(p.de);PHRASES.push(p);}});
+}
 /* Persian (فارسی) pack — keyed by the English glosses, so it maps 1:1 onto this data */
 if(window.FA){
   const eb=t=>String(t||'').replace(/^to /,'').split(/[\/(]/)[0].trim().split(' ')[0];
@@ -1557,7 +2373,23 @@ const COURSE=[
  {t:'Past Tenses',lv:'B1',ic:'⏳',col:'#c0356b',d:'Perfekt & Präteritum',sk:'Verbs',gens:[gPerfekt,gPraet,gBuild]},
  {t:'Adjective Endings',lv:'B1',ic:'🎨',col:'#17864f',d:'The famous ending tables',sk:'Adjectives',gens:[gAdjEnding,gOpposite,gTrueFalse]},
  {t:'Verb + Preposition',lv:'B1',ic:'🔗',col:'#2f6fd0',d:'warten auf, denken an…',sk:'Prepositions',gens:[gVerbPrep,gTwoWay,gPrepCase]},
- {t:'Konjunktiv & Style',lv:'B2',ic:'🏔️',col:'#5a4bc0',d:'Polite, unreal, advanced',sk:'Verbs',gens:[gKonjunktiv,gBuild,gAdjEnding]}
+ {t:'Relative Clauses',lv:'B1',ic:'🪢',col:'#6a4bd0',d:'der, den, dem, dessen',sk:'Clauses',gens:[gRelPron,gRelPronGen,gRelPrep,gConnBuild]},
+ {t:'Connectors & Order',lv:'B1',ic:'🧷',col:'#2bb5a0',d:'weil · deshalb · trotzdem',sk:'Connectors',gens:[gConnKind,gConnPick,gAdvType,gConnBuild]},
+ {t:'da- & wo-Words',lv:'B1',ic:'🪄',col:'#0e87a5',d:'darauf, woran, damit',sk:'Prepositions',gens:[gDaCompound,gWoCompound,gDaWoPerson,gVerbPrep]},
+ {t:'Everyday Talk',lv:'B1',ic:'💬',col:'#d24a80',d:'real dialogues & Redemittel',sk:'Conversation',gens:[gConvo,gDialog,gRedemittelMean,gRedemittel]},
+ {t:'Konjunktiv II',lv:'B2',ic:'🌙',col:'#5a4bc0',d:'wäre, hätte, würde — wishes & politeness',sk:'Konjunktiv',gens:[gK2Form,gK2Use,gK2Type,gKonjunktiv]},
+ {t:'Passive Voice',lv:'B2',ic:'🔁',col:'#0ea5a5',d:'werden, sein & substitutes',sk:'Passive',gens:[gPassiv,gZustand,gPassErs,gPassivBuild]},
+ {t:'Reported Speech',lv:'B2',ic:'📰',col:'#c0356b',d:'Konjunktiv I in the news',sk:'Konjunktiv',gens:[gKonj1,gReport,gKonj1Why,gK2Use]},
+ {t:'Genitiv & Formal',lv:'B2',ic:'📜',col:'#4b5bbe',d:'wegen, trotz, des Mannes',sk:'Prepositions',gens:[gGenPrep,gGenNoun,gGenPrepList,gNominal]},
+ {t:'Participles',lv:'B2',ic:'🎭',col:'#17864f',d:'schlafend vs. geschlafen',sk:'Adjectives',gens:[gPartizip,gAdjEnding,gErwPart]},
+ {t:'Reading & Guessing',lv:'B2',ic:'🔍',col:'#1f9d6a',d:'texts, subjective modals',sk:'Reading',gens:[gReading,gSubjMod,gSubjModMean,gMulti]},
+ {t:'Nominal Style',lv:'C1',ic:'🏛️',col:'#5566d6',d:'Verbalstil ↔ Nominalstil',sk:'Style',gens:[gNominal,gFVG,gFVGVerb,gWordForm]},
+ {t:'Compressed Attributes',lv:'C1',ic:'🪆',col:'#7b5fe0',d:'die seit Jahren steigenden Mieten',sk:'Clauses',gens:[gErwPart,gPartizip,gRelPron,gAdvType]},
+ {t:'Particles & Tone',lv:'C1',ic:'🎚️',col:'#e0642e',d:'doch, mal, eben, wohl',sk:'Style',gens:[gModPart,gModPartMean,gSlangNeutral,gRegister]},
+ {t:'Register & Precision',lv:'C1',ic:'🎩',col:'#2f6fd0',d:'formal ↔ casual, word building',sk:'Style',gens:[gRegister,gWordFormType,gVPrefix,gSort]},
+ {t:'Idioms & Images',lv:'C2',ic:'🧿',col:'#d2694a',d:'Redewendungen & Sprichwörter',sk:'Idioms',gens:[gIdiom,gIdiomGap,gIdiomType,gSprichwort]},
+ {t:'Nuance',lv:'C2',ic:'🔬',col:'#6a4bd0',d:'scheinbar vs. anscheinend',sk:'Style',gens:[gRegister,gNominal,gModPart,gFVGVerb]},
+ {t:'Mastery',lv:'C2',ic:'👑',col:'#1b2340',d:'everything, mixed and merciless',sk:'Mixed',gens:[gErwPart,gKonj1,gIdiom,gNominal,gSubjMod,gGenPrep,gModPart,gRelPrep]}
 ];
 function lessonStars(u,l){const e=(DB.course||{})[u+'_'+l];return e?e.stars:0;}
 function lessonUnlocked(u,l){
@@ -1582,15 +2414,17 @@ function shade(hex){const n=parseInt(hex.slice(1),16);const r=Math.max(0,(n>>16)
  return '#'+((r<<16)|(g<<8)|b).toString(16).padStart(6,'0');}
 
 /* ---------- learner level (A0–B2) & question freshness ---------- */
-const LEVELS=['A0','A1','A2','B1','B2'];
+const LEVELS=['A0','A1','A2','B1','B2','C1','C2'];
 const LEVEL_INFO=[
  {code:'A0',t:{en:'Absolute beginner',de:'Absoluter Anfänger',fa:'کاملاً مبتدی'},d:{en:'Brand new to German — start from the very first words.',de:'Ganz neu — beginne bei den ersten Wörtern.',fa:'تازه‌کار — از اولین کلمه‌ها شروع کن.'},ic:'🐣'},
  {code:'A1',t:{en:'Beginner',de:'Anfänger',fa:'مبتدی'},d:{en:'I know a few words, greetings and numbers.',de:'Ich kenne ein paar Wörter und Zahlen.',fa:'چند کلمه و عدد بلدم.'},ic:'🌱'},
  {code:'A2',t:{en:'Elementary',de:'Grundstufe',fa:'پایه'},d:{en:'I can handle simple everyday sentences.',de:'Einfache Alltagssätze schaffe ich.',fa:'جمله‌های ساده روزمره را می‌فهمم.'},ic:'🌿'},
  {code:'B1',t:{en:'Intermediate',de:'Mittelstufe',fa:'متوسط'},d:{en:'I can hold basic conversations.',de:'Ich kann einfache Gespräche führen.',fa:'می‌توانم گفتگوی ساده داشته باشم.'},ic:'💬'},
- {code:'B2',t:{en:'Upper-intermediate',de:'Fortgeschritten',fa:'پیشرفته'},d:{en:'I want to refine and go advanced.',de:'Ich will verfeinern und weiter.',fa:'می‌خواهم پیشرفته‌تر شوم.'},ic:'🏔️'}
+ {code:'B2',t:{en:'Upper-intermediate',de:'Fortgeschritten',fa:'پیشرفته'},d:{en:'I want to refine and go advanced.',de:'Ich will verfeinern und weiter.',fa:'می‌خواهم پیشرفته‌تر شوم.'},ic:'🏔️'},
+ {code:'C1',t:{en:'Advanced',de:'Fachkundig',fa:'پیشرفتهٔ بالا'},d:{en:'I read and argue fluently — I want precision and style.',de:'Ich lese und argumentiere flüssig — ich will Präzision und Stil.',fa:'روان می‌خوانم و بحث می‌کنم — دقت و سبک می‌خواهم.'},ic:'🎓'},
+ {code:'C2',t:{en:'Mastery',de:'Annähernd muttersprachlich',fa:'تسلط کامل'},d:{en:'Near-native — idiom, nuance and register.',de:'Nahezu muttersprachlich — Idiomatik, Nuance, Register.',fa:'نزدیک به زبان مادری — اصطلاح، نکته‌های ریز و سطح زبان.'},ic:'👑'}
 ];
-const LVNUM={A0:1,A1:2,A2:3,B1:4,B2:5};
+const LVNUM={A0:1,A1:2,A2:3,B1:4,B2:5,C1:6,C2:7};
 function unitLevelNum(u){return LVNUM[COURSE[u].lv]||1;}
 const GLV=new Map([
  [gGender,2],[gPicture,2],[gTransDeEn,2],[gTransEnDe,2],[gOpposite,2],[gNumber,2],[gListenNumber,2],
@@ -1600,9 +2434,21 @@ const GLV=new Map([
  [gWFrage,2],[gTypeNumber,2],[gTypePlural,3],[gCloze,3],
  [gPraet,4],[gAdjEnding,4],[gVerbPrep,4],
  [gKonjunktiv,5],
- [gColorPic,1],[gColorWord,1],[gDayMean,1],[gDayNext,1],[gGreetMean,1],[gGreetMatch,1],[gNumSmall,1],[gNumSmallWord,1],[gCountPic,1]
+ [gColorPic,1],[gColorWord,1],[gDayMean,1],[gDayNext,1],[gGreetMean,1],[gGreetMatch,1],[gNumSmall,1],[gNumSmallWord,1],[gCountPic,1],
+ /* ---- v13: advanced generators ---- */
+ [gPronounce,1],[gOddOne,2],[gScramble,2],[gNegation,2],[gPossessive,2],[gImperativ,2],[gConvo,2],
+ [gRedemittel,2],[gRedemittelMean,2],[gDialog,2],[gDictate,2],[gSort,2],
+ [gOrdinal,3],[gReflex,3],[gGenNoun,3],[gCompare,3],[gCompareSent,3],[gFalseFriend,3],[gSlang,3],[gSlangRegion,3],
+ [gRelPron,4],[gRelPronGen,4],[gRelPrep,4],[gInfZu,4],[gNDekl,4],[gNDeklSpot,4],[gDaCompound,4],[gWoCompound,4],
+ [gDaWoPerson,4],[gFutur2,4],[gConnKind,4],[gConnPick,4],[gAdvType,4],[gConnBuild,4],[gReading,4],
+ [gMulti,4],[gTapWord,4],[gGaps,4],[gWordForm,4],[gWordFormType,4],[gVPrefix,4],
+ [gKonj1,5],[gReport,5],[gKonj1Why,5],[gPassiv,5],[gZustand,5],[gPassErs,5],[gPassivBuild,5],
+ [gPartizip,5],[gSubjMod,5],[gSubjModMean,5],[gK2Form,5],[gK2Use,5],[gK2Type,5],
+ [gNominal,5],[gGenPrep,5],[gGenPrepList,5],[gTwoPart,5],[gSlangNeutral,5],
+ [gErwPart,6],[gFVG,6],[gFVGVerb,6],[gModPart,6],[gModPartMean,6],[gRegister,6],
+ [gIdiom,7],[gIdiomGap,7],[gIdiomType,7],[gSprichwort,7]
 ]);
-function byLevel(pool){const f=pool.filter(g=>(GLV.get(g)||1)<=(DB.level||5));return f.length?f:pool;}
+function byLevel(pool){const f=pool.filter(g=>(GLV.get(g)||1)<=(DB.level||7));return f.length?f:pool;}
 let SEEN=new Set();
 function qKey(q){return (q.tag||'')+'|'+(q.stem||q.big||q.speak||(q.pairs?q.pairs.map(p=>p.de).join(','):''))+'|'+(q.answer||'');}
 function freshQuestion(pool){
@@ -1658,7 +2504,7 @@ function recordLessonDone(skill){const h=today();h.lessons=(h.lessons||0)+1;h.sk
    UI
    ============================================================ */
 const $=id=>document.getElementById(id);
-const el={home:$('home'),practice:$('practice'),words:$('words'),grammar:$('grammar'),glesson:$('glesson'),flash:$('flash'),stats:$('stats'),quiz:$('quiz'),results:$('results'),nav:$('nav'),card:$('card'),sheet:$('sheet'),pfill:$('pfill'),heartN:$('heartN'),check:$('checkBtn')};
+const el={home:$('home'),practice:$('practice'),words:$('words'),grammar:$('grammar'),glesson:$('glesson'),flash:$('flash'),stats:$('stats'),quiz:$('quiz'),results:$('results'),skills:$('skills'),exam:$('exam'),nav:$('nav'),card:$('card'),sheet:$('sheet'),pfill:$('pfill'),heartN:$('heartN'),check:$('checkBtn')};
 const S={topic:null,q:null,i:0,total:10,correct:0,hearts:5,streak:0,picked:null,placed:[],locked:false};
 
 function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}
@@ -1784,10 +2630,10 @@ function flashCombo(txt){const c=$('combo');if(!c)return;c.textContent=txt;c.cla
 
 /* ----- screen switching ----- */
 function show(screen){
-  ['home','practice','words','grammar','glesson','flash','stats','quiz','results'].forEach(s=>el[s].classList.toggle('hidden',s!==screen));
-  const nav=['home','grammar','practice','words','stats'].includes(screen);
+  ['home','practice','words','grammar','glesson','flash','stats','quiz','results','skills','exam'].forEach(s=>el[s].classList.toggle('hidden',s!==screen));
+  const nav=['home','grammar','practice','words','skills','stats'].includes(screen);
   el.nav.classList.toggle('hidden',!nav);
-  [['navLearn','home'],['navGrammar','grammar'],['navPractice','practice'],['navWords','words'],['navStats','stats']]
+  [['navLearn','home'],['navGrammar','grammar'],['navPractice','practice'],['navWords','words'],['navSkills','skills'],['navStats','stats']]
     .forEach(([b,s])=>$(b).classList.toggle('on',screen===s));
   const sc=el[screen];sc.classList.remove('screenin');void sc.offsetWidth;sc.classList.add('screenin');
   if(screen==='home')renderHome();
@@ -1795,11 +2641,13 @@ function show(screen){
   if(screen==='words')renderWords();
   if(screen==='grammar')renderGrammar();
   if(screen==='stats')renderStats();
+  if(screen==='skills')renderSkills();
 }
 $('navLearn').onclick=()=>show('home');
 $('navGrammar').onclick=()=>show('grammar');
 $('navPractice').onclick=()=>show('practice');
 $('navWords').onclick=()=>show('words');
+$('navSkills').onclick=()=>show('skills');
 $('navStats').onclick=()=>show('stats');
 
 /* ----- ring ----- */
@@ -1987,8 +2835,9 @@ function renderGrammar(){
   $('gramList').innerHTML=h;
   $('gramList').querySelectorAll('.gcard').forEach(b=>b.onclick=()=>openGram(b.dataset.id));
 }
-let curGram=null;
+let curGram=null,gqN=0;const GQ={};
 function openGram(id){
+  gqN=0;
   const g=GRAM.find(x=>x.id===id);if(!g)return;curGram=g;
   DB.gramRead=DB.gramRead||{};DB.gramRead[id]=true;Store.save(DB);
   let h=`<div class="glesson-lv">${LEVELS[g.lv-1]||''}</div><div class="glesson-title">${g.ic} ${Gt(g.title)}</div>`;
@@ -2007,15 +2856,401 @@ function openGram(id){
         e+=`<div class="gex"><div class="gtx"><div class="gde">${it.de}</div><div class="gen">${it.en||Gt(it.tr)||''}</div></div>
           ${hasSpeech?`<button class="gspk" data-say="${say}" aria-label="Play">🔊</button><button class="gspk slow" data-say="${say}" data-slow="1" aria-label="Slow">0.5×</button>`:''}</div>`;});
       e+='</div></div>';h+=e;
+    }else if(bl.type==='rule'){
+      h+=`<div class="gblock rule"><div class="glab">📌 ${XL()==='fa'?'قاعده':'Rule'}</div>${Gt(bl.md)}</div>`;
+    }else if(bl.type==='warn'){
+      h+=`<div class="gblock warn"><div class="glab">⚠️ ${XL()==='fa'?'مراقب باش':'Watch out'}</div>${Gt(bl.md)}</div>`;
+    }else if(bl.type==='steps'){
+      h+='<div class="gblock"><ol class="gsteps">'+(bl.items||[]).map(it=>`<li>${Gt(it)}</li>`).join('')+'</ol></div>';
+    }else if(bl.type==='contrast'){
+      h+='<div class="gcontrast">'+(bl.cols||[]).map(c=>
+        `<div class="gcol"><div class="gcolt">${Gt(c.t)}</div><div class="gcolb">${Gt(c.md)}</div></div>`).join('')+'</div>';
+    }else if(bl.type==='dialog'){
+      h+='<div class="gblock"><div class="gdlg">'+(bl.lines||[]).map(l=>{
+        const say=(l.de||'').replace(/"/g,'&quot;');
+        return `<div class="dline ${l.who==='A'?'a':'b'}"><span class="dwho">${l.who}</span>
+          <span class="dtx">${l.de}${l.en?`<span class="den">${l.en}</span>`:''}</span>
+          ${hasSpeech?`<button class="gspk mini" data-say="${say}" aria-label="Play">🔊</button>`:''}</div>`;}).join('')+'</div></div>';
+    }else if(bl.type==='quiz'){
+      const qid='gq'+(gqN++);
+      h+=`<div class="gblock gquiz" id="${qid}"><div class="glab">✏️ ${XL()==='fa'?'امتحان کن':'Quick check'}</div>
+        <div class="gqq">${Gt(bl.q)}</div><div class="gqopts">`+
+        shuffle([bl.a,...(bl.o||[])]).map(o=>
+          `<button class="gqo" data-ok="${o===bl.a?1:0}">${o}</button>`).join('')+
+        `</div><div class="gqex hidden">${Gt(bl.ex)}</div></div>`;
+      GQ[qid]=bl;
     }
   });
   $('gramBody').innerHTML=h;
   $('gramBody').querySelectorAll('.gspk').forEach(b=>b.onclick=()=>speak(b.dataset.say,b,b.dataset.slow==='1'));
+  $('gramBody').querySelectorAll('.gquiz').forEach(box=>{
+    const ex=box.querySelector('.gqex');
+    box.querySelectorAll('.gqo').forEach(b=>b.onclick=()=>{
+      if(box.dataset.done)return;box.dataset.done='1';
+      const ok=b.dataset.ok==='1';
+      box.querySelectorAll('.gqo').forEach(x=>{
+        if(x.dataset.ok==='1')x.classList.add('ok');else if(x===b)x.classList.add('no');
+        x.classList.add('seen');});
+      ex.classList.remove('hidden');
+      if(ok){sfxCorrect();haptic(true);DB.gramQuiz=(DB.gramQuiz||0)+1;Store.save(DB);}
+      else{sfxWrong();haptic(false);}
+    });
+  });
   $('gramPractice').style.display=g.sk?'':'none';
   $('gramPractice').onclick=()=>{if(g.sk)startLesson(g.sk);};
   show('glesson');$('glesson').scrollTop=0;
 }
 $('gramBack').onclick=()=>show('grammar');
+
+
+/* ============================================================
+   v13: EXAM TRAINER — Lesen · Hören · Schreiben · Sprechen
+   Task data from exams.js, shaped after the Goethe-Zertifikat
+   module structure. Reading & listening are auto-scored;
+   writing & speaking are guided + self-assessed against a model.
+   ============================================================ */
+const EX=window.EXAMS||{};
+const SKILLDEF=[
+ {k:'LESEN',    id:'Lesen',    ic:'📖', t:'Lesen',     d:'Reading — texts, ads, true/false',      col:'#1f9d6a'},
+ {k:'HOEREN',   id:'Hören',    ic:'🎧', t:'Hören',     d:'Listening — announcements, interviews', col:'#3f6fe0'},
+ {k:'SCHREIBEN',id:'Schreiben',ic:'✍️', t:'Schreiben', d:'Writing — messages, emails, essays',    col:'#d24a80'},
+ {k:'SPRECHEN', id:'Sprechen', ic:'🗣️', t:'Sprechen',  d:'Speaking — with model answers & timer', col:'#e0642e'}
+];
+function examPool(kind){
+  const lv=DB.level||7, all=EX[kind]||[];
+  const at=all.filter(t=>t.lv===lv);
+  if(at.length)return at;
+  const below=all.filter(t=>t.lv<=lv);
+  return below.length?below.slice(-3):all.slice(0,2);
+}
+function examDone(kind,i){return !!((DB.exam||{})[kind+'_'+i]);}
+function markExamDone(kind,i,score){
+  DB.exam=DB.exam||{};DB.exam[kind+'_'+i]=score==null?1:score;Store.save(DB);
+}
+function renderSkills(){
+  const lv=LEVELS[(DB.level||1)-1]||'A1';
+  $('skLvBadge').textContent=lv+' · '+((LEVEL_INFO[(DB.level||1)-1]||{}).t||{}).en;
+  $('skGrid').innerHTML=SKILLDEF.map(sd=>{
+    const pool=examPool(sd.k);
+    const done=pool.filter((t,i)=>examDone(sd.k,(EX[sd.k]||[]).indexOf(t))).length;
+    return `<button class="skcard" data-k="${sd.k}" style="--c:${sd.col}">
+      <div class="skic">${sd.ic}</div>
+      <div class="sktx"><b>${sd.t}</b><span>${sd.d}</span></div>
+      <div class="skmeta">${done}/${pool.length}</div></button>`;}).join('');
+  $('skGrid').querySelectorAll('.skcard').forEach(b=>b.onclick=()=>openSkill(b.dataset.k));
+}
+$('examBack').onclick=()=>{stopExamTimers();show('skills');};
+$('mockBtn').onclick=()=>startMock();
+
+/* ---------- task list for one skill ---------- */
+function openSkill(kind){
+  const sd=SKILLDEF.find(x=>x.k===kind);
+  const all=EX[kind]||[], pool=examPool(kind);
+  let h=`<div class="exhead"><div class="exic">${sd.ic}</div>
+    <div><div class="extitle">${sd.t}</div><div class="exsub">${sd.d}</div></div></div>`;
+  h+='<div class="exlist">'+pool.map(t=>{
+    const i=all.indexOf(t);
+    return `<button class="extask ${examDone(kind,i)?'done':''}" data-i="${i}">
+      <div class="etlv">${LEVELS[t.lv-1]}</div>
+      <div class="ettx"><b>${t.title}</b><span>${t.part||''}</span></div>
+      <div class="gchev">${examDone(kind,i)?'✓':'›'}</div></button>`;}).join('')+'</div>';
+  $('examBody').innerHTML=h;
+  $('examBody').querySelectorAll('.extask').forEach(b=>b.onclick=()=>runExam(kind,+b.dataset.i));
+  show('exam');$('exam').scrollTop=0;
+}
+
+/* ---------- dispatcher ---------- */
+let MOCK=null;
+function runExam(kind,i){
+  stopExamTimers();
+  const t=(EX[kind]||[])[i];if(!t)return;
+  if(kind==='LESEN')runLesen(t,i);
+  else if(kind==='HOEREN')runHoeren(t,i);
+  else if(kind==='SCHREIBEN')runSchreiben(t,i);
+  else if(kind==='SPRECHEN')runSprechen(t,i);
+  show('exam');$('exam').scrollTop=0;
+}
+function examHeader(t,ic){
+  return `<div class="exhead"><div class="exic">${ic}</div>
+    <div><div class="extitle">${t.title}</div>
+    <div class="exsub">${LEVELS[t.lv-1]} · ${t.part||''}</div></div></div>`;
+}
+function examFinish(kind,i,got,total){
+  const pct=total?Math.round(100*got/total):100;
+  const xp=got*10;
+  if(xp){const h=today();h.xp+=xp;DB.xp+=xp;}
+  markExamDone(kind,i,pct);Store.save(DB);
+  const msg=pct>=80?'Sehr gut! 🎉':pct>=60?'Bestanden — gut gemacht. 👍':'Noch üben — schau dir die Erklärungen an.';
+  const extra=MOCK?`<button class="btn-primary" id="mockNext" style="margin-top:14px">Next part ➜</button>`
+                  :`<button class="btn-primary" id="exAgain" style="margin-top:14px">Back to ${kind==='LESEN'?'Lesen':kind==='HOEREN'?'Hören':kind==='SCHREIBEN'?'Schreiben':'Sprechen'} ➜</button>`;
+  const el2=document.createElement('div');
+  el2.className='exresult';
+  el2.innerHTML=`<div class="exscore">${got} / ${total}</div><div class="exmsg">${msg}</div>
+    ${xp?`<div class="xppill">+${xp} XP</div>`:''}${extra}`;
+  $('examBody').appendChild(el2);
+  el2.scrollIntoView({behavior:'smooth',block:'center'});
+  const nb=$('mockNext');if(nb)nb.onclick=()=>mockAdvance();
+  const ab=$('exAgain');if(ab)ab.onclick=()=>openSkill(kind);
+  if(pct>=60)confetti();
+}
+
+/* ================= LESEN ================= */
+function runLesen(t,i){
+  let h=examHeader(t,'📖');
+  if(t.intro)h+=`<div class="exintro">${t.intro}</div>`;
+  if(t.text)h+=`<div class="extext">${t.text.replace(/\n/g,'<br>')}</div>`;
+  if(t.ads)h+='<div class="exads">'+t.ads.map(a=>
+    `<div class="exad"><span class="adk">${a.k}</span><span>${a.t}</span></div>`).join('')+'</div>';
+  h+='<div class="exqs" id="exqs"></div>';
+  $('examBody').innerHTML=h;
+  const wrap=$('exqs');
+  let got=0,total=0,answered=0;
+  const items = t.kind==='tf' ? t.items.map(x=>({q:x.s,a:x.a?'Richtig':'Falsch',o:[x.a?'Falsch':'Richtig'],ex:x.ex,tf:true}))
+              : t.kind==='matchads' ? t.people.map(p=>({q:p.p,a:p.a,o:t.ads.map(a=>a.k).filter(k=>k!==p.a),ex:p.ex}))
+              : t.qs.map(q=>({q:q.q,a:q.a,o:q.o,ex:q.ex}));
+  total=items.length;
+  items.forEach((it,qi)=>{
+    const box=document.createElement('div');box.className='exq';
+    const options=it.tf?['Richtig','Falsch']:shuffle([it.a,...it.o]);
+    box.innerHTML=`<div class="exqq"><span class="exqn">${qi+1}</span>${it.q}</div>
+      <div class="exopts ${it.tf?'tf':''}"></div><div class="exex hidden">${it.ex||''}</div>`;
+    const ow=box.querySelector('.exopts');
+    options.forEach(o=>{const b=document.createElement('button');b.className='exopt';b.textContent=o;
+      b.onclick=()=>{
+        if(box.dataset.done)return;box.dataset.done='1';
+        const ok=String(o)===String(it.a);
+        ow.querySelectorAll('.exopt').forEach(x=>{
+          if(x.textContent===String(it.a))x.classList.add('ok');
+          else if(x===b)x.classList.add('no');
+          x.classList.add('seen');});
+        box.querySelector('.exex').classList.remove('hidden');
+        if(ok){got++;sfxCorrect();haptic(true);}else{sfxWrong();haptic(false);}
+        recordAnswer('Reading',ok);
+        answered++;if(answered===total)setTimeout(()=>examFinish('LESEN',i,got,total),400);
+      };ow.appendChild(b);});
+    wrap.appendChild(box);
+  });
+}
+
+/* ================= HÖREN ================= */
+function runHoeren(t,i){
+  let h=examHeader(t,'🎧');
+  h+=`<div class="exaudio">
+    <button class="exbigplay" id="exPlay">▶︎</button>
+    <div class="exarow">
+      <button class="exbtn" id="exSlow">0.5× slow</button>
+      <button class="exbtn" id="exRe">↻ Again</button>
+      <button class="exbtn" id="exScript">Transcript</button>
+    </div>
+    <div class="exnote">${hasSpeech?'Listen as often as you need — in the real exam you hear it twice.':'Your device has no German voice installed; the transcript is shown instead.'}</div>
+    <div class="extext hidden" id="exTranscript">${(t.say||'').replace(/\n/g,'<br>')}</div>
+  </div>`;
+  h+='<div class="exqs" id="exqs"></div>';
+  $('examBody').innerHTML=h;
+  const play=(slow)=>speak(t.say,$('exPlay'),slow);
+  $('exPlay').onclick=()=>play(false);
+  $('exRe').onclick=()=>play(false);
+  $('exSlow').onclick=()=>play(true);
+  $('exScript').onclick=()=>$('exTranscript').classList.toggle('hidden');
+  if(!hasSpeech)$('exTranscript').classList.remove('hidden');
+  const wrap=$('exqs');
+  const items = t.kind==='tf' ? t.items.map(x=>({q:x.s,a:x.a?'Richtig':'Falsch',ex:x.ex,tf:true}))
+              : t.qs.map(q=>({q:q.q,a:q.a,o:q.o,ex:q.ex}));
+  let got=0,answered=0;const total=items.length;
+  items.forEach((it,qi)=>{
+    const box=document.createElement('div');box.className='exq';
+    const options=it.tf?['Richtig','Falsch']:shuffle([it.a,...it.o]);
+    box.innerHTML=`<div class="exqq"><span class="exqn">${qi+1}</span>${it.q}</div>
+      <div class="exopts ${it.tf?'tf':''}"></div><div class="exex hidden">${it.ex||''}</div>`;
+    const ow=box.querySelector('.exopts');
+    options.forEach(o=>{const b=document.createElement('button');b.className='exopt';b.textContent=o;
+      b.onclick=()=>{
+        if(box.dataset.done)return;box.dataset.done='1';
+        const ok=String(o)===String(it.a);
+        ow.querySelectorAll('.exopt').forEach(x=>{
+          if(x.textContent===String(it.a))x.classList.add('ok');
+          else if(x===b)x.classList.add('no');x.classList.add('seen');});
+        box.querySelector('.exex').classList.remove('hidden');
+        if(ok){got++;sfxCorrect();haptic(true);}else{sfxWrong();haptic(false);}
+        recordAnswer('Listening',ok);
+        answered++;if(answered===total){$('exTranscript').classList.remove('hidden');
+          setTimeout(()=>examFinish('HOEREN',i,got,total),400);}
+      };ow.appendChild(b);});
+    wrap.appendChild(box);
+  });
+}
+
+/* ================= SCHREIBEN ================= */
+const DRAFTKEY=t=>'w_'+t.lv+'_'+(t.title||'').slice(0,20);
+function runSchreiben(t,i){
+  let h=examHeader(t,'✍️');
+  h+=`<div class="extask2">${t.task}</div>`;
+  h+='<div class="exsec">Content points — tick them off as you cover them</div>';
+  h+='<div class="expoints" id="exPoints">'+t.points.map((p,k)=>
+    `<button class="expoint" data-k="${k}"><span class="box">✓</span><span>${p}</span></button>`).join('')+'</div>';
+  h+='<div class="exsec">Useful phrases — tap to insert</div>';
+  h+='<div class="exphr">'+t.phrases.map(p=>`<button class="exph">${p}</button>`).join('')+'</div>';
+  h+=`<div class="exsec">Your text <span class="exwc" id="exWC">0 / ${t.min} words</span></div>
+      <textarea id="exText" class="extextarea" rows="9" placeholder="Schreibe hier auf Deutsch…"></textarea>
+      <div class="exarow">
+        <button class="exbtn" id="exSave">💾 Save draft</button>
+        <button class="exbtn" id="exClear">Clear</button>
+        <button class="exbtn" id="exRead">🔊 Read mine</button>
+      </div>
+      <button class="btn-primary" id="exModel" style="margin-top:14px">Show model answer &amp; checklist ➜</button>
+      <div class="hidden" id="exModelBox">
+        <div class="exsec">Self-check — be honest</div>
+        <div class="expoints">${t.check.map((c,k)=>
+          `<button class="expoint" data-c="${k}"><span class="box">✓</span><span>${c}</span></button>`).join('')}</div>
+        <div class="exsec">Model answer</div>
+        <div class="exmodel">${t.model.replace(/\n/g,'<br>')}</div>
+        ${hasSpeech?'<button class="exbtn" id="exModelSay" style="margin-top:10px">🔊 Hear the model</button>':''}
+        <button class="btn-primary" id="exWDone" style="margin-top:14px">I'm done ➜</button>
+      </div>`;
+  $('examBody').innerHTML=h;
+  const ta=$('exText');
+  const saved=(DB.drafts||{})[DRAFTKEY(t)];if(saved)ta.value=saved;
+  const count=()=>{const n=ta.value.trim()?ta.value.trim().split(/\s+/).length:0;
+    $('exWC').textContent=n+' / '+t.min+' words';
+    $('exWC').classList.toggle('hit',n>=t.min);return n;};
+  ta.oninput=count;count();
+  $('examBody').querySelectorAll('.expoint').forEach(b=>b.onclick=()=>b.classList.toggle('on'));
+  $('examBody').querySelectorAll('.exph').forEach(b=>b.onclick=()=>{
+    const v=ta.value, add=(v&&!/\s$/.test(v)?' ':'')+b.textContent+' ';
+    ta.value=v+add;ta.focus();count();});
+  $('exSave').onclick=()=>{DB.drafts=DB.drafts||{};DB.drafts[DRAFTKEY(t)]=ta.value;Store.save(DB);toast('Draft saved on this device');};
+  $('exClear').onclick=()=>{ta.value='';count();};
+  $('exRead').onclick=()=>{if(ta.value.trim())speak(ta.value.slice(0,400));};
+  $('exModel').onclick=()=>{
+    DB.drafts=DB.drafts||{};DB.drafts[DRAFTKEY(t)]=ta.value;Store.save(DB);
+    $('exModelBox').classList.remove('hidden');$('exModel').classList.add('hidden');
+    const ms=$('exModelSay');if(ms)ms.onclick=()=>speak(t.model.replace(/\n/g,' '));
+    $('exWDone').onclick=()=>{
+      const n=count();
+      const ticked=$('exModelBox').querySelectorAll('.expoint.on').length;
+      const got=Math.min(t.check.length, ticked + (n>=t.min?1:0));
+      examFinish('SCHREIBEN',i,got,t.check.length+1);
+    };
+    $('exModelBox').scrollIntoView({behavior:'smooth',block:'start'});
+  };
+}
+
+/* ================= SPRECHEN ================= */
+let EXTIMER=null, REC=null, RECCHUNKS=[], RECURL=null;
+function stopExamTimers(){
+  if(EXTIMER){clearInterval(EXTIMER);EXTIMER=null;}
+  try{if(REC&&REC.state==='recording')REC.stop();}catch(e){}
+  REC=null;
+}
+function fmtT(sec){const m=Math.floor(sec/60),s=sec%60;return m+':'+String(s).padStart(2,'0');}
+function runSprechen(t,i){
+  let h=examHeader(t,'🗣️');
+  h+=`<div class="extask2">${t.task}</div>`;
+  h+=`<div class="extimer" id="exTimer">
+        <div class="tphase" id="tPhase">Preparation</div>
+        <div class="tclock" id="tClock">${fmtT(t.prep)}</div>
+        <div class="exarow">
+          <button class="exbtn primary" id="tStart">▶︎ Start preparation</button>
+          <button class="exbtn" id="tSkip">Skip to speaking</button>
+        </div>
+      </div>`;
+  h+='<div class="exsec">Useful phrases</div>';
+  h+='<div class="exphr">'+t.phrases.map(p=>
+    `<button class="exph say">${p}</button>`).join('')+'</div>';
+  h+=`<div class="exsec">Record yourself (optional)</div>
+      <div class="exarow">
+        <button class="exbtn" id="recBtn">⏺ Record</button>
+        <button class="exbtn" id="recStop" disabled>⏹ Stop</button>
+      </div>
+      <audio id="recAudio" class="hidden" controls style="width:100%;margin-top:10px"></audio>
+      <div class="exnote" id="recNote">Stays on your device — nothing is uploaded.</div>`;
+  h+=`<button class="btn-primary" id="exShowModel" style="margin-top:16px">Show model answer ➜</button>
+      <div class="hidden" id="exModelBox">
+        <div class="exsec">Model answer</div>
+        <div class="exmodel">${t.model}</div>
+        ${hasSpeech?'<button class="exbtn" id="exModelSay" style="margin-top:10px">🔊 Hear it &amp; shadow along</button>':''}
+        <div class="exsec">Examiner tips</div>
+        <ul class="extips">${t.tips.map(x=>`<li>${x}</li>`).join('')}</ul>
+        <div class="exsec">How did it go?</div>
+        <div class="exselfrow" id="exSelf">
+          ${[['😕','Needs work',0],['🙂','Okay',2],['😃','Confident',3]].map(([e,l,v])=>
+            `<button class="exself" data-v="${v}"><span>${e}</span>${l}</button>`).join('')}
+        </div>
+      </div>`;
+  $('examBody').innerHTML=h;
+  $('examBody').querySelectorAll('.exph.say').forEach(b=>b.onclick=()=>speak(b.textContent.replace(/…/g,'')));
+  /* timer: preparation → speaking */
+  const runPhase=(label,sec,next)=>{
+    $('tPhase').textContent=label;let left=sec;$('tClock').textContent=fmtT(left);
+    $('exTimer').classList.add('running');
+    if(EXTIMER)clearInterval(EXTIMER);
+    EXTIMER=setInterval(()=>{
+      left--;$('tClock').textContent=fmtT(Math.max(0,left));
+      if(left<=0){clearInterval(EXTIMER);EXTIMER=null;
+        tone(880,0,0.15,0.14);tone(660,0.14,0.2,0.12);haptic(true);
+        if(next)next();else{$('tPhase').textContent='Time is up';$('exTimer').classList.remove('running');}}
+    },1000);
+  };
+  $('tStart').onclick=()=>runPhase('Preparation',t.prep,()=>runPhase('Speak now',t.talk,null));
+  $('tSkip').onclick=()=>runPhase('Speak now',t.talk,null);
+  /* recording */
+  const rb=$('recBtn'),rs=$('recStop'),au=$('recAudio');
+  rb.onclick=async()=>{
+    if(!navigator.mediaDevices||!window.MediaRecorder){$('recNote').textContent='Recording is not available in this browser.';return;}
+    try{
+      const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+      RECCHUNKS=[];REC=new MediaRecorder(stream);
+      REC.ondataavailable=e=>{if(e.data.size)RECCHUNKS.push(e.data);};
+      REC.onstop=()=>{
+        stream.getTracks().forEach(tr=>tr.stop());
+        if(RECURL)URL.revokeObjectURL(RECURL);
+        RECURL=URL.createObjectURL(new Blob(RECCHUNKS,{type:REC.mimeType||'audio/webm'}));
+        au.src=RECURL;au.classList.remove('hidden');
+        rb.classList.remove('rec');rb.textContent='⏺ Record again';rs.disabled=true;
+        $('recNote').textContent='Play it back and compare with the model. Nothing left your device.';
+      };
+      REC.start();rb.classList.add('rec');rb.textContent='● Recording…';rs.disabled=false;
+    }catch(e){$('recNote').textContent='Microphone permission was denied.';}
+  };
+  rs.onclick=()=>{try{if(REC&&REC.state==='recording')REC.stop();}catch(e){}};
+  /* model + self-assessment */
+  $('exShowModel').onclick=()=>{
+    $('exModelBox').classList.remove('hidden');$('exShowModel').classList.add('hidden');
+    const ms=$('exModelSay');if(ms)ms.onclick=()=>speak(t.model);
+    $('exSelf').querySelectorAll('.exself').forEach(b=>b.onclick=()=>{
+      stopExamTimers();
+      recordAnswer('Speaking',+b.dataset.v>0);
+      examFinish('SPRECHEN',i,+b.dataset.v,3);});
+    $('exModelBox').scrollIntoView({behavior:'smooth',block:'start'});
+  };
+}
+
+/* ================= full mock exam ================= */
+function startMock(){
+  const order=['LESEN','HOEREN','SCHREIBEN','SPRECHEN'];
+  MOCK={order,step:0,picked:order.map(k=>{
+    const pool=examPool(k),all=EX[k]||[];
+    return all.indexOf(R(pool));})};
+  toast('Mock exam — four parts in order');
+  mockRun();
+}
+function mockRun(){
+  if(!MOCK)return;
+  if(MOCK.step>=MOCK.order.length){
+    const m=MOCK;MOCK=null;
+    $('examBody').innerHTML=`<div class="exhead"><div class="exic">🎓</div>
+      <div><div class="extitle">Mock exam complete</div><div class="exsub">${LEVELS[(DB.level||1)-1]} · all four parts</div></div></div>
+      <div class="exresult"><div class="exscore">✓</div>
+      <div class="exmsg">You worked through Lesen, Hören, Schreiben and Sprechen. Look back at any part you want to redo.</div>
+      <button class="btn-primary" id="mockBack" style="margin-top:14px">Back to exam trainer ➜</button></div>`;
+    $('mockBack').onclick=()=>show('skills');
+    confetti();sfxLevel();
+    DB.mocks=(DB.mocks||0)+1;Store.save(DB);
+    return;
+  }
+  runExam(MOCK.order[MOCK.step],MOCK.picked[MOCK.step]);
+}
+function mockAdvance(){if(!MOCK)return;MOCK.step++;mockRun();}
 
 /* ================= Flashcard word learning ================= */
 let FLASH={list:[],i:0};
@@ -2205,7 +3440,7 @@ function bumpMastery(sk,correct){
   m.v=Math.max(0,Math.min(1,m.v+0.25*((correct?1:0)-m.v)));  // EMA of recent correctness
   m.n=(m.n||0)+1;
 }
-function availableSkills(){return Object.keys(GEN).filter(sk=>(GEN[sk]||[]).some(g=>(GLV.get(g)||1)<=(DB.level||5)));}
+function availableSkills(){return Object.keys(GEN).filter(sk=>(GEN[sk]||[]).some(g=>(GLV.get(g)||1)<=(DB.level||7)));}
 function pickWeakSkill(){
   const sks=availableSkills();if(!sks.length)return 'Vocabulary';
   const w=sks.map(sk=>{const m=skillMastery(sk),n=(DB.mastery&&DB.mastery[sk]?DB.mastery[sk].n:0)||0;
@@ -2239,7 +3474,7 @@ if(window.BANKDATA){BANK=window.BANKDATA.map(b=>({
   answer:b.a,_ans:b.a,_distr:b.o,explain:b.ex,trans:b.tr,sayAnswer:b.say,
   colorArt:['der','die','das'].includes(String(b.a).split(' ')[0]),
   _lv:b.lv,_sk:b.sk}));}
-function bankPool(sk){return BANK.filter(b=>b._lv<=(DB.level||5)&&(!sk||b._sk===sk));}
+function bankPool(sk){return BANK.filter(b=>b._lv<=(DB.level||7)&&(!sk||b._sk===sk));}
 function freshBank(pool){
   for(let t=0;t<30;t++){const src=R(pool);const q=Object.assign({},src);
     q.options=shuffle([q._ans,...q._distr]);q._skill=q._sk;
@@ -2270,12 +3505,17 @@ function localQuestion(){
 function renderQuestion(){
   const q=S.q;const action=document.querySelector('.action');
   if(action)action.style.display=(q.mode==='match')?'none':'';
+  S.multiSel=new Set();S.tapPick=null;S.gapFill=[];S.sortPlace={};S.scram=[];
   el.card.classList.remove('qin');void el.card.offsetWidth;el.card.classList.add('qin');
   let h=`<div class="qtag">${q.tag||'German'}</div>`;
   const readable=!q.speak&&hasSpeech&&qReadText(q);
   h+=`<div class="prompt">${q.prompt||''}${readable?' <button class="minispk" id="readNow" aria-label="Read aloud">🔊</button>':''}</div>`;
   if(q.speak){h+=`<button class="speaker" id="speaker" aria-label="Play audio">🔊</button><button class="replaybtn" id="replay">↻ Play again</button>`;}
   if(q.img)h+=`<div class="qimg${q.bigImg?' big':''}">${q.img}</div>`;
+  if(q.text)h+=`<div class="qtext">${String(q.text).replace(/\n/g,'<br>')}</div>`;
+  if(q.dlg){h+='<div class="qdlg">'+q.dlg.map(l=>
+    `<div class="dline ${l.who==='A'?'a':'b'}"><span class="dwho">${l.who}</span><span class="dtx">${
+      l.de==='___'?'<span class="dgap">?</span>':l.de}</span></div>`).join('')+'</div>';}
 
   /* ---- build (word bank) ---- */
   if(q.mode==='build'){
@@ -2311,6 +3551,108 @@ function renderQuestion(){
     const inp=$('typein');
     inp.oninput=()=>{el.check.disabled=inp.value.trim()==='';};
     if(q.speak){wireSpeaker(q);} else {setTimeout(()=>inp.focus(),80);}
+    return;
+  }
+
+  /* ---- multi-select: tick every correct one ---- */
+  if(q.mode==='multi'){
+    h+=`<div class="spacer"></div><div class="opts one multi" id="opts"></div>
+        <div class="matchhint" id="mhint">Pick every correct one, then Check</div>`;
+    el.card.innerHTML=h;const wrap=$('opts');
+    q.items.forEach((it,i)=>{const b=document.createElement('button');b.className='opt mopt';
+      b.innerHTML=`<span class="box">✓</span><span class="k">${it.t}</span>`;
+      b.onclick=()=>{if(S.locked)return;
+        if(S.multiSel.has(i)){S.multiSel.delete(i);b.classList.remove('on');}
+        else{S.multiSel.add(i);b.classList.add('on');}
+        $('mhint').textContent=S.multiSel.size?S.multiSel.size+' selected':'Pick every correct one, then Check';
+        el.check.disabled=S.multiSel.size===0;};
+      wrap.appendChild(b);});
+    return;
+  }
+
+  /* ---- tap the word inside a sentence ---- */
+  if(q.mode==='tapword'){
+    h+=`<div class="spacer"></div><div class="tapsent" id="tapsent"></div>`;
+    el.card.innerHTML=h;const wrap=$('tapsent');
+    q.words.forEach((w,i)=>{
+      if(/^[.,!?;:]$/.test(w)){const sp=document.createElement('span');sp.className='tpunct';sp.textContent=w;wrap.appendChild(sp);return;}
+      const b=document.createElement('button');b.className='tword';b.textContent=w;
+      b.onclick=()=>{if(S.locked)return;S.tapPick=i;
+        wrap.querySelectorAll('.tword').forEach(x=>x.classList.remove('sel'));
+        b.classList.add('sel');el.check.disabled=false;};
+      wrap.appendChild(b);});
+    return;
+  }
+
+  /* ---- multi-gap cloze from a word bank ---- */
+  if(q.mode==='gaps'){
+    const n=q.gapAnswers.length;
+    let parts=String(q.stem).split('___');
+    let stem='';parts.forEach((t,i)=>{stem+=t;if(i<parts.length-1)stem+=`<button class="gapslot" data-g="${i}">·</button>`;});
+    h+=`<div class="stem gapstem" id="gapstem">${stem}</div><div class="spacer"></div><div class="bank" id="bank"></div>`;
+    el.card.innerHTML=h;
+    S.gapFill=new Array(n).fill(null);
+    const bank=$('bank'),stemEl=$('gapstem');
+    const paint=()=>{
+      stemEl.querySelectorAll('.gapslot').forEach((sl,i)=>{
+        const v=S.gapFill[i];sl.textContent=v==null?'·':q.tiles[v];sl.classList.toggle('filled',v!=null);});
+      bank.querySelectorAll('.tile').forEach((t,i)=>t.classList.toggle('used',S.gapFill.includes(i)));
+      el.check.disabled=S.gapFill.some(x=>x==null);};
+    q.tiles.forEach((w,i)=>{const t=document.createElement('button');t.className='tile';t.textContent=w;
+      t.onclick=()=>{if(S.locked||S.gapFill.includes(i))return;
+        const free=S.gapFill.indexOf(null);if(free<0)return;S.gapFill[free]=i;paint();};
+      bank.appendChild(t);});
+    stemEl.querySelectorAll('.gapslot').forEach((sl,i)=>sl.onclick=()=>{
+      if(S.locked||S.gapFill[i]==null)return;S.gapFill[i]=null;paint();});
+    paint();
+    return;
+  }
+
+  /* ---- sort items into buckets ---- */
+  if(q.mode==='sort'){
+    h+=`<div class="sortpool" id="spool"></div>
+        <div class="buckets" id="buckets" style="--bn:${q.buckets.length}"></div>
+        <div class="matchhint" id="mhint">Tap a word, then tap its box</div>`;
+    el.card.innerHTML=h;
+    const pool=$('spool'),bwrap=$('buckets');
+    let sel=null;
+    q.buckets.forEach((bn,bi)=>{const col=document.createElement('div');col.className='bucket';col.dataset.b=bi;
+      col.innerHTML=`<div class="bhead">${bn}</div><div class="bbody" data-b="${bi}"></div>`;
+      col.onclick=()=>{if(S.locked||sel==null)return;
+        S.sortPlace[sel]=bi;sel=null;paint();};
+      bwrap.appendChild(col);});
+    const paint=()=>{
+      pool.innerHTML='';bwrap.querySelectorAll('.bbody').forEach(b=>b.innerHTML='');
+      q.items.forEach((it,i)=>{
+        const b=document.createElement('button');b.className='sitem';b.textContent=it.t;
+        if(sel===i)b.classList.add('sel');
+        b.onclick=(e)=>{e.stopPropagation();if(S.locked)return;
+          if(S.sortPlace[i]!=null){delete S.sortPlace[i];sel=null;}
+          else sel=(sel===i?null:i);
+          paint();};
+        if(S.sortPlace[i]!=null)bwrap.querySelector(`.bbody[data-b="${S.sortPlace[i]}"]`).appendChild(b);
+        else pool.appendChild(b);});
+      const left=q.items.filter((_,i)=>S.sortPlace[i]==null).length;
+      $('mhint').textContent=left?left+' left to sort':'All sorted — tap Check';
+      el.check.disabled=left>0;};
+    paint();
+    return;
+  }
+
+  /* ---- unscramble the letters ---- */
+  if(q.mode==='scramble'){
+    if(q.hint)h+=`<div class="subword">${q.hint}</div>`;
+    h+=`<div class="assembled scram" id="assembled"></div><div class="spacer"></div><div class="bank letters" id="bank"></div>`;
+    el.card.innerHTML=h;
+    const bank=$('bank'),asm=$('assembled');
+    q.letters.forEach((ch,i)=>{const t=document.createElement('button');t.className='tile ltile';t.textContent=ch;
+      t.onclick=()=>{if(S.locked||t.classList.contains('used'))return;
+        t.classList.add('used');
+        const pl=document.createElement('button');pl.className='tile placed ltile';pl.textContent=ch;
+        pl.onclick=()=>{if(S.locked)return;pl.remove();t.classList.remove('used');
+          S.scram=S.scram.filter(x=>x.i!==i);el.check.disabled=S.scram.length===0;};
+        asm.appendChild(pl);S.scram.push({i,ch});el.check.disabled=false;};
+      bank.appendChild(t);});
     return;
   }
 
@@ -2364,6 +3706,37 @@ function onCheck(){
   if(q.mode==='build'){userAns=S.placed.map(x=>x.w).join(' ');const t=[q.answer,...(q.alts||[])].map(norm);correct=t.includes(norm(userAns));}
   else if(q.mode==='type'){const inp=$('typein');userAns=inp?inp.value.trim():'';const t=[q.answer,...(q.accept||[])].map(norm);correct=t.includes(norm(userAns));
     if(inp){inp.classList.add(correct?'correct':'wrong');inp.blur();}}
+  else if(q.mode==='multi'){
+    const want=new Set(q.items.map((it,i)=>it.ok?i:-1).filter(i=>i>=0));
+    correct=want.size===S.multiSel.size&&[...want].every(i=>S.multiSel.has(i));
+    userAns=[...S.multiSel].map(i=>q.items[i].t).join(' · ')||'—';
+    $('opts').querySelectorAll('.mopt').forEach((b,i)=>{
+      if(want.has(i))b.classList.add('correct');
+      else if(S.multiSel.has(i))b.classList.add('wrong');
+      b.classList.remove('on');});}
+  else if(q.mode==='tapword'){
+    correct=S.tapPick===q.hit;userAns=S.tapPick!=null?q.words[S.tapPick]:'—';
+    const ws=$('tapsent').querySelectorAll('.tword');
+    let k=-1;q.words.forEach((w,i)=>{if(/^[.,!?;:]$/.test(w))return;k++;
+      if(i===q.hit)ws[k].classList.add('correct');
+      else if(i===S.tapPick)ws[k].classList.add('wrong');
+      ws[k].classList.remove('sel');});}
+  else if(q.mode==='gaps'){
+    const given=S.gapFill.map(i=>i==null?'':q.tiles[i]);
+    correct=given.every((g,i)=>norm(g)===norm(q.gapAnswers[i]));
+    userAns=given.join(' · ');
+    $('gapstem').querySelectorAll('.gapslot').forEach((sl,i)=>
+      sl.classList.add(norm(given[i])===norm(q.gapAnswers[i])?'ok':'no'));}
+  else if(q.mode==='sort'){
+    correct=q.items.every((it,i)=>S.sortPlace[i]===it.b);
+    userAns=correct?'all sorted correctly':'some are in the wrong box';
+    document.querySelectorAll('#buckets .sitem').forEach(b=>{
+      const i=q.items.findIndex(x=>x.t===b.textContent);
+      b.classList.add(S.sortPlace[i]===q.items[i].b?'ok':'no');});}
+  else if(q.mode==='scramble'){
+    userAns=S.scram.map(x=>x.ch).join('');
+    correct=norm(userAns)===norm(q.answer);
+    $('assembled').classList.add(correct?'ok':'no');}
   else{userAns=S.picked;correct=(String(userAns)===String(q.answer));
     $('opts').querySelectorAll('.opt').forEach(b=>{const tx=b.textContent.trim();if(tx===String(q.answer))b.classList.add('correct');else if(tx===String(userAns))b.classList.add('wrong');b.classList.remove('sel');});}
   grade(correct,userAns);
@@ -2394,6 +3767,8 @@ function showSheet(correct,q,userAns){
   const xpEl=$('sXP');if(xpEl)xpEl.classList.toggle('hidden',!correct);
   let ans;
   if(q.mode==='match'){ans='🎉 All pairs matched!';}
+  else if(q.mode==='sort'){ans=correct?'🎉 Everything in the right box!':`Correct grouping: <b>${q.items.map(it=>it.t+' → '+q.buckets[it.b]).join(' · ')}</b>`;}
+  else if(q.mode==='multi'){ans=`Correct selection: <b>${q.answer}</b>`;if(!correct)ans=`You picked <b>${userAns}</b>. Correct: <b>${q.answer}</b>`;}
   else{ans=`Answer: <b>${q.answer}</b>`;if(!correct&&userAns)ans=`You answered <b>${userAns||'—'}</b>. Correct: <b>${q.answer}</b>`;}
   if(q.trans)ans+=` &nbsp;·&nbsp; <span style="color:#888">${q.trans}</span>`;
   $('sAns').innerHTML=ans;$('sExplain').innerHTML=q.explain||'';
@@ -2461,6 +3836,11 @@ document.addEventListener('keydown',e=>{
   // v6 migration: three A0 units prepended → shift all course keys +3
   if((DB.courseV||0)<3){const nc={};Object.keys(DB.course).forEach(k=>{const p=k.split('_');
     nc[(+p[0]+3)+'_'+p[1]]=DB.course[k];});DB.course=nc;DB.courseV=3;Store.save(DB);}
+  // v13 migration: the path is now sorted by level, so five unit indices moved
+  if((DB.courseV||0)<4){const MOVE={16:20};const nc={};
+    Object.keys(DB.course).forEach(k=>{const p=k.split('_');const u=+p[0];
+      nc[(MOVE[u]!=null?MOVE[u]:u)+'_'+p[1]]=DB.course[k];});
+    DB.course=nc;DB.courseV=4;Store.save(DB);}
   // v6 migration: level scale gained A0 at the bottom (old A1..B2 = 1..4 → new = 2..5)
   if(!DB.levelV){if(hadLevel){DB.level=Math.min(5,(DB.level||1)+1);DB.levelChosen=true;}DB.levelV=1;Store.save(DB);}
   SEEN=new Set(DB.recentQ);

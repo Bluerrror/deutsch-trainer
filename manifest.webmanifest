@@ -1,7 +1,7 @@
 {
   "name": "Deutsch Trainer",
   "short_name": "Deutsch",
-  "description": "German grammar & vocabulary trainer, A1 to B2.",
+  "description": "German trainer, A0 to C2 — grammar, vocabulary and all four exam skills.",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",
