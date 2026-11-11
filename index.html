@@ -683,6 +683,110 @@
   .gtable td:first-child,.gtable th:first-child{text-align:left;font-weight:750;background:#fafbff;}
   .gtable .hl{color:#c0356b;font-weight:800;}
   .gscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .gdrill{flex:none;font-size:10.5px;font-weight:800;color:#4b57c0;background:#eef0fe;
+    padding:4px 7px;border-radius:7px;margin-right:4px;}
+  .srsbar{display:flex;gap:3px;height:12px;border-radius:7px;overflow:hidden;background:#f0eff6;margin-top:4px;}
+  .srsbar i{display:block;}
+  .srslegend{display:flex;flex-wrap:wrap;gap:11px;margin-top:9px;font-size:11px;color:var(--muted);font-weight:700;}
+  .srslegend span{display:flex;align-items:center;gap:5px;}
+  .srslegend b{width:9px;height:9px;border-radius:3px;display:inline-block;}
+  /* ---- verb tables ---- */
+  .vtable{display:flex;flex-direction:column;gap:5px;margin-top:10px;}
+  .vhead{display:grid;grid-template-columns:1.3fr 1fr 1.2fr;gap:8px;padding:0 12px 6px;
+    font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:#9098bd;}
+  .vrowb{display:grid;grid-template-columns:1.3fr 1fr 1.2fr;gap:8px;align-items:center;
+    background:#fff;border:1px solid #ecebf5;border-radius:11px;padding:10px 12px;text-align:left;}
+  .vi b{display:block;font-size:14.5px;color:var(--ink);}
+  .vi i{display:block;font-size:11px;color:var(--muted);font-style:normal;margin-top:1px;}
+  .vp{font-size:14px;font-weight:700;color:#c0356b;}
+  .vpp{font-size:13.5px;font-weight:700;color:#4b57c0;overflow-wrap:anywhere;}
+  .vpp.sein{color:#17864f;}
+  .vstamm{display:flex;gap:8px;margin-top:8px;}
+  .vstamm span{flex:1;background:#f7f8ff;border:1px solid #e6e8fa;border-radius:12px;padding:12px 8px;
+    text-align:center;font-size:14.5px;font-weight:800;color:var(--ink);overflow-wrap:anywhere;}
+
+  /* ---- readiness rows ---- */
+  .rdrow{display:flex;align-items:center;gap:10px;margin:8px 0;}
+  .rdrow.cur .rdlv{background:var(--grad);color:#fff;}
+  .rdlv{flex:none;width:34px;text-align:center;font-size:11px;font-weight:800;color:#5a51a0;
+    background:#f1effa;border-radius:7px;padding:4px 0;}
+  .rdbar{flex:1;height:10px;background:#f0eff6;border-radius:7px;overflow:hidden;}
+  .rdbar i{display:block;height:100%;background:linear-gradient(90deg,#39d07f,#25b06e);border-radius:7px;transition:width .5s;}
+  .rdpct{flex:none;width:38px;text-align:right;font-size:11.5px;font-weight:700;color:var(--muted);}
+  .rdnote{margin-top:11px;font-size:12.5px;line-height:1.55;color:var(--muted);font-weight:650;}
+
+  /* ================= v14: Kursbuch ================= */
+  .kurstabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:10px;-webkit-overflow-scrolling:touch;}
+  .ktab{flex:none;background:#fff;border:2px solid var(--line);border-radius:999px;padding:7px 15px;
+    font-size:13px;font-weight:800;color:#6a709a;transition:.15s;}
+  .ktab.on{border-color:transparent;background:var(--grad);color:#fff;}
+  .kursmeta{font-size:12px;color:var(--muted);font-weight:700;margin-bottom:10px;}
+  .kurslist{display:flex;flex-direction:column;gap:9px;}
+  .kcard{display:flex;align-items:center;gap:12px;background:var(--card);border:none;border-radius:17px;
+    padding:13px 14px;text-align:left;box-shadow:0 5px 16px rgba(8,10,25,.18);border-left:5px solid var(--c);}
+  .kcard.station{background:linear-gradient(100deg,#f7f6ff,#fff);}
+  .kcard.done{opacity:.78;}
+  .knr{flex:none;width:34px;height:34px;border-radius:11px;background:#f2f3fb;color:var(--c);
+    font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .ktx{flex:1;min-width:0;}
+  .ktx b{display:block;font-size:14.5px;color:var(--ink);line-height:1.3;}
+  .ktx span{display:block;font-size:12px;color:var(--muted);margin-top:2px;line-height:1.35;}
+  .kbar{height:5px;background:#eeeef7;border-radius:4px;margin-top:7px;overflow:hidden;}
+  .kbar i{display:block;height:100%;background:var(--c);border-radius:4px;transition:width .4s;}
+  .kmeta{flex:none;font-size:11.5px;font-weight:800;color:var(--c);background:#f5f5fb;padding:5px 8px;border-radius:9px;}
+
+  .uhead{display:flex;align-items:flex-start;gap:13px;margin-bottom:14px;padding-left:12px;
+    border-left:5px solid var(--c);}
+  .uhead.small{margin-bottom:10px;}
+  .uic{font-size:30px;flex:none;line-height:1.1;}
+  .ulv{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--c);}
+  .utitle{font-size:21px;font-weight:800;color:var(--ink);line-height:1.25;margin-top:2px;}
+  .usub{font-size:13px;color:var(--muted);font-weight:650;margin-top:3px;line-height:1.45;}
+  .ucando{background:#f7f8ff;border:1px solid #e6e8fa;border-radius:15px;padding:13px 15px;margin-bottom:14px;}
+  .ucando b{font-size:12.5px;color:#4b57c0;display:block;margin-bottom:7px;}
+  .ucando ul{margin:0;padding-left:19px;display:flex;flex-direction:column;gap:5px;}
+  .ucando li{font-size:13.5px;line-height:1.5;color:#2a3050;}
+  .ucando i{color:var(--muted);font-size:12.5px;}
+  .usecs{display:flex;flex-direction:column;gap:8px;}
+  .usec{display:flex;align-items:center;gap:12px;background:var(--card);border:none;border-radius:15px;
+    padding:13px 14px;text-align:left;box-shadow:0 3px 12px rgba(8,10,25,.13);}
+  .usec.done{opacity:.72;}
+  .uic2{flex:none;font-size:21px;width:34px;text-align:center;}
+  .utx{flex:1;min-width:0;}
+  .utx b{display:block;font-size:15px;color:var(--ink);}
+  .utx span{display:block;font-size:12px;color:var(--muted);margin-top:1px;}
+  .uchk{flex:none;font-size:16px;font-weight:800;color:#b9bedb;}
+  .usec.done .uchk{color:var(--ok);}
+
+  .exsec2{font-size:16px;font-weight:800;color:var(--ink);margin:4px 0 10px;display:flex;
+    align-items:center;gap:9px;flex-wrap:wrap;}
+  .genre{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;
+    background:#eef0fe;color:#4b57c0;padding:4px 8px;border-radius:7px;}
+  .wgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px;}
+  @media (min-width:560px){ .wgrid{grid-template-columns:repeat(3,1fr);} }
+  .wtile{background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 10px;text-align:center;
+    box-shadow:0 3px 0 #eeedf6;transition:.14s;}
+  .wtile:active{transform:translateY(2px);box-shadow:none;}
+  .wic{display:block;font-size:24px;margin-bottom:5px;}
+  .wtile b{display:block;font-size:14.5px;color:var(--ink);overflow-wrap:anywhere;}
+  .wtile i{display:block;font-size:11.5px;color:var(--muted);margin-top:3px;font-style:normal;}
+  .glosslist{display:flex;flex-direction:column;gap:7px;}
+  .glossrow{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ecebf5;
+    border-radius:11px;padding:9px 12px;}
+  .glossrow b{font-size:14px;color:var(--ink);flex:none;}
+  .glossrow span{flex:1;font-size:12.5px;color:var(--muted);}
+  .qdlg.big .dtx{font-size:15px;}
+  .qdlg.big .den{display:block;font-size:11.5px;color:#9aa0c0;margin-top:3px;}
+  .qdlg.big .dline{max-width:100%;}
+  .vlist{display:flex;flex-direction:column;gap:6px;margin-top:12px;}
+  .vrow{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ecebf5;
+    border-radius:11px;padding:9px 12px;}
+  .vtx{flex:1;min-width:0;}
+  .vtx b{display:block;font-size:14.5px;color:var(--ink);}
+  .vtx span{display:block;font-size:12px;color:var(--muted);margin-top:1px;}
+  .cden{display:block;font-size:12px;color:var(--muted);font-style:normal;margin-top:2px;}
+  .unit{padding:24px 20px 8px;}
+
   /* ================= v13: exam trainer ================= */
   .skills,.exam{padding:24px 20px 8px;}
   .lvbadge{display:inline-block;background:#eef0fe;color:#4b57c0;font-size:12px;font-weight:800;
@@ -931,11 +1035,26 @@
       </div>
     </div>
 
-    <div class="levselect" id="levSelect"></div>
+    <button class="task hidden" id="kursCont" style="width:100%;margin-bottom:6px">
+      <div class="tic">▶︎</div>
+      <div class="ttxt"></div>
+      <div class="go">Los ›</div>
+    </button>
+
+    <h2 class="sec-title">Kursbuch</h2>
+    <div id="kursbuch"></div>
+
+    <button class="task" id="srsBtn" style="width:100%;margin-top:16px">
+      <div class="tic">🧠</div>
+      <div class="ttxt"><b>Wortschatz wiederholen</b><span id="srsSub">Spaced repetition</span></div>
+      <div class="go">Start ›</div>
+    </button>
+
+<div class="levselect" id="levSelect"></div>
 
     <div class="quests" id="quests"></div>
 
-    <h2 class="sec-title">Your course · A0 → B2</h2>
+    <h2 class="sec-title">Skill path · drill units</h2>
     <div id="course"></div>
 
     <div class="savenote" id="saveNote"></div>
@@ -951,7 +1070,7 @@
       <div class="go" id="mistGo">Start ›</div>
     </button>
 
-    <h2 class="sec-title">Today's plan</h2>
+    <h2 class="sec-title">Tagesplan — heute dran</h2>
     <div class="plan" id="plan"></div>
 
     <h2 class="sec-title">All skills</h2>
@@ -967,6 +1086,7 @@
       <div class="ttxt"><b>Learn words — flashcards</b><span id="flashSub">Study a set with audio &amp; examples</span></div>
       <div class="go">Start ›</div>
     </button>
+    <div id="srsPanel"></div>
     <div class="searchbox" style="margin-top:14px">🔍<input id="wsearch" type="text" placeholder="Search…" autocomplete="off"></div>
     <div class="wchips" id="wchips"></div>
     <div class="wlist" id="wlist"></div>
@@ -976,7 +1096,13 @@
   <!-- ============ GRAMMAR (reference lessons) ============ -->
   <div class="grammar scroll hidden" id="grammar">
     <h2 class="page">Grammar</h2>
-    <p class="gsub" id="gramIntro">Tap a topic to learn it — clear explanations, tables, examples and audio.</p>
+    <p class="gsub" id="gramIntro">Tap a topic to learn it — clear explanations, tables, examples, audio and drills.</p>
+    <div class="searchbox" style="margin-bottom:12px">🔍<input id="gramSearch" type="text" placeholder="Grammatik suchen…" autocomplete="off"></div>
+    <button class="task" id="verbBtn" style="width:100%;margin-bottom:14px">
+      <div class="tic">🧾</div>
+      <div class="ttxt"><b>Verbtabellen</b><span id="verbSub">Unregelmäßige Verben — alle Formen &amp; Training</span></div>
+      <div class="go">Öffnen ›</div>
+    </button>
     <div id="gramList"></div>
     <div style="height:10px"></div>
   </div>
@@ -1000,12 +1126,25 @@
     <div class="action"><button class="btn-check" id="flashNext">Got it ➜</button></div>
   </div>
 
+  <!-- ============ KURSBUCH UNIT WALKER ============ -->
+  <div class="unit scroll hidden" id="unit">
+    <div class="backrow"><button class="backbtn" id="unitBack">‹ Kursbuch</button></div>
+    <div id="unitBody"></div>
+    <div style="height:18px"></div>
+  </div>
+
   <!-- ============ SKILLS / EXAM TRAINER (Goethe formats) ============ -->
   <div class="skills scroll hidden" id="skills">
     <h2 class="page">Exam trainer</h2>
     <p class="gsub">All four skills in Goethe-Zertifikat formats — pick your level in <b>Profile</b> and the tasks follow.</p>
     <div class="lvbadge" id="skLvBadge">A1</div>
     <div class="skgrid" id="skGrid"></div>
+    <button class="task" id="placeBtn" style="width:100%;margin-bottom:4px">
+      <div class="tic">🎯</div>
+      <div class="ttxt"><b>Einstufungstest</b><span>Find out which level to start at</span></div>
+      <div class="go">Start ›</div>
+    </button>
+
     <h2 class="sec-title">Mock exam</h2>
     <button class="task" id="mockBtn" style="width:100%">
       <div class="tic">🎓</div>
@@ -1025,6 +1164,7 @@
   <!-- ============ STATS (PROGRESS) ============ -->
   <div class="stats scroll hidden" id="stats">
     <h2 class="page">Your progress</h2>
+    <div id="readiness"></div>
     <div class="sumrow">
       <div class="sumc gold"><div class="n" id="sTotXP">0</div><div class="l">Total XP</div></div>
       <div class="sumc orange"><div class="n" id="sDayStreak">0</div><div class="l">Day streak</div></div>
@@ -1148,6 +1288,22 @@
 <script src="spoken.js"></script>
 <script src="exams.js"></script>
 <script src="goethe.js"></script>
+<script src="gram_a1.js"></script>
+<script src="gram_a2.js"></script>
+<script src="gram_b1.js"></script>
+<script src="gram_b2.js"></script>
+<script src="gram_c1.js"></script>
+<script src="kurs_a0.js"></script>
+<script src="kurs_a1.js"></script>
+<script src="kurs_a2.js"></script>
+<script src="kurs_b1.js"></script>
+<script src="kurs_b2.js"></script>
+<script src="kurs_c1.js"></script>
+<script src="kurs_c2.js"></script>
+<script src="read1.js"></script>
+<script src="gram_core.js"></script>
+<script src="drill_core.js"></script>
+<script src="verbs.js"></script>
 <script>
 /* ============================================================
    DATA
@@ -2111,7 +2267,9 @@ function gDialog(){const pool=lvPool(AD.DIALOG);const d=R(pool);
   answer:d.r,options:shuffle([d.r,...d.o]),explain:d.ex,read:d.a,sayAnswer:d.r};}
 
 /* ---------- reading comprehension ---------- */
-function gReading(){const pool=lvPool(SP.READING);const r=R(pool);const q=R(r.qs);
+function gReading(){
+ const all=(SP.READING||[]).concat(window.READ1||[],window.READ2||[]);
+ const pool=lvPool(all);const r=R(pool);const q=R(r.qs);
  return {tag:'Reading · '+r.title,prompt:q.q,mode:'mc',text:r.text,
   answer:q.a,options:shuffle([q.a,...q.o]),explain:q.ex,_sk:r.sk,read:r.text};}
 
@@ -2179,7 +2337,8 @@ const GEN={
   Articles:[gGender,gCaseArticle,gPossessive,gSort],
   Cases:[gCaseArticle,gVerbCase,gPrepCase,gTwoWay,gGenNoun,gNDekl,gReflex,gTapWord],
   Adjectives:[gAdjEnding,gOpposite,gCompare,gCompareSent,gPartizip],
-  Verbs:[gConjPresent,gModal,gPerfekt,gPraet,gSep,gKonjunktiv,gTypeVerb,gTypeConj,gImperativ,gFutur2,gSubjMod],
+  Verbs:[gConjPresent,gModal,gPerfekt,gPraet,gSep,gKonjunktiv,gTypeVerb,gTypeConj,gImperativ,gFutur2,gSubjMod,
+         gVerbPraet,gVerbPP,gVerbAux,gVerbK2,gVerbPraes],
   Prepositions:[gPrepCase,gTwoWay,gVerbPrep,gDaCompound,gWoCompound,gGenPrep,gGenPrepList],
   Vocabulary:[gPicture,gTransDeEn,gTransEnDe,gOpposite,gPlural,gTypeNoun,gMatch,gTrueFalse,gMatchVerb,gTypePlural,gScramble,gOddOne],
   Plurals:[gPlural,gTypePlural,gTransEnDe,gGender],
@@ -2216,6 +2375,7 @@ const ALLGEN=[...A0GEN,gGender,gCaseArticle,gAdjEnding,gVerbCase,gPrepCase,gTwoW
  gIdiom,gIdiomGap,gIdiomType,gSprichwort,gRegister,gSlang,gSlangNeutral,gSlangRegion,
  gRedemittel,gRedemittelMean,gFalseFriend,gPronounce,gConvo,gDialog,gReading,
  gMulti,gTapWord,gGaps,gSort,gScramble,gOddOne,
+ gVerbPraet,gVerbPP,gVerbAux,gVerbK2,gVerbPraes,
  ...(hasSpeech?[gListenWord,gListenPhrase,gTypeListen,gListenNumber,gBuildListen,gDictate]:[])];
 const TOPICS=[
  {key:'Mixed',ic:'🎲',t:'Mixed practice',d:'A bit of everything',col:'#5566d6',wide:true},
@@ -2433,7 +2593,7 @@ const GLV=new Map([
  [gPlural,3],[gCaseArticle,3],[gVerbCase,3],[gPrepCase,3],[gTwoWay,3],[gModal,3],[gSep,3],[gPerfekt,3],[gTypeConj,3],
  [gWFrage,2],[gTypeNumber,2],[gTypePlural,3],[gCloze,3],
  [gPraet,4],[gAdjEnding,4],[gVerbPrep,4],
- [gKonjunktiv,5],
+ [gKonjunktiv,5],[gVerbPraet,3],[gVerbPP,3],[gVerbAux,3],[gVerbPraes,2],[gVerbK2,5],
  [gColorPic,1],[gColorWord,1],[gDayMean,1],[gDayNext,1],[gGreetMean,1],[gGreetMatch,1],[gNumSmall,1],[gNumSmallWord,1],[gCountPic,1],
  /* ---- v13: advanced generators ---- */
  [gPronounce,1],[gOddOne,2],[gScramble,2],[gNegation,2],[gPossessive,2],[gImperativ,2],[gConvo,2],
@@ -2504,7 +2664,7 @@ function recordLessonDone(skill){const h=today();h.lessons=(h.lessons||0)+1;h.sk
    UI
    ============================================================ */
 const $=id=>document.getElementById(id);
-const el={home:$('home'),practice:$('practice'),words:$('words'),grammar:$('grammar'),glesson:$('glesson'),flash:$('flash'),stats:$('stats'),quiz:$('quiz'),results:$('results'),skills:$('skills'),exam:$('exam'),nav:$('nav'),card:$('card'),sheet:$('sheet'),pfill:$('pfill'),heartN:$('heartN'),check:$('checkBtn')};
+const el={home:$('home'),practice:$('practice'),words:$('words'),grammar:$('grammar'),glesson:$('glesson'),flash:$('flash'),stats:$('stats'),quiz:$('quiz'),results:$('results'),skills:$('skills'),exam:$('exam'),unit:$('unit'),nav:$('nav'),card:$('card'),sheet:$('sheet'),pfill:$('pfill'),heartN:$('heartN'),check:$('checkBtn')};
 const S={topic:null,q:null,i:0,total:10,correct:0,hearts:5,streak:0,picked:null,placed:[],locked:false};
 
 function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800);}
@@ -2630,7 +2790,7 @@ function flashCombo(txt){const c=$('combo');if(!c)return;c.textContent=txt;c.cla
 
 /* ----- screen switching ----- */
 function show(screen){
-  ['home','practice','words','grammar','glesson','flash','stats','quiz','results','skills','exam'].forEach(s=>el[s].classList.toggle('hidden',s!==screen));
+  ['home','practice','words','grammar','glesson','flash','stats','quiz','results','skills','exam','unit'].forEach(s=>el[s].classList.toggle('hidden',s!==screen));
   const nav=['home','grammar','practice','words','skills','stats'].includes(screen);
   el.nav.classList.toggle('hidden',!nav);
   [['navLearn','home'],['navGrammar','grammar'],['navPractice','practice'],['navWords','words'],['navSkills','skills'],['navStats','stats']]
@@ -2645,8 +2805,11 @@ function show(screen){
 }
 $('navLearn').onclick=()=>show('home');
 $('navGrammar').onclick=()=>show('grammar');
+$('gramSearch').oninput=()=>renderGrammar();
+$('verbBtn').onclick=()=>openVerbs();
 $('navPractice').onclick=()=>show('practice');
 $('navWords').onclick=()=>show('words');
+$('srsBtn').onclick=()=>startSrs(15);
 $('navSkills').onclick=()=>show('skills');
 $('navStats').onclick=()=>show('stats');
 
@@ -2715,7 +2878,10 @@ function renderHome(){
     setTimeout(()=>{const e=$('entryUnit');if(e)e.scrollIntoView({behavior:'smooth',block:'start'});},120);
   });
   renderQuests();
+  renderKursbuch();
   renderCourse();
+  const st=srsStats(),sb=$('srsSub');
+  if(sb)sb.textContent=st.total?`${st.due} fällig · ${st.learned}/${st.total} gelernt`:'Füge Wörter aus den Einheiten hinzu';
   $('saveNote').textContent=Store.persistent?'✓ Your progress is saved on this device.':'Progress is kept for this session only.';
   const lv=levelFor(DB.xp);$('brandTag').innerHTML=`Level ${lv.lvl} · ${lv.into}/${lv.need} XP to next`;
 }
@@ -2783,22 +2949,36 @@ function renderPractice(){
   $('mistSub').textContent=n?n+' saved mistake'+(n>1?'s':'')+' to clear':'No mistakes saved — nice and clean!';
   $('mistGo').textContent=n?'Start ›':'—';
   $('mistBtn').onclick=()=>startMistakes();
-  const weak=weakestSkill();
-  const h=today();const done=h.skillsDone||[];
-  const tasks=[
-   {label:'Warm-up',sub:'Mixed practice at your level',skill:'Mixed',ic:'🔥'},
-   {label:'Grammar focus',sub:weak+' drill',skill:weak,ic:'🎯'},
-   {label:'Build vocabulary',sub:'Words & plurals',skill:'Vocabulary',ic:'💬'}
-  ];
-  $('plan').innerHTML=tasks.map(t=>{const d=done.includes(t.skill);
-    return `<button class="task ${d?'done':''}" data-skill="${t.skill}"><div class="tic">${d?'✓':t.ic}</div>
-      <div class="ttxt"><b>${t.label}</b><span>${t.sub}</span></div>${d?'<div class="check">✓</div>':'<div class="go">Start ›</div>'}</button>`;}).join('');
-  $('plan').querySelectorAll('.task').forEach(b=>b.onclick=()=>startLesson(b.dataset.skill));
+  renderTagesplan();
   $('topics').innerHTML=TOPICS.map(tp=>`<button class="topic ${tp.wide?'wide':''}" data-key="${tp.key}"><div class="ic" style="background:${tp.col}1a;box-shadow:0 3px 8px ${tp.col}2e">${tp.ic}</div><div><div class="t">${tp.t}</div><div class="d">${tp.d}</div></div></button>`).join('');
   $('topics').querySelectorAll('.topic').forEach(b=>b.onclick=()=>startLesson(b.dataset.key));
 }
+/* ---------- the learner's own spaced-repetition deck ---------- */
+function renderSrsPanel(){
+  const box=$('srsPanel');if(!box)return;
+  const st=srsStats(),d=srsDeck();
+  if(!st.total){
+    box.innerHTML=`<div class="panel"><h4>🧠 Dein Wiederholungs-Stapel</h4>
+      <div class="rdnote">Noch leer. Öffne den <b>Wortschatz</b> einer Einheit im Kursbuch und tippe
+      „Alle in den Stapel“ — danach fragt die App die Wörter im wachsenden Abstand ab.</div></div>`;
+    return;
+  }
+  const boxes=[0,0,0,0];
+  Object.keys(d).forEach(k=>{const b=d[k].box||0;boxes[b<1?0:b<3?1:b<5?2:3]++;});
+  const lab=['neu','am Lernen','gefestigt','sicher'];
+  const col=['#e0642e','#e0952e','#3f6fe0','#25b06e'];
+  box.innerHTML=`<div class="panel"><h4>🧠 Dein Wiederholungs-Stapel
+      <span class="mini">${st.total} Wörter</span></h4>
+    <div class="srsbar">`+boxes.map((n,i)=>n?`<i style="flex:${n};background:${col[i]}" title="${lab[i]}"></i>`:'').join('')+`</div>
+    <div class="srslegend">`+boxes.map((n,i)=>`<span><b style="background:${col[i]}"></b>${lab[i]} ${n}</span>`).join('')+`</div>
+    <button class="btn-primary" id="srsGo" style="margin-top:12px">
+      ${st.due?`${st.due} Wörter wiederholen ➜`:'Alles wiederholt — trotzdem üben ➜'}</button></div>`;
+  $('srsGo').onclick=()=>startSrs(15);
+}
+
 let wcat='Nouns';
 function renderWords(){
+  try{renderSrsPanel();}catch(e){}
   const cats=['Nouns','Verbs','Adjectives','Phrases'];
   $('wchips').innerHTML=cats.map(c=>`<button class="wchip ${wcat===c?'on':''}" data-c="${c}">${c}</button>`).join('');
   $('wchips').querySelectorAll('.wchip').forEach(b=>b.onclick=()=>{wcat=b.dataset.c;renderWords();});
@@ -2823,16 +3003,42 @@ const GRAM=(window.GRAMMAR||[]);
 function renderGrammar(){
   if(!GRAM.length){$('gramList').innerHTML='<div class="savenote">Grammar lessons are loading…</div>';return;}
   DB.gramRead=DB.gramRead||{};
-  const byLv={};GRAM.forEach(g=>{(byLv[g.lv]=byLv[g.lv]||[]).push(g);});
+  const q=norm(($('gramSearch')&&$('gramSearch').value)||'');
+  const onlyLv=DB.gramFilter||0;
+  const byLv={};
+  GRAM.forEach(g=>{
+    if(onlyLv&&g.lv!==onlyLv)return;
+    if(q){
+      const hay=norm([Gt(g.title),Gt(g.sub),g.id].join(' '));
+      if(hay.indexOf(q)<0)return;
+    }
+    (byLv[g.lv]=byLv[g.lv]||[]).push(g);
+  });
+  /* level filter chips + overall progress */
+  const lvs=[...new Set(GRAM.map(g=>g.lv))].sort((a,b)=>a-b);
+  let head=`<div class="kurstabs"><button class="ktab ${!onlyLv?'on':''}" data-l="0">Alle</button>`+
+    lvs.map(l=>{const tot=GRAM.filter(g=>g.lv===l).length;
+      const rd=GRAM.filter(g=>g.lv===l&&DB.gramRead[g.id]).length;
+      return `<button class="ktab ${onlyLv===l?'on':''}" data-l="${l}">${LEVELS[l-1]} ${rd}/${tot}</button>`;}).join('')+
+    `</div>`;
+  const totalRead=GRAM.filter(g=>DB.gramRead[g.id]).length;
+  const totalDrills=Object.keys(DRILLS).reduce((n,k)=>n+DRILLS[k].length,0);
+  head+=`<div class="kursmeta">${GRAM.length} Lektionen · ${totalRead} gelesen · ${totalDrills} Übungen</div>`;
   let h='';
-  Object.keys(byLv).sort().forEach(lv=>{
+  Object.keys(byLv).sort((a,b)=>a-b).forEach(lv=>{
     h+=`<div class="glevhead">${LEVELS[lv-1]||('Level '+lv)}</div>`;
-    byLv[lv].forEach(g=>{const done=DB.gramRead[g.id];
+    byLv[lv].forEach(g=>{
+      const done=DB.gramRead[g.id];
+      const nd=(DRILLS[g.id]||[]).length;
       h+=`<button class="gcard ${done?'done':''}" data-id="${g.id}"><div class="gic">${g.ic}</div>
         <div class="gt"><b>${Gt(g.title)}${done?' ✓':''}</b><span>${Gt(g.sub)||''}</span></div>
+        ${nd?`<div class="gdrill">${nd}</div>`:''}
         <div class="gchev">›</div></button>`;});
   });
-  $('gramList').innerHTML=h;
+  if(!h)h='<div class="savenote">Keine Lektion gefunden.</div>';
+  $('gramList').innerHTML=head+h;
+  $('gramList').querySelectorAll('.ktab').forEach(b=>b.onclick=()=>{
+    DB.gramFilter=+b.dataset.l;Store.save(DB);renderGrammar();});
   $('gramList').querySelectorAll('.gcard').forEach(b=>b.onclick=()=>openGram(b.dataset.id));
 }
 let curGram=null,gqN=0;const GQ={};
@@ -2896,11 +3102,15 @@ function openGram(id){
       else{sfxWrong();haptic(false);}
     });
   });
-  $('gramPractice').style.display=g.sk?'':'none';
-  $('gramPractice').onclick=()=>{if(g.sk)startLesson(g.sk);};
+  const nd=(DRILLS[g.id]||[]).length;
+  $('gramPractice').style.display=(nd||g.sk)?'':'none';
+  $('gramPractice').textContent=nd?`Diese Lektion üben (${nd}) ➜`:'Practise this ➜';
+  $('gramPractice').onclick=()=>{if(!startGrammarDrills(g.id)&&g.sk)startLesson(g.sk);};
   show('glesson');$('glesson').scrollTop=0;
 }
-$('gramBack').onclick=()=>show('grammar');
+$('gramBack').onclick=()=>{
+  if(KURS_RETURN){const r=KURS_RETURN;KURS_RETURN=null;openUnit(r.u);setTimeout(()=>openSection(r.k),40);return;}
+  show('grammar');};
 
 
 /* ============================================================
@@ -2927,6 +3137,193 @@ function examDone(kind,i){return !!((DB.exam||{})[kind+'_'+i]);}
 function markExamDone(kind,i,score){
   DB.exam=DB.exam||{};DB.exam[kind+'_'+i]=score==null?1:score;Store.save(DB);
 }
+/* ---------- Lesetext-Bibliothek: extensive reading ---------- */
+function libPool(){
+  return (window.READ1||[]).concat(window.READ2||[],
+    (SP.READING||[]).map((r,i)=>Object.assign({id:'sp-'+i,genre:'Sachtext',title:r.title},r)));
+}
+function libDone(id){DB.lib=DB.lib||{};return !!DB.lib[id];}
+function openLibrary(){
+  const all=libPool();
+  const lvs=[...new Set(all.map(r=>r.lv))].sort((a,b)=>a-b);
+  if(!DB.libLv||!lvs.includes(DB.libLv))DB.libLv=lvs.includes(DB.level)?DB.level:lvs[0];
+  const lv=DB.libLv;
+  const mine=all.filter(r=>r.lv===lv);
+  let h=`<div class="exhead"><div class="exic">📚</div><div>
+      <div class="extitle">Lesetexte</div>
+      <div class="exsub">Extensives Lesen — ${all.length} Texte mit Wortschatz und Fragen</div></div></div>
+    <div class="kurstabs">`+lvs.map(l=>
+      `<button class="ktab ${l===lv?'on':''}" data-l="${l}">${LEVELS[l-1]}</button>`).join('')+`</div>
+    <div class="kursmeta">${mine.length} Texte · ${mine.filter(r=>libDone(r.id)).length} gelesen</div>
+    <div class="exlist">`+mine.map(r=>
+      `<button class="extask ${libDone(r.id)?'done':''}" data-id="${r.id}">
+        <div class="etlv">${LEVELS[r.lv-1]}</div>
+        <div class="ettx"><b>${r.title}</b><span>${r.genre||''} · ${r.words||r.text.trim().split(/\s+/).length} Wörter${r.focus?' · '+r.focus:''}</span></div>
+        <div class="gchev">${libDone(r.id)?'✓':'›'}</div></button>`).join('')+`</div>`;
+  $('examBody').innerHTML=h;
+  $('examBody').querySelectorAll('.ktab').forEach(b=>b.onclick=()=>{DB.libLv=+b.dataset.l;Store.save(DB);openLibrary();});
+  $('examBody').querySelectorAll('.extask').forEach(b=>b.onclick=()=>openReadText(b.dataset.id));
+  $('examBack').textContent='‹ Exam trainer';
+  $('examBack').onclick=()=>{stopExamTimers();show('skills');};
+  show('exam');$('exam').scrollTop=0;
+}
+function openReadText(id){
+  const r=libPool().find(x=>x.id===id);if(!r)return;
+  let h=`<div class="exhead"><div class="exic">📖</div><div>
+      <div class="extitle">${r.title}</div>
+      <div class="exsub">${LEVELS[r.lv-1]} · ${r.genre||''}${r.focus?' · '+r.focus:''}</div></div></div>
+    <div class="extext">${r.text.replace(/\n/g,'<br>')}</div>`;
+  if((r.gloss||[]).length){
+    h+=`<div class="exsec">Wortschatz</div><div class="glosslist">`+r.gloss.map(g=>
+      `<div class="glossrow"><b>${g.de}</b><span>${g.en}</span>
+        ${hasSpeech?`<button class="gspk" data-say="${(g.de||'').replace(/"/g,'&quot;')}">🔊</button>`:''}</div>`).join('')+`</div>`;
+  }
+  h+=`<div class="exarow"><button class="exbtn" id="libSay">🔊 Vorlesen lassen</button>
+      <button class="exbtn" id="libAdd">➕ Wortschatz in den Stapel</button></div>
+      <div class="exqs" id="libQs"></div>`;
+  $('examBody').innerHTML=h;
+  $('examBody').querySelectorAll('.gspk').forEach(b=>b.onclick=()=>speak(b.dataset.say,b));
+  $('libSay').onclick=()=>speak(r.text.replace(/\n/g,' '),$('libSay'));
+  $('libAdd').onclick=()=>{const n=srsAdd((r.gloss||[]).map(g=>({de:g.de,en:g.en})),r.lv,r.title);
+    toast(n?n+' Wörter hinzugefügt':'Schon im Stapel');};
+  qList($('libQs'),r.qs||[],'Reading',(got,tot)=>{
+    DB.lib=DB.lib||{};DB.lib[r.id]=1;
+    const xp=got*10;if(xp){const t=today();t.xp+=xp;DB.xp+=xp;}
+    Store.save(DB);
+    const d=document.createElement('div');d.className='exresult';
+    d.innerHTML=`<div class="exscore">${got} / ${tot}</div>
+      <div class="exmsg">${got/tot>=0.75?'Sehr gut gelesen!':'Lies den Text noch einmal — die Antworten stehen alle drin.'}</div>
+      ${xp?`<div class="xppill">+${xp} XP</div>`:''}
+      <button class="btn-primary" id="libNext" style="margin-top:14px">Weitere Texte ➜</button>`;
+    $('examBody').appendChild(d);d.scrollIntoView({behavior:'smooth',block:'center'});
+    $('libNext').onclick=()=>openLibrary();
+    if(got/tot>=0.75)confetti();
+  });
+  $('examBack').onclick=()=>openLibrary();
+  show('exam');$('exam').scrollTop=0;
+}
+
+/* ============================================================
+   v14: VERB TRAINER — tables + conjugation drills
+   ============================================================ */
+const VIRR=(window.VERBS_IRR||[]);
+const PRON=['ich','du','er/sie/es','wir','ihr','sie/Sie'];
+function vStem(inf){return inf.endsWith('en')?inf.slice(0,-2):inf.slice(0,-1);}
+function vPraesens(v){
+  if(v.inf==='sein')return {ich:'bin',du:'bist',er:'ist',wir:'sind',ihr:'seid',sie:'sind'};
+  if(v.inf==='haben')return {ich:'habe',du:'hast',er:'hat',wir:'haben',ihr:'habt',sie:'haben'};
+  if(v.cls==='modal'||v.inf==='wissen'){
+    const base=v.er; const st=vStem(v.inf);
+    return {ich:base,du:v.du,er:base,wir:v.inf,ihr:st+'t',sie:v.inf};
+  }
+  const st=vStem(v.inf),e=/[td]$/.test(st)?'e':'';
+  return {ich:st+'e',du:v.du||st+e+'st',er:v.er||st+e+'t',wir:v.inf,ihr:st+e+'t',sie:v.inf};
+}
+function vPraeteritum(v){
+  const p=v.pt;
+  if(v.cls==='modal'||v.cls==='mixed'||v.inf==='wissen')
+    return {ich:p,du:p+'st',er:p,wir:p+'n',ihr:p+'t',sie:p+'n'};
+  const e=/[td]$/.test(p)?'e':'';
+  return {ich:p,du:p+e+'st',er:p,wir:p+(p.endsWith('e')?'n':'en'),ihr:p+e+'t',sie:p+(p.endsWith('e')?'n':'en')};
+}
+function vPerfekt(v){return (v.aux==='sein'?'ist':'hat')+' '+v.pp;}
+function vFind(inf){return VIRR.find(v=>v.inf===inf);}
+function vPool(){const lv=DB.level||7;const f=VIRR.filter(v=>(v.lv||2)<=lv);return f.length?f:VIRR;}
+
+function openVerbs(){
+  const lvs=[...new Set(VIRR.map(v=>v.lv))].sort((a,b)=>a-b);
+  if(!DB.vLv||!lvs.includes(DB.vLv))DB.vLv=lvs.includes(DB.level)?DB.level:lvs[0];
+  const lv=DB.vLv, mine=VIRR.filter(v=>v.lv===lv);
+  let h=`<div class="exhead"><div class="exic">🧾</div><div>
+      <div class="extitle">Verbtabellen</div>
+      <div class="exsub">${VIRR.length} unregelmäßige Verben — alle Formen</div></div></div>
+    <div class="exarow" style="justify-content:flex-start">
+      <button class="exbtn primary" id="vDrill">▶︎ Verben trainieren</button></div>
+    <div class="kurstabs" style="margin-top:12px">`+lvs.map(l=>
+      `<button class="ktab ${l===lv?'on':''}" data-l="${l}">${LEVELS[l-1]}</button>`).join('')+`</div>
+    <div class="kursmeta">${mine.length} Verben auf ${LEVELS[lv-1]}</div>
+    <div class="vtable"><div class="vhead"><span>Infinitiv</span><span>Präteritum</span><span>Partizip II</span></div>`+
+    mine.map(v=>`<button class="vrowb" data-inf="${v.inf}">
+      <span class="vi"><b>${v.inf}</b><i>${v.en}</i></span>
+      <span class="vp">${v.pt}</span>
+      <span class="vpp ${v.aux==='sein'?'sein':''}">${v.aux==='sein'?'ist':'hat'} ${v.pp}</span></button>`).join('')+`</div>`;
+  $('examBody').innerHTML=h;
+  $('examBody').querySelectorAll('.ktab').forEach(b=>b.onclick=()=>{DB.vLv=+b.dataset.l;Store.save(DB);openVerbs();});
+  $('examBody').querySelectorAll('.vrowb').forEach(b=>b.onclick=()=>openVerb(b.dataset.inf));
+  $('vDrill').onclick=()=>startVerbDrill();
+  $('examBack').textContent='‹ Grammatik';
+  $('examBack').onclick=()=>{stopExamTimers();show('grammar');};
+  show('exam');$('exam').scrollTop=0;
+}
+function openVerb(inf){
+  const v=vFind(inf);if(!v)return;
+  const pr=vPraesens(v),pt=vPraeteritum(v);
+  const row=(k,o)=>`<tr><td>${k}</td><td>${o}</td></tr>`;
+  let h=`<div class="exhead"><div class="exic">🧾</div><div>
+      <div class="extitle">${v.inf}</div>
+      <div class="exsub">${v.en} · ${v.cls} · Perfekt mit <b>${v.aux}</b>${v.aux2?` (auch ${v.aux2})`:''}</div></div></div>`;
+  h+=`<div class="exarow" style="justify-content:flex-start">
+      ${hasSpeech?`<button class="exbtn" id="vSay">🔊 ${v.inf} – ${v.pt} – ${v.pp}</button>`:''}</div>`;
+  h+=`<div class="exsec">Die drei Stammformen</div>
+    <div class="vstamm"><span>${v.inf}</span><span>${v.pt}</span><span>${(v.aux==='sein'?'ist ':'hat ')+v.pp}</span></div>`;
+  h+=`<div class="exsec">Präsens</div><div class="gblock gscroll"><table class="gtable"><tbody>`+
+    PRON.map((p,i)=>row(p,[pr.ich,pr.du,pr.er,pr.wir,pr.ihr,pr.sie][i])).join('')+`</tbody></table></div>`;
+  h+=`<div class="exsec">Präteritum</div><div class="gblock gscroll"><table class="gtable"><tbody>`+
+    PRON.map((p,i)=>row(p,[pt.ich,pt.du,pt.er,pt.wir,pt.ihr,pt.sie][i])).join('')+`</tbody></table></div>`;
+  h+=`<div class="exsec">Weitere Formen</div><div class="gblock gscroll"><table class="gtable"><tbody>`+
+    row('Perfekt','er '+vPerfekt(v))+
+    row('Plusquamperfekt','er '+(v.aux==='sein'?'war':'hatte')+' '+v.pp)+
+    row('Futur I','er wird '+v.inf)+
+    row('Konjunktiv II','er '+v.k2)+
+    row('Imperativ (du)',(v.imp||vStem(v.inf))+'!')+
+    `</tbody></table></div>`;
+  if(v.note)h+=`<div class="gblock warn"><div class="glab">⚠️ Achtung</div>${v.note}</div>`;
+  h+=`<button class="btn-primary" id="vd1" style="margin-top:16px">Dieses Verb üben ➜</button>`;
+  $('examBody').innerHTML=h;
+  const vs=$('vSay');if(vs)vs.onclick=()=>speak(`${v.inf}, ${v.pt}, ${v.aux==='sein'?'ist':'hat'} ${v.pp}`,vs);
+  $('vd1').onclick=()=>startVerbDrill(v.inf);
+  $('examBack').textContent='‹ Verbtabellen';
+  $('examBack').onclick=()=>openVerbs();
+  show('exam');$('exam').scrollTop=0;
+}
+/* ---- verb drill generators ---- */
+function gVerbPraet(){const v=R(vPool());
+  return {tag:'Präteritum',prompt:`Präteritum von „${v.inf}“ (er …)`,mode:'mc',big:v.inf,sub:v.en,
+    answer:v.pt,options:opts(v.pt,shuffle(VIRR).slice(0,8).map(x=>x.pt)),read:v.inf,sayAnswer:v.pt,
+    explain:`<b>${v.inf} – ${v.pt} – ${v.pp}</b> (${v.en}). Perfekt mit <b>${v.aux}</b>.`,_sk:'Verbs'};}
+function gVerbPP(){const v=R(vPool());
+  return {tag:'Partizip II',prompt:`Partizip II von „${v.inf}“`,mode:'mc',big:v.inf,sub:v.en,
+    answer:v.pp,options:opts(v.pp,shuffle(VIRR).slice(0,8).map(x=>x.pp).concat(['ge'+vStem(v.inf)+'t'])),
+    read:v.inf,sayAnswer:(v.aux==='sein'?'ist ':'hat ')+v.pp,
+    explain:`<b>${v.inf} – ${v.pt} – ${v.pp}</b>. Perfekt: er ${vPerfekt(v)}.`,_sk:'Verbs'};}
+function gVerbAux(){const v=R(vPool());const ans=v.aux==='sein'?'ist':'hat';
+  return {tag:'Perfekt · haben/sein',prompt:'Welches Hilfsverb?',mode:'mc',stem:`Er ___ ${v.pp}.`,
+    trans:`He has ${v.en.replace('to ','')}.`,answer:ans,options:shuffle(['hat','ist']),
+    sayAnswer:`Er ${ans} ${v.pp}.`,
+    explain:`<i>${v.inf}</i> bildet das Perfekt mit <b>${v.aux}</b>${v.aux==='sein'?' (Bewegung oder Zustandswechsel)':''} → er ${ans} ${v.pp}.${v.note?'<br>'+v.note:''}`,_sk:'Verbs'};}
+function gVerbK2(){const v=R(vPool().filter(x=>x.k2));
+  return {tag:'Konjunktiv II',prompt:`Konjunktiv II von „${v.inf}“ (er …)`,mode:'mc',big:v.inf,sub:v.en,
+    answer:v.k2,options:opts(v.k2,shuffle(VIRR).filter(x=>x.k2).slice(0,8).map(x=>x.k2)),
+    read:v.inf,sayAnswer:v.k2,
+    explain:`Konjunktiv II bildet man aus dem Präteritum <i>${v.pt}</i> + Umlaut + -e → <b>${v.k2}</b>.`,_sk:'Verbs'};}
+function gVerbPraes(){const pool=vPool().filter(v=>v.du||v.er);const v=R(pool.length?pool:vPool());
+  const pr=vPraesens(v);const which=Math.random()<0.5?'du':'er';
+  const ans=which==='du'?pr.du:pr.er;
+  return {tag:'Präsens',prompt:`„${v.inf}“ — die ${which}-Form`,mode:'mc',big:(which==='du'?'du …':'er …'),sub:v.inf+' · '+v.en,
+    answer:ans,options:opts(ans,[pr.ich,pr.du,pr.er,pr.wir,pr.ihr,vStem(v.inf)+'st',vStem(v.inf)+'t']),
+    sayAnswer:(which==='du'?'du ':'er ')+ans,
+    explain:`<b>${which} ${ans}</b>. ${v.du||v.er?'Dieses Verb wechselt den Stammvokal in der du- und er-Form.':'Regelmäßige Endungen.'}`,_sk:'Verbs'};}
+function startVerbDrill(inf){
+  const gens=[gVerbPraet,gVerbPP,gVerbAux,gVerbK2,gVerbPraes];
+  const items=[];
+  for(let i=0;i<12;i++){
+    let q=R(gens)();
+    if(inf){for(let t=0;t<40;t++){q=R(gens)();if((q.big===inf)||(q.explain||'').includes(inf))break;}}
+    items.push(q);
+  }
+  startQueue(items,inf?'Verb · '+inf:'Verbtraining',{verbs:true});
+}
+
 function renderSkills(){
   const lv=LEVELS[(DB.level||1)-1]||'A1';
   $('skLvBadge').textContent=lv+' · '+((LEVEL_INFO[(DB.level||1)-1]||{}).t||{}).en;
@@ -2937,10 +3334,18 @@ function renderSkills(){
       <div class="skic">${sd.ic}</div>
       <div class="sktx"><b>${sd.t}</b><span>${sd.d}</span></div>
       <div class="skmeta">${done}/${pool.length}</div></button>`;}).join('');
-  $('skGrid').querySelectorAll('.skcard').forEach(b=>b.onclick=()=>openSkill(b.dataset.k));
+  const lib=libPool();
+  $('skGrid').insertAdjacentHTML('beforeend',
+    `<button class="skcard" id="libCard" style="--c:#1f9d6a">
+      <div class="skic">📚</div>
+      <div class="sktx"><b>Lesetexte</b><span>Extensive reading — ${lib.length} texts</span></div>
+      <div class="skmeta">${lib.filter(r=>libDone(r.id)).length}/${lib.length}</div></button>`);
+  $('libCard').onclick=()=>openLibrary();
+  $('skGrid').querySelectorAll('.skcard[data-k]').forEach(b=>b.onclick=()=>openSkill(b.dataset.k));
 }
 $('examBack').onclick=()=>{stopExamTimers();show('skills');};
 $('mockBtn').onclick=()=>startMock();
+$('placeBtn').onclick=()=>startPlacement();
 
 /* ---------- task list for one skill ---------- */
 function openSkill(kind){
@@ -2956,6 +3361,8 @@ function openSkill(kind){
       <div class="gchev">${examDone(kind,i)?'✓':'›'}</div></button>`;}).join('')+'</div>';
   $('examBody').innerHTML=h;
   $('examBody').querySelectorAll('.extask').forEach(b=>b.onclick=()=>runExam(kind,+b.dataset.i));
+  $('examBack').textContent='‹ Exam trainer';
+  $('examBack').onclick=()=>{stopExamTimers();show('skills');};
   show('exam');$('exam').scrollTop=0;
 }
 
@@ -3252,6 +3659,697 @@ function mockRun(){
 }
 function mockAdvance(){if(!MOCK)return;MOCK.step++;mockRun();}
 
+
+/* ============================================================
+   v14: KURSBUCH — studio-d style Einheiten.
+   A unit bundles Einstieg · Hören · Lesen · Dialog · Grammatik ·
+   Übungen · Sprechen · Schreiben · Aussprache · Wortschatz ·
+   "Das kann ich auf Deutsch". Stationen review every four units.
+   ============================================================ */
+const KURS=[].concat(window.KURS_A0||[],window.KURS_A1||[],window.KURS_A2||[],
+                     window.KURS_B1||[],window.KURS_B2||[],window.KURS_C1||[],window.KURS_C2||[]);
+
+/* ---- merge the grammar packs written per level ---- */
+[window.GRAM_A1,window.GRAM_A2,window.GRAM_B1,window.GRAM_B2,window.GRAM_C1,window.GRAM_C2]
+  .forEach(pack=>{(pack||[]).forEach(g=>{if(g&&g.id&&!GRAM.some(x=>x.id===g.id))GRAM.push(g);});});
+/* ---- gram_core.js carries deepened rewrites of the oldest lessons: same ids,
+       so they REPLACE rather than extend (drills stay keyed to the same id) ---- */
+(window.GRAM_CORE||[]).forEach(g=>{
+  if(!g||!g.id)return;
+  const i=GRAM.findIndex(x=>x.id===g.id);
+  if(i>=0)GRAM[i]=g; else GRAM.push(g);
+});
+GRAM.sort((a,b)=>(a.lv-b.lv));
+
+/* ---- drills indexed by the grammar lesson they belong to ---- */
+const DRILLS={};
+[window.DRILL_CORE,window.DRILL_A1,window.DRILL_A2,window.DRILL_B1,window.DRILL_B2,window.DRILL_C1,window.DRILL_C2]
+  .forEach(pack=>{(pack||[]).forEach(d=>{if(d&&d.gid)(DRILLS[d.gid]=DRILLS[d.gid]||[]).push(d);});});
+
+/* ---- extra reading packs ---- */
+const READPACK=[].concat(window.READ1||[],window.READ2||[]);
+
+/* turn a {s,a,o,ex,tr,say} drill into a question the quiz engine understands */
+function toQ(b,tag){
+  const first=String(b.a||'').split(' ')[0];
+  return {tag:tag||b.tag||'Übung',prompt:b.p||'Choose the correct answer',mode:'mc',
+    stem:b.s,big:b.big,read:b.read||b.say||b.big||(b.s?b.s.replace(/_+/g,' … '):''),
+    answer:b.a,options:shuffle([b.a,...(b.o||[])]),explain:b.ex,trans:b.tr,sayAnswer:b.say,
+    colorArt:['der','die','das','den','dem','des'].includes(first),
+    _lv:b.lv,_sk:b.sk||'Vocabulary'};
+}
+
+/* ---- unit lookup & progress ---- */
+const UNIT_SECTIONS=[
+ {k:'einstieg', ic:'🚪', t:'Einstieg',   d:'Key words for this unit'},
+ {k:'hoeren',   ic:'🎧', t:'Hören',      d:'Listen and answer'},
+ {k:'lesen',    ic:'📖', t:'Lesen',      d:'Read and answer'},
+ {k:'dialog',   ic:'💬', t:'Dialog',     d:'Shadow the conversation'},
+ {k:'grammar',  ic:'📐', t:'Grammatik',  d:'The rules of this unit'},
+ {k:'uebungen', ic:'✏️', t:'Übungen',    d:'Drill what you learned'},
+ {k:'sprechen', ic:'🗣️', t:'Sprechen',   d:'Say it yourself'},
+ {k:'schreiben',ic:'✍️', t:'Schreiben',  d:'Write it yourself'},
+ {k:'aussprache',ic:'🔊',t:'Aussprache', d:'Sound drill'},
+ {k:'wortschatz',ic:'📝',t:'Wortschatz', d:'Unit word list'},
+ {k:'cando',    ic:'✅', t:'Das kann ich',d:'Check what you can do'}
+];
+const STATION_SECTIONS=[
+ {k:'beruf',       ic:'👷', t:'Berufsbild',   d:'A job profile'},
+ {k:'magazin',     ic:'📰', t:'Magazin',      d:'Landeskunde'},
+ {k:'wiederholung',ic:'🔁', t:'Wiederholung', d:'Review the last four units'}
+];
+function unitById(id){return KURS.find(u=>u.id===id);}
+function unitSections(u){
+  if(u.type==='station')return STATION_SECTIONS;
+  return UNIT_SECTIONS.filter(s=>s.k==='cando'||s.k==='grammar'||u[s.k]);
+}
+function unitState(id){DB.unit=DB.unit||{};return DB.unit[id]||(DB.unit[id]={sec:{},cando:[]});}
+function secDone(id,k){return !!unitState(id).sec[k];}
+function markSec(id,k,score){
+  const st=unitState(id);st.sec[k]=1;
+  if(score!=null){st.score=st.score||{};st.score[k]=score;}
+  Store.save(DB);
+}
+function unitPct(u){
+  const secs=unitSections(u),st=unitState(u.id);
+  const done=secs.filter(s=>st.sec[s.k]).length;
+  return secs.length?done/secs.length:0;
+}
+function kursLevels(){const s=new Set(KURS.map(u=>u.lv));return [...s].sort((a,b)=>a-b);}
+function kursOf(lv){return KURS.filter(u=>u.lv===lv);}
+/* the next thing to do: first unfinished section of the first unfinished unit at your level */
+function nextKursAction(){
+  const lv=DB.kursLv||DB.level||2;
+  const pool=kursOf(lv).length?kursOf(lv):KURS;
+  for(const u of pool){
+    const secs=unitSections(u),st=unitState(u.id);
+    for(const s of secs)if(!st.sec[s.k])return {u,s};
+  }
+  return null;
+}
+
+/* ============================================================
+   Kursbuch list (lives on the Learn screen)
+   ============================================================ */
+function renderKursbuch(){
+  const box=$('kursbuch');if(!box)return;
+  if(!KURS.length){box.innerHTML='<div class="savenote">The Kursbuch is loading…</div>';return;}
+  const lvs=kursLevels();
+  if(!DB.kursLv||!lvs.includes(DB.kursLv))DB.kursLv=lvs.includes(DB.level)?DB.level:lvs[0];
+  const lv=DB.kursLv;
+  let h=`<div class="kurstabs">`+lvs.map(l=>
+    `<button class="ktab ${l===lv?'on':''}" data-l="${l}">${LEVELS[l-1]}</button>`).join('')+`</div>`;
+  const units=kursOf(lv);
+  const totalDone=units.reduce((n,u)=>n+(unitPct(u)>=1?1:0),0);
+  h+=`<div class="kursmeta">${units.length} Einheiten · ${totalDone} abgeschlossen</div>`;
+  h+='<div class="kurslist">';
+  units.forEach(u=>{
+    const pct=unitPct(u),done=pct>=1;
+    const secs=unitSections(u),st=unitState(u.id);
+    const n=secs.filter(s=>st.sec[s.k]).length;
+    h+=`<button class="kcard ${u.type==='station'?'station':''} ${done?'done':''}" data-id="${u.id}" style="--c:${u.col||'#5566d6'}">
+      <div class="knr">${u.type==='station'?'🚉':u.nr}</div>
+      <div class="ktx">
+        <b>${u.type==='station'?u.title:'Einheit '+u.nr+' · '+u.title}</b>
+        <span>${u.type==='station'?(Gt(u.intro)||'Review'):Gt(u.subtitle)}</span>
+        <div class="kbar"><i style="width:${Math.round(pct*100)}%"></i></div>
+      </div>
+      <div class="kmeta">${done?'✓':n+'/'+secs.length}</div>
+    </button>`;
+  });
+  h+='</div>';
+  box.innerHTML=h;
+  box.querySelectorAll('.ktab').forEach(b=>b.onclick=()=>{DB.kursLv=+b.dataset.l;Store.save(DB);renderKursbuch();});
+  box.querySelectorAll('.kcard').forEach(b=>b.onclick=()=>openUnit(b.dataset.id));
+  const na=nextKursAction(),cb=$('kursCont');
+  if(cb){
+    if(na){cb.classList.remove('hidden');
+      cb.querySelector('.ttxt').innerHTML=`<b>Weiter: ${na.u.type==='station'?na.u.title:'Einheit '+na.u.nr+' · '+na.u.title}</b><span>${na.s.ic} ${na.s.t} — ${na.s.d}</span>`;
+      cb.onclick=()=>{openUnit(na.u.id);setTimeout(()=>openSection(na.s.k),60);};
+    } else cb.classList.add('hidden');
+  }
+}
+
+/* ============================================================
+   Unit walker
+   ============================================================ */
+let curUnit=null,curSection=null;
+function openUnit(id){
+  const u=unitById(id);if(!u)return;
+  curUnit=u;curSection=null;
+  const secs=unitSections(u),st=unitState(u.id);
+  let h=`<div class="uhead" style="--c:${u.col||'#5566d6'}">
+    <div class="uic">${u.ic||'📘'}</div>
+    <div><div class="ulv">${LEVELS[u.lv-1]} · ${u.type==='station'?'Station':'Einheit '+u.nr}</div>
+    <div class="utitle">${u.title}</div>
+    <div class="usub">${u.type==='station'?(Gt(u.intro)||''):Gt(u.subtitle)}</div></div></div>`;
+  if(u.type!=='station'&&Array.isArray(u.cando)){
+    h+=`<div class="ucando"><b>In dieser Einheit lernst du:</b><ul>`+
+       u.cando.map(c=>`<li>${c.de}${c.en?` <i>— ${c.en}</i>`:''}</li>`).join('')+`</ul></div>`;
+  }
+  h+='<div class="usecs">';
+  secs.forEach(s=>{
+    const d=st.sec[s.k];
+    h+=`<button class="usec ${d?'done':''}" data-k="${s.k}">
+      <div class="uic2">${s.ic}</div>
+      <div class="utx"><b>${s.t}</b><span>${s.d}</span></div>
+      <div class="uchk">${d?'✓':'›'}</div></button>`;
+  });
+  h+='</div>';
+  $('unitBody').innerHTML=h;
+  $('unitBody').querySelectorAll('.usec').forEach(b=>b.onclick=()=>openSection(b.dataset.k));
+  $('unitBack').textContent='‹ Kursbuch';
+  show('unit');$('unit').scrollTop=0;
+}
+$('unitBack').onclick=()=>{
+  if(curSection){openUnit(curUnit.id);}
+  else {show('home');setTimeout(renderKursbuch,30);}
+};
+
+/* shared: render a list of MC questions with inline feedback */
+function qList(wrap,items,skill,onDone){
+  let got=0,answered=0;const total=items.length;
+  items.forEach((it,qi)=>{
+    const box=document.createElement('div');box.className='exq';
+    box.innerHTML=`<div class="exqq"><span class="exqn">${qi+1}</span>${it.q}</div>
+      <div class="exopts"></div><div class="exex hidden">${it.ex||''}</div>`;
+    const ow=box.querySelector('.exopts');
+    shuffle([it.a,...(it.o||[])]).forEach(o=>{
+      const b=document.createElement('button');b.className='exopt';b.textContent=o;
+      b.onclick=()=>{
+        if(box.dataset.done)return;box.dataset.done='1';
+        const ok=String(o)===String(it.a);
+        ow.querySelectorAll('.exopt').forEach(x=>{
+          if(x.textContent===String(it.a))x.classList.add('ok');
+          else if(x===b)x.classList.add('no');
+          x.classList.add('seen');});
+        box.querySelector('.exex').classList.remove('hidden');
+        if(ok){got++;sfxCorrect();haptic(true);}else{sfxWrong();haptic(false);}
+        recordAnswer(skill,ok);
+        answered++;if(answered===total)setTimeout(()=>onDone&&onDone(got,total),350);
+      };ow.appendChild(b);});
+    wrap.appendChild(box);
+  });
+}
+function sectionDoneBanner(score,total,label){
+  const d=document.createElement('div');d.className='exresult';
+  const xp=(score||0)*10;if(xp){const h=today();h.xp+=xp;DB.xp+=xp;Store.save(DB);}
+  d.innerHTML=`<div class="exscore">${score!=null?score+' / '+total:'✓'}</div>
+    <div class="exmsg">${label||'Abschnitt abgeschlossen.'}</div>
+    ${xp?`<div class="xppill">+${xp} XP</div>`:''}
+    <button class="btn-primary" id="secNext" style="margin-top:14px">Weiter ➜</button>`;
+  $('unitBody').appendChild(d);
+  d.scrollIntoView({behavior:'smooth',block:'center'});
+  $('secNext').onclick=()=>openUnit(curUnit.id);
+  if(score==null||score/total>=0.6)confetti();
+}
+
+function openSection(k){
+  const u=curUnit;if(!u)return;
+  curSection=k;
+  const meta=(unitSections(u).find(s=>s.k===k))||{t:k,ic:'📘'};
+  const head=`<div class="uhead small" style="--c:${u.col||'#5566d6'}">
+    <div class="uic">${meta.ic}</div>
+    <div><div class="ulv">${u.type==='station'?u.title:'Einheit '+u.nr+' · '+u.title}</div>
+    <div class="utitle">${meta.t}</div></div></div>`;
+  const B=$('unitBody');B.innerHTML=head;
+  $('unitBack').textContent='‹ '+(u.type==='station'?u.title:'Einheit '+u.nr);
+  const add=html=>{const d=document.createElement('div');d.innerHTML=html;B.appendChild(d);return d;};
+  const finish=(score,total,label)=>{markSec(u.id,k,score!=null&&total?score/total:1);sectionDoneBanner(score,total,label);};
+
+  /* ---------- Einstieg ---------- */
+  if(k==='einstieg'){
+    const e=u.einstieg||{};
+    add(`<div class="exintro">${Gt(e.intro)||''}</div>
+      <div class="wgrid">`+(e.words||[]).map(w=>
+      `<button class="wtile" data-say="${(w.de||'').replace(/"/g,'&quot;')}">
+        <span class="wic">${w.ic||'🔹'}</span><b>${w.de}</b><i>${w.en||''}</i></button>`).join('')+`</div>
+      <button class="btn-primary" id="einDone" style="margin-top:18px">Verstanden ➜</button>`);
+    B.querySelectorAll('.wtile').forEach(b=>b.onclick=()=>speak(b.dataset.say,b));
+    $('einDone').onclick=()=>finish(null,null,'Einstieg geschafft — jetzt hören.');
+    return;
+  }
+  /* ---------- Hören ---------- */
+  if(k==='hoeren'){
+    const H=u.hoeren;
+    add(`<div class="exaudio"><div class="exsec2">${H.title||''}</div>
+      <button class="exbigplay" id="uPlay">▶︎</button>
+      <div class="exarow">
+        <button class="exbtn" id="uSlow">0.5× langsam</button>
+        <button class="exbtn" id="uRe">↻ Nochmal</button>
+        <button class="exbtn" id="uScript">Transkript</button></div>
+      <div class="exnote">${hasSpeech?'So oft hören, wie du willst.':'Keine deutsche Stimme installiert — hier ist der Text.'}</div>
+      <div class="extext hidden" id="uScriptBox">${(H.say||'').replace(/\n/g,'<br>')}</div></div>
+      <div class="exqs" id="uQs"></div>`);
+    $('uPlay').onclick=()=>speak(H.say,$('uPlay'));
+    $('uRe').onclick=()=>speak(H.say,$('uPlay'));
+    $('uSlow').onclick=()=>speak(H.say,$('uPlay'),true);
+    $('uScript').onclick=()=>$('uScriptBox').classList.toggle('hidden');
+    if(!hasSpeech)$('uScriptBox').classList.remove('hidden');
+    qList($('uQs'),H.qs||[],'Listening',(g,t)=>{$('uScriptBox').classList.remove('hidden');finish(g,t);});
+    return;
+  }
+  /* ---------- Lesen ---------- */
+  if(k==='lesen'){
+    const L=u.lesen;
+    add(`<div class="exsec2">${L.title||''} ${L.genre?`<span class="genre">${L.genre}</span>`:''}</div>
+      <div class="extext">${(L.text||'').replace(/\n/g,'<br>')}</div>
+      ${(L.gloss||[]).length?`<div class="exsec">Wortschatz</div><div class="glosslist">`+
+        L.gloss.map(g=>`<div class="glossrow"><b>${g.de}</b><span>${g.en}</span>
+          ${hasSpeech?`<button class="gspk" data-say="${(g.de||'').replace(/"/g,'&quot;')}">🔊</button>`:''}</div>`).join('')+`</div>`:''}
+      <div class="exqs" id="uQs"></div>`);
+    B.querySelectorAll('.gspk').forEach(b=>b.onclick=()=>speak(b.dataset.say,b));
+    qList($('uQs'),L.qs||[],'Reading',(g,t)=>finish(g,t));
+    return;
+  }
+  /* ---------- Dialog ---------- */
+  if(k==='dialog'){
+    const D=u.dialog;
+    add(`<div class="exsec2">${D.title||''}</div>
+      <div class="qdlg big">`+(D.lines||[]).map((l,i)=>
+      `<div class="dline ${l.who==='A'?'a':'b'}"><span class="dwho">${l.who}</span>
+        <span class="dtx">${l.de}${l.en?`<span class="den">${l.en}</span>`:''}</span>
+        ${hasSpeech?`<button class="gspk" data-say="${(l.de||'').replace(/"/g,'&quot;')}">🔊</button>`:''}</div>`).join('')+`</div>
+      <div class="exarow"><button class="exbtn primary" id="dAll">▶︎ Ganzen Dialog hören</button></div>
+      <button class="btn-primary" id="dDone" style="margin-top:16px">Nachgesprochen ➜</button>`);
+    B.querySelectorAll('.gspk').forEach(b=>b.onclick=()=>speak(b.dataset.say,b));
+    $('dAll').onclick=()=>speak((D.lines||[]).map(l=>l.de).join(' … '),$('dAll'));
+    $('dDone').onclick=()=>finish(null,null,'Gut gesprochen!');
+    return;
+  }
+  /* ---------- Grammatik ---------- */
+  if(k==='grammar'){
+    const ids=(u.grammar||[]).filter(id=>GRAM.some(g=>g.id===id));
+    add(`<div class="exintro">Die Grammatik dieser Einheit. Lies die Lektion, dann übe sie direkt.</div>
+      <div class="exlist">`+(ids.length?ids.map(id=>{const g=GRAM.find(x=>x.id===id);
+        const nd=(DRILLS[id]||[]).length;
+        return `<button class="extask" data-id="${id}">
+          <div class="etlv">${g.ic}</div>
+          <div class="ettx"><b>${Gt(g.title)}</b><span>${Gt(g.sub)||''}${nd?` · ${nd} Übungen`:''}</span></div>
+          <div class="gchev">›</div></button>`;}).join('')
+        :'<div class="savenote">Für diese Einheit sind keine Grammatiklektionen verknüpft.</div>')+`</div>
+      <button class="btn-primary" id="gDone" style="margin-top:16px">Gelesen ➜</button>`);
+    B.querySelectorAll('.extask').forEach(b=>b.onclick=()=>{KURS_RETURN={u:u.id,k:'grammar'};openGram(b.dataset.id);});
+    $('gDone').onclick=()=>finish(null,null,'Grammatik gelesen.');
+    return;
+  }
+  /* ---------- Übungen ---------- */
+  if(k==='uebungen'){
+    const items=u.uebungen||[];
+    add(`<div class="exintro">${items.length} Übungen zu dieser Einheit.</div>
+      <button class="btn-primary" id="uStart" style="margin-top:14px">Übungen starten ➜</button>`);
+    $('uStart').onclick=()=>startQueue(items.map(x=>toQ(x,'Einheit '+u.nr)),
+      'Einheit '+u.nr+' · Übungen',{unit:u.id,sec:'uebungen'});
+    return;
+  }
+  /* ---------- Wiederholung (Station) ---------- */
+  if(k==='wiederholung'){
+    const items=u.wiederholung||[];
+    add(`<div class="exintro">${items.length} gemischte Übungen aus den letzten vier Einheiten.</div>
+      <button class="btn-primary" id="uStart" style="margin-top:14px">Wiederholung starten ➜</button>`);
+    $('uStart').onclick=()=>startQueue(items.map(x=>toQ(x,u.title)),u.title,{unit:u.id,sec:'wiederholung'});
+    return;
+  }
+  /* ---------- Berufsbild / Magazin (Station) ---------- */
+  if(k==='beruf'||k==='magazin'){
+    const S=u[k];
+    add(`<div class="exsec2">${S.title||''}</div>
+      <div class="extext">${(S.text||'').replace(/\n/g,'<br>')}</div>
+      <div class="exqs" id="uQs"></div>
+      ${(S.qs||[]).length?'':'<button class="btn-primary" id="mDone" style="margin-top:16px">Gelesen ➜</button>'}`);
+    if((S.qs||[]).length)qList($('uQs'),S.qs,'Reading',(g,t)=>finish(g,t));
+    else $('mDone').onclick=()=>finish(null,null,'Gelesen.');
+    return;
+  }
+  /* ---------- Sprechen ---------- */
+  if(k==='sprechen'){
+    const S=u.sprechen;
+    add(`<div class="extask2">${S.task||''}</div>
+      <div class="exsec">Redemittel</div>
+      <div class="exphr">`+(S.phrases||[]).map(p=>`<button class="exph say">${p}</button>`).join('')+`</div>
+      <div class="exsec">Aufnehmen (optional)</div>
+      <div class="exarow"><button class="exbtn" id="recBtn">⏺ Aufnehmen</button>
+        <button class="exbtn" id="recStop" disabled>⏹ Stopp</button></div>
+      <audio id="recAudio" class="hidden" controls style="width:100%;margin-top:10px"></audio>
+      <div class="exnote" id="recNote">Bleibt auf deinem Gerät.</div>
+      <button class="btn-primary" id="sModel" style="margin-top:16px">Musterlösung zeigen ➜</button>
+      <div class="hidden" id="sModelBox">
+        <div class="exsec">Musterlösung</div>
+        <div class="exmodel">${S.model||''}</div>
+        ${hasSpeech?'<button class="exbtn" id="sSay" style="margin-top:10px">🔊 Anhören &amp; nachsprechen</button>':''}
+        ${(S.tips||[]).length?`<div class="exsec">Tipps</div><ul class="extips">${S.tips.map(t=>`<li>${t}</li>`).join('')}</ul>`:''}
+        <button class="btn-primary" id="sDone" style="margin-top:14px">Fertig ➜</button></div>`);
+    B.querySelectorAll('.exph.say').forEach(b=>b.onclick=()=>speak(b.textContent.replace(/…/g,''),b));
+    wireRecorder();
+    $('sModel').onclick=()=>{$('sModelBox').classList.remove('hidden');$('sModel').classList.add('hidden');
+      const ss=$('sSay');if(ss)ss.onclick=()=>speak(S.model,ss);
+      $('sDone').onclick=()=>{stopRec();recordAnswer('Speaking',true);finish(null,null,'Sprechen geübt!');};
+      $('sModelBox').scrollIntoView({behavior:'smooth',block:'start'});};
+    return;
+  }
+  /* ---------- Schreiben ---------- */
+  if(k==='schreiben'){
+    const W=u.schreiben,key='u_'+u.id;
+    add(`<div class="extask2">${W.task||''}</div>
+      <div class="exsec">Inhaltspunkte</div>
+      <div class="expoints">`+(W.points||[]).map(p=>`<button class="expoint"><span class="box">✓</span><span>${p}</span></button>`).join('')+`</div>
+      <div class="exsec">Redemittel — zum Einfügen tippen</div>
+      <div class="exphr">`+(W.phrases||[]).map(p=>`<button class="exph">${p}</button>`).join('')+`</div>
+      <div class="exsec">Dein Text <span class="exwc" id="uWC">0 / ${W.min||60} Wörter</span></div>
+      <textarea id="uText" class="extextarea" rows="9" placeholder="Schreib hier auf Deutsch…"></textarea>
+      <div class="exarow"><button class="exbtn" id="uSave">💾 Speichern</button>
+        <button class="exbtn" id="uClear">Leeren</button>
+        <button class="exbtn" id="uRead">🔊 Vorlesen</button></div>
+      <button class="btn-primary" id="wModel" style="margin-top:16px">Musterlösung zeigen ➜</button>
+      <div class="hidden" id="wModelBox">
+        <div class="exsec">Musterlösung</div>
+        <div class="exmodel">${(W.model||'').replace(/\n/g,'<br>')}</div>
+        <button class="btn-primary" id="wDone" style="margin-top:14px">Fertig ➜</button></div>`);
+    const ta=$('uText');const saved=(DB.drafts||{})[key];if(saved)ta.value=saved;
+    const count=()=>{const n=ta.value.trim()?ta.value.trim().split(/\s+/).length:0;
+      $('uWC').textContent=n+' / '+(W.min||60)+' Wörter';$('uWC').classList.toggle('hit',n>=(W.min||60));return n;};
+    ta.oninput=count;count();
+    B.querySelectorAll('.expoint').forEach(b=>b.onclick=()=>b.classList.toggle('on'));
+    B.querySelectorAll('.exph').forEach(b=>b.onclick=()=>{
+      ta.value+=(ta.value&&!/\s$/.test(ta.value)?' ':'')+b.textContent+' ';ta.focus();count();});
+    $('uSave').onclick=()=>{DB.drafts=DB.drafts||{};DB.drafts[key]=ta.value;Store.save(DB);toast('Gespeichert');};
+    $('uClear').onclick=()=>{ta.value='';count();};
+    $('uRead').onclick=()=>{if(ta.value.trim())speak(ta.value.slice(0,400));};
+    $('wModel').onclick=()=>{DB.drafts=DB.drafts||{};DB.drafts[key]=ta.value;Store.save(DB);
+      $('wModelBox').classList.remove('hidden');$('wModel').classList.add('hidden');
+      $('wDone').onclick=()=>{recordAnswer('Writing',count()>=(W.min||60));finish(null,null,'Text geschrieben!');};
+      $('wModelBox').scrollIntoView({behavior:'smooth',block:'start'});};
+    return;
+  }
+  /* ---------- Aussprache ---------- */
+  if(k==='aussprache'){
+    const A=u.aussprache;
+    add(`<div class="exsec2">${A.focus||''}</div>
+      <div class="gblock rule"><div class="glab">📌 Regel</div>${Gt(A.hint)||''}</div>
+      <div class="wgrid">`+(A.words||[]).map(w=>
+      `<button class="wtile" data-say="${String(w).replace(/"/g,'&quot;')}"><b>${w}</b></button>`).join('')+`</div>
+      <div class="exarow"><button class="exbtn primary" id="aAll">▶︎ Alle anhören</button>
+        <button class="exbtn" id="aSlow">0.5× langsam</button></div>
+      <button class="btn-primary" id="aDone" style="margin-top:16px">Geübt ➜</button>`);
+    B.querySelectorAll('.wtile').forEach(b=>b.onclick=()=>speak(b.dataset.say,b));
+    $('aAll').onclick=()=>speak((A.words||[]).join(', '),$('aAll'));
+    $('aSlow').onclick=()=>speak((A.words||[]).join(', '),$('aSlow'),true);
+    $('aDone').onclick=()=>finish(null,null,'Aussprache geübt.');
+    return;
+  }
+  /* ---------- Wortschatz ---------- */
+  if(k==='wortschatz'){
+    const W=u.wortschatz||[];
+    const inDeck=W.filter(w=>srsHas(w.de)).length;
+    add(`<div class="exintro">${W.length} Wörter aus dieser Einheit. Füge sie deinem Wiederholungs-Stapel hinzu — die App fragt sie dann im richtigen Abstand ab.</div>
+      <div class="exarow"><button class="exbtn primary" id="wAdd">➕ Alle in den Stapel (${inDeck}/${W.length} drin)</button>
+        <button class="exbtn" id="wSay">🔊 Alle anhören</button></div>
+      <div class="vlist">`+W.map(w=>
+      `<div class="vrow"><div class="vtx"><b>${w.de}</b><span>${w.en}${w.pl?` · Pl. ${w.pl}`:''}</span></div>
+        ${hasSpeech?`<button class="gspk" data-say="${(w.de||'').replace(/"/g,'&quot;')}">🔊</button>`:''}</div>`).join('')+`</div>
+      <button class="btn-primary" id="vDone" style="margin-top:16px">Fertig ➜</button>`);
+    B.querySelectorAll('.gspk').forEach(b=>b.onclick=()=>speak(b.dataset.say,b));
+    $('wSay').onclick=()=>speak(W.map(w=>w.de).join(', '),$('wSay'));
+    $('wAdd').onclick=()=>{const n=srsAdd(W,u.lv,u.title);toast(n+' Wörter hinzugefügt');openSection('wortschatz');};
+    $('vDone').onclick=()=>finish(null,null,'Wortschatz gespeichert.');
+    return;
+  }
+  /* ---------- Das kann ich auf Deutsch ---------- */
+  if(k==='cando'){
+    const st=unitState(u.id);const list=u.cando||[];
+    add(`<div class="exintro">Sei ehrlich: Was kannst du nach dieser Einheit wirklich?</div>
+      <div class="expoints" id="cdList">`+list.map((c,i)=>
+      `<button class="expoint ${st.cando.includes(i)?'on':''}" data-i="${i}">
+        <span class="box">✓</span><span><b>${c.de}</b>${c.en?`<i class="cden">${c.en}</i>`:''}</span></button>`).join('')+`</div>
+      <button class="btn-primary" id="cdDone" style="margin-top:18px">Einheit abschließen ➜</button>`);
+    B.querySelectorAll('#cdList .expoint').forEach(b=>b.onclick=()=>{
+      const i=+b.dataset.i;const s=unitState(u.id);
+      if(s.cando.includes(i))s.cando=s.cando.filter(x=>x!==i);else s.cando.push(i);
+      b.classList.toggle('on');Store.save(DB);});
+    $('cdDone').onclick=()=>{sfxLevel();finish(unitState(u.id).cando.length,list.length,'Einheit abgeschlossen! 🎉');};
+    return;
+  }
+  add('<div class="savenote">Dieser Abschnitt ist leer.</div>');
+}
+
+/* return-to-unit after a grammar lesson opened from a unit */
+let KURS_RETURN=null;
+
+/* ---------- generic fixed-queue quiz run ---------- */
+function startQueue(items,title,meta){
+  if(!items||!items.length){toast('Keine Übungen vorhanden');return;}
+  S.course=null;S.queue=items.slice();S.queueMeta=meta||null;S.topic=title||'Übungen';
+  S.total=S.queue.length;S.i=0;S.correct=0;S.hearts=5;S.streak=0;
+  el.heartN.textContent=5;el.pfill.style.width='0%';
+  show('quiz');nextQuestion();
+}
+
+/* ---------- drill a single grammar lesson ---------- */
+function startGrammarDrills(gid){
+  const d=DRILLS[gid]||[];
+  if(!d.length)return false;
+  const g=GRAM.find(x=>x.id===gid);
+  startQueue(shuffle(d).map(x=>toQ(x,Gt(g&&g.title)||'Grammatik')),
+    'Übung · '+(Gt(g&&g.title)||gid),{gram:gid});
+  return true;
+}
+
+/* ============================================================
+   Vocabulary SRS — SM-2-lite over the unit Wortschatz
+   ============================================================ */
+const SRS_STEPS=[0,1,3,7,16,35,75,160];   // days per box
+function srsDeck(){DB.srs=DB.srs||{};return DB.srs;}
+function srsHas(de){return !!srsDeck()[de];}
+function srsAdd(words,lv,src){
+  const d=srsDeck();let n=0;
+  (words||[]).forEach(w=>{if(!w||!w.de||d[w.de])return;
+    d[w.de]={en:w.en,pl:w.pl||null,lv:lv||2,src:src||'',box:0,due:Date.now(),seen:0,ok:0};n++;});
+  Store.save(DB);return n;
+}
+function srsDue(){
+  const d=srsDeck(),now=Date.now();
+  return Object.keys(d).filter(k=>d[k].due<=now);
+}
+function srsGrade(de,ok){
+  const d=srsDeck(),c=d[de];if(!c)return;
+  c.seen=(c.seen||0)+1;
+  if(ok){c.ok=(c.ok||0)+1;c.box=Math.min(SRS_STEPS.length-1,(c.box||0)+1);}
+  else c.box=Math.max(0,(c.box||0)-1);
+  c.due=Date.now()+SRS_STEPS[c.box]*864e5 + (c.box===0?60000:0);
+  Store.save(DB);
+}
+function srsStats(){
+  const d=srsDeck(),keys=Object.keys(d);
+  const learned=keys.filter(k=>(d[k].box||0)>=3).length;
+  return {total:keys.length,due:srsDue().length,learned};
+}
+/* build a review session out of due cards */
+function startSrs(n){
+  const due=shuffle(srsDue()).slice(0,n||15);
+  if(!due.length){toast('Keine Wörter fällig — alles wiederholt! 🎉');return;}
+  const d=srsDeck();
+  const all=Object.keys(d);
+  const items=due.map(de=>{
+    const c=d[de];
+    const wrong=shuffle(all.filter(x=>x!==de&&d[x].en)).slice(0,3).map(x=>d[x].en);
+    while(wrong.length<3)wrong.push(['—','…','(kein Wort)'][wrong.length]);
+    return {tag:'Wortschatz',prompt:'Was bedeutet das?',mode:'mc',big:de,read:de,
+      answer:c.en,options:shuffle([c.en,...wrong]),
+      explain:`<b>${de}</b> = ${c.en}${c.pl?` · Plural: ${c.pl}`:''}${c.src?`<br><i>aus: ${c.src}</i>`:''}`,
+      sayAnswer:de,_srs:de,_sk:'Vocabulary'};
+  });
+  startQueue(items,'Wortschatz-Wiederholung',{srs:true});
+}
+
+/* ---------- reusable microphone recorder (used by units & exam trainer) ---------- */
+let UREC=null,URECCHUNKS=[],URECURL=null;
+function stopRec(){try{if(UREC&&UREC.state==='recording')UREC.stop();}catch(e){}UREC=null;}
+function wireRecorder(){
+  const rb=$('recBtn'),rs=$('recStop'),au=$('recAudio'),nt=$('recNote');
+  if(!rb)return;
+  rb.onclick=async()=>{
+    if(!navigator.mediaDevices||!window.MediaRecorder){nt.textContent='Aufnahme in diesem Browser nicht möglich.';return;}
+    try{
+      const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+      URECCHUNKS=[];UREC=new MediaRecorder(stream);
+      UREC.ondataavailable=e=>{if(e.data.size)URECCHUNKS.push(e.data);};
+      UREC.onstop=()=>{
+        stream.getTracks().forEach(t=>t.stop());
+        if(URECURL)URL.revokeObjectURL(URECURL);
+        URECURL=URL.createObjectURL(new Blob(URECCHUNKS,{type:(UREC&&UREC.mimeType)||'audio/webm'}));
+        au.src=URECURL;au.classList.remove('hidden');
+        rb.classList.remove('rec');rb.textContent='⏺ Nochmal aufnehmen';rs.disabled=true;
+        nt.textContent='Hör dir deine Aufnahme an und vergleiche sie mit der Musterlösung.';
+      };
+      UREC.start();rb.classList.add('rec');rb.textContent='● Aufnahme läuft…';rs.disabled=false;
+    }catch(e){nt.textContent='Kein Zugriff auf das Mikrofon.';}
+  };
+  rs.onclick=()=>stopRec();
+}
+
+
+/* ============================================================
+   v14: EINSTUFUNGSTEST (placement) + CEFR readiness dashboard
+   ============================================================ */
+
+/* every drillable item we have, bucketed by level */
+function levelPool(lv){
+  const out=[];
+  Object.keys(DRILLS).forEach(gid=>(DRILLS[gid]||[]).forEach(d=>{if(d.lv===lv)out.push(toQ(d,'Test'));}));
+  (window.BANKDATA||[]).forEach(b=>{if(b.lv===lv)out.push(toQ(b,'Test'));});
+  KURS.forEach(u=>{if(u.lv!==lv)return;
+    (u.uebungen||[]).concat(u.wiederholung||[]).forEach(d=>out.push(toQ(d,'Test')));});
+  return out;
+}
+/* which grammar lesson a test item came from, for the diagnosis */
+function gidOf(q){
+  for(const gid in DRILLS)if((DRILLS[gid]||[]).some(d=>d.s===q.stem&&d.a===q.answer))return gid;
+  return null;
+}
+
+let PT=null;
+const PT_BANDS=[2,3,4,5,6];           // A1 A2 B1 B2 C1
+const PT_PER_BAND=4;
+const PT_PASS=3;                      // ≥3 of 4 to climb
+
+function startPlacement(){
+  const first=PT_BANDS.find(lv=>levelPool(lv).length>=PT_PER_BAND);
+  if(!first){toast('Noch nicht genug Material für den Test');return;}
+  PT={band:0,asked:[],bandCorrect:0,bandN:0,reached:first,missed:[]};
+  show('quiz');
+  S.course=null;S.queue=null;S.queueMeta={placement:true};S.topic='Einstufungstest';
+  S.total=PT_BANDS.length*PT_PER_BAND;S.i=0;S.correct=0;S.hearts=99;S.streak=0;
+  el.heartN.textContent='∞';el.pfill.style.width='0%';
+  ptNext();
+}
+function ptQuestion(){
+  const lv=PT_BANDS[PT.band];
+  const pool=levelPool(lv).filter(q=>!PT.asked.includes(q.stem+'|'+q.answer));
+  if(!pool.length)return null;
+  const q=R(pool);PT.asked.push(q.stem+'|'+q.answer);q._ptLv=lv;
+  return q;
+}
+function ptNext(){
+  hideSheet();
+  const q=ptQuestion();
+  if(!q){return ptFinish();}
+  S.q=q;S.picked=null;S.placed=[];S.locked=false;el.check.disabled=true;el.check.textContent='Check';
+  el.pfill.style.width=Math.round(100*S.i/S.total)+'%';
+  renderQuestion();updReadBtn();autoRead();
+}
+/* called from grade() when a placement question is answered */
+function ptGraded(correct){
+  PT.bandN++;if(correct)PT.bandCorrect++;
+  else PT.missed.push({lv:S.q._ptLv,gid:gidOf(S.q),stem:S.q.stem,answer:S.q.answer,ex:S.q.explain});
+  if(PT.bandN>=PT_PER_BAND){
+    if(PT.bandCorrect>=PT_PASS){
+      PT.reached=PT_BANDS[PT.band];
+      PT.band++;PT.bandCorrect=0;PT.bandN=0;
+      if(PT.band>=PT_BANDS.length)return ptFinish();
+    } else return ptFinish();
+  }
+  return null;
+}
+function ptFinish(){
+  const lv=PT.reached||2;
+  const code=LEVELS[lv-1];
+  DB.level=lv;DB.kursLv=lv;DB.levelChosen=true;DB.placed={lv,when:Date.now()};
+  Store.save(DB);
+  /* group the misses by grammar topic */
+  const byGid={};
+  PT.missed.forEach(m=>{if(m.gid)(byGid[m.gid]=byGid[m.gid]||[]).push(m);});
+  const weak=Object.keys(byGid).sort((a,b)=>byGid[b].length-byGid[a].length).slice(0,6);
+  let h=`<div class="exhead"><div class="exic">🎯</div><div>
+      <div class="extitle">Dein Niveau: ${code}</div>
+      <div class="exsub">${(LEVEL_INFO[lv-1]||{}).t ? (LEVEL_INFO[lv-1].t.en||'') : ''}</div></div></div>
+    <div class="exresult"><div class="exscore">${code}</div>
+      <div class="exmsg">Dein Kursbuch startet jetzt bei ${code}. Du kannst das Niveau jederzeit auf der Startseite ändern.</div></div>`;
+  if(weak.length){
+    h+=`<div class="exsec">Daran solltest du arbeiten</div><div class="exlist">`+
+      weak.map(gid=>{const g=GRAM.find(x=>x.id===gid);
+        if(!g)return '';
+        return `<button class="extask" data-id="${gid}">
+          <div class="etlv">${g.ic}</div>
+          <div class="ettx"><b>${Gt(g.title)}</b><span>${byGid[gid].length}× falsch · ${LEVELS[g.lv-1]}</span></div>
+          <div class="gchev">›</div></button>`;}).join('')+`</div>`;
+  }
+  h+=`<button class="btn-primary" id="ptGo" style="margin-top:18px">Zum Kursbuch ➜</button>`;
+  $('examBody').innerHTML=h;
+  $('examBody').querySelectorAll('.extask').forEach(b=>b.onclick=()=>openGram(b.dataset.id));
+  $('ptGo').onclick=()=>{show('home');setTimeout(renderKursbuch,40);};
+  PT=null;S.queueMeta=null;
+  show('exam');$('exam').scrollTop=0;
+  confetti();sfxLevel();
+}
+
+/* ============================================================
+   CEFR readiness — what is actually blocking the next level
+   ============================================================ */
+function levelReadiness(lv){
+  /* grammar: share of that level's lessons read */
+  const gl=GRAM.filter(g=>g.lv===lv);
+  const gread=gl.filter(g=>(DB.gramRead||{})[g.id]).length;
+  /* drills: accuracy on that level's drill items */
+  let dn=0,dc=0;
+  Object.keys(DB.skillStats||{}).forEach(()=>{});
+  /* units: sections completed at that level */
+  const us=KURS.filter(u=>u.lv===lv);
+  let usec=0,udone=0;
+  us.forEach(u=>{const secs=unitSections(u),st=unitState(u.id);
+    usec+=secs.length;udone+=secs.filter(s=>st.sec[s.k]).length;});
+  /* can-do statements ticked */
+  let cdTotal=0,cdDone=0;
+  us.forEach(u=>{if(!u.cando)return;cdTotal+=u.cando.length;cdDone+=unitState(u.id).cando.length;});
+  /* vocabulary at that level */
+  const d=srsDeck();
+  const vk=Object.keys(d).filter(k=>d[k].lv===lv);
+  const vlearned=vk.filter(k=>(d[k].box||0)>=3).length;
+  return {
+    lv, code:LEVELS[lv-1],
+    grammar:gl.length?gread/gl.length:0, grammarN:gl.length, grammarDone:gread,
+    units:usec?udone/usec:0, unitsN:us.length,
+    cando:cdTotal?cdDone/cdTotal:0, candoN:cdTotal, candoDone:cdDone,
+    vocab:vk.length?vlearned/vk.length:0, vocabN:vk.length, vocabLearned:vlearned
+  };
+}
+function overallReadiness(lv){
+  /* only average the dimensions that actually have content at this level, so a level
+     with no Kursbuch units yet is not dragged down by a zero it can never fill */
+  const r=levelReadiness(lv),parts=[];
+  if(r.grammarN)parts.push(r.grammar);
+  if(r.unitsN)parts.push(r.units);
+  if(r.candoN)parts.push(r.cando);
+  if(r.vocabN)parts.push(r.vocab);
+  return parts.length?parts.reduce((a,b)=>a+b,0)/parts.length:0;
+}
+function renderReadiness(){
+  const box=$('readiness');if(!box)return;
+  const lv=DB.level||2;
+  const rows=[];
+  for(let l=2;l<=7;l++){
+    const r=levelReadiness(l);
+    if(!r.grammarN&&!r.unitsN)continue;
+    const pct=Math.round(overallReadiness(l)*100);
+    rows.push({r,pct,cur:l===lv});
+  }
+  if(!rows.length){box.innerHTML='';return;}
+  let h=`<div class="panel"><h4>📊 Dein Weg zu C1 <span class="mini">${LEVELS[lv-1]} jetzt</span></h4>`;
+  rows.forEach(({r,pct,cur})=>{
+    h+=`<div class="rdrow ${cur?'cur':''}">
+      <div class="rdlv">${r.code}</div>
+      <div class="rdbar"><i style="width:${pct}%"></i></div>
+      <div class="rdpct">${pct}%</div></div>`;
+  });
+  const r=levelReadiness(lv);
+  const gaps=[];
+  if(r.grammar<0.9&&r.grammarN)gaps.push(`${r.grammarN-r.grammarDone} Grammatiklektionen offen`);
+  if(r.units<0.9&&r.unitsN)gaps.push(`${Math.round((1-r.units)*100)}% der Einheiten offen`);
+  if(r.cando<0.9&&r.candoN)gaps.push(`${r.candoN-r.candoDone} Kann-Beschreibungen offen`);
+  if(r.vocabN&&r.vocab<0.8)gaps.push(`${r.vocabN-r.vocabLearned} Wörter noch nicht gefestigt`);
+  h+=`<div class="rdnote">${gaps.length?'Bis '+LEVELS[lv-1]+' fertig ist: '+gaps.join(' · '):'Dieses Niveau ist abgeschlossen — Zeit für das nächste. 🎉'}</div></div>`;
+  box.innerHTML=h;
+}
+
 /* ================= Flashcard word learning ================= */
 let FLASH={list:[],i:0};
 function startFlashcards(cat){
@@ -3326,14 +4424,14 @@ $('resetBtn').onclick=()=>{
 
 /* ----- v4: course lessons & mistake review ----- */
 function startCourse(u,l){
-  S.course={u,l};S.queue=null;S.topic='Course';S.i=0;S.correct=0;S.hearts=5;S.streak=0;S.total=10;
+  S.course={u,l};S.queue=null;S.queueMeta=null;S.topic='Course';S.i=0;S.correct=0;S.hearts=5;S.streak=0;S.total=10;
   el.heartN.textContent=5;el.pfill.style.width='0%';
   show('quiz');nextQuestion();
 }
 function startMistakes(){
   const n=(DB.mistakes||[]).length;
   if(!n){toast('No mistakes to review — great job! 🎉');return;}
-  S.course=null;S.topic='Mistakes';S.queue=shuffle(DB.mistakes.slice()).slice(0,10);
+  S.course=null;S.queueMeta=null;S.topic='Mistakes';S.queue=shuffle(DB.mistakes.slice()).slice(0,10);
   S.total=S.queue.length;S.i=0;S.correct=0;S.hearts=5;S.streak=0;
   el.heartN.textContent=5;el.pfill.style.width='0%';
   show('quiz');nextQuestion();
@@ -3361,7 +4459,51 @@ function recSkill(){
 }
 
 /* ----- stats ----- */
+/* ---------- Tagesplan: one real lesson's worth of work ---------- */
+function todayPlanState(){DB.plan=DB.plan||{};const k=todayKey();
+  if(DB.plan.day!==k){DB.plan={day:k,done:{}};Store.save(DB);}return DB.plan;}
+function planDone(id){return !!todayPlanState().done[id];}
+function markPlan(id){const p=todayPlanState();p.done[id]=1;Store.save(DB);}
+function buildTagesplan(){
+  const out=[];
+  /* 1 — the next Kursbuch section */
+  const na=nextKursAction();
+  if(na)out.push({id:'kurs',ic:na.s.ic,label:`${na.s.t} · ${na.u.type==='station'?na.u.title:'Einheit '+na.u.nr}`,
+    sub:na.u.type==='station'?'Wiederholung':na.u.title,
+    go:()=>{openUnit(na.u.id);setTimeout(()=>openSection(na.s.k),60);}});
+  /* 2 — vocabulary due */
+  const st=srsStats();
+  if(st.due)out.push({id:'srs',ic:'🧠',label:`${st.due} Wörter wiederholen`,sub:'Spaced repetition',go:()=>startSrs(15)});
+  else if(st.total)out.push({id:'srs',ic:'🧠',label:'Wortschatz ist aktuell',sub:`${st.learned}/${st.total} gefestigt`,go:()=>startSrs(10)});
+  /* 3 — an unread grammar lesson at your level, with its drills */
+  const lv=DB.level||2;
+  const unread=GRAM.filter(g=>g.lv===lv&&!(DB.gramRead||{})[g.id]);
+  const g=unread[0]||GRAM.filter(g=>g.lv===lv)[0];
+  if(g)out.push({id:'gram',ic:g.ic||'📐',label:Gt(g.title),
+    sub:(DRILLS[g.id]||[]).length?`Grammatik + ${DRILLS[g.id].length} Übungen`:'Grammatiklektion',
+    go:()=>openGram(g.id)});
+  /* 4 — mistakes, or mixed practice */
+  const nm=(DB.mistakes||[]).length;
+  if(nm)out.push({id:'fix',ic:'🔁',label:`${nm} Fehler aufarbeiten`,sub:'Spaced review of what you got wrong',go:()=>startMistakes()});
+  else out.push({id:'mix',ic:'🎲',label:'Gemischte Übung',sub:'Adaptive — targets your weak spots',go:()=>startLesson('Mixed')});
+  return out;
+}
+function renderTagesplan(){
+  const box=$('plan');if(!box)return;
+  const items=buildTagesplan();
+  const n=items.filter(t=>planDone(t.id)).length;
+  box.innerHTML=`<div class="kursmeta">${n}/${items.length} erledigt heute</div>`+items.map(t=>{
+    const d=planDone(t.id);
+    return `<button class="task ${d?'done':''}" data-id="${t.id}">
+      <div class="tic">${d?'✓':t.ic}</div>
+      <div class="ttxt"><b>${t.label}</b><span>${t.sub}</span></div>
+      ${d?'<div class="check">✓</div>':'<div class="go">Start ›</div>'}</button>`;}).join('');
+  box.querySelectorAll('.task').forEach(b=>b.onclick=()=>{
+    const t=items.find(x=>x.id===b.dataset.id);if(!t)return;markPlan(t.id);t.go();});
+}
+
 function renderStats(){
+  try{renderReadiness();}catch(e){}
   const {a,c}=totalAnswered();
   $('sTotXP').textContent=DB.xp;
   $('sDayStreak').textContent=computeDayStreak();
@@ -3402,12 +4544,14 @@ function renderStats(){
 /* ----- quiz flow ----- */
 $('quitBtn').onclick=()=>show('home');
 el.check.onclick=onCheck;
-$('contBtn').onclick=nextQuestion;
+$('contBtn').onclick=()=>{
+  if(S.queueMeta&&S.queueMeta.placement)return PT?ptNext():undefined;
+  nextQuestion();};
 $('againBtn').onclick=()=>S.course?startCourse(S.course.u,S.course.l):(S.topic==='Mistakes'?startMistakes():startLesson(S.topic||'Mixed'));
 $('homeBtn').onclick=()=>show('home');
 
 function startLesson(topic){
-  S.course=null;S.queue=null;S.topic=topic;S.i=0;S.correct=0;S.hearts=5;S.streak=0;S.total=10;
+  S.course=null;S.queue=null;S.queueMeta=null;S.topic=topic;S.i=0;S.correct=0;S.hearts=5;S.streak=0;S.total=10;
   el.heartN.textContent=5;el.pfill.style.width='0%';
   show('quiz');nextQuestion();
 }
@@ -3496,7 +4640,7 @@ function adaptiveMixed(){
   return pickQuestion(sk,GEN[sk]);
 }
 function localQuestion(){
-  if(S.topic==='Mistakes')return S.queue[Math.min(S.i,S.queue.length-1)];
+  if(S.queue)return S.queue[Math.min(S.i,S.queue.length-1)];
   if(S.course)return freshQuestion(COURSE[S.course.u].gens);
   if(S.topic==='Mixed')return adaptiveMixed();
   return pickQuestion(S.topic,GEN[S.topic]);
@@ -3753,11 +4897,13 @@ function grade(correct,userAns){
     const hz=document.querySelector('.hearts');
     if(hz){hz.classList.remove('hshake');void hz.offsetWidth;hz.classList.add('hshake');}
     if(S.hearts===0)setTimeout(()=>{S.hearts=5;el.heartN.textContent=5;},700);}
+  if(q._srs)srsGrade(q._srs,correct);
   const sk=q._skill||recSkill();
   recordAnswer(sk,correct);
   bumpMastery(sk,correct);
   if(q._review)reviewGraded(q._mkey,correct);
   S.i++;
+  if(S.queueMeta&&S.queueMeta.placement){ptGraded(correct);}
   showSheet(correct,q,userAns);
 }
 function showSheet(correct,q,userAns){
@@ -3785,6 +4931,9 @@ function showResults(){
   const lvBefore=levelFor(DB.xp-earned).lvl, lvAfter=levelFor(DB.xp).lvl;
   recordLessonDone(S.topic);
   const acc=Math.round(100*S.correct/S.total);
+  if(S.queueMeta&&S.queueMeta.unit&&S.queueMeta.sec){
+    markSec(S.queueMeta.unit,S.queueMeta.sec,S.correct/S.total);
+  }
   const rs=$('rStars');
   if(S.course){
     const stars=acc>=90?3:acc>=70?2:acc>=50?1:0;

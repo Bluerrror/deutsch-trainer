@@ -1,5 +1,5 @@
 /* Deutsch Trainer service worker — offline caching */
-const CACHE = 'deutsch-trainer-v16';
+const CACHE = 'deutsch-trainer-v17';
 const ASSETS = [
   './',
   './index.html',
@@ -11,6 +11,22 @@ const ASSETS = [
   './spoken.js',
   './exams.js',
   './goethe.js',
+  './gram_a1.js',
+  './gram_a2.js',
+  './gram_b1.js',
+  './gram_b2.js',
+  './gram_c1.js',
+  './kurs_a0.js',
+  './kurs_a1.js',
+  './kurs_a2.js',
+  './kurs_b1.js',
+  './kurs_b2.js',
+  './kurs_c1.js',
+  './kurs_c2.js',
+  './read1.js',
+  './gram_core.js',
+  './drill_core.js',
+  './verbs.js',
   './manifest.webmanifest',
   './icon-192.png',
   './icon-512.png',

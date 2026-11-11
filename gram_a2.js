@@ -1,0 +1,823 @@
+/* Deutsch Trainer — A2 grammar band (lv:3).
+   Explanations in the chosen support language (en/fa); German stays German.
+   window.GRAM_A2  = 16 lessons · window.DRILL_A2 = 128 targeted drills (8 per lesson).
+   Assumes Präsens, Perfekt, basic modals and the four cases are known but shaky. */
+window.GRAM_A2=[
+
+/* ---------- 1. Wechselpräpositionen ---------- */
+{id:'wechselprep',ic:'🔀',lv:3,sk:'Prepositions',
+ title:{en:'Two-way prepositions',fa:'حروف اضافهٔ دوحالته'},
+ sub:{en:'Akkusativ for motion, Dativ for place',fa:'آکوزاتیو برای حرکت، داتیو برای مکان'},
+ blocks:[
+  {type:'text',md:{en:'Nine prepositions can take <b>either</b> Akkusativ or Dativ: <b>an, auf, hinter, in, neben, über, unter, vor, zwischen</b>. They are called <i>Wechselpräpositionen</i> because they switch. The preposition does not decide the case — the <b>sentence</b> does.',
+        fa:'نه حرف اضافه می‌توانند <b>هم</b> آکوزاتیو بگیرند و هم داتیو: <b>an، auf، hinter، in، neben، über، unter، vor، zwischen</b>. به آن‌ها <i>Wechselpräpositionen</i> می‌گویند چون جابه‌جا می‌شوند. خودِ حرف اضافه حالت را تعیین نمی‌کند — <b>جمله</b> تعیین می‌کند.'}},
+  {type:'rule',md:{en:'Ask one question:<br><b>Wohin?</b> (where to? → something crosses a border into a new place) → <b>Akkusativ</b>.<br><b>Wo?</b> (where? → something simply is somewhere) → <b>Dativ</b>.',
+        fa:'یک پرسش بپرس:<br><b>Wohin?</b> (به کجا؟ → چیزی وارد جای تازه می‌شود) → <b>آکوزاتیو</b>.<br><b>Wo?</b> (کجا؟ → چیزی فقط جایی هست) → <b>داتیو</b>.'}},
+  {type:'contrast',cols:[
+   {t:'Wohin? → Akkusativ',md:{en:'A change of place is happening.<br>„Ich stelle die Milch <b>in den</b> Kühlschrank.“<br>„Hängst du die Jacke <b>an die</b> Tür?“<br>„Leg das Handy <b>auf den</b> Tisch.“<br><br>Typical verbs: <b>legen, stellen, setzen, hängen, stecken, gehen, fahren</b>.',
+       fa:'تغییر مکان در جریان است.<br>«Ich stelle die Milch <b>in den</b> Kühlschrank.»<br>فعل‌های معمول: <b>legen، stellen، setzen، hängen، stecken، gehen، fahren</b>.'}},
+   {t:'Wo? → Dativ',md:{en:'Nothing changes place — we only say where it is.<br>„Die Milch steht <b>im</b> Kühlschrank.“<br>„Die Jacke hängt <b>an der</b> Tür.“<br>„Das Handy liegt <b>auf dem</b> Tisch.“<br><br>Typical verbs: <b>liegen, stehen, sitzen, hängen, stecken, sein, bleiben, warten</b>.',
+       fa:'هیچ جابه‌جایی رخ نمی‌دهد — فقط می‌گوییم کجاست.<br>«Die Milch steht <b>im</b> Kühlschrank.»<br>فعل‌های معمول: <b>liegen، stehen، sitzen، hängen، sein، bleiben، warten</b>.'}}]},
+  {type:'table',head:['Wohin? + Akkusativ','Wo? + Dativ','meaning'],rows:[
+   ['legen – legt – hat gelegt','*liegen – liegt – hat gelegen','put down flat / lie flat'],
+   ['stellen – stellt – hat gestellt','*stehen – steht – hat gestanden','put upright / stand'],
+   ['setzen – setzt – hat gesetzt','*sitzen – sitzt – hat gesessen','sit down / be sitting'],
+   ['hängen – hängt – hat gehängt','*hängen – hängt – hat gehangen','hang up / be hanging'],
+   ['stecken – steckt – hat gesteckt','*stecken – steckt – hat gesteckt','stick in / be stuck in']],
+   cap:{en:'the action verb is regular, the position verb is usually irregular',fa:'فعل عمل باقاعده است، فعل موقعیت معمولاً بی‌قاعده'}},
+  {type:'examples',items:[
+   {de:'Ich lege den Schlüssel auf den Tisch.',en:'I put the key on the table. (wohin? → Akk)',say:'Ich lege den Schlüssel auf den Tisch.'},
+   {de:'Der Schlüssel liegt auf dem Tisch.',en:'The key is lying on the table. (wo? → Dativ)',say:'Der Schlüssel liegt auf dem Tisch.'},
+   {de:'Stell die Flasche bitte in den Kühlschrank.',en:'Please put the bottle in the fridge.',say:'Stell die Flasche bitte in den Kühlschrank.'},
+   {de:'Die Flasche steht schon im Kühlschrank.',en:'The bottle is already in the fridge.',say:'Die Flasche steht schon im Kühlschrank.'},
+   {de:'Setz dich bitte auf den Stuhl.',en:'Please sit down on the chair.',say:'Setz dich bitte auf den Stuhl.'},
+   {de:'Ich sitze seit einer Stunde auf dem Stuhl.',en:'I have been sitting on the chair for an hour.',say:'Ich sitze seit einer Stunde auf dem Stuhl.'}]},
+  {type:'warn',md:{en:'<b>Motion is not the same as movement.</b> „Ich laufe <b>im</b> Park“ — I am running around <i>inside</i> the park (Dativ: no border crossed). „Ich laufe <b>in den</b> Park“ — I run <i>into</i> the park from outside (Akkusativ). Lots of movement can still be Dativ. Ask „does the thing end up somewhere new?“, not „is anything moving?“.',
+        fa:'<b>حرکت با جابه‌جایی یکی نیست.</b> «Ich laufe <b>im</b> Park» یعنی داخل پارک می‌دوم (داتیو: مرزی رد نشده). «Ich laufe <b>in den</b> Park» یعنی از بیرون به داخل پارک می‌دوم (آکوزاتیو). بپرس «آیا چیز به جای تازه‌ای می‌رسد؟»، نه «آیا چیزی حرکت می‌کند؟».'}},
+  {type:'tip',md:{en:'Learn the short forms as single words: <b>ins</b> = in das, <b>im</b> = in dem, <b>ans</b> = an das, <b>am</b> = an dem, <b>aufs</b> = auf das. If you hear <b>im</b> or <b>am</b>, you are already in Dativ territory.',
+        fa:'شکل‌های کوتاه را مثل یک کلمه یاد بگیر: <b>ins</b> = in das، <b>im</b> = in dem، <b>ans</b> = an das، <b>am</b> = an dem، <b>aufs</b> = auf das. اگر <b>im</b> یا <b>am</b> شنیدی، یعنی در قلمرو داتیو هستی.'}},
+  {type:'quiz',q:{en:'„Ich hänge das Bild ___ Wand.“ — you are hanging it up now.',fa:'«Ich hänge das Bild ___ Wand.» — همین حالا داری آویزانش می‌کنی.'},
+   a:'an die',o:['an der','am','auf der'],
+   ex:{en:'<i>hängen</i> here is the action verb (wohin?), and <i>die Wand</i> is feminine → <b>an die Wand</b>. „Das Bild hängt <b>an der</b> Wand“ would be the position.',
+       fa:'اینجا <i>hängen</i> فعل عمل است (wohin؟) و <i>die Wand</i> مؤنث است → <b>an die Wand</b>.'}}
+ ]},
+
+/* ---------- 2. Verben mit Präposition ---------- */
+{id:'verbprep',ic:'🔗',lv:3,sk:'Prepositions',
+ title:{en:'Verbs with a fixed preposition',fa:'فعل‌های با حرف اضافهٔ ثابت'},
+ sub:{en:'warten auf, denken an, sich freuen über…',fa:'warten auf، denken an، sich freuen über…'},
+ blocks:[
+  {type:'text',md:{en:'Many German verbs come glued to one particular preposition, and that preposition also fixes the case. The combination is not logical and it almost never matches English: <i>warten</i> is not „wait“ plus a free choice — the verb is <b>warten auf + Akkusativ</b>, full stop.',
+        fa:'بسیاری از فعل‌های آلمانی به یک حرف اضافهٔ مشخص چسبیده‌اند و همان حرف اضافه حالت را هم تعیین می‌کند. این ترکیب منطقی نیست و تقریباً هیچ‌وقت با انگلیسی یکی نمی‌شود: فعل <b>warten auf + آکوزاتیو</b> است، تمام.'}},
+  {type:'rule',md:{en:'Learn the verb, the preposition and the case as <b>one single vocabulary item</b>: „warten auf + Akk“, „helfen bei + Dat“. Never translate the preposition from English.',
+        fa:'فعل، حرف اضافه و حالت را به‌عنوان <b>یک واحد واژگانی</b> یاد بگیر: «warten auf + Akk»، «helfen bei + Dat». حرف اضافه را هرگز از انگلیسی ترجمه نکن.'}},
+  {type:'table',head:['Verb + Präposition','Case','Example'],rows:[
+   ['warten auf','Akkusativ','*Ich warte auf den Bus.'],
+   ['denken an','Akkusativ','*Ich denke an meine Familie.'],
+   ['sich freuen auf','Akkusativ','*Ich freue mich auf den Urlaub.'],
+   ['sich freuen über','Akkusativ','*Ich freue mich über das Geschenk.'],
+   ['sich interessieren für','Akkusativ','*Ich interessiere mich für Sport.'],
+   ['sprechen über','Akkusativ','*Wir sprechen über die Arbeit.'],
+   ['bitten um','Akkusativ','*Ich bitte um einen Termin.'],
+   ['sich kümmern um','Akkusativ','*Sie kümmert sich um die Kinder.'],
+   ['sich ärgern über','Akkusativ','*Ich ärgere mich über den Lärm.'],
+   ['Angst haben vor','Dativ','*Ich habe Angst vor dem Zahnarzt.'],
+   ['helfen bei','Dativ','*Er hilft mir bei der Anmeldung.'],
+   ['einladen zu','Dativ','*Sie lädt mich zu ihrer Party ein.']]},
+  {type:'contrast',cols:[
+   {t:'sich freuen auf',md:{en:'Looking <b>forward</b> to something that has not happened yet.<br>„Ich freue mich <b>auf</b> das Wochenende.“<br>„Wir freuen uns <b>auf</b> deinen Besuch.“',
+       fa:'منتظر چیزی که <b>هنوز نیامده</b>.<br>«Ich freue mich <b>auf</b> das Wochenende.»'}},
+   {t:'sich freuen über',md:{en:'Being happy <b>about</b> something that has already happened.<br>„Ich freue mich <b>über</b> das Geschenk.“<br>„Sie freut sich <b>über</b> die gute Note.“',
+       fa:'خوشحالی <b>از</b> چیزی که همین حالا یا قبلاً رخ داده.<br>«Ich freue mich <b>über</b> das Geschenk.»'}}]},
+  {type:'examples',items:[
+   {de:'Wir warten schon zwanzig Minuten auf den Bus.',en:'We have been waiting for the bus for twenty minutes.',say:'Wir warten schon zwanzig Minuten auf den Bus.'},
+   {de:'Denkst du an den Termin am Montag?',en:'Are you thinking of the appointment on Monday?',say:'Denkst du an den Termin am Montag?'},
+   {de:'Ich möchte Sie um einen Termin bitten.',en:'I would like to ask you for an appointment.',say:'Ich möchte Sie um einen Termin bitten.'},
+   {de:'Mein Mann kümmert sich um den Einkauf.',en:'My husband takes care of the shopping.',say:'Mein Mann kümmert sich um den Einkauf.'},
+   {de:'Meine Tochter hat Angst vor dem Hund.',en:'My daughter is afraid of the dog.',say:'Meine Tochter hat Angst vor dem Hund.'},
+   {de:'Kannst du mir bei der Bewerbung helfen?',en:'Can you help me with the application?',say:'Kannst du mir bei der Bewerbung helfen?'}]},
+  {type:'warn',md:{en:'English prepositions will betray you here. „wait <b>for</b>“ is <b>warten auf</b> (never <i>warten für</i>). „think <b>about</b>“ is <b>denken an</b> (not <i>denken über</i>). „interested <b>in</b>“ is <b>sich interessieren für</b> (not <i>in</i>). „ask <b>for</b>“ is <b>bitten um</b> (not <i>für</i>). Translating word for word is the single biggest source of errors in this area.',
+        fa:'حروف اضافهٔ انگلیسی اینجا به تو خیانت می‌کنند. «wait <b>for</b>» می‌شود <b>warten auf</b> (هرگز <i>warten für</i>). «think <b>about</b>» می‌شود <b>denken an</b>. «interested <b>in</b>» می‌شود <b>sich interessieren für</b>. «ask <b>for</b>» می‌شود <b>bitten um</b>.'}},
+  {type:'tip',md:{en:'The preposition stays with the verb even when the verb moves to the end of the sentence: „Ich glaube, dass wir noch lange <b>auf den Bus warten</b> müssen.“ Keep preposition and object together as a block.',
+        fa:'حرف اضافه حتی وقتی فعل به آخر جمله می‌رود با فعل می‌ماند: «Ich glaube, dass wir noch lange <b>auf den Bus warten</b> müssen.»'}},
+  {type:'quiz',q:{en:'„Mein Sohn interessiert sich ___ Fußball.“',fa:'«Mein Sohn interessiert sich ___ Fußball.»'},
+   a:'für',o:['an','über','auf'],
+   ex:{en:'The fixed combination is <b>sich interessieren für + Akkusativ</b>, although English says „interested <i>in</i>“.',
+       fa:'ترکیب ثابت <b>sich interessieren für + آکوزاتیو</b> است، هرچند انگلیسی «interested <i>in</i>» می‌گوید.'}}
+ ]},
+
+/* ---------- 3. Adjektivendungen, erste Schritte ---------- */
+{id:'adjektiv-basis',ic:'🎨',lv:3,sk:'Adjectives',
+ title:{en:'Adjective endings: first steps',fa:'پایانهٔ صفت‌ها: گام‌های نخست'},
+ sub:{en:'After der/die/das and after ein/mein — Nom. & Akk.',fa:'بعد از der/die/das و بعد از ein/mein — نومیناتیو و آکوزاتیو'},
+ blocks:[
+  {type:'text',md:{en:'An adjective only takes an ending when it stands <b>in front of a noun</b>. After <b>sein</b>, <b>werden</b> or <b>bleiben</b> it stays naked: „Das Auto ist <b>neu</b>.“ But: „Ich habe ein <b>neues</b> Auto.“ This lesson covers only Nominativ and Akkusativ — the Dativ comes later.',
+        fa:'صفت تنها وقتی پایانه می‌گیرد که <b>پیش از اسم</b> بیاید. بعد از <b>sein</b>، <b>werden</b> یا <b>bleiben</b> بی‌پایانه می‌ماند: «Das Auto ist <b>neu</b>.» اما: «Ich habe ein <b>neues</b> Auto.» این درس فقط نومیناتیو و آکوزاتیو را می‌پوشاند.'}},
+  {type:'rule',md:{en:'The ending depends on <b>three</b> things: the gender of the noun, the case, and <b>which word comes before the adjective</b>. After <b>der/die/das</b> the endings are weak (only <b>-e</b> or <b>-en</b>). After <b>ein/kein/mein</b> the adjective sometimes has to do the article&rsquo;s job and show the gender itself.',
+        fa:'پایانه به <b>سه</b> چیز بستگی دارد: جنس اسم، حالت، و <b>کلمه‌ای که پیش از صفت می‌آید</b>. بعد از <b>der/die/das</b> پایانه‌ها ضعیف‌اند (فقط <b>-e</b> یا <b>-en</b>). بعد از <b>ein/kein/mein</b> صفت باید خودش جنس را نشان دهد.'}},
+  {type:'table',head:['after der/die/das','maskulin','feminin','neutrum','Plural'],rows:[
+   ['Nominativ','der neu*e Chef','die neu*e Chefin','das neu*e Büro','die neu*en Kollegen'],
+   ['Akkusativ','den neu*en Chef','die neu*e Chefin','das neu*e Büro','die neu*en Kollegen']],
+   cap:{en:'weak endings: only -e and -en, and -en appears in masculine Akkusativ and in the plural',fa:'پایانه‌های ضعیف: فقط -e و -en'}},
+  {type:'table',head:['after ein/kein/mein','maskulin','feminin','neutrum','Plural'],rows:[
+   ['Nominativ','ein neu*er Chef','eine neu*e Chefin','ein neu*es Büro','meine neu*en Kollegen'],
+   ['Akkusativ','einen neu*en Chef','eine neu*e Chefin','ein neu*es Büro','meine neu*en Kollegen']],
+   cap:{en:'mixed endings: where "ein" shows nothing, the adjective shows -er / -es',fa:'پایانهٔ مختلط: جایی که ein چیزی نشان نمی‌دهد، صفت -er یا -es می‌گیرد'}},
+  {type:'text',md:{en:'Look at the two tables together. The only three forms you really have to memorise are <b>ein guter Tag</b> (masc. Nom.), <b>ein kleines Kind</b> (neut. Nom./Akk.) and <b>einen guten Tag</b> (masc. Akk.). Everything else in Nominativ and Akkusativ is <b>-e</b> for singular and <b>-en</b> for plural.',
+        fa:'دو جدول را با هم ببین. تنها سه شکلی که واقعاً باید حفظ کنی این‌هاست: <b>ein guter Tag</b>، <b>ein kleines Kind</b> و <b>einen guten Tag</b>. بقیهٔ نومیناتیو و آکوزاتیو مفرد <b>-e</b> و جمع <b>-en</b> است.'}},
+  {type:'examples',items:[
+   {de:'Wir haben einen neuen Chef.',en:'We have a new boss. (masc. Akk → -en)',say:'Wir haben einen neuen Chef.'},
+   {de:'Das ist eine gute Idee.',en:'That is a good idea. (fem. → -e)',say:'Das ist eine gute Idee.'},
+   {de:'Ich suche ein kleines Zimmer.',en:'I am looking for a small room. (neut. → -es)',say:'Ich suche ein kleines Zimmer.'},
+   {de:'Nehmen Sie den roten Pullover?',en:'Are you taking the red pullover? (masc. Akk after der-word → -en)',say:'Nehmen Sie den roten Pullover?'},
+   {de:'Der frische Kaffee schmeckt gut.',en:'The fresh coffee tastes good. (masc. Nom after der-word → -e)',say:'Der frische Kaffee schmeckt gut.'},
+   {de:'Meine neuen Kollegen sind sehr freundlich.',en:'My new colleagues are very friendly. (plural → -en)',say:'Meine neuen Kollegen sind sehr freundlich.'}]},
+  {type:'warn',md:{en:'Two opposite mistakes. (1) Adding an ending where none belongs: <i>Das Auto ist neues</i> ✗ → „Das Auto ist <b>neu</b>.“ ✓ (2) Leaving it out where it belongs: <i>ein neu Auto</i> ✗, <i>ein neue Auto</i> ✗ → „ein <b>neues</b> Auto“ ✓. If the adjective is in front of the noun, it <b>always</b> has an ending — there is no bare form there.',
+        fa:'دو خطای مخالف. (۱) افزودن پایانه در جای نادرست: <i>Das Auto ist neues</i> ✗ → «Das Auto ist <b>neu</b>.» ✓ (۲) حذف آن در جای لازم: <i>ein neu Auto</i> ✗ → «ein <b>neues</b> Auto» ✓. صفتِ پیش از اسم <b>همیشه</b> پایانه دارد.'}},
+  {type:'tip',md:{en:'Shortcut for <b>ein</b>-words: borrow the ending from <b>der/das</b>. „d<b>er</b> Chef“ → „ein gut<b>er</b> Chef“; „da<b>s</b> Büro“ → „ein schöne<b>s</b> Büro“. The adjective takes over the signal that <i>ein</i> cannot give.',
+        fa:'میان‌بر برای <b>ein</b>: پایانه را از <b>der/das</b> قرض بگیر. «d<b>er</b> Chef» → «ein gut<b>er</b> Chef»؛ «da<b>s</b> Büro» → «ein schöne<b>s</b> Büro».'}},
+  {type:'quiz',q:{en:'„Ich möchte ___ Zimmer mit Balkon.“ (ruhig — das Zimmer)',fa:'«Ich möchte ___ Zimmer mit Balkon.» (ruhig — das Zimmer)'},
+   a:'ein ruhiges',o:['ein ruhige','ein ruhig','einen ruhigen'],
+   ex:{en:'<i>das Zimmer</i> is neuter; after <b>ein</b> the adjective must show the neuter signal <b>-es</b>: „ein ruhig<b>es</b> Zimmer“ (same in Nominativ and Akkusativ).',
+       fa:'<i>das Zimmer</i> خنثی است؛ بعد از <b>ein</b> صفت باید نشانهٔ خنثی <b>-es</b> را نشان دهد: «ein ruhig<b>es</b> Zimmer».'}}
+ ]},
+
+/* ---------- 4. Komparativ & Superlativ ---------- */
+{id:'komparativ-basis',ic:'📊',lv:3,sk:'Adjectives',
+ title:{en:'Comparing things',fa:'مقایسه کردن'},
+ sub:{en:'-er / am -sten · so…wie vs als',fa:'-er / am -sten · so…wie در برابر als'},
+ blocks:[
+  {type:'text',md:{en:'German builds comparisons with <b>endings</b>, not with helper words. English has two systems („bigger“ but „more beautiful“); German has only one: <b>-er</b> for the comparative and <b>am …-sten</b> for the superlative — however long the adjective is.',
+        fa:'آلمانی مقایسه را با <b>پایانه</b> می‌سازد، نه با کلمهٔ کمکی. انگلیسی دو سامانه دارد («bigger» اما «more beautiful»)؛ آلمانی فقط یکی دارد: <b>-er</b> برای صفت برتر و <b>am …-sten</b> برای صفت برترین — هر قدر هم صفت بلند باشد.'}},
+  {type:'steps',items:[
+   {en:'Comparative: add <b>-er</b> → billig → billig<b>er</b>, interessant → interessant<b>er</b>.',fa:'صفت برتر: <b>-er</b> اضافه کن → billig → billig<b>er</b>.'},
+   {en:'Short adjectives with a, o, u usually take an Umlaut too → alt → <b>älter</b>, groß → <b>größer</b>, jung → <b>jünger</b>, warm → <b>wärmer</b>, kurz → <b>kürzer</b>.',fa:'صفت‌های کوتاه با a، o، u معمولاً اوملاوت هم می‌گیرند → alt → <b>älter</b>، groß → <b>größer</b>.'},
+   {en:'Superlative: <b>am</b> + stem + <b>-sten</b> → am billig<b>sten</b>, am ält<b>esten</b> (an extra -e- after d, t, s, ß, z).',fa:'صفت برترین: <b>am</b> + ریشه + <b>-sten</b> → am billig<b>sten</b>، am ält<b>esten</b>.'},
+   {en:'Before a noun the comparative still needs its normal adjective ending → „ein <b>größeres</b> Zimmer“, „der <b>billigere</b> Zug“.',fa:'پیش از اسم، صفت برتر پایانهٔ معمول صفت را هم می‌گیرد → «ein <b>größeres</b> Zimmer».'}]},
+  {type:'rule',md:{en:'<b>so … wie</b> = the two things are equal.<br><b>…-er als</b> = they are not equal.<br>„Der Bus ist <b>so</b> teuer <b>wie</b> der Zug.“ (same price) · „Der Zug ist teur<b>er als</b> der Bus.“ (more expensive)',
+        fa:'<b>so … wie</b> = دو چیز برابرند.<br><b>…-er als</b> = برابر نیستند.<br>«Der Bus ist <b>so</b> teuer <b>wie</b> der Zug.» · «Der Zug ist teur<b>er als</b> der Bus.»'}},
+  {type:'table',head:['Adjektiv','Komparativ','Superlativ'],rows:[
+   ['gut','*besser','*am besten'],
+   ['viel','*mehr','*am meisten'],
+   ['gern','*lieber','*am liebsten'],
+   ['hoch','*höher','*am höchsten'],
+   ['nah','*näher','*am nächsten'],
+   ['teuer','teurer','am teuersten'],
+   ['groß','größer','am größten'],
+   ['alt','älter','am ältesten']],
+   cap:{en:'the first five are irregular and extremely frequent — learn them by heart',fa:'پنج مورد نخست بی‌قاعده و بسیار پرکاربردند — حفظشان کن'}},
+  {type:'examples',items:[
+   {de:'Mein Bruder ist zwei Jahre älter als ich.',en:'My brother is two years older than me.',say:'Mein Bruder ist zwei Jahre älter als ich.'},
+   {de:'Diese Wohnung ist so teuer wie die andere.',en:'This flat is as expensive as the other one.',say:'Diese Wohnung ist so teuer wie die andere.'},
+   {de:'Der Zug fährt schneller als der Bus.',en:'The train goes faster than the bus.',say:'Der Zug fährt schneller als der Bus.'},
+   {de:'Ich trinke lieber Tee als Kaffee.',en:'I prefer tea to coffee.',say:'Ich trinke lieber Tee als Kaffee.'},
+   {de:'Welcher Supermarkt ist am nächsten?',en:'Which supermarket is the closest?',say:'Welcher Supermarkt ist am nächsten?'},
+   {de:'Im August ist es hier am wärmsten.',en:'It is warmest here in August.',say:'Im August ist es hier am wärmsten.'}]},
+  {type:'warn',md:{en:'Never use <b>mehr</b> to build a comparative. <i>mehr schön</i> ✗, <i>mehr interessant</i> ✗ → „schön<b>er</b>“, „interessant<b>er</b>“ ✓. And keep <b>als</b> and <b>wie</b> apart: <i>größer wie ich</i> ✗ (you will hear it in speech, but it is wrong) → „größer <b>als</b> ich“ ✓.',
+        fa:'هرگز با <b>mehr</b> صفت برتر نساز. <i>mehr schön</i> ✗ → «schön<b>er</b>» ✓. و <b>als</b> و <b>wie</b> را جدا نگه دار: <i>größer wie ich</i> ✗ → «größer <b>als</b> ich» ✓.'}},
+  {type:'tip',md:{en:'<b>gern – lieber – am liebsten</b> is how German says „prefer“ and „favourite“: „Ich esse <b>gern</b> Fisch, <b>lieber</b> Hähnchen, aber <b>am liebsten</b> Pizza.“ No extra verb needed.',
+        fa:'<b>gern – lieber – am liebsten</b> شکلی است که آلمانی «ترجیح می‌دهم» و «محبوب‌ترین» را می‌گوید: «Ich esse <b>gern</b> Fisch, <b>lieber</b> Hähnchen, aber <b>am liebsten</b> Pizza.»'}},
+  {type:'quiz',q:{en:'„Dieses Hotel ist ___ als das andere.“ (teuer)',fa:'«Dieses Hotel ist ___ als das andere.» (teuer)'},
+   a:'teurer',o:['teuerer','mehr teuer','am teuersten'],
+   ex:{en:'<i>teuer</i> drops the -e- before the comparative ending: teuer → <b>teurer</b>. German never uses <i>mehr</i> + adjective.',
+       fa:'<i>teuer</i> پیش از پایانهٔ برتر، -e- را حذف می‌کند: teuer → <b>teurer</b>.'}}
+ ]},
+
+/* ---------- 5. Plusquamperfekt ---------- */
+{id:'plusquamperfekt',ic:'⏮️',lv:3,sk:'Verbs',
+ title:{en:'Plusquamperfekt: the past before the past',fa:'ماضی بعید: گذشتهٔ پیش از گذشته'},
+ sub:{en:'hatte / war + Partizip II',fa:'hatte / war + اسم مفعول'},
+ blocks:[
+  {type:'text',md:{en:'You already know the Perfekt: <b>habe/bin</b> + Partizip II. The Plusquamperfekt is the same shape with the auxiliary one step further back in time: <b>hatte/war</b> + Partizip II. You use it for the event that happened <b>before</b> another past event.',
+        fa:'ماضی نقلی را می‌دانی: <b>habe/bin</b> + اسم مفعول. ماضی بعید همان ساختار است، فقط فعل کمکی یک گام عقب‌تر می‌رود: <b>hatte/war</b> + اسم مفعول. برای رویدادی به کار می‌رود که <b>پیش از</b> رویداد گذشتهٔ دیگر رخ داده است.'}},
+  {type:'rule',md:{en:'The verb keeps <b>the same auxiliary</b> as in the Perfekt. If it is „ich <b>habe</b> gekauft“, then it is „ich <b>hatte</b> gekauft“. If it is „ich <b>bin</b> gefahren“, then it is „ich <b>war</b> gefahren“. Nothing else changes.',
+        fa:'فعل <b>همان فعل کمکی</b> ماضی نقلی را نگه می‌دارد. اگر «ich <b>habe</b> gekauft» است، می‌شود «ich <b>hatte</b> gekauft». اگر «ich <b>bin</b> gefahren» است، می‌شود «ich <b>war</b> gefahren».'}},
+  {type:'table',head:['','haben-Verb','sein-Verb'],rows:[
+   ['ich','hatte gekauft','war gefahren'],
+   ['du','hattest gekauft','warst gefahren'],
+   ['er / sie / es','*hatte gekauft','*war gefahren'],
+   ['wir','hatten gekauft','waren gefahren'],
+   ['ihr','hattet gekauft','wart gefahren'],
+   ['sie / Sie','hatten gekauft','waren gefahren']],
+   cap:{en:'hatte and war are simply the Präteritum of haben and sein',fa:'hatte و war صرفاً گذشتهٔ ساده‌ی haben و sein هستند'}},
+  {type:'text',md:{en:'The natural partner of the Plusquamperfekt is the connector <b>nachdem</b> (after). <i>nachdem</i> describes the earlier action, so the two clauses sit in different tenses — that feels strange at first, but it is exactly what makes the order of events clear.',
+        fa:'همراه طبیعی ماضی بعید، حرف ربط <b>nachdem</b> (پس از آنکه) است. <i>nachdem</i> کار پیشین را توصیف می‌کند، پس دو جمله در دو زمان مختلف‌اند — این اول عجیب است، اما همین ترتیب رویدادها را روشن می‌کند.'}},
+  {type:'steps',items:[
+   {en:'Earlier action → <b>nachdem</b> + … + <b>hatte/war</b> + Partizip II (verb right at the end).',fa:'کار پیشین → <b>nachdem</b> + … + <b>hatte/war</b> + اسم مفعول (فعل در پایان).'},
+   {en:'Comma.',fa:'ویرگول.'},
+   {en:'Later action → main clause in Perfekt or Präteritum, verb directly after the comma.',fa:'کار پسین → جملهٔ اصلی در ماضی نقلی یا گذشتهٔ ساده، فعل بلافاصله بعد از ویرگول.'},
+   {en:'„<b>Nachdem</b> ich gefrühstückt <b>hatte</b>, <b>bin</b> ich zur Arbeit gefahren.“',fa:'«<b>Nachdem</b> ich gefrühstückt <b>hatte</b>, <b>bin</b> ich zur Arbeit gefahren.»'}]},
+  {type:'examples',items:[
+   {de:'Nachdem ich gefrühstückt hatte, bin ich zur Arbeit gefahren.',en:'After I had had breakfast, I drove to work.',say:'Nachdem ich gefrühstückt hatte, bin ich zur Arbeit gefahren.'},
+   {de:'Der Zug war schon abgefahren, als wir am Bahnhof ankamen.',en:'The train had already left when we arrived at the station.',say:'Der Zug war schon abgefahren, als wir am Bahnhof ankamen.'},
+   {de:'Ich hatte meinen Pass vergessen, deshalb durfte ich nicht fliegen.',en:'I had forgotten my passport, so I was not allowed to fly.',say:'Ich hatte meinen Pass vergessen, deshalb durfte ich nicht fliegen.'},
+   {de:'Wir hatten die Rechnung schon bezahlt, als die Mahnung kam.',en:'We had already paid the bill when the reminder arrived.',say:'Wir hatten die Rechnung schon bezahlt, als die Mahnung kam.'},
+   {de:'Nachdem der Arzt mich untersucht hatte, bin ich zur Apotheke gegangen.',en:'After the doctor had examined me, I went to the pharmacy.',say:'Nachdem der Arzt mich untersucht hatte, bin ich zur Apotheke gegangen.'},
+   {de:'Sie war noch nie geflogen, und sie hatte Angst.',en:'She had never flown before, and she was afraid.',say:'Sie war noch nie geflogen, und sie hatte Angst.'}]},
+  {type:'warn',md:{en:'Two traps. (1) Using <b>hatte</b> with a movement verb: <i>ich hatte gegangen</i> ✗ → „ich <b>war</b> gegangen“ ✓. The auxiliary is decided by the verb, not by the tense. (2) Putting both clauses in the same tense after <b>nachdem</b>: <i>Nachdem ich gefrühstückt habe, bin ich gefahren</i> ✗. With <b>nachdem</b> the two halves must be <b>one step apart</b>.',
+        fa:'دو تله. (۱) به کار بردن <b>hatte</b> با فعل حرکتی: <i>ich hatte gegangen</i> ✗ → «ich <b>war</b> gegangen» ✓. (۲) هم‌زمان آوردن دو جمله پس از <b>nachdem</b>: <i>Nachdem ich gefrühstückt habe…</i> ✗. با <b>nachdem</b> دو نیمه باید <b>یک گام فاصله</b> داشته باشند.'}},
+  {type:'tip',md:{en:'In everyday speech Germans often use the plain Perfekt and let <i>schon</i>, <i>vorher</i> or <i>zuerst</i> show the order. The Plusquamperfekt is most common in writing, in stories and after <b>nachdem</b> — so start there.',
+        fa:'در گفتار روزمره آلمانی‌ها بیشتر ماضی نقلی به کار می‌برند و با <i>schon</i>، <i>vorher</i> یا <i>zuerst</i> ترتیب را نشان می‌دهند. ماضی بعید بیشتر در نوشتار، داستان و پس از <b>nachdem</b> می‌آید.'}},
+  {type:'quiz',q:{en:'„Nachdem wir die Wohnung geputzt ___, kamen die Gäste.“',fa:'«Nachdem wir die Wohnung geputzt ___, kamen die Gäste.»'},
+   a:'hatten',o:['haben','waren','sind'],
+   ex:{en:'<i>putzen</i> takes <b>haben</b> in the Perfekt („wir haben geputzt“), so the Plusquamperfekt is „wir <b>hatten</b> geputzt“ — and <i>wir</i> needs the plural form <b>hatten</b>.',
+       fa:'<i>putzen</i> در ماضی نقلی <b>haben</b> می‌گیرد، پس ماضی بعید می‌شود «wir <b>hatten</b> geputzt».'}}
+ ]},
+
+/* ---------- 6. weil / dass / wenn ---------- */
+{id:'weil-dass',ic:'🧷',lv:3,sk:'Clauses',
+ title:{en:'First subordinate clauses',fa:'نخستین جمله‌های پیرو'},
+ sub:{en:'weil, dass, wenn — verb to the end',fa:'weil، dass، wenn — فعل به آخر'},
+ blocks:[
+  {type:'text',md:{en:'A subordinate clause (<i>Nebensatz</i>) cannot stand alone — it hangs on a main clause and is introduced by a connector such as <b>weil</b> (because), <b>dass</b> (that) or <b>wenn</b> (if / whenever). These three connectors all do the same thing to the word order: they kick the conjugated verb to the <b>very last position</b>.',
+        fa:'جملهٔ پیرو (<i>Nebensatz</i>) تنها نمی‌ایستد — به جملهٔ اصلی می‌چسبد و با حرف ربطی مانند <b>weil</b> (چون)، <b>dass</b> (که) یا <b>wenn</b> (اگر/هرگاه) آغاز می‌شود. این سه با ترتیب کلمات یک کار می‌کنند: فعل صرف‌شده را به <b>آخرین جایگاه</b> می‌رانند.'}},
+  {type:'rule',md:{en:'<b>Connector … rest of the clause … verb.</b><br>„Ich komme nicht, <b>weil</b> ich keine Zeit <b>habe</b>.“<br>„Ich weiß, <b>dass</b> du Recht <b>hast</b>.“<br>„<b>Wenn</b> ich Zeit <b>habe</b>, rufe ich dich an.“<br>And there is <b>always a comma</b> between the two clauses.',
+        fa:'<b>حرف ربط … بقیهٔ جمله … فعل.</b><br>«Ich komme nicht, <b>weil</b> ich keine Zeit <b>habe</b>.»<br>«Ich weiß, <b>dass</b> du Recht <b>hast</b>.»<br>و همیشه میان دو جمله <b>ویرگول</b> هست.'}},
+  {type:'table',head:['Connector','Meaning','Example'],rows:[
+   ['weil','because','*Ich bleibe zu Hause, weil ich krank bin.'],
+   ['dass','that','*Der Arzt sagt, dass ich mehr schlafen soll.'],
+   ['wenn','if / whenever','*Wenn das Wetter schön ist, gehen wir spazieren.'],
+   ['denn','because (no change!)','*Ich bleibe zu Hause, denn ich bin krank.']],
+   cap:{en:'denn is a different animal — see the contrast below',fa:'denn جنس دیگری است — تضاد زیر را ببین'}},
+  {type:'contrast',cols:[
+   {t:'weil → verb last',md:{en:'<b>weil</b> starts a subordinate clause.<br>„Ich nehme den Bus, weil mein Auto kaputt <b>ist</b>.“<br>„Weil es <b>regnet</b>, nehme ich den Bus.“',
+       fa:'<b>weil</b> جملهٔ پیرو می‌سازد.<br>«Ich nehme den Bus, weil mein Auto kaputt <b>ist</b>.»'}},
+   {t:'denn → normal order',md:{en:'<b>denn</b> joins two main clauses, so nothing moves.<br>„Ich nehme den Bus, denn mein Auto <b>ist</b> kaputt.“<br>And <b>denn</b> can never start the sentence.',
+       fa:'<b>denn</b> دو جملهٔ اصلی را به هم می‌بندد، پس چیزی جابه‌جا نمی‌شود.<br>«Ich nehme den Bus, denn mein Auto <b>ist</b> kaputt.»'}}]},
+  {type:'text',md:{en:'If the subordinate clause comes <b>first</b>, it fills position 1 of the whole sentence. The main verb must then come <b>immediately after the comma</b>, before the subject: „<b>Weil</b> ich müde <b>bin</b>, <b>gehe ich</b> früh ins Bett.“ Two verbs meet around the comma — that is the sign that you did it right.',
+        fa:'اگر جملهٔ پیرو <b>اول</b> بیاید، جایگاه ۱ کل جمله را پر می‌کند. آن‌گاه فعل اصلی باید <b>بلافاصله پس از ویرگول</b> و پیش از فاعل بیاید: «<b>Weil</b> ich müde <b>bin</b>, <b>gehe ich</b> früh ins Bett.» دو فعل دو طرف ویرگول به هم می‌رسند — نشانهٔ درستی کار.'}},
+  {type:'examples',items:[
+   {de:'Ich komme später, weil ich noch einkaufen muss.',en:'I will come later because I still have to do the shopping. (modal goes last)',say:'Ich komme später, weil ich noch einkaufen muss.'},
+   {de:'Ich bin müde, weil ich jeden Tag um fünf aufstehe.',en:'I am tired because I get up at five every day. (separable verb joins up again)',say:'Ich bin müde, weil ich jeden Tag um fünf aufstehe.'},
+   {de:'Sie ist froh, dass sie die Prüfung bestanden hat.',en:'She is glad that she passed the exam. (Perfekt: participle, then auxiliary)',say:'Sie ist froh, dass sie die Prüfung bestanden hat.'},
+   {de:'Wenn Sie Fragen haben, rufen Sie mich bitte an.',en:'If you have questions, please call me.',say:'Wenn Sie Fragen haben, rufen Sie mich bitte an.'},
+   {de:'Weil der Bus nicht kommt, nehme ich ein Taxi.',en:'Because the bus is not coming, I am taking a taxi.',say:'Weil der Bus nicht kommt, nehme ich ein Taxi.'},
+   {de:'Ich hoffe, dass der Termin noch frei ist.',en:'I hope that the appointment is still free.',say:'Ich hoffe, dass der Termin noch frei ist.'}]},
+  {type:'warn',md:{en:'The classic error is simply forgetting to move the verb: <i>weil ich habe keine Zeit</i> ✗ → „weil ich keine Zeit <b>habe</b>“ ✓. Watch the three special cases: a <b>modal</b> goes last and the infinitive just before it („weil ich arbeiten <b>muss</b>“); a <b>separable</b> verb becomes one word again („weil ich früh <b>aufstehe</b>“); in the <b>Perfekt</b> the auxiliary takes the final spot („weil ich geschlafen <b>habe</b>“).',
+        fa:'خطای کلاسیک فراموش کردن جابه‌جایی فعل است: <i>weil ich habe keine Zeit</i> ✗ → «weil ich keine Zeit <b>habe</b>» ✓. سه حالت ویژه: فعل کمکی مُدال آخر می‌آید («weil ich arbeiten <b>muss</b>»)؛ فعل جداشدنی دوباره یک کلمه می‌شود («weil ich früh <b>aufstehe</b>»)؛ در ماضی نقلی فعل کمکی آخر می‌ایستد («weil ich geschlafen <b>habe</b>»).'}},
+  {type:'dialog',lines:[
+   {who:'A',de:'Warum kommst du heute nicht ins Büro?',en:'Why are you not coming to the office today?'},
+   {who:'B',de:'Weil ich einen Termin beim Zahnarzt habe.',en:'Because I have an appointment at the dentist.'},
+   {who:'A',de:'Alles in Ordnung? Ich hoffe, dass es nichts Schlimmes ist.',en:'Everything all right? I hope it is nothing serious.'},
+   {who:'B',de:'Nein, nur eine Kontrolle. Wenn ich fertig bin, komme ich noch vorbei.',en:'No, just a check-up. When I am done, I will drop by.'}]},
+  {type:'quiz',q:{en:'„Ich kann nicht kommen, weil ich noch ___.“ (arbeiten + müssen)',fa:'«Ich kann nicht kommen, weil ich noch ___.» (arbeiten + müssen)'},
+   a:'arbeiten muss',o:['muss arbeiten','arbeiten müssen','muss arbeite'],
+   ex:{en:'In a <i>weil</i>-clause the conjugated verb goes last. The modal <b>muss</b> is the conjugated one, so the infinitive comes first: „weil ich noch <b>arbeiten muss</b>“.',
+       fa:'در جملهٔ <i>weil</i> فعل صرف‌شده آخر می‌آید. <b>muss</b> فعل صرف‌شده است، پس مصدر پیش از آن می‌آید: «weil ich noch <b>arbeiten muss</b>».'}}
+ ]},
+
+/* ---------- 7. werden ---------- */
+{id:'werden-drei',ic:'🔄',lv:3,sk:'Verbs',
+ title:{en:'werden has three jobs',fa:'سه کارِ werden'},
+ sub:{en:'become · future · passive',fa:'شدن · آینده · مجهول'},
+ blocks:[
+  {type:'text',md:{en:'<b>werden</b> is one of the three or four most important verbs in German, and it does three completely different jobs. The good news: you can always tell which job it is doing by looking at <b>the end of the sentence</b>.',
+        fa:'<b>werden</b> یکی از سه‌چهار فعل مهم آلمانی است و سه کار کاملاً متفاوت انجام می‌دهد. خبر خوب: همیشه می‌توانی از <b>پایان جمله</b> بفهمی کدام کار را می‌کند.'}},
+  {type:'table',head:['','werden'],rows:[
+   ['ich','*werde'],['du','*wirst'],['er / sie / es','*wird'],
+   ['wir','werden'],['ihr','werdet'],['sie / Sie','werden'],
+   ['Präteritum','ich wurde, du wurdest, er wurde'],
+   ['Perfekt','ich bin … geworden']],
+   cap:{en:'du wirst and er wird are the forms learners get wrong most often',fa:'du wirst و er wird شکل‌هایی هستند که بیشتر اشتباه گفته می‌شوند'}},
+  {type:'steps',items:[
+   {en:'Nothing or a noun/adjective at the end → <b>full verb</b>, „become / get“. „Mein Sohn wird <b>Arzt</b>.“ „Es wird <b>kalt</b>.“',fa:'در پایان چیزی نیست یا اسم/صفت است → <b>فعل اصلی</b>، «شدن». «Mein Sohn wird <b>Arzt</b>.»'},
+   {en:'An <b>Infinitiv</b> at the end → <b>future</b>. „Ich werde morgen <b>anrufen</b>.“',fa:'در پایان <b>مصدر</b> است → <b>آینده</b>. «Ich werde morgen <b>anrufen</b>.»'},
+   {en:'A <b>Partizip II</b> at the end → <b>Passiv</b>. „Das Formular wird heute <b>unterschrieben</b>.“',fa:'در پایان <b>اسم مفعول</b> است → <b>مجهول</b>. «Das Formular wird heute <b>unterschrieben</b>.»'}]},
+  {type:'contrast',cols:[
+   {t:'Futur: werden + Infinitiv',md:{en:'„Ich <b>werde</b> dir das Geld morgen <b>geben</b>.“<br>„Wir <b>werden</b> im August <b>umziehen</b>.“<br><br>In everyday German the present tense plus a time word does the same job: „Ich gebe dir das Geld <b>morgen</b>.“',
+       fa:'«Ich <b>werde</b> dir das Geld morgen <b>geben</b>.»<br>در آلمانی روزمره حال ساده + قید زمان همان کار را می‌کند: «Ich gebe dir das Geld <b>morgen</b>.»'}},
+   {t:'Passiv: werden + Partizip II',md:{en:'„Die Rechnung <b>wird</b> am Freitag <b>bezahlt</b>.“<br>„Hier <b>werden</b> Pässe <b>kontrolliert</b>.“<br><br>You only need to <b>recognise</b> this at A2 — you will build it actively later.',
+       fa:'«Die Rechnung <b>wird</b> am Freitag <b>bezahlt</b>.»<br>در A2 فقط باید آن را <b>بشناسی</b> — ساختنش بعداً می‌آید.'}}]},
+  {type:'examples',items:[
+   {de:'Mein Bruder wird im Juni dreißig.',en:'My brother turns thirty in June. (full verb)',say:'Mein Bruder wird im Juni dreißig.'},
+   {de:'Es wird draußen langsam dunkel.',en:'It is slowly getting dark outside. (full verb)',say:'Es wird draußen langsam dunkel.'},
+   {de:'Sie ist letztes Jahr Krankenschwester geworden.',en:'She became a nurse last year. (Perfekt with sein)',say:'Sie ist letztes Jahr Krankenschwester geworden.'},
+   {de:'Du wirst bestimmt einen guten Job finden.',en:'You will certainly find a good job. (future)',say:'Du wirst bestimmt einen guten Job finden.'},
+   {de:'Wir werden nächste Woche umziehen.',en:'We are going to move next week. (future)',say:'Wir werden nächste Woche umziehen.'},
+   {de:'Das Paket wird morgen geliefert.',en:'The parcel will be delivered tomorrow. (passive)',say:'Das Paket wird morgen geliefert.'}]},
+  {type:'warn',md:{en:'<b>will</b> is a false friend. German „ich <b>will</b>“ means „I <b>want</b>“, never „I will“. „I will call you“ = „Ich <b>werde</b> dich anrufen“ or simply „Ich rufe dich an“. A second false friend: „<b>bekommen</b>“ means <i>to get/receive</i>, not „become“ — „Ich bekomme ein Paket“ = I receive a parcel. „I become“ = „ich <b>werde</b>“.',
+        fa:'<b>will</b> دوست دروغین است. آلمانیِ «ich <b>will</b>» یعنی «می‌خواهم»، نه «خواهم». «I will call you» می‌شود «Ich <b>werde</b> dich anrufen» یا ساده‌تر «Ich rufe dich an». دوست دروغین دوم: «<b>bekommen</b>» یعنی <i>گرفتن/دریافت کردن</i>، نه «شدن».'}},
+  {type:'tip',md:{en:'In the Perfekt, the full verb has <b>geworden</b> („Sie ist Ärztin <b>geworden</b>“) while the passive has the shorter <b>worden</b> („Das Auto ist verkauft <b>worden</b>“). If you see the long form, somebody became something.',
+        fa:'در ماضی نقلی، فعل اصلی <b>geworden</b> دارد («Sie ist Ärztin <b>geworden</b>») و مجهول شکل کوتاه <b>worden</b> («Das Auto ist verkauft <b>worden</b>»).'}},
+  {type:'quiz',q:{en:'„Mein Deutsch ___ jeden Monat besser.“',fa:'«Mein Deutsch ___ jeden Monat besser.»'},
+   a:'wird',o:['werden','will','wirst'],
+   ex:{en:'<i>Mein Deutsch</i> is 3rd person singular → <b>wird</b>. There is an adjective (<i>besser</i>) at the end, so this is <b>werden</b> as a full verb: „is getting better“.',
+       fa:'<i>Mein Deutsch</i> سوم‌شخص مفرد است → <b>wird</b>. در پایان صفت (<i>besser</i>) آمده، پس <b>werden</b> فعل اصلی است.'}}
+ ]},
+
+/* ---------- 8. es ---------- */
+{id:'es-konstruktionen',ic:'🫧',lv:3,sk:'Sentences',
+ title:{en:'The many uses of „es“',fa:'کاربردهای گوناگون «es»'},
+ sub:{en:'weather, time, es gibt, es geht mir…',fa:'هوا، ساعت، es gibt، es geht mir…'},
+ blocks:[
+  {type:'text',md:{en:'A German sentence needs a subject — always. When there is nobody doing anything (the weather, the clock, a general situation), German puts <b>es</b> in the subject slot just to fill it. English does the same with „it“, but German uses it in more places.',
+        fa:'جملهٔ آلمانی همیشه به فاعل نیاز دارد. وقتی کسی کاری نمی‌کند (هوا، ساعت، وضعیت کلی)، آلمانی <b>es</b> را در جایگاه فاعل می‌گذارد تا آن را پر کند. انگلیسی هم همین کار را با «it» می‌کند، اما آلمانی در جاهای بیشتری از آن استفاده می‌کند.'}},
+  {type:'table',head:['Use','Example','Note'],rows:[
+   ['Weather','*Es regnet seit zwei Tagen.','es schneit, es ist kalt, es friert'],
+   ['Time','*Es ist schon halb acht.','es ist spät, es ist Montag'],
+   ['Existence','*Es gibt hier einen Supermarkt.','always es gibt + Akkusativ'],
+   ['How you are','*Es geht mir gut.','wie geht es dir / Ihnen?'],
+   ['Feelings','*Es tut mir leid.','es freut mich, es ärgert mich'],
+   ['Liking a place','*Es gefällt mir hier.','mir gefällt es in Berlin'],
+   ['Placeholder','*Es ist wichtig, dass du kommst.','the real content follows later']]},
+  {type:'rule',md:{en:'<b>es gibt</b> never changes. One thing or a hundred, it stays <b>es gibt</b>, and the thing that exists goes into the <b>Akkusativ</b>: „Es gibt <b>einen</b> Supermarkt“, „Es gibt <b>ein</b> Problem“, „Es gibt <b>viele</b> Leute“.',
+        fa:'<b>es gibt</b> هرگز تغییر نمی‌کند. یک چیز یا صد چیز، همان <b>es gibt</b> می‌ماند و آن چیز در <b>آکوزاتیو</b> می‌آید: «Es gibt <b>einen</b> Supermarkt»، «Es gibt <b>ein</b> Problem».'}},
+  {type:'examples',items:[
+   {de:'Es regnet, nimm einen Regenschirm mit.',en:'It is raining, take an umbrella.',say:'Es regnet, nimm einen Regenschirm mit.'},
+   {de:'Es ist Viertel vor neun, wir müssen los.',en:'It is a quarter to nine, we have to go.',say:'Es ist Viertel vor neun, wir müssen los.'},
+   {de:'Gibt es hier in der Nähe eine Apotheke?',en:'Is there a pharmacy nearby?',say:'Gibt es hier in der Nähe eine Apotheke?'},
+   {de:'Es gibt ein Problem mit meinem Vertrag.',en:'There is a problem with my contract.',say:'Es gibt ein Problem mit meinem Vertrag.'},
+   {de:'Wie geht es Ihnen? — Danke, es geht mir gut.',en:'How are you? — Thanks, I am fine.',say:'Wie geht es Ihnen? Danke, es geht mir gut.'},
+   {de:'Es tut mir leid, ich habe den Termin vergessen.',en:'I am sorry, I forgot the appointment.',say:'Es tut mir leid, ich habe den Termin vergessen.'}]},
+  {type:'warn',md:{en:'Never drop <b>es</b>. <i>Ist kalt heute</i> ✗ → „<b>Es</b> ist kalt heute“ ✓ (or „Heute ist <b>es</b> kalt“ — <i>es</i> moves, but it does not disappear). And do not translate „there is“ as <i>da ist</i>: „There is a problem“ = „<b>Es gibt</b> ein Problem“. <i>Da ist</i> means „over there is“, pointing at something you can see.',
+        fa:'هرگز <b>es</b> را حذف نکن. <i>Ist kalt heute</i> ✗ → «<b>Es</b> ist kalt heute» ✓ (یا «Heute ist <b>es</b> kalt» — es جابه‌جا می‌شود اما ناپدید نمی‌شود). و «there is» را <i>da ist</i> ترجمه نکن: «Es gibt ein Problem».'}},
+  {type:'contrast',cols:[
+   {t:'es gibt',md:{en:'Says that something <b>exists</b> somewhere.<br>„In meiner Straße <b>gibt es</b> zwei Bäckereien.“<br>„<b>Gibt es</b> noch Karten für heute?“',
+       fa:'می‌گوید چیزی جایی <b>وجود دارد</b>.<br>«In meiner Straße <b>gibt es</b> zwei Bäckereien.»'}},
+   {t:'es ist / es sind',md:{en:'Identifies or describes a specific thing.<br>„<b>Es ist</b> ein schönes Zimmer.“<br>„<b>Es ist</b> mein Fahrrad, nicht deins.“',
+       fa:'چیزی مشخص را معرفی یا توصیف می‌کند.<br>«<b>Es ist</b> ein schönes Zimmer.»'}}]},
+  {type:'quiz',q:{en:'„___ gibt in diesem Haus keinen Aufzug.“',fa:'«___ gibt in diesem Haus keinen Aufzug.»'},
+   a:'Es',o:['Das','Da','Man'],
+   ex:{en:'The expression is fixed: <b>es gibt</b>. And note <i>keinen Aufzug</i> — what exists always stands in the Akkusativ.',
+       fa:'این عبارت ثابت است: <b>es gibt</b>. و توجه کن: <i>keinen Aufzug</i> — آنچه وجود دارد همیشه در آکوزاتیو است.'}}
+ ]},
+
+/* ---------- 9. Mengenangaben ---------- */
+{id:'mengen',ic:'⚖️',lv:3,sk:'Numbers',
+ title:{en:'Quantities, measures and containers',fa:'مقدار، واحد و ظرف'},
+ sub:{en:'ein Glas Wasser · zwei Kilo Äpfel',fa:'ein Glas Wasser · zwei Kilo Äpfel'},
+ blocks:[
+  {type:'text',md:{en:'To say how much of something you want, German simply puts the two nouns next to each other: first the measure, then the thing. <b>ein Glas Wasser</b>, <b>zwei Kilo Äpfel</b>, <b>eine Flasche Wein</b>. There is no little word in between.',
+        fa:'برای گفتن مقدار، آلمانی دو اسم را کنار هم می‌گذارد: اول واحد، بعد چیز. <b>ein Glas Wasser</b>، <b>zwei Kilo Äpfel</b>، <b>eine Flasche Wein</b>. هیچ کلمه‌ای میانشان نمی‌آید.'}},
+  {type:'rule',md:{en:'<b>No „von“, no „of“.</b> The second noun stands bare — no article, no preposition, no ending. The case of the whole phrase is carried by the <b>first</b> noun: „Ich möchte <b>ein</b> Glas Wasser“ (Akkusativ on <i>Glas</i>, nothing on <i>Wasser</i>).',
+        fa:'<b>نه «von»، نه «of».</b> اسم دوم عریان می‌ماند — بی حرف تعریف، بی حرف اضافه، بی پایانه. حالتِ کل عبارت را اسم <b>اول</b> نشان می‌دهد: «Ich möchte <b>ein</b> Glas Wasser».'}},
+  {type:'table',head:['Mengenangabe','Beispiel','English'],rows:[
+   ['ein Glas','*ein Glas Wasser','a glass of water'],
+   ['eine Tasse','*eine Tasse Kaffee','a cup of coffee'],
+   ['eine Flasche','*eine Flasche Wein','a bottle of wine'],
+   ['ein Stück','*ein Stück Kuchen','a piece of cake'],
+   ['eine Scheibe','*eine Scheibe Brot','a slice of bread'],
+   ['eine Packung','*eine Packung Nudeln','a packet of pasta'],
+   ['eine Dose','*eine Dose Tomaten','a tin of tomatoes'],
+   ['eine Tafel','*eine Tafel Schokolade','a bar of chocolate'],
+   ['ein Kilo / Pfund','*ein Kilo Kartoffeln','a kilo of potatoes'],
+   ['ein Liter','*ein Liter Milch','a litre of milk'],
+   ['100 Gramm','*100 Gramm Käse','100 grams of cheese']]},
+  {type:'text',md:{en:'Now the plural. Real containers behave like normal nouns and take a plural: <b>zwei Flaschen</b> Milch, <b>drei Tassen</b> Tee, <b>vier Scheiben</b> Brot. But units of measurement that are masculine or neuter stay <b>singular</b> after a number: <b>zwei Kilo</b>, <b>drei Liter</b>, <b>200 Gramm</b>, <b>fünf Euro</b>, <b>drei Stück</b>.',
+        fa:'اکنون جمع. ظرف‌های واقعی مانند اسم‌های معمولی جمع می‌گیرند: <b>zwei Flaschen</b> Milch، <b>drei Tassen</b> Tee. اما واحدهای اندازه‌گیریِ مذکر یا خنثی پس از عدد <b>مفرد</b> می‌مانند: <b>zwei Kilo</b>، <b>drei Liter</b>، <b>200 Gramm</b>، <b>fünf Euro</b>.'}},
+  {type:'table',head:['stays singular','takes a plural'],rows:[
+   ['zwei Kilo Äpfel','*zwei Flaschen Wasser'],
+   ['drei Liter Milch','*drei Tassen Kaffee'],
+   ['200 Gramm Schinken','*zwei Dosen Tomaten'],
+   ['fünf Euro','*vier Scheiben Käse'],
+   ['drei Stück Kuchen','*zwei Packungen Reis']],
+   cap:{en:'masculine/neuter measures stay singular; feminine containers in -e get -n',fa:'واحدهای مذکر/خنثی مفرد می‌مانند؛ ظرف‌های مؤنث جمع می‌گیرند'}},
+  {type:'examples',items:[
+   {de:'Ich möchte bitte ein Glas Wasser.',en:'I would like a glass of water, please.',say:'Ich möchte bitte ein Glas Wasser.'},
+   {de:'Zwei Kilo Kartoffeln, bitte.',en:'Two kilos of potatoes, please.',say:'Zwei Kilo Kartoffeln, bitte.'},
+   {de:'Haben Sie 200 Gramm Schinken?',en:'Do you have 200 grams of ham?',say:'Haben Sie 200 Gramm Schinken?'},
+   {de:'Wir brauchen noch zwei Flaschen Milch.',en:'We still need two bottles of milk.',say:'Wir brauchen noch zwei Flaschen Milch.'},
+   {de:'Ich nehme ein Stück Kuchen und eine Tasse Kaffee.',en:'I will have a piece of cake and a cup of coffee.',say:'Ich nehme ein Stück Kuchen und eine Tasse Kaffee.'},
+   {de:'Das macht zusammen acht Euro fünfzig.',en:'That comes to eight euros fifty altogether.',say:'Das macht zusammen acht Euro fünfzig.'}]},
+  {type:'warn',md:{en:'English „a glass <b>of</b> water“ pushes you towards <i>ein Glas von Wasser</i> ✗ or <i>ein Glas des Wassers</i> ✗. Both are wrong — it is simply „ein Glas Wasser“. Second trap: <i>zwei Kilos</i> ✗, <i>fünf Euros</i> ✗, <i>drei Litern</i> ✗ → „zwei <b>Kilo</b>“, „fünf <b>Euro</b>“, „drei <b>Liter</b>“ ✓.',
+        fa:'انگلیسیِ «a glass <b>of</b> water» تو را به سوی <i>ein Glas von Wasser</i> ✗ می‌برد. نادرست است — فقط «ein Glas Wasser». تلهٔ دوم: <i>zwei Kilos</i> ✗، <i>fünf Euros</i> ✗ → «zwei <b>Kilo</b>»، «fünf <b>Euro</b>» ✓.'}},
+  {type:'tip',md:{en:'For vague amounts use <b>etwas</b> / <b>ein bisschen</b> (a little), <b>ein paar</b> (a few), <b>viel</b> + singular, <b>viele</b> + plural: „<b>etwas</b> Zucker“, „<b>ein paar</b> Eier“, „<b>viel</b> Arbeit“, „<b>viele</b> Leute“.',
+        fa:'برای مقدار نامشخص از <b>etwas</b> / <b>ein bisschen</b> (کمی)، <b>ein paar</b> (چند)، <b>viel</b> + مفرد، <b>viele</b> + جمع استفاده کن.'}},
+  {type:'quiz',q:{en:'„Bitte zwei ___ Tomaten und ein Kilo Zwiebeln.“ (Dose)',fa:'«Bitte zwei ___ Tomaten und ein Kilo Zwiebeln.» (Dose)'},
+   a:'Dosen',o:['Dose','Dosen von','Doses'],
+   ex:{en:'<i>die Dose</i> is a real container and a feminine noun, so it takes the plural <b>Dosen</b> — and never <i>von</i> before the content.',
+       fa:'<i>die Dose</i> ظرف واقعی و اسم مؤنث است، پس جمع <b>Dosen</b> می‌گیرد — و هرگز <i>von</i> پیش از محتوا نمی‌آید.'}}
+ ]},
+
+/* ---------- 10. Indefinitpronomen ---------- */
+{id:'indefinit',ic:'👥',lv:3,sk:'Vocabulary',
+ title:{en:'man, jemand, etwas, jeder',fa:'man، jemand، etwas، jeder'},
+ sub:{en:'Talking about people and things in general',fa:'سخن گفتن کلی از افراد و چیزها'},
+ blocks:[
+  {type:'text',md:{en:'Sometimes you do not want to name a person: „<i>one</i> is not allowed to park here“, „<i>somebody</i> called“, „<i>nobody</i> was at home“. German has a small family of words for this, and the most useful of them is <b>man</b>.',
+        fa:'گاهی نمی‌خواهی کسی را نام ببری: «اینجا نمی‌شود پارک کرد»، «کسی تلفن زد»، «هیچ‌کس خانه نبود». آلمانی خانوادهٔ کوچکی از واژه‌ها برای این کار دارد و کاربردی‌ترینشان <b>man</b> است.'}},
+  {type:'rule',md:{en:'<b>man</b> always takes the <b>er/sie/es</b> verb form: „man <b>ist</b>“, „man <b>darf</b>“, „man <b>sagt</b>“. It is the normal German way of saying what people in general do — much more common than English „one“, and it often replaces the English passive: „Hier <b>spricht man</b> Deutsch“ = German is spoken here.',
+        fa:'<b>man</b> همیشه شکل فعل <b>er/sie/es</b> می‌گیرد: «man <b>ist</b>»، «man <b>darf</b>». این شیوهٔ معمول آلمانی برای گفتن کار عمومی مردم است و اغلب جای مجهول انگلیسی را می‌گیرد.'}},
+  {type:'table',head:['Case','man','jemand','niemand'],rows:[
+   ['Nominativ','*man','*jemand','*niemand'],
+   ['Akkusativ','*einen','jemanden','niemanden'],
+   ['Dativ','*einem','jemandem','niemandem']],
+   cap:{en:'man has no Akkusativ or Dativ form of its own — it borrows from "ein"',fa:'man شکل آکوزاتیو و داتیو خودش را ندارد — از «ein» قرض می‌گیرد'}},
+  {type:'table',head:['Word','Means','Example'],rows:[
+   ['etwas','something / some','*Hast du etwas Zeit?'],
+   ['nichts','nothing','*Im Kühlschrank ist nichts mehr.'],
+   ['alles','everything','*Alles ist teurer geworden.'],
+   ['alle','everybody / all of them','*Alle sind schon da.'],
+   ['jeder / jede / jedes','every, each','*Jeder Tag ist anders.'],
+   ['einige','some, a few','*Einige Kollegen sind krank.'],
+   ['viele','many','*Viele Leute warten schon.']]},
+  {type:'examples',items:[
+   {de:'Hier darf man nicht parken.',en:'You are not allowed to park here.',say:'Hier darf man nicht parken.'},
+   {de:'Im Krankenhaus muss man leise sein.',en:'In the hospital you have to be quiet.',say:'Im Krankenhaus muss man leise sein.'},
+   {de:'Jemand hat heute Morgen angerufen.',en:'Somebody called this morning.',say:'Jemand hat heute Morgen angerufen.'},
+   {de:'Niemand war zu Hause.',en:'Nobody was at home.',say:'Niemand war zu Hause.'},
+   {de:'So viel Arbeit macht einen müde.',en:'So much work makes you tired. (man in the Akkusativ)',say:'So viel Arbeit macht einen müde.'},
+   {de:'Jeden Morgen trinke ich zwei Tassen Kaffee.',en:'Every morning I drink two cups of coffee.',say:'Jeden Morgen trinke ich zwei Tassen Kaffee.'}]},
+  {type:'warn',md:{en:'<b>man</b> is not <b>der Mann</b>! One <i>n</i>, small letter, and it means „people in general“, not „the man“. Second trap: when <i>man</i> is not the subject, it changes shape — <i>das macht <b>man</b> müde</i> ✗ → „das macht <b>einen</b> müde“ ✓; <i>das hilft <b>man</b> nicht</i> ✗ → „das hilft <b>einem</b> nicht“ ✓.',
+        fa:'<b>man</b> همان <b>der Mann</b> نیست! یک n، با حرف کوچک، و معنایش «مردم به‌طور کلی» است. تلهٔ دوم: وقتی <i>man</i> فاعل نیست، شکلش عوض می‌شود — «das macht <b>einen</b> müde» ✓، «das hilft <b>einem</b> nicht» ✓.'}},
+  {type:'rule',md:{en:'<b>jeder</b> takes exactly the endings of <b>der</b>: jed<b>er</b> Tag (Nom.), jed<b>en</b> Tag (Akk.), jed<b>em</b> Tag (Dat.), jed<b>e</b> Woche, jed<b>es</b> Jahr. That is why „every day“ is <b>jeden Tag</b> — time expressions without a preposition stand in the Akkusativ.',
+        fa:'<b>jeder</b> دقیقاً پایانه‌های <b>der</b> را می‌گیرد: jed<b>er</b> Tag، jed<b>en</b> Tag، jed<b>em</b> Tag، jed<b>e</b> Woche، jed<b>es</b> Jahr. به همین دلیل «هر روز» می‌شود <b>jeden Tag</b>.'}},
+  {type:'tip',md:{en:'After <b>etwas</b> and <b>nichts</b>, an adjective becomes a capitalised noun with <b>-es</b>: „etwas <b>Neues</b>“, „nichts <b>Besonderes</b>“, „etwas <b>Warmes</b> zu trinken“.',
+        fa:'پس از <b>etwas</b> و <b>nichts</b>، صفت به اسمِ بزرگ‌نوشته با <b>-es</b> بدل می‌شود: «etwas <b>Neues</b>»، «nichts <b>Besonderes</b>».'}},
+  {type:'quiz',q:{en:'„Zu viel Kaffee macht ___ nervös.“',fa:'«Zu viel Kaffee macht ___ nervös.»'},
+   a:'einen',o:['man','einem','einer'],
+   ex:{en:'<i>machen</i> + Akkusativ, and the Akkusativ of <b>man</b> is <b>einen</b>. <i>man</i> itself can only be the subject.',
+       fa:'<i>machen</i> آکوزاتیو می‌گیرد و آکوزاتیو <b>man</b> می‌شود <b>einen</b>. خودِ <i>man</i> فقط می‌تواند فاعل باشد.'}}
+ ]},
+
+/* ---------- 11. Demonstrativartikel ---------- */
+{id:'demonstrativ',ic:'👉',lv:3,sk:'Articles',
+ title:{en:'dieser, jener, derselbe',fa:'dieser، jener، derselbe'},
+ sub:{en:'Pointing at things',fa:'اشاره کردن به چیزها'},
+ blocks:[
+  {type:'text',md:{en:'<b>dieser</b> („this one here“) is the pointing article. It behaves exactly like <b>der/die/das</b> — in fact its endings <i>are</i> the der-endings, which is why you already know them: just replace <i>d-</i> with <i>dies-</i>. „d<b>er</b> Zug“ → „dies<b>er</b> Zug“, „d<b>en</b> Zug“ → „dies<b>en</b> Zug“.',
+        fa:'<b>dieser</b> («این یکی») حرف تعریف اشاره است. دقیقاً مانند <b>der/die/das</b> رفتار می‌کند — پایانه‌هایش همان پایانه‌های der هستند: فقط <i>d-</i> را با <i>dies-</i> جابه‌جا کن.'}},
+  {type:'table',head:['','maskulin','feminin','neutrum','Plural'],rows:[
+   ['Nominativ','*dieser Zug','*diese Woche','*dieses Hemd','*diese Schuhe'],
+   ['Akkusativ','diesen Zug','diese Woche','dieses Hemd','diese Schuhe'],
+   ['Dativ','diesem Zug','dieser Woche','diesem Hemd','diesen Schuhen']],
+   cap:{en:'identical to der/die/das — dies- + the der-ending',fa:'همان der/die/das — dies- + پایانهٔ der'}},
+  {type:'examples',items:[
+   {de:'Diese Woche habe ich drei Termine.',en:'This week I have three appointments.',say:'Diese Woche habe ich drei Termine.'},
+   {de:'Dieses Hemd gefällt mir besser.',en:'I like this shirt better.',say:'Dieses Hemd gefällt mir besser.'},
+   {de:'Ich nehme diesen Zug um acht.',en:'I will take this train at eight.',say:'Ich nehme diesen Zug um acht.'},
+   {de:'Mit diesem Bus fahre ich jeden Tag zur Arbeit.',en:'I take this bus to work every day.',say:'Mit diesem Bus fahre ich jeden Tag zur Arbeit.'},
+   {de:'Diese Schuhe sind leider zu klein.',en:'These shoes are unfortunately too small.',say:'Diese Schuhe sind leider zu klein.'},
+   {de:'Ich möchte diese blaue Jacke anprobieren.',en:'I would like to try on this blue jacket.',say:'Ich möchte diese blaue Jacke anprobieren.'}]},
+  {type:'text',md:{en:'<b>jener</b> („that one over there“) takes the same endings but you will almost never hear it in speech. Germans say „<b>dieser</b> … und <b>der da</b>“ instead. Keep <i>jener</i> for reading: it appears in written contrasts like „in jenen Jahren“ (in those years).',
+        fa:'<b>jener</b> («آن یکی آنجا») همان پایانه‌ها را می‌گیرد اما در گفتار تقریباً شنیده نمی‌شود. آلمانی‌ها می‌گویند «<b>dieser</b> … und <b>der da</b>». <i>jener</i> را برای خواندن نگه دار.'}},
+  {type:'contrast',cols:[
+   {t:'derselbe = the identical one',md:{en:'One and the same thing.<br>„Wir wohnen in <b>demselben</b> Haus.“<br>„Wir haben <b>dasselbe</b> Problem.“<br><br>Written as one word; the <b>front</b> part declines like <i>der</i>, the back part like an adjective.',
+       fa:'یک چیز واحد.<br>«Wir wohnen in <b>demselben</b> Haus.»<br>یک کلمه نوشته می‌شود؛ بخش <b>اول</b> مانند <i>der</i> صرف می‌شود.'}},
+   {t:'der gleiche = the same kind',md:{en:'Two different things that look alike.<br>„Du hast <b>den gleichen</b> Mantel wie ich.“<br>„Wir fahren <b>das gleiche</b> Auto.“<br><br>Two words; <i>gleich</i> is a normal adjective after the article.',
+       fa:'دو چیز متفاوت که شبیه‌اند.<br>«Du hast <b>den gleichen</b> Mantel wie ich.»<br>دو کلمه؛ <i>gleich</i> صفتی معمولی است.'}}]},
+  {type:'rule',md:{en:'In spoken German, plain <b>der / die / das</b> can be used as a stressed demonstrative pronoun, standing alone where English says „him / her / that one“: „Kennst du Herrn Weber?“ — „<b>Den</b> kenne ich gut.“ · „Wie findest du die Wohnung?“ — „<b>Die</b> ist super.“ It is stressed and it always starts the sentence.',
+        fa:'در آلمانی گفتاری، <b>der / die / das</b> می‌تواند ضمیر اشارهٔ تأکیدی باشد و تنها بیاید: «Kennst du Herrn Weber?» — «<b>Den</b> kenne ich gut.» تکیه دارد و همیشه آغاز جمله می‌آید.'}},
+  {type:'warn',md:{en:'Do not use <b>dieses</b> as an all-purpose form. The ending must match the gender and case: <i>dieses Woche</i> ✗ → „<b>diese</b> Woche“ ✓ (die Woche); <i>diesen Hemd</i> ✗ → „<b>dieses</b> Hemd“ ✓ (das Hemd). And after <i>dieser</i> the following adjective takes the <b>weak</b> ending, just as after <i>der</i>: „dieses <b>neue</b> Handy“.',
+        fa:'<b>dieses</b> را شکل همه‌کاره نگیر. پایانه باید با جنس و حالت بخواند: <i>dieses Woche</i> ✗ → «<b>diese</b> Woche» ✓. و پس از <i>dieser</i> صفت پایانهٔ <b>ضعیف</b> می‌گیرد: «dieses <b>neue</b> Handy».'}},
+  {type:'quiz',q:{en:'„Ich fahre immer mit ___ Bus.“ (dieser — der Bus)',fa:'«Ich fahre immer mit ___ Bus.» (dieser — der Bus)'},
+   a:'diesem',o:['diesen','dieser','dieses'],
+   ex:{en:'<b>mit</b> always takes the Dativ, and <i>der Bus</i> is masculine → „mit <b>diesem</b> Bus“, exactly like „mit <b>dem</b> Bus“.',
+       fa:'<b>mit</b> همیشه داتیو می‌گیرد و <i>der Bus</i> مذکر است → «mit <b>diesem</b> Bus».'}}
+ ]},
+
+/* ---------- 12. Possessivpronomen ---------- */
+{id:'possessivpronomen',ic:'🫱',lv:3,sk:'Articles',
+ title:{en:'Standalone possessives',fa:'ضمایر ملکی مستقل'},
+ sub:{en:'meiner, deins, ihre — when the noun is gone',fa:'meiner، deins، ihre — وقتی اسم حذف می‌شود'},
+ blocks:[
+  {type:'text',md:{en:'You already use <b>mein, dein, sein, ihr, unser, euer</b> in front of a noun: „<b>mein</b> Schlüssel“. But when the noun has already been mentioned, you drop it: „Ist das dein Schlüssel?“ — „Nein, <b>meiner</b> liegt zu Hause.“ The possessive then has to stand on its own two feet — and it grows an ending.',
+        fa:'تو <b>mein، dein، sein، ihr، unser، euer</b> را پیش از اسم به کار می‌بری: «<b>mein</b> Schlüssel». اما وقتی اسم قبلاً گفته شده، حذفش می‌کنی: «Ist das dein Schlüssel?» — «Nein, <b>meiner</b> liegt zu Hause.» آن‌گاه ضمیر ملکی باید روی پای خود بایستد — و پایانه می‌گیرد.'}},
+  {type:'rule',md:{en:'Without a noun, the possessive takes the <b>der</b>-endings — the same endings as <i>dieser</i>. The two gaps in the normal table get filled: masculine Nominativ gets <b>-er</b> and neuter gets <b>-s</b> (or the fuller <b>-es</b>).',
+        fa:'بدون اسم، ضمیر ملکی پایانه‌های <b>der</b> را می‌گیرد — همان پایانه‌های <i>dieser</i>. دو جای خالی جدول معمولی پر می‌شوند: نومیناتیو مذکر <b>-er</b> و خنثی <b>-s</b> (یا <b>-es</b>).'}},
+  {type:'table',head:['','maskulin','feminin','neutrum','Plural'],rows:[
+   ['before a noun','mein Stift','meine Tasche','mein Auto','meine Schuhe'],
+   ['Nominativ alone','*meiner','meine','*meins','meine'],
+   ['Akkusativ alone','*meinen','meine','*meins','meine'],
+   ['Dativ alone','meinem','meiner','meinem','meinen']],
+   cap:{en:'only two forms are really new: meiner (masc. Nom.) and meins (neut.)',fa:'فقط دو شکل تازه‌اند: meiner و meins'}},
+  {type:'contrast',cols:[
+   {t:'With the noun',md:{en:'„Das ist <b>mein</b> Stift.“<br>„Ich suche <b>meinen</b> Stift.“<br>„Wo ist <b>mein</b> Auto?“<br><br>Masculine Nominativ and neuter show <b>no ending</b>.',
+       fa:'«Das ist <b>mein</b> Stift.»<br>نومیناتیو مذکر و خنثی <b>پایانه ندارند</b>.'}},
+   {t:'Without the noun',md:{en:'„Das ist <b>meiner</b>.“<br>„Ich suche <b>meinen</b>.“<br>„Wo ist <b>meins</b>?“<br><br>Now the ending has to appear — otherwise nobody can hear the gender.',
+       fa:'«Das ist <b>meiner</b>.»<br>اکنون پایانه باید ظاهر شود — وگرنه جنس شنیده نمی‌شود.'}}]},
+  {type:'examples',items:[
+   {de:'Ist das dein Kugelschreiber? — Nein, meiner ist blau.',en:'Is that your pen? — No, mine is blue.',say:'Ist das dein Kugelschreiber? Nein, meiner ist blau.'},
+   {de:'Mein Handy ist kaputt. Kann ich deins nehmen?',en:'My phone is broken. Can I take yours?',say:'Mein Handy ist kaputt. Kann ich deins nehmen?'},
+   {de:'Das ist nicht meine Jacke, das ist seine.',en:'That is not my jacket, that is his.',say:'Das ist nicht meine Jacke, das ist seine.'},
+   {de:'Unsere Wohnung ist klein, ihre ist viel größer.',en:'Our flat is small, hers is much bigger.',say:'Unsere Wohnung ist klein, ihre ist viel größer.'},
+   {de:'Ich fahre mit meinem Rad, fährst du mit deinem?',en:'I am going on my bike, are you going on yours?',say:'Ich fahre mit meinem Rad, fährst du mit deinem?'},
+   {de:'Hast du einen Stift? Ich habe meinen vergessen.',en:'Do you have a pen? I forgot mine.',say:'Hast du einen Stift? Ich habe meinen vergessen.'}]},
+  {type:'warn',md:{en:'The mistake is to keep the short form after dropping the noun: <i>Das ist mein</i> ✗, <i>Kann ich dein nehmen?</i> ✗ → „Das ist <b>meiner</b>“ / „Das ist <b>meins</b>“ ✓, „Kann ich <b>deins</b> nehmen?“ ✓. In German a possessive standing alone is never bare. Also note <b>ihre</b> can mean „her“, „their“ or (capitalised, <b>Ihre</b>) „yours (formal)“ — only context and the capital letter tell them apart.',
+        fa:'خطا این است که پس از حذف اسم، شکل کوتاه را نگه داری: <i>Das ist mein</i> ✗ → «Das ist <b>meiner</b>» / «Das ist <b>meins</b>» ✓. در آلمانی ضمیر ملکیِ تنها هرگز بی‌پایانه نیست. و <b>ihre</b> می‌تواند «مال او (مؤنث)»، «مال آن‌ها» یا با حرف بزرگ <b>Ihre</b> «مال شما» باشد.'}},
+  {type:'dialog',lines:[
+   {who:'A',de:'Ist das dein Koffer da vorne?',en:'Is that your suitcase over there?'},
+   {who:'B',de:'Nein, meiner ist schwarz. Der da ist größer.',en:'No, mine is black. That one is bigger.'},
+   {who:'A',de:'Und das Handy auf dem Tisch — ist das deins?',en:'And the phone on the table — is that yours?'},
+   {who:'B',de:'Ja, danke! Ohne meins kann ich nicht arbeiten.',en:'Yes, thanks! I cannot work without mine.'}]},
+  {type:'quiz',q:{en:'„Mein Auto ist alt, ___ ist neu.“ (ihr — theirs)',fa:'«Mein Auto ist alt, ___ ist neu.» (ihr — مال آن‌ها)'},
+   a:'ihres',o:['ihre','ihrer','ihren'],
+   ex:{en:'<i>das Auto</i> is neuter and the subject of the second clause, so the standalone form needs the neuter signal: <b>ihres</b> (in speech often shortened to <i>ihrs</i>).',
+       fa:'<i>das Auto</i> خنثی و فاعل جملهٔ دوم است، پس شکل مستقل نشانهٔ خنثی می‌خواهد: <b>ihres</b>.'}}
+ ]},
+
+/* ---------- 13. wohin / wo / woher ---------- */
+{id:'wohin-wo-woher',ic:'🧭',lv:3,sk:'Prepositions',
+ title:{en:'Direction, place and origin',fa:'جهت، مکان و خاستگاه'},
+ sub:{en:'nach / zu / in · bei / an / in · aus / von',fa:'nach / zu / in · bei / an / in · aus / von'},
+ blocks:[
+  {type:'text',md:{en:'German splits „where“ into three questions, and each one has its own set of prepositions. Get the question right first and the preposition almost chooses itself: <b>Wohin?</b> (where to), <b>Wo?</b> (where at), <b>Woher?</b> (where from).',
+        fa:'آلمانی «کجا» را به سه پرسش می‌شکند و هر یک دستهٔ حروف اضافهٔ خود را دارد. اول پرسش را درست انتخاب کن، آن‌گاه حرف اضافه خودش می‌آید: <b>Wohin?</b> (به کجا)، <b>Wo?</b> (کجا)، <b>Woher?</b> (از کجا).'}},
+  {type:'table',head:['Frage','Präposition','Beispiel'],rows:[
+   ['Wohin?','nach + city/country (no article)','*Ich fahre nach Hamburg.'],
+   ['Wohin?','in + Akk (country with article, rooms)','*Wir fliegen in die Türkei.'],
+   ['Wohin?','zu + Dativ (people, shops, institutions)','*Ich gehe zum Arzt.'],
+   ['Wohin?','auf / an + Akk (open places, water)','*Wir fahren an den See.'],
+   ['Wo?','in + Dativ','*Ich bin in der Stadt.'],
+   ['Wo?','bei + Dativ (people, firms)','*Ich bin bei Anna.'],
+   ['Wo?','an / auf + Dativ','*Wir sitzen am See.'],
+   ['Woher?','aus + Dativ (countries, towns, buildings)','*Ich komme aus Italien.'],
+   ['Woher?','von + Dativ (people, activities)','*Ich komme von der Arbeit.']]},
+  {type:'rule',md:{en:'The <b>wohin</b> group is where the decisions are. Use <b>zu</b> for a person, a shop, a doctor, an office — anything you go <i>to</i>. Use <b>in</b> + Akkusativ when you physically go <i>inside</i> (ins Kino, in die Stadt, in den Supermarkt). Use <b>nach</b> only with bare place names (nach Berlin, nach Österreich).',
+        fa:'گروه <b>wohin</b> جایی است که تصمیم‌ها گرفته می‌شود. برای شخص، مغازه، پزشک و اداره از <b>zu</b> استفاده کن. وقتی واقعاً <i>به داخل</i> می‌روی از <b>in</b> + آکوزاتیو. <b>nach</b> فقط با نام مکان بدون حرف تعریف (nach Berlin).'}},
+  {type:'examples',items:[
+   {de:'Im Sommer fliegen wir nach Spanien.',en:'In the summer we are flying to Spain.',say:'Im Sommer fliegen wir nach Spanien.'},
+   {de:'Nächstes Jahr fahren wir in die Schweiz.',en:'Next year we are going to Switzerland. (country with an article)',say:'Nächstes Jahr fahren wir in die Schweiz.'},
+   {de:'Ich muss morgen zum Zahnarzt.',en:'I have to go to the dentist tomorrow.',say:'Ich muss morgen zum Zahnarzt.'},
+   {de:'Ich war den ganzen Vormittag beim Arzt.',en:'I was at the doctor all morning.',say:'Ich war den ganzen Vormittag beim Arzt.'},
+   {de:'Kommst du mit in die Stadt?',en:'Are you coming into town with me?',say:'Kommst du mit in die Stadt?'},
+   {de:'Woher kommst du? — Ich komme aus dem Iran.',en:'Where are you from? — I am from Iran.',say:'Woher kommst du? Ich komme aus dem Iran.'}]},
+  {type:'contrast',cols:[
+   {t:'nach Hause (wohin?)',md:{en:'Movement towards home.<br>„Nach der Arbeit fahre ich <b>nach Hause</b>.“<br>„Wann kommst du <b>nach Hause</b>?“<br><br>Think of it as one fixed word: <i>nachhause</i>.',
+       fa:'حرکت به سوی خانه.<br>«Nach der Arbeit fahre ich <b>nach Hause</b>.»<br>آن را یک کلمهٔ ثابت در نظر بگیر.'}},
+   {t:'zu Hause (wo?)',md:{en:'Being at home.<br>„Am Wochenende bleibe ich <b>zu Hause</b>.“<br>„Ist jemand <b>zu Hause</b>?“<br><br>Also one fixed expression: <i>zuhause</i>.',
+       fa:'بودن در خانه.<br>«Am Wochenende bleibe ich <b>zu Hause</b>.»<br>این هم عبارتی ثابت است.'}}]},
+  {type:'warn',md:{en:'Three errors to watch. (1) <i>Ich bin nach Hause</i> ✗ → „Ich bin <b>zu Hause</b>“ ✓ — movement vs. position, and the words really do swap. (2) <i>Ich gehe zu die Schule</i> ✗ → <b>zu</b> always takes the Dativ: „<b>zur</b> Schule“ ✓. (3) <i>Ich komme von Italien</i> ✗ → countries and towns use <b>aus</b>: „Ich komme <b>aus</b> Italien“ ✓. Keep <b>von</b> for people and activities: „von meiner Mutter“, „von der Arbeit“.',
+        fa:'سه خطا را بپا. (۱) <i>Ich bin nach Hause</i> ✗ → «Ich bin <b>zu Hause</b>» ✓. (۲) <i>zu die Schule</i> ✗ → <b>zu</b> همیشه داتیو می‌گیرد: «<b>zur</b> Schule» ✓. (۳) <i>Ich komme von Italien</i> ✗ → برای کشور و شهر <b>aus</b>: «Ich komme <b>aus</b> Italien» ✓.'}},
+  {type:'tip',md:{en:'Remember the short forms: <b>zum</b> = zu dem, <b>zur</b> = zu der, <b>beim</b> = bei dem, <b>vom</b> = von dem. „zum Arzt“ (wohin) and „beim Arzt“ (wo) are the pair you will need every time you talk about health.',
+        fa:'شکل‌های کوتاه را به یاد داشته باش: <b>zum</b> = zu dem، <b>zur</b> = zu der، <b>beim</b> = bei dem، <b>vom</b> = von dem. «zum Arzt» و «beim Arzt» جفتی است که در گفت‌وگو دربارهٔ سلامتی همیشه لازم داری.'}},
+  {type:'quiz',q:{en:'„Ich war gestern ___ Friseur.“ (where at)',fa:'«Ich war gestern ___ Friseur.» (کجا)'},
+   a:'beim',o:['zum','zu dem','ins'],
+   ex:{en:'„war“ describes a position, so you need <b>wo?</b> → <b>bei + Dativ</b> = „beim Friseur“. „Ich gehe <b>zum</b> Friseur“ would be the direction.',
+       fa:'«war» موقعیت را توصیف می‌کند، پس <b>wo?</b> لازم است → <b>bei + داتیو</b> = «beim Friseur».'}}
+ ]},
+
+/* ---------- 14. Zeitpräpositionen ---------- */
+{id:'zeitpraepositionen',ic:'🕰️',lv:3,sk:'Prepositions',
+ title:{en:'Time prepositions',fa:'حروف اضافهٔ زمان'},
+ sub:{en:'seit, vor, bis, ab, in, während',fa:'seit، vor، bis، ab، in، während'},
+ blocks:[
+  {type:'text',md:{en:'These little words place an event on the time line: some look backwards, some forwards, some mark a border. Most of them take the <b>Dativ</b>, which is why you hear „seit drei <b>Jahren</b>“ and „vor zwei <b>Wochen</b>“ with an extra -n in the plural.',
+        fa:'این واژه‌های کوچک رویداد را روی خط زمان می‌نشانند: بعضی به گذشته نگاه می‌کنند، بعضی به آینده، بعضی مرز می‌گذارند. بیشترشان <b>داتیو</b> می‌گیرند، به همین دلیل «seit drei <b>Jahren</b>» و «vor zwei <b>Wochen</b>» با یک n اضافه در جمع می‌آیند.'}},
+  {type:'table',head:['Präposition','Case','Means','Example'],rows:[
+   ['seit','Dativ','since / for (until now)','*Ich wohne seit drei Jahren hier.'],
+   ['vor','Dativ','ago','*Vor zwei Wochen war ich krank.'],
+   ['bis','–','until','*Der Kurs dauert bis Freitag.'],
+   ['ab','Dativ','from … on (future)','*Ab Montag habe ich einen neuen Job.'],
+   ['in','Dativ','in … time (future)','*In zwei Wochen habe ich Urlaub.'],
+   ['nach','Dativ','after','*Nach dem Essen gehen wir spazieren.'],
+   ['während','Genitiv','during','*Während der Woche koche ich selten.'],
+   ['über','Akkusativ','over / for the whole of','*Über das Wochenende bleiben wir hier.'],
+   ['von … bis','Dativ / –','from … to','*Ich arbeite von acht bis vier.']]},
+  {type:'rule',md:{en:'<b>seit + Präsens.</b> An action that started in the past and is <i>still going on</i> stays in the present tense in German: „Ich wohne <b>seit</b> drei Jahren in München“ = I <b>have been living</b> in Munich for three years. German has no present perfect continuous, so the present tense does the work.',
+        fa:'<b>seit + زمان حال.</b> کاری که در گذشته آغاز شده و <i>همچنان ادامه دارد</i> در آلمانی زمان حال می‌ماند: «Ich wohne <b>seit</b> drei Jahren in München».'}},
+  {type:'contrast',cols:[
+   {t:'seit = looking back to now',md:{en:'The situation reaches up to today → <b>present tense</b>.<br>„Ich lerne <b>seit</b> einem Jahr Deutsch.“<br>„Sie ist <b>seit</b> Montag krank.“',
+       fa:'وضعیت تا امروز ادامه دارد → <b>زمان حال</b>.<br>«Ich lerne <b>seit</b> einem Jahr Deutsch.»'}},
+   {t:'vor = a point in the past',md:{en:'A finished event, so many units ago → <b>past tense</b>.<br>„<b>Vor</b> einem Jahr habe ich angefangen.“<br>„Sie war <b>vor</b> zwei Tagen beim Arzt.“',
+       fa:'رویدادی پایان‌یافته، چند واحد پیش → <b>زمان گذشته</b>.<br>«<b>Vor</b> einem Jahr habe ich angefangen.»'}}]},
+  {type:'examples',items:[
+   {de:'Ich arbeite seit zwei Monaten in dieser Firma.',en:'I have been working at this company for two months.',say:'Ich arbeite seit zwei Monaten in dieser Firma.'},
+   {de:'Vor einer Stunde habe ich den Termin abgesagt.',en:'An hour ago I cancelled the appointment.',say:'Vor einer Stunde habe ich den Termin abgesagt.'},
+   {de:'Die Praxis ist bis 18 Uhr geöffnet.',en:'The practice is open until 6 p.m.',say:'Die Praxis ist bis 18 Uhr geöffnet.'},
+   {de:'Ab nächster Woche fahre ich mit dem Fahrrad.',en:'From next week on I will go by bike.',say:'Ab nächster Woche fahre ich mit dem Fahrrad.'},
+   {de:'In drei Tagen kommt mein Bruder zu Besuch.',en:'In three days my brother is coming to visit.',say:'In drei Tagen kommt mein Bruder zu Besuch.'},
+   {de:'Während der Mittagspause gehe ich kurz raus.',en:'During the lunch break I go out for a bit.',say:'Während der Mittagspause gehe ich kurz raus.'}]},
+  {type:'warn',md:{en:'The big one: English „I <b>have lived</b> here for three years“ makes learners write <i>Ich habe seit drei Jahren hier gewohnt</i> ✗. With <b>seit</b> German uses the <b>present</b>: „Ich <b>wohne</b> seit drei Jahren hier“ ✓. Second trap: <b>vor</b> means „ago“, not „for“ — <i>Ich bleibe vor zwei Wochen</i> ✗ → „Ich bleibe <b>zwei Wochen</b>“ or „<b>für</b> zwei Wochen“ ✓, while „<b>vor</b> zwei Wochen“ means two weeks <i>ago</i>.',
+        fa:'مهم‌ترین نکته: انگلیسیِ «I have lived here for three years» باعث می‌شود بنویسی <i>Ich habe seit drei Jahren hier gewohnt</i> ✗. با <b>seit</b> آلمانی <b>حال</b> به کار می‌برد: «Ich <b>wohne</b> seit drei Jahren hier» ✓. تلهٔ دوم: <b>vor</b> یعنی «پیش»، نه «به مدت».'}},
+  {type:'tip',md:{en:'<b>in</b> + Dativ always points to the future („in zwei Wochen“ = two weeks from now), <b>vor</b> + Dativ always to the past („vor zwei Wochen“ = two weeks ago). They are a mirror pair — learn them together.',
+        fa:'<b>in</b> + داتیو همیشه به آینده اشاره دارد («in zwei Wochen») و <b>vor</b> + داتیو همیشه به گذشته («vor zwei Wochen»). جفت آینه‌ای‌اند — با هم یادشان بگیر.'}},
+  {type:'quiz',q:{en:'„Wir kennen uns ___ der Schule.“ (and we still know each other)',fa:'«Wir kennen uns ___ der Schule.» (و همچنان همدیگر را می‌شناسیم)'},
+   a:'seit',o:['vor','ab','für'],
+   ex:{en:'The friendship started in the past and continues → <b>seit</b> + Dativ with the present tense: „Wir <b>kennen</b> uns seit der Schule.“',
+       fa:'دوستی در گذشته آغاز شده و ادامه دارد → <b>seit</b> + داتیو با زمان حال.'}}
+ ]},
+
+/* ---------- 15. Modalverben ---------- */
+{id:'koennen-duerfen',ic:'🔑',lv:3,sk:'Verbs',
+ title:{en:'All six modal verbs',fa:'هر شش فعل کمکی مُدال'},
+ sub:{en:'können · müssen · dürfen · sollen · wollen · möchten',fa:'können · müssen · dürfen · sollen · wollen · möchten'},
+ blocks:[
+  {type:'text',md:{en:'Modal verbs say <b>how</b> you relate to an action: are you able to do it, forced to do it, allowed to do it, advised to do it, or do you simply want to. They come with a second verb in the <b>Infinitiv</b>, which waits at the end of the sentence.',
+        fa:'فعل‌های مُدال می‌گویند <b>چگونه</b> با کار نسبت داری: توانایی، اجبار، اجازه، توصیه یا خواست. همراهشان فعل دومی در <b>مصدر</b> می‌آید که در پایان جمله می‌ایستد.'}},
+  {type:'table',head:['','können','müssen','dürfen','sollen','wollen','möchten'],rows:[
+   ['ich','*kann','*muss','*darf','*soll','*will','*möchte'],
+   ['du','kannst','musst','darfst','sollst','willst','möchtest'],
+   ['er/sie/es','*kann','*muss','*darf','*soll','*will','*möchte'],
+   ['wir','können','müssen','dürfen','sollen','wollen','möchten'],
+   ['ihr','könnt','müsst','dürft','sollt','wollt','möchtet'],
+   ['sie/Sie','können','müssen','dürfen','sollen','wollen','möchten']],
+   cap:{en:'ich and er/sie/es are identical and have NO ending — that is the modal signature',fa:'ich و er/sie/es یکسان‌اند و پایانه ندارند — نشانهٔ فعل مُدال'}},
+  {type:'rule',md:{en:'<b>Satzklammer:</b> the modal sits in position 2, the infinitive at the very end, and everything else lives in between.<br>„Ich <b>muss</b> heute noch zur Apotheke <b>gehen</b>.“<br>„<b>Kannst</b> du mir bitte <b>helfen</b>?“',
+        fa:'<b>Satzklammer:</b> فعل مُدال در جایگاه ۲ و مصدر در پایان می‌نشیند و بقیه در میان آن دو جای می‌گیرد.<br>«Ich <b>muss</b> heute noch zur Apotheke <b>gehen</b>.»'}},
+  {type:'table',head:['Modal','Meaning','Example'],rows:[
+   ['können','be able to / can','*Ich kann noch nicht gut Deutsch sprechen.'],
+   ['müssen','have to / must','*Du musst das Formular unterschreiben.'],
+   ['dürfen','be allowed to / may','*Darf ich hier rauchen?'],
+   ['sollen','be supposed to / should','*Der Arzt sagt, ich soll mehr schlafen.'],
+   ['wollen','want to (firm intention)','*Mein Sohn will Fußball spielen.'],
+   ['möchten','would like to (polite)','*Ich möchte einen Termin vereinbaren.']]},
+  {type:'contrast',cols:[
+   {t:'nicht müssen = no obligation',md:{en:'You are free — nobody forces you.<br>„Du <b>musst nicht</b> kommen, wenn du keine Zeit hast.“<br>„Sie <b>müssen</b> das Formular heute <b>nicht</b> abgeben.“<br><br>English: „you do not <b>have to</b>“.',
+       fa:'آزادی — کسی مجبورت نمی‌کند.<br>«Du <b>musst nicht</b> kommen, wenn du keine Zeit hast.»'}},
+   {t:'nicht dürfen = prohibition',md:{en:'It is forbidden.<br>„Du <b>darfst nicht</b> so viel Salz essen.“<br>„Hier <b>darf</b> man <b>nicht</b> parken.“<br><br>English: „you <b>must not</b>“.',
+       fa:'ممنوع است.<br>«Du <b>darfst nicht</b> so viel Salz essen.»'}}]},
+  {type:'examples',items:[
+   {de:'Ich kann morgen leider nicht kommen.',en:'Unfortunately I cannot come tomorrow.',say:'Ich kann morgen leider nicht kommen.'},
+   {de:'Du musst dieses Formular noch unterschreiben.',en:'You still have to sign this form.',say:'Du musst dieses Formular noch unterschreiben.'},
+   {de:'Darf ich Ihren Ausweis sehen?',en:'May I see your ID?',say:'Darf ich Ihren Ausweis sehen?'},
+   {de:'Sie sollen die Tabletten dreimal am Tag nehmen.',en:'You are supposed to take the tablets three times a day.',say:'Sie sollen die Tabletten dreimal am Tag nehmen.'},
+   {de:'Was möchten Sie trinken?',en:'What would you like to drink?',say:'Was möchten Sie trinken?'},
+   {de:'Wir wollen im August nach Italien fahren.',en:'We want to go to Italy in August.',say:'Wir wollen im August nach Italien fahren.'}]},
+  {type:'warn',md:{en:'The dangerous pair is <b>nicht müssen</b> and <b>nicht dürfen</b>. English „must not“ looks like <i>muss nicht</i>, but it is <b>darf nicht</b>! „Du <b>musst nicht</b> warten“ = you are free to go; „Du <b>darfst nicht</b> warten“ = waiting is forbidden. And remember: <b>will</b> means „wants“, so „Er <b>will</b> zahlen“ = he wants to pay, not „he will pay“.',
+        fa:'جفت خطرناک <b>nicht müssen</b> و <b>nicht dürfen</b> است. انگلیسیِ «must not» شبیه <i>muss nicht</i> است، اما در واقع <b>darf nicht</b> است! «Du <b>musst nicht</b> warten» = آزادی بروی؛ «Du <b>darfst nicht</b> warten» = منتظر ماندن ممنوع است. و <b>will</b> یعنی «می‌خواهد».'}},
+  {type:'tip',md:{en:'<b>möchten</b> is the polite twin of <b>wollen</b> and the single most useful modal in a shop, a restaurant or a doctor&rsquo;s office. „Ich <b>will</b> einen Termin“ sounds like a demand; „Ich <b>möchte</b> einen Termin“ is what Germans actually say.',
+        fa:'<b>möchten</b> همزاد مؤدب <b>wollen</b> است و پرکاربردترین مُدال در مغازه، رستوران و مطب. «Ich <b>will</b> einen Termin» مثل دستور است؛ «Ich <b>möchte</b> einen Termin» همان است که آلمانی‌ها می‌گویند.'}},
+  {type:'dialog',lines:[
+   {who:'A',de:'Guten Tag, ich möchte einen Termin vereinbaren.',en:'Hello, I would like to make an appointment.'},
+   {who:'B',de:'Können Sie am Donnerstag um zehn?',en:'Can you do Thursday at ten?'},
+   {who:'A',de:'Da muss ich arbeiten. Darf ich auch später kommen?',en:'I have to work then. May I come later as well?'},
+   {who:'B',de:'Ja, Sie müssen nur zehn Minuten vorher da sein.',en:'Yes, you just have to be there ten minutes early.'}]},
+  {type:'quiz',q:{en:'„Achtung! Hier ___ Sie nicht fotografieren.“ (it is forbidden)',fa:'«Achtung! Hier ___ Sie nicht fotografieren.» (ممنوع است)'},
+   a:'dürfen',o:['müssen','können','sollen'],
+   ex:{en:'A prohibition is <b>nicht dürfen</b>. „Hier <b>müssen</b> Sie nicht fotografieren“ would only mean you are not obliged to take photos.',
+       fa:'ممنوعیت با <b>nicht dürfen</b> بیان می‌شود. «Hier <b>müssen</b> Sie nicht fotografieren» فقط یعنی مجبور نیستی عکس بگیری.'}}
+ ]},
+
+/* ---------- 16. brauchen + zu ---------- */
+{id:'brauchen-zu',ic:'🚫',lv:3,sk:'Verbs',
+ title:{en:'brauchen + zu + Infinitiv',fa:'brauchen + zu + مصدر'},
+ sub:{en:'The natural way to say „you do not have to“',fa:'راه طبیعی گفتن «لازم نیست»'},
+ blocks:[
+  {type:'text',md:{en:'„Du musst nicht kommen“ is correct German, but in speech Germans very often choose a different structure for the same idea: <b>brauchen + nicht + zu + Infinitiv</b> → „Du <b>brauchst nicht zu</b> kommen.“ It means exactly the same: there is no obligation.',
+        fa:'«Du musst nicht kommen» آلمانی درستی است، اما در گفتار آلمانی‌ها اغلب ساختار دیگری برای همین معنا برمی‌گزینند: <b>brauchen + nicht + zu + مصدر</b> → «Du <b>brauchst nicht zu</b> kommen.»'}},
+  {type:'rule',md:{en:'This structure only works <b>together with a negative or a limiting word</b>: <b>nicht</b>, <b>kein-</b>, <b>nichts</b>, <b>nie</b>, <b>nur</b>, <b>kaum</b>. A positive <i>Du brauchst zu kommen</i> ✗ does not exist in German.',
+        fa:'این ساختار فقط <b>همراه واژهٔ منفی یا محدودکننده</b> کار می‌کند: <b>nicht</b>، <b>kein-</b>، <b>nichts</b>، <b>nie</b>، <b>nur</b>، <b>kaum</b>. شکل مثبت <i>Du brauchst zu kommen</i> ✗ در آلمانی وجود ندارد.'}},
+  {type:'steps',items:[
+   {en:'Start from the modal sentence: „Du <b>musst</b> nicht warten.“',fa:'از جملهٔ مُدال آغاز کن: «Du <b>musst</b> nicht warten.»'},
+   {en:'Replace the modal with the conjugated <b>brauchen</b>: „Du <b>brauchst</b> nicht …“',fa:'فعل مُدال را با <b>brauchen</b> صرف‌شده عوض کن: «Du <b>brauchst</b> nicht …»'},
+   {en:'Put <b>zu</b> in front of the infinitive at the end: „Du brauchst nicht <b>zu warten</b>.“',fa:'پیش از مصدرِ پایانی <b>zu</b> بگذار: «Du brauchst nicht <b>zu warten</b>.»'},
+   {en:'With a separable verb the <b>zu</b> slips inside the word: mitkommen → „Du brauchst nicht <b>mitzukommen</b>.“',fa:'با فعل جداشدنی، <b>zu</b> به درون کلمه می‌خزد: mitkommen → «Du brauchst nicht <b>mitzukommen</b>.»'}]},
+  {type:'examples',items:[
+   {de:'Sie brauchen das Formular nicht zu unterschreiben.',en:'You do not have to sign the form.',say:'Sie brauchen das Formular nicht zu unterschreiben.'},
+   {de:'Du brauchst nichts mitzubringen.',en:'You do not need to bring anything.',say:'Du brauchst nichts mitzubringen.'},
+   {de:'Morgen brauchen wir nicht früh aufzustehen.',en:'Tomorrow we do not have to get up early.',say:'Morgen brauchen wir nicht früh aufzustehen.'},
+   {de:'Ich brauche nur anzurufen, dann bringt er das Paket.',en:'All I have to do is call and he will bring the parcel.',say:'Ich brauche nur anzurufen, dann bringt er das Paket.'},
+   {de:'Du brauchst keine Angst zu haben.',en:'You do not need to be afraid.',say:'Du brauchst keine Angst zu haben.'},
+   {de:'Ich brauche einen neuen Pass.',en:'I need a new passport. (brauchen as a normal verb + Akkusativ)',say:'Ich brauche einen neuen Pass.'}]},
+  {type:'contrast',cols:[
+   {t:'nicht brauchen zu / nicht müssen',md:{en:'No obligation — you may, but you need not.<br>„Du <b>brauchst</b> nicht <b>zu</b> kommen.“<br>„Du <b>musst</b> nicht kommen.“<br><br>Both are fine and mean the same.',
+       fa:'بی‌اجبار — می‌توانی، اما لازم نیست.<br>«Du <b>brauchst</b> nicht <b>zu</b> kommen.»'}},
+   {t:'nicht dürfen',md:{en:'Prohibition — a completely different meaning.<br>„Du <b>darfst</b> nicht kommen.“<br><br>Never use <i>brauchen</i> for this. There is no „brauchen“ version of a ban.',
+       fa:'ممنوعیت — معنایی کاملاً دیگر.<br>«Du <b>darfst</b> nicht kommen.»<br>هرگز برای این از <i>brauchen</i> استفاده نکن.'}}]},
+  {type:'warn',md:{en:'Three traps. (1) Forgetting <b>zu</b>: <i>Du brauchst nicht warten</i> — you will hear this everywhere, but written German wants „nicht <b>zu</b> warten“. (2) Putting <b>zu</b> in front of a separable verb: <i>zu mitkommen</i> ✗ → „<b>mitzukommen</b>“ ✓ (one word, zu in the middle). (3) Using it positively: <i>Ich brauche zu arbeiten</i> ✗ → „Ich <b>muss</b> arbeiten“ ✓.',
+        fa:'سه تله. (۱) فراموش کردن <b>zu</b>: <i>Du brauchst nicht warten</i> — همه‌جا می‌شنوی، اما آلمانی نوشتاری «nicht <b>zu</b> warten» می‌خواهد. (۲) گذاشتن <b>zu</b> پیش از فعل جداشدنی: <i>zu mitkommen</i> ✗ → «<b>mitzukommen</b>» ✓. (۳) کاربرد مثبت: <i>Ich brauche zu arbeiten</i> ✗ → «Ich <b>muss</b> arbeiten» ✓.'}},
+  {type:'tip',md:{en:'<b>nur … zu</b> is a lovely little pattern for „all you have to do is …“: „Du brauchst <b>nur</b> auf den Knopf <b>zu drücken</b>.“ It sounds friendly and very native.',
+        fa:'<b>nur … zu</b> الگوی کوچک دلنشینی برای «فقط کافی است …» است: «Du brauchst <b>nur</b> auf den Knopf <b>zu drücken</b>.»'}},
+  {type:'quiz',q:{en:'„Du brauchst nichts ___.“ (mitbringen)',fa:'«Du brauchst nichts ___.» (mitbringen)'},
+   a:'mitzubringen',o:['zu mitbringen','mitbringen zu','mit zu bringen'],
+   ex:{en:'<i>mitbringen</i> is separable, so the <b>zu</b> goes between the prefix and the verb and the whole thing stays one word: <b>mitzubringen</b>.',
+       fa:'<i>mitbringen</i> جداشدنی است، پس <b>zu</b> میان پیشوند و فعل می‌آید و همه یک کلمه می‌ماند: <b>mitzubringen</b>.'}}
+ ]}
+
+];
+
+/* ===================== DRILLS ===================== */
+window.DRILL_A2=[
+
+/* --- wechselprep --- */
+{gid:'wechselprep',lv:3,sk:'Prepositions',s:'Ich hänge das Bild ___ die Wand.',a:'an',o:['an der','am','auf'],ex:'Motion towards a vertical surface → an + Akkusativ, and die Wand is already in the Akkusativ.',tr:'I hang the picture on the wall.',say:'Ich hänge das Bild an die Wand.'},
+{gid:'wechselprep',lv:3,sk:'Prepositions',s:'Das Bild hängt ___ Wand.',a:'an der',o:['an die','auf der','an dem'],ex:'Here hängen describes a position (wo?) → an + Dativ; die Wand is feminine → an der Wand.',tr:'The picture is hanging on the wall.',say:'Das Bild hängt an der Wand.'},
+{gid:'wechselprep',lv:3,sk:'Prepositions',s:'Stell die Milch bitte ___ Kühlschrank.',a:'in den',o:['im','in dem','in der'],ex:'stellen is an action (wohin?) → in + Akkusativ; der Kühlschrank → in den Kühlschrank.',tr:'Please put the milk in the fridge.',say:'Stell die Milch bitte in den Kühlschrank.'},
+{gid:'wechselprep',lv:3,sk:'Prepositions',s:'Die Milch steht schon ___ Kühlschrank.',a:'im',o:['in den','ins','in der'],ex:'stehen is a position (wo?) → in + Dativ, and in dem is shortened to im.',tr:'The milk is already in the fridge.',say:'Die Milch steht schon im Kühlschrank.'},
+{gid:'wechselprep',lv:3,sk:'Prepositions',s:'Leg den Schlüssel bitte ___ Tisch.',a:'auf den',o:['auf dem','am','aufs'],ex:'legen is an action (wohin?) → auf + Akkusativ; der Tisch → auf den Tisch.',tr:'Please put the key on the table.',say:'Leg den Schlüssel bitte auf den Tisch.'},
+{gid:'wechselprep',lv:3,sk:'Prepositions',s:'Setzen Sie sich bitte ___ Stuhl, der Arzt kommt gleich.',a:'auf den',o:['auf dem','an dem','auf der'],ex:'sich setzen means changing position (wohin?) → auf + Akkusativ; der Stuhl → auf den Stuhl.',tr:'Please sit down on the chair, the doctor is coming shortly.',say:'Setzen Sie sich bitte auf den Stuhl, der Arzt kommt gleich.'},
+{gid:'wechselprep',lv:3,sk:'Prepositions',s:'Die Apotheke liegt ___ dem Supermarkt und der Bank.',a:'zwischen',o:['unter','zwischen den','bei'],ex:'liegen is a position (wo?) and zwischen takes the Dativ — dem and der are already there.',tr:'The pharmacy is between the supermarket and the bank.',say:'Die Apotheke liegt zwischen dem Supermarkt und der Bank.'},
+{gid:'wechselprep',lv:3,sk:'Prepositions',s:'Ich habe die Schuhe ___ Tür gestellt.',a:'vor die',o:['vor der','vor dem','von der'],ex:'In the Perfekt the rule does not change: stellen is an action (wohin?) → vor + Akkusativ, feminine die Tür.',tr:'I put the shoes in front of the door.',say:'Ich habe die Schuhe vor die Tür gestellt.'},
+
+/* --- verbprep --- */
+{gid:'verbprep',lv:3,sk:'Prepositions',s:'Ich warte schon zehn Minuten ___ den Bus.',a:'auf',o:['für','an','über'],ex:'The fixed combination is warten auf + Akkusativ — never warten für, although English says "wait for".',tr:'I have been waiting for the bus for ten minutes.',say:'Ich warte schon zehn Minuten auf den Bus.'},
+{gid:'verbprep',lv:3,sk:'Prepositions',s:'Ich freue mich schon ___ das Wochenende.',a:'auf',o:['über','für','an'],ex:'sich freuen auf + Akkusativ looks forward to something that has not happened yet.',tr:'I am already looking forward to the weekend.',say:'Ich freue mich schon auf das Wochenende.'},
+{gid:'verbprep',lv:3,sk:'Prepositions',s:'Denkst du ___ den Termin beim Arzt?',a:'an',o:['über','auf','für'],ex:'denken an + Akkusativ. English "think about" tempts you into über, which belongs to sprechen.',tr:'Are you thinking of the appointment at the doctor?',say:'Denkst du an den Termin beim Arzt?'},
+{gid:'verbprep',lv:3,sk:'Prepositions',s:'Meine Tochter interessiert sich ___ Sport.',a:'für',o:['an','über','auf'],ex:'sich interessieren für + Akkusativ, although English says "interested in".',tr:'My daughter is interested in sport.',say:'Meine Tochter interessiert sich für Sport.'},
+{gid:'verbprep',lv:3,sk:'Prepositions',s:'Mein Sohn hat Angst ___ Hund.',a:'vor dem',o:['vor den','von dem','für den'],ex:'Angst haben vor + Dativ; der Hund becomes dem Hund.',tr:'My son is afraid of the dog.',say:'Mein Sohn hat Angst vor dem Hund.'},
+{gid:'verbprep',lv:3,sk:'Prepositions',s:'Meine Frau kümmert sich ___ die Anmeldung.',a:'um',o:['für','auf','über'],ex:'sich kümmern um + Akkusativ = to take care of something.',tr:'My wife is taking care of the registration.',say:'Meine Frau kümmert sich um die Anmeldung.'},
+{gid:'verbprep',lv:3,sk:'Prepositions',s:'Ich möchte Sie ___ einen Termin bitten.',a:'um',o:['für','nach','an'],ex:'bitten um + Akkusativ = to ask for something. There is no bitten für.',tr:'I would like to ask you for an appointment.',say:'Ich möchte Sie um einen Termin bitten.'},
+{gid:'verbprep',lv:3,sk:'Prepositions',s:'Wir haben lange ___ das Problem gesprochen.',a:'über',o:['von','an','auf'],ex:'sprechen über + Akkusativ. (sprechen von also exists, but it needs the Dativ: von dem Problem.)',tr:'We talked about the problem for a long time.',say:'Wir haben lange über das Problem gesprochen.'},
+
+/* --- adjektiv-basis --- */
+{gid:'adjektiv-basis',lv:3,sk:'Adjectives',s:'Heute ist ein ___ Tag. (schön)',a:'schöner',o:['schöne','schönes','schönen'],ex:'der Tag is masculine Nominativ: ein shows nothing, so the adjective takes the der-signal -er.',tr:'Today is a beautiful day.',say:'Heute ist ein schöner Tag.'},
+{gid:'adjektiv-basis',lv:3,sk:'Adjectives',s:'Wir haben eine ___ Wohnung gefunden. (klein)',a:'kleine',o:['kleiner','kleines','kleinen'],ex:'die Wohnung is feminine; after eine the ending is -e in Nominativ and Akkusativ.',tr:'We have found a small flat.',say:'Wir haben eine kleine Wohnung gefunden.'},
+{gid:'adjektiv-basis',lv:3,sk:'Adjectives',s:'Ich suche ein ___ Zimmer. (ruhig)',a:'ruhiges',o:['ruhige','ruhiger','ruhigen'],ex:'das Zimmer is neuter: ein gives no signal, so the adjective takes -es.',tr:'I am looking for a quiet room.',say:'Ich suche ein ruhiges Zimmer.'},
+{gid:'adjektiv-basis',lv:3,sk:'Adjectives',s:'Ich nehme den ___ Pullover. (rot)',a:'roten',o:['rote','roter','rotes'],ex:'After the der-word den (masculine Akkusativ) the weak ending -en is enough.',tr:'I will take the red pullover.',say:'Ich nehme den roten Pullover.'},
+{gid:'adjektiv-basis',lv:3,sk:'Adjectives',s:'Der ___ Kaffee schmeckt wirklich gut. (frisch)',a:'frische',o:['frischen','frischer','frisches'],ex:'After der in the Nominativ the weak ending is -e.',tr:'The fresh coffee tastes really good.',say:'Der frische Kaffee schmeckt wirklich gut.'},
+{gid:'adjektiv-basis',lv:3,sk:'Adjectives',s:'Ich brauche einen ___ Termin. (neu)',a:'neuen',o:['neue','neuer','neues'],ex:'einen already shows masculine Akkusativ, so the adjective only needs the weak -en.',tr:'I need a new appointment.',say:'Ich brauche einen neuen Termin.'},
+{gid:'adjektiv-basis',lv:3,sk:'Adjectives',s:'Meine ___ Kollegen helfen mir viel. (nett)',a:'netten',o:['nette','netter','nettes'],ex:'In the plural, after a mein-word the ending is always -en.',tr:'My nice colleagues help me a lot.',say:'Meine netten Kollegen helfen mir viel.'},
+{gid:'adjektiv-basis',lv:3,sk:'Adjectives',s:'Ich möchte das ___ Hemd anprobieren. (blau)',a:'blaue',o:['blauen','blauer','blaues'],ex:'das Hemd is neuter; after the der-word das the weak ending -e covers Nominativ and Akkusativ.',tr:'I would like to try on the blue shirt.',say:'Ich möchte das blaue Hemd anprobieren.'},
+
+/* --- komparativ-basis --- */
+{gid:'komparativ-basis',lv:3,sk:'Adjectives',s:'Mein Bruder ist zwei Jahre ___ als ich. (alt)',a:'älter',o:['alter','mehr alt','am ältesten'],ex:'Short adjectives with a take an Umlaut: alt → älter, and the comparison word is als.',tr:'My brother is two years older than me.',say:'Mein Bruder ist zwei Jahre älter als ich.'},
+{gid:'komparativ-basis',lv:3,sk:'Adjectives',s:'Das Hotel ist so teuer ___ die Wohnung.',a:'wie',o:['als','denn','dass'],ex:'so … wie expresses equality; als is only used where there is a difference.',tr:'The hotel is as expensive as the flat.',say:'Das Hotel ist so teuer wie die Wohnung.'},
+{gid:'komparativ-basis',lv:3,sk:'Adjectives',s:'Der Zug fährt ___ als der Bus. (schnell)',a:'schneller',o:['mehr schnell','am schnellsten','schnellere'],ex:'The comparative is adjective + -er. German never builds it with mehr.',tr:'The train goes faster than the bus.',say:'Der Zug fährt schneller als der Bus.'},
+{gid:'komparativ-basis',lv:3,sk:'Adjectives',s:'Ich trinke ___ Tee als Kaffee. (gern)',a:'lieber',o:['gerner','mehr gern','am liebsten'],ex:'gern – lieber – am liebsten is irregular, and lieber … als is how German says "prefer".',tr:'I prefer tea to coffee.',say:'Ich trinke lieber Tee als Kaffee.'},
+{gid:'komparativ-basis',lv:3,sk:'Adjectives',s:'Von allen Broten schmeckt dieses ___. (gut)',a:'am besten',o:['besser','am gutsten','der beste'],ex:'gut – besser – am besten. After a verb the superlative always has the shape am …-sten.',tr:'Of all the breads this one tastes the best.',say:'Von allen Broten schmeckt dieses am besten.'},
+{gid:'komparativ-basis',lv:3,sk:'Adjectives',s:'Ich habe ___ Zeit als du. (viel)',a:'mehr',o:['vieler','mehrere','am meisten'],ex:'viel – mehr – am meisten; mehr never takes an ending.',tr:'I have more time than you.',say:'Ich habe mehr Zeit als du.'},
+{gid:'komparativ-basis',lv:3,sk:'Adjectives',s:'Welche Apotheke ist ___? (nah)',a:'am nächsten',o:['am nahsten','näher','die nahste'],ex:'nah – näher – am nächsten is irregular; note the -ch- in nächsten.',tr:'Which pharmacy is the closest?',say:'Welche Apotheke ist am nächsten?'},
+{gid:'komparativ-basis',lv:3,sk:'Adjectives',s:'Wir suchen eine ___ Wohnung als diese. (groß)',a:'größere',o:['größer','größeren','am größten'],ex:'In front of a noun the comparative still needs its adjective ending: eine größere Wohnung (feminine Akkusativ).',tr:'We are looking for a bigger flat than this one.',say:'Wir suchen eine größere Wohnung als diese.'},
+
+/* --- plusquamperfekt --- */
+{gid:'plusquamperfekt',lv:3,sk:'Verbs',s:'Nachdem ich gefrühstückt ___, bin ich zur Arbeit gefahren.',a:'hatte',o:['habe','war','bin'],ex:'frühstücken takes haben, so the Plusquamperfekt is hatte gefrühstückt — one step behind the main clause.',tr:'After I had had breakfast, I drove to work.',say:'Nachdem ich gefrühstückt hatte, bin ich zur Arbeit gefahren.'},
+{gid:'plusquamperfekt',lv:3,sk:'Verbs',s:'Der Zug ___ schon abgefahren, als wir ankamen.',a:'war',o:['hatte','ist','hat'],ex:'abfahren is a movement verb and takes sein → war abgefahren.',tr:'The train had already left when we arrived.',say:'Der Zug war schon abgefahren, als wir ankamen.'},
+{gid:'plusquamperfekt',lv:3,sk:'Verbs',s:'Ich ___ meinen Pass vergessen, deshalb durfte ich nicht fliegen.',a:'hatte',o:['war','bin','hätte'],ex:'vergessen takes haben, and the forgetting happened before the refusal → hatte vergessen.',tr:'I had forgotten my passport, so I was not allowed to fly.',say:'Ich hatte meinen Pass vergessen, deshalb durfte ich nicht fliegen.'},
+{gid:'plusquamperfekt',lv:3,sk:'Verbs',s:'Nachdem wir die Wohnung ___ hatten, kamen die Gäste. (putzen)',a:'geputzt',o:['putzen','geputzen','putzt'],ex:'putzen is regular: Partizip II geputzt. Together with hatten it forms the Plusquamperfekt.',tr:'After we had cleaned the flat, the guests arrived.',say:'Nachdem wir die Wohnung geputzt hatten, kamen die Gäste.'},
+{gid:'plusquamperfekt',lv:3,sk:'Verbs',s:'Sie ___ noch nie geflogen, und sie hatte Angst.',a:'war',o:['hatte','ist','hat'],ex:'fliegen takes sein in the Perfekt, so the Plusquamperfekt is war geflogen.',tr:'She had never flown before, and she was afraid.',say:'Sie war noch nie geflogen, und sie hatte Angst.'},
+{gid:'plusquamperfekt',lv:3,sk:'Verbs',s:'Nachdem der Arzt mich untersucht hatte, ___ ich zur Apotheke gegangen.',a:'bin',o:['habe','war','hatte'],ex:'The main clause is the later action, so it stays in the ordinary Perfekt: gehen + sein → bin gegangen.',tr:'After the doctor had examined me, I went to the pharmacy.',say:'Nachdem der Arzt mich untersucht hatte, bin ich zur Apotheke gegangen.'},
+{gid:'plusquamperfekt',lv:3,sk:'Verbs',s:'Wir ___ die Rechnung schon bezahlt, als die Mahnung kam.',a:'hatten',o:['haben','waren','hatte'],ex:'bezahlen takes haben, and wir needs the plural form hatten.',tr:'We had already paid the bill when the reminder came.',say:'Wir hatten die Rechnung schon bezahlt, als die Mahnung kam.'},
+{gid:'plusquamperfekt',lv:3,sk:'Verbs',s:'Ich konnte nicht einkaufen, weil ich mein Geld zu Hause ___ hatte. (lassen)',a:'gelassen',o:['lassen','geliegt','verlassen'],ex:'In the weil-clause the auxiliary hatte goes last, so the Partizip II gelassen stands just before it.',tr:'I could not do the shopping because I had left my money at home.',say:'Ich konnte nicht einkaufen, weil ich mein Geld zu Hause gelassen hatte.'},
+
+/* --- weil-dass --- */
+{gid:'weil-dass',lv:3,sk:'Clauses',s:'Ich komme später, weil ich noch ___. (einkaufen + müssen)',a:'einkaufen muss',o:['muss einkaufen','einkaufen müssen','muss einkaufe'],ex:'In a subordinate clause the conjugated verb goes last, so the modal muss follows the infinitive.',tr:'I will come later because I still have to do the shopping.',say:'Ich komme später, weil ich noch einkaufen muss.'},
+{gid:'weil-dass',lv:3,sk:'Clauses',s:'Ich weiß, dass du heute ___. (arbeiten)',a:'arbeitest',o:['arbeitest du','du arbeitest','arbeiten'],ex:'dass sends the conjugated verb to the end; the subject du stays in front of it.',tr:'I know that you are working today.',say:'Ich weiß, dass du heute arbeitest.'},
+{gid:'weil-dass',lv:3,sk:'Clauses',s:'Der Arzt sagt, ___ ich mehr schlafen soll.',a:'dass',o:['weil','wenn','was'],ex:'dass introduces the content of what somebody says, and the verb soll lands at the end.',tr:'The doctor says that I should sleep more.',say:'Der Arzt sagt, dass ich mehr schlafen soll.'},
+{gid:'weil-dass',lv:3,sk:'Clauses',s:'Weil der Bus nicht ___, nehme ich ein Taxi. (kommen)',a:'kommt',o:['kommt nicht','nicht kommt','kommen'],ex:'The verb stands at the very end of the weil-clause, after nicht.',tr:'Because the bus is not coming, I am taking a taxi.',say:'Weil der Bus nicht kommt, nehme ich ein Taxi.'},
+{gid:'weil-dass',lv:3,sk:'Clauses',s:'Weil ich müde bin, ___ ich früh ins Bett. (gehen)',a:'gehe',o:['ich gehe','gehen','bin'],ex:'The weil-clause fills position 1, so the main verb comes immediately after the comma, before the subject.',tr:'Because I am tired, I go to bed early.',say:'Weil ich müde bin, gehe ich früh ins Bett.'},
+{gid:'weil-dass',lv:3,sk:'Clauses',s:'Ich bin müde, weil ich jeden Tag um fünf ___. (aufstehen)',a:'aufstehe',o:['stehe auf','auf stehe','aufstehen'],ex:'In a subordinate clause a separable verb becomes one word again: aufstehe.',tr:'I am tired because I get up at five every day.',say:'Ich bin müde, weil ich jeden Tag um fünf aufstehe.'},
+{gid:'weil-dass',lv:3,sk:'Clauses',s:'Sie ist froh, dass sie die Prüfung ___. (bestehen, Perfekt)',a:'bestanden hat',o:['hat bestanden','bestanden ist','bestehen hat'],ex:'In the Perfekt inside a subordinate clause the participle comes first and the auxiliary takes the final spot.',tr:'She is glad that she passed the exam.',say:'Sie ist froh, dass sie die Prüfung bestanden hat.'},
+{gid:'weil-dass',lv:3,sk:'Clauses',s:'Wenn Sie Fragen ___, rufen Sie mich bitte an. (haben)',a:'haben',o:['haben Sie','hat','habt'],ex:'wenn is a subordinating connector: haben goes last, and the main clause then starts with its own verb.',tr:'If you have questions, please call me.',say:'Wenn Sie Fragen haben, rufen Sie mich bitte an.'},
+
+/* --- werden-drei --- */
+{gid:'werden-drei',lv:3,sk:'Verbs',s:'Mein Bruder ___ im Juni dreißig.',a:'wird',o:['werden','wirst','worden'],ex:'The er/sie/es form of werden is wird; here it is the full verb, "to turn".',tr:'My brother turns thirty in June.',say:'Mein Bruder wird im Juni dreißig.'},
+{gid:'werden-drei',lv:3,sk:'Verbs',s:'Es ___ draußen langsam dunkel.',a:'wird',o:['werden','wirst','geworden'],ex:'An adjective at the end (dunkel) shows that werden is the full verb: it is getting dark.',tr:'It is slowly getting dark outside.',say:'Es wird draußen langsam dunkel.'},
+{gid:'werden-drei',lv:3,sk:'Verbs',s:'Du ___ bestimmt einen guten Job finden.',a:'wirst',o:['wird','werdet','bist'],ex:'du wirst + an infinitive at the end (finden) = future.',tr:'You will certainly find a good job.',say:'Du wirst bestimmt einen guten Job finden.'},
+{gid:'werden-drei',lv:3,sk:'Verbs',s:'Wir ___ nächste Woche umziehen.',a:'werden',o:['wird','werdet','worden'],ex:'wir werden + Infinitiv umziehen = future.',tr:'We are going to move next week.',say:'Wir werden nächste Woche umziehen.'},
+{gid:'werden-drei',lv:3,sk:'Verbs',s:'Sie ist letztes Jahr Krankenschwester ___.',a:'geworden',o:['worden','werden','gewurden'],ex:'The full verb has the Partizip II geworden and takes sein. The short worden belongs to the passive.',tr:'She became a nurse last year.',say:'Sie ist letztes Jahr Krankenschwester geworden.'},
+{gid:'werden-drei',lv:3,sk:'Verbs',s:'Die Rechnung ___ morgen bezahlt.',a:'wird',o:['will','ist geworden','werdet'],ex:'A Partizip II at the end (bezahlt) signals the Passiv: the bill will be paid.',tr:'The bill will be paid tomorrow.',say:'Die Rechnung wird morgen bezahlt.'},
+{gid:'werden-drei',lv:3,sk:'Verbs',s:'Ich ___ dir das Geld morgen geben.',a:'werde',o:['will','wird','worden'],ex:'"I will" is ich werde + Infinitiv. German will means "want", so Ich will would change the meaning.',tr:'I will give you the money tomorrow.',say:'Ich werde dir das Geld morgen geben.'},
+{gid:'werden-drei',lv:3,sk:'Verbs',s:'Ich bin froh, weil mein Deutsch langsam besser ___.',a:'wird',o:['werden','ist geworden','wirst'],ex:'In the weil-clause the conjugated verb goes last, and with the adjective besser werden is the full verb.',tr:'I am glad because my German is slowly getting better.',say:'Ich bin froh, weil mein Deutsch langsam besser wird.'},
+
+/* --- es-konstruktionen --- */
+{gid:'es-konstruktionen',lv:3,sk:'Sentences',s:'___ regnet schon den ganzen Tag.',a:'Es',o:['Das','Er','Da'],ex:'Weather verbs always need the dummy subject es.',tr:'It has been raining all day.',say:'Es regnet schon den ganzen Tag.'},
+{gid:'es-konstruktionen',lv:3,sk:'Sentences',s:'In meiner Straße gibt ___ zwei Bäckereien.',a:'es',o:['sie','da','man'],ex:'es gibt is a fixed expression; even when something else starts the sentence, es stays with gibt.',tr:'In my street there are two bakeries.',say:'In meiner Straße gibt es zwei Bäckereien.'},
+{gid:'es-konstruktionen',lv:3,sk:'Sentences',s:'Gibt es hier in der Nähe ___ Apotheke?',a:'eine',o:['einer','einen','ein'],ex:'What exists after es gibt stands in the Akkusativ; die Apotheke is feminine → eine.',tr:'Is there a pharmacy nearby?',say:'Gibt es hier in der Nähe eine Apotheke?'},
+{gid:'es-konstruktionen',lv:3,sk:'Sentences',s:'Es gibt ___ Problem mit meinem Vertrag.',a:'ein',o:['einen','einem','eines'],ex:'das Problem is neuter, and the neuter Akkusativ looks like the Nominativ: ein Problem.',tr:'There is a problem with my contract.',say:'Es gibt ein Problem mit meinem Vertrag.'},
+{gid:'es-konstruktionen',lv:3,sk:'Sentences',s:'Wie geht ___ dir?',a:'es',o:['sich','du','dich'],ex:'The phrase is fixed: wie geht es dir — es is the subject and dir the Dativ person.',tr:'How are you?',say:'Wie geht es dir?'},
+{gid:'es-konstruktionen',lv:3,sk:'Sentences',s:'Es ___ mir leid, ich habe den Termin vergessen.',a:'tut',o:['tue','ist','macht'],ex:'es tut mir leid is fixed; the verb agrees with es, so the form is tut.',tr:'I am sorry, I forgot the appointment.',say:'Es tut mir leid, ich habe den Termin vergessen.'},
+{gid:'es-konstruktionen',lv:3,sk:'Sentences',s:'Heute ___ es sehr kalt.',a:'ist',o:['es ist','sind','hat'],ex:'Heute takes position 1, the verb stays in position 2, and es simply moves behind it — but it never disappears.',tr:'It is very cold today.',say:'Heute ist es sehr kalt.'},
+{gid:'es-konstruktionen',lv:3,sk:'Sentences',s:'Ich gehe nicht raus, weil ___ schneit.',a:'es',o:['das','er','man'],ex:'Even inside a weil-clause the weather needs its subject es, and the verb schneit goes to the end.',tr:'I am not going out because it is snowing.',say:'Ich gehe nicht raus, weil es schneit.'},
+
+/* --- mengen --- */
+{gid:'mengen',lv:3,sk:'Numbers',s:'Ich möchte bitte ein Glas ___.',a:'Wasser',o:['von Wasser','Wassers','vom Wasser'],ex:'The content follows the measure bare — no von, no ending: ein Glas Wasser.',tr:'I would like a glass of water, please.',say:'Ich möchte bitte ein Glas Wasser.'},
+{gid:'mengen',lv:3,sk:'Numbers',s:'Bitte zwei ___ Äpfel. (Kilo)',a:'Kilo',o:['Kilos','Kilo von','Kilogramms'],ex:'Masculine and neuter units of measurement stay singular after a number: zwei Kilo, drei Liter.',tr:'Two kilos of apples, please.',say:'Bitte zwei Kilo Äpfel.'},
+{gid:'mengen',lv:3,sk:'Numbers',s:'Wir brauchen noch eine ___ Milch. (Flasche)',a:'Flasche',o:['Flaschen','Flasche von','Flaschen von'],ex:'One bottle → singular, and the content follows directly: eine Flasche Milch.',tr:'We still need a bottle of milk.',say:'Wir brauchen noch eine Flasche Milch.'},
+{gid:'mengen',lv:3,sk:'Numbers',s:'Ich nehme ein ___ Kuchen und einen Kaffee. (Stück)',a:'Stück',o:['Stücke','Stück von','Stücken'],ex:'ein Stück Kuchen — Stück stays singular and the cake follows with no article.',tr:'I will have a piece of cake and a coffee.',say:'Ich nehme ein Stück Kuchen und einen Kaffee.'},
+{gid:'mengen',lv:3,sk:'Numbers',s:'Haben Sie 200 ___ Schinken? (Gramm)',a:'Gramm',o:['Gramms','Gramme','Gramm von'],ex:'Gramm is a measure word: after a number it never takes a plural ending.',tr:'Do you have 200 grams of ham?',say:'Haben Sie 200 Gramm Schinken?'},
+{gid:'mengen',lv:3,sk:'Numbers',s:'Zwei ___ Kaffee, bitte. (Tasse)',a:'Tassen',o:['Tasse','Tassen von','Tassens'],ex:'die Tasse is a real container and a feminine noun, so it does take a plural: zwei Tassen Kaffee.',tr:'Two cups of coffee, please.',say:'Zwei Tassen Kaffee, bitte.'},
+{gid:'mengen',lv:3,sk:'Numbers',s:'Das macht zusammen acht ___ fünfzig. (Euro)',a:'Euro',o:['Euros','Euronen','Euro von'],ex:'Euro stays singular after a number, exactly like Kilo and Liter.',tr:'That comes to eight euros fifty altogether.',say:'Das macht zusammen acht Euro fünfzig.'},
+{gid:'mengen',lv:3,sk:'Numbers',s:'Stell bitte die zwei ___ Wasser in den Kühlschrank. (Flasche)',a:'Flaschen',o:['Flasche','Flaschen von','Flaschens'],ex:'Two containers → plural Flaschen; and stellen is an action, hence in den Kühlschrank with the Akkusativ.',tr:'Please put the two bottles of water in the fridge.',say:'Stell bitte die zwei Flaschen Wasser in den Kühlschrank.'},
+
+/* --- indefinit --- */
+{gid:'indefinit',lv:3,sk:'Vocabulary',s:'Hier darf ___ nicht rauchen.',a:'man',o:['Mann','einen','einem'],ex:'man means people in general: one n, a small letter, and always the subject.',tr:'You are not allowed to smoke here.',say:'Hier darf man nicht rauchen.'},
+{gid:'indefinit',lv:3,sk:'Vocabulary',s:'Im Krankenhaus muss ___ leise sein.',a:'man',o:['einen','der Mann','einem'],ex:'man always takes the er/sie/es verb form: man muss.',tr:'In the hospital you have to be quiet.',say:'Im Krankenhaus muss man leise sein.'},
+{gid:'indefinit',lv:3,sk:'Vocabulary',s:'___ hat heute Morgen angerufen, aber ich weiß nicht, wer.',a:'Jemand',o:['Niemand','Etwas','Man'],ex:'jemand = somebody whose name you do not know; niemand would mean nobody.',tr:'Somebody called this morning, but I do not know who.',say:'Jemand hat heute Morgen angerufen, aber ich weiß nicht, wer.'},
+{gid:'indefinit',lv:3,sk:'Vocabulary',s:'Im Kühlschrank ist ___ mehr.',a:'nichts',o:['nicht','kein','niemand'],ex:'nichts = nothing (a thing). nicht only negates and cannot be a subject.',tr:'There is nothing left in the fridge.',say:'Im Kühlschrank ist nichts mehr.'},
+{gid:'indefinit',lv:3,sk:'Vocabulary',s:'So viel Arbeit macht ___ müde.',a:'einen',o:['man','einem','einer'],ex:'machen needs an Akkusativ object, and the Akkusativ of man is einen.',tr:'So much work makes you tired.',say:'So viel Arbeit macht einen müde.'},
+{gid:'indefinit',lv:3,sk:'Vocabulary',s:'Dieser Lärm hilft ___ auch nicht.',a:'einem',o:['einen','man','einer'],ex:'helfen takes the Dativ, and the Dativ of man is einem.',tr:'This noise does not help you either.',say:'Dieser Lärm hilft einem auch nicht.'},
+{gid:'indefinit',lv:3,sk:'Vocabulary',s:'Kennst du hier ___?',a:'jemanden',o:['jemand','jemandem','niemanden'],ex:'kennen takes the Akkusativ, so jemand becomes jemanden.',tr:'Do you know anybody here?',say:'Kennst du hier jemanden?'},
+{gid:'indefinit',lv:3,sk:'Vocabulary',s:'Ich bin müde, weil ich ___ Tag um fünf aufstehe. (jeder)',a:'jeden',o:['jeder','jedem','jedes'],ex:'jeder takes der-endings, and a time expression without a preposition stands in the Akkusativ: jeden Tag.',tr:'I am tired because I get up at five every day.',say:'Ich bin müde, weil ich jeden Tag um fünf aufstehe.'},
+
+/* --- demonstrativ --- */
+{gid:'demonstrativ',lv:3,sk:'Articles',s:'___ Woche habe ich drei Termine. (dieser)',a:'Diese',o:['Dieses','Dieser','Diesem'],ex:'die Woche is feminine, and in the Akkusativ the form stays the same: diese Woche.',tr:'This week I have three appointments.',say:'Diese Woche habe ich drei Termine.'},
+{gid:'demonstrativ',lv:3,sk:'Articles',s:'___ Hemd nehme ich. (dieser)',a:'Dieses',o:['Diese','Dieser','Diesen'],ex:'das Hemd is neuter → dieses, in the Nominativ as well as the Akkusativ.',tr:'I will take this shirt.',say:'Dieses Hemd nehme ich.'},
+{gid:'demonstrativ',lv:3,sk:'Articles',s:'Ich nehme ___ Zug um acht. (dieser)',a:'diesen',o:['dieser','diesem','dieses'],ex:'der Zug in the masculine Akkusativ → diesen, exactly like den.',tr:'I will take this train at eight.',say:'Ich nehme diesen Zug um acht.'},
+{gid:'demonstrativ',lv:3,sk:'Articles',s:'Mit ___ Bus fahre ich jeden Tag zur Arbeit. (dieser)',a:'diesem',o:['diesen','dieser','dieses'],ex:'mit always takes the Dativ, and the masculine Dativ is diesem, like dem.',tr:'I take this bus to work every day.',say:'Mit diesem Bus fahre ich jeden Tag zur Arbeit.'},
+{gid:'demonstrativ',lv:3,sk:'Articles',s:'___ Schuhe sind leider zu klein. (dieser)',a:'Diese',o:['Dieser','Dieses','Diesem'],ex:'Plural Nominativ → diese, like die.',tr:'These shoes are unfortunately too small.',say:'Diese Schuhe sind leider zu klein.'},
+{gid:'demonstrativ',lv:3,sk:'Articles',s:'Wir haben ___ Problem wie ihr. (the same)',a:'dasselbe',o:['denselben','dieselbe','demselben'],ex:'das Problem is neuter and the object → dasselbe, written as one word.',tr:'We have the same problem as you.',say:'Wir haben dasselbe Problem wie ihr.'},
+{gid:'demonstrativ',lv:3,sk:'Articles',s:'Kennst du Frau Meier? — ___ kenne ich gut.',a:'Die',o:['Der','Den','Dem'],ex:'Spoken German uses a stressed der/die/das as a demonstrative pronoun; Frau Meier is feminine and the object of kennen → Die.',tr:'Do you know Mrs Meier? — I know her well.',say:'Kennst du Frau Meier? Die kenne ich gut.'},
+{gid:'demonstrativ',lv:3,sk:'Articles',s:'Ich möchte ___ blaue Jacke anprobieren. (dieser)',a:'diese',o:['dieser','diesem','dieses'],ex:'die Jacke in the Akkusativ → diese, and after dieser the adjective takes the weak ending -e.',tr:'I would like to try on this blue jacket.',say:'Ich möchte diese blaue Jacke anprobieren.'},
+
+/* --- possessivpronomen --- */
+{gid:'possessivpronomen',lv:3,sk:'Articles',s:'Ist das dein Schlüssel? — Nein, ___ liegt zu Hause. (mein)',a:'meiner',o:['mein','meins','meine'],ex:'Without its noun the possessive takes der-endings: masculine Nominativ → meiner.',tr:'Is that your key? — No, mine is at home.',say:'Ist das dein Schlüssel? Nein, meiner liegt zu Hause.'},
+{gid:'possessivpronomen',lv:3,sk:'Articles',s:'Mein Handy ist kaputt. Kann ich ___ nehmen? (dein)',a:'deins',o:['dein','deiner','deinem'],ex:'das Handy is neuter; standing alone the form is deins (or the fuller deines).',tr:'My phone is broken. Can I take yours?',say:'Mein Handy ist kaputt. Kann ich deins nehmen?'},
+{gid:'possessivpronomen',lv:3,sk:'Articles',s:'Das ist nicht meine Jacke, das ist ___. (sein)',a:'seine',o:['seiner','seins','seinen'],ex:'die Jacke is feminine, so the standalone form is seine — the same as in front of a noun.',tr:'That is not my jacket, that is his.',say:'Das ist nicht meine Jacke, das ist seine.'},
+{gid:'possessivpronomen',lv:3,sk:'Articles',s:'Unser Auto ist alt, ___ ist neu. (ihr)',a:'ihres',o:['ihre','ihrer','ihren'],ex:'das Auto is neuter and here the subject → ihres (in speech often shortened to ihrs).',tr:'Our car is old, theirs is new.',say:'Unser Auto ist alt, ihres ist neu.'},
+{gid:'possessivpronomen',lv:3,sk:'Articles',s:'Ich fahre mit meinem Rad, fährst du mit ___? (dein)',a:'deinem',o:['deins','deiner','deinen'],ex:'mit takes the Dativ, and das Rad is neuter → deinem.',tr:'I am going on my bike, are you going on yours?',say:'Ich fahre mit meinem Rad, fährst du mit deinem?'},
+{gid:'possessivpronomen',lv:3,sk:'Articles',s:'Deine Kinder sind schon groß, ___ gehen noch in den Kindergarten. (unser)',a:'unsere',o:['unser','unserer','unseren'],ex:'A plural subject standing alone takes -e: unsere.',tr:'Your children are already big, ours still go to kindergarten.',say:'Deine Kinder sind schon groß, unsere gehen noch in den Kindergarten.'},
+{gid:'possessivpronomen',lv:3,sk:'Articles',s:'Hast du einen Stift? Ich habe ___ vergessen. (mein)',a:'meinen',o:['meiner','meins','meinem'],ex:'der Stift is masculine and the object of habe … vergessen → Akkusativ meinen.',tr:'Do you have a pen? I forgot mine.',say:'Hast du einen Stift? Ich habe meinen vergessen.'},
+{gid:'possessivpronomen',lv:3,sk:'Articles',s:'Mein Zimmer ist kleiner als ___. (dein)',a:'deins',o:['dein','deinem','deiner'],ex:'als is followed by the Nominativ, and das Zimmer is neuter → deins.',tr:'My room is smaller than yours.',say:'Mein Zimmer ist kleiner als deins.'},
+
+/* --- wohin-wo-woher --- */
+{gid:'wohin-wo-woher',lv:3,sk:'Prepositions',s:'Im Sommer fliegen wir ___ Spanien.',a:'nach',o:['in','zu','an'],ex:'Countries and towns without an article take nach: nach Spanien, nach Berlin.',tr:'In the summer we are flying to Spain.',say:'Im Sommer fliegen wir nach Spanien.'},
+{gid:'wohin-wo-woher',lv:3,sk:'Prepositions',s:'Nächstes Jahr fahren wir ___ Schweiz.',a:'in die',o:['nach','nach die','in der'],ex:'Countries that carry an article use in + Akkusativ: die Schweiz → in die Schweiz.',tr:'Next year we are going to Switzerland.',say:'Nächstes Jahr fahren wir in die Schweiz.'},
+{gid:'wohin-wo-woher',lv:3,sk:'Prepositions',s:'Ich muss morgen ___ Zahnarzt.',a:'zum',o:['zu','beim','in den'],ex:'Going to a person or a practice → zu + Dativ, and zu dem is shortened to zum.',tr:'I have to go to the dentist tomorrow.',say:'Ich muss morgen zum Zahnarzt.'},
+{gid:'wohin-wo-woher',lv:3,sk:'Prepositions',s:'Ich war den ganzen Vormittag ___ Arzt.',a:'beim',o:['zum','zu dem','am'],ex:'Being at somebody uses bei + Dativ: beim Arzt. zum would describe the way there.',tr:'I was at the doctor all morning.',say:'Ich war den ganzen Vormittag beim Arzt.'},
+{gid:'wohin-wo-woher',lv:3,sk:'Prepositions',s:'Nach der Arbeit fahre ich ___.',a:'nach Hause',o:['zu Hause','nach Haus','zum Hause'],ex:'Movement towards home is the fixed expression nach Hause.',tr:'After work I drive home.',say:'Nach der Arbeit fahre ich nach Hause.'},
+{gid:'wohin-wo-woher',lv:3,sk:'Prepositions',s:'Am Wochenende bleibe ich ___.',a:'zu Hause',o:['nach Hause','in Hause','am Haus'],ex:'Being at home is zu Hause — a position, not a direction.',tr:'At the weekend I stay at home.',say:'Am Wochenende bleibe ich zu Hause.'},
+{gid:'wohin-wo-woher',lv:3,sk:'Prepositions',s:'Woher kommst du? — Ich komme ___ Italien.',a:'aus',o:['von','nach','in'],ex:'Origin from a country or town always uses aus.',tr:'Where are you from? — I am from Italy.',say:'Woher kommst du? Ich komme aus Italien.'},
+{gid:'wohin-wo-woher',lv:3,sk:'Prepositions',s:'Ich komme gerade ___ Arbeit und muss noch einkaufen.',a:'von der',o:['aus der','von die','aus die'],ex:'Coming back from an activity or a person uses von + Dativ: von der Arbeit.',tr:'I am just coming from work and still have to do the shopping.',say:'Ich komme gerade von der Arbeit und muss noch einkaufen.'},
+
+/* --- zeitpraepositionen --- */
+{gid:'zeitpraepositionen',lv:3,sk:'Prepositions',s:'Ich wohne ___ drei Jahren in München.',a:'seit',o:['vor','für','ab'],ex:'seit + Dativ marks a period that is still going on, and German keeps the present tense.',tr:'I have been living in Munich for three years.',say:'Ich wohne seit drei Jahren in München.'},
+{gid:'zeitpraepositionen',lv:3,sk:'Prepositions',s:'___ zwei Wochen war ich krank.',a:'Vor',o:['Seit','Für','In'],ex:'vor + Dativ means "ago"; the illness is over, so a past tense fits.',tr:'Two weeks ago I was ill.',say:'Vor zwei Wochen war ich krank.'},
+{gid:'zeitpraepositionen',lv:3,sk:'Prepositions',s:'Ich ___ seit einem Jahr Deutsch. (lernen)',a:'lerne',o:['habe gelernt','lernte','werde lernen'],ex:'With seit the action still continues, so German uses the present tense, not the Perfekt.',tr:'I have been learning German for a year.',say:'Ich lerne seit einem Jahr Deutsch.'},
+{gid:'zeitpraepositionen',lv:3,sk:'Prepositions',s:'___ Montag habe ich einen neuen Job.',a:'Ab',o:['Seit','Vor','Bis'],ex:'ab points forward from a starting point in the future; seit would point back into the past.',tr:'From Monday on I have a new job.',say:'Ab Montag habe ich einen neuen Job.'},
+{gid:'zeitpraepositionen',lv:3,sk:'Prepositions',s:'___ drei Tagen kommt mein Bruder zu Besuch.',a:'In',o:['Nach','Seit','Für'],ex:'in + Dativ measures forward from now: in drei Tagen = three days from now.',tr:'In three days my brother is coming to visit.',say:'In drei Tagen kommt mein Bruder zu Besuch.'},
+{gid:'zeitpraepositionen',lv:3,sk:'Prepositions',s:'Die Praxis ist ___ 18 Uhr geöffnet.',a:'bis',o:['nach','seit','über'],ex:'bis marks the end point of a period and needs no article with a clock time.',tr:'The practice is open until 6 p.m.',say:'Die Praxis ist bis 18 Uhr geöffnet.'},
+{gid:'zeitpraepositionen',lv:3,sk:'Prepositions',s:'___ der Woche koche ich selten.',a:'Während',o:['Während die','Seit','Vor'],ex:'während means "during" and takes the Genitiv: während der Woche.',tr:'During the week I rarely cook.',say:'Während der Woche koche ich selten.'},
+{gid:'zeitpraepositionen',lv:3,sk:'Prepositions',s:'Ich habe ___ einer Stunde den Termin abgesagt.',a:'vor',o:['seit','ab','in'],ex:'A finished action in the Perfekt goes with vor + Dativ = ago; seit would demand the present tense.',tr:'An hour ago I cancelled the appointment.',say:'Ich habe vor einer Stunde den Termin abgesagt.'},
+
+/* --- koennen-duerfen --- */
+{gid:'koennen-duerfen',lv:3,sk:'Verbs',s:'Ich ___ heute nicht arbeiten, ich habe frei.',a:'muss',o:['musst','müsse','müssen'],ex:'ich muss — modal verbs have no ending in the ich form.',tr:'I do not have to work today, I have the day off.',say:'Ich muss heute nicht arbeiten, ich habe frei.'},
+{gid:'koennen-duerfen',lv:3,sk:'Verbs',s:'___ du mir bitte helfen?',a:'Kannst',o:['Kann','Könnst','Könnt'],ex:'du kannst: können changes its stem vowel in the singular but keeps the normal du-ending -st.',tr:'Can you help me, please?',say:'Kannst du mir bitte helfen?'},
+{gid:'koennen-duerfen',lv:3,sk:'Verbs',s:'Hier ___ man nicht parken.',a:'darf',o:['darfst','dürfen','durfe'],ex:'man always takes the er/sie/es form, and nicht dürfen expresses a prohibition.',tr:'You are not allowed to park here.',say:'Hier darf man nicht parken.'},
+{gid:'koennen-duerfen',lv:3,sk:'Verbs',s:'Der Arzt sagt, ich ___ mehr schlafen.',a:'soll',o:['sollst','solle','sollen'],ex:'sollen reports what somebody else wants; ich soll has no ending.',tr:'The doctor says I should sleep more.',say:'Der Arzt sagt, ich soll mehr schlafen.'},
+{gid:'koennen-duerfen',lv:3,sk:'Verbs',s:'Was ___ Sie trinken?',a:'möchten',o:['möchte','möchtet','mögen'],ex:'Sie takes the plural form möchten — the polite way to offer somebody something.',tr:'What would you like to drink?',say:'Was möchten Sie trinken?'},
+{gid:'koennen-duerfen',lv:3,sk:'Verbs',s:'Du ___ nicht kommen, wenn du keine Zeit hast.',a:'musst',o:['darfst','sollst','kannst'],ex:'nicht müssen = there is no obligation. nicht dürfen would forbid it.',tr:'You do not have to come if you have no time.',say:'Du musst nicht kommen, wenn du keine Zeit hast.'},
+{gid:'koennen-duerfen',lv:3,sk:'Verbs',s:'Achtung, Sie ___ hier nicht rauchen!',a:'dürfen',o:['müssen','können','sollen'],ex:'A ban is nicht dürfen; nicht müssen would only mean there is no obligation to smoke.',tr:'Careful, you must not smoke here!',say:'Achtung, Sie dürfen hier nicht rauchen!'},
+{gid:'koennen-duerfen',lv:3,sk:'Verbs',s:'Ich kann nicht kommen, weil ich noch arbeiten ___.',a:'muss',o:['müssen','musst','müsst'],ex:'In a weil-clause the conjugated modal goes to the very end, after the infinitive.',tr:'I cannot come because I still have to work.',say:'Ich kann nicht kommen, weil ich noch arbeiten muss.'},
+
+/* --- brauchen-zu --- */
+{gid:'brauchen-zu',lv:3,sk:'Verbs',s:'Du brauchst nicht ___ warten.',a:'zu',o:['für','um','dass'],ex:'brauchen + nicht + zu + Infinitiv: the little zu is obligatory in careful German.',tr:'You do not have to wait.',say:'Du brauchst nicht zu warten.'},
+{gid:'brauchen-zu',lv:3,sk:'Verbs',s:'Sie brauchen das Formular nicht ___. (unterschreiben)',a:'zu unterschreiben',o:['unterschreiben','unterschreiben zu','zu unterschrieben'],ex:'zu stands directly in front of the infinitive at the end of the sentence.',tr:'You do not have to sign the form.',say:'Sie brauchen das Formular nicht zu unterschreiben.'},
+{gid:'brauchen-zu',lv:3,sk:'Verbs',s:'Ich brauche nur ___, dann bringt er das Paket. (anrufen)',a:'anzurufen',o:['zu anrufen','anrufen zu','an zu rufen'],ex:'anrufen is separable, so zu goes inside the word: anzurufen. nur … zu means "all I have to do is".',tr:'All I have to do is call and he will bring the parcel.',say:'Ich brauche nur anzurufen, dann bringt er das Paket.'},
+{gid:'brauchen-zu',lv:3,sk:'Verbs',s:'Du brauchst nichts ___. (mitbringen)',a:'mitzubringen',o:['zu mitbringen','mitbringen zu','mit zu bringen'],ex:'With a separable verb the zu slips between prefix and verb, and it all stays one word.',tr:'You do not need to bring anything.',say:'Du brauchst nichts mitzubringen.'},
+{gid:'brauchen-zu',lv:3,sk:'Verbs',s:'„Du musst nicht kommen“ heißt auch: „Du ___ nicht zu kommen.“',a:'brauchst',o:['brauch','brauchen','brauchest'],ex:'brauchen is conjugated normally: ich brauche, du brauchst, er braucht.',tr:'"You do not have to come" also means: "You do not need to come."',say:'Du brauchst nicht zu kommen.'},
+{gid:'brauchen-zu',lv:3,sk:'Verbs',s:'Morgen ___ wir nicht früh aufzustehen.',a:'brauchen',o:['brauchst','braucht','brauche'],ex:'wir brauchen — and because aufstehen is separable, the infinitive becomes aufzustehen.',tr:'Tomorrow we do not have to get up early.',say:'Morgen brauchen wir nicht früh aufzustehen.'},
+{gid:'brauchen-zu',lv:3,sk:'Verbs',s:'Ich ___ einen neuen Pass.',a:'brauche',o:['brauche zu','brauch','brauchst'],ex:'Here brauchen is an ordinary full verb with an Akkusativ object — no zu and no infinitive.',tr:'I need a new passport.',say:'Ich brauche einen neuen Pass.'},
+{gid:'brauchen-zu',lv:3,sk:'Verbs',s:'Ich bin froh, weil ich morgen nicht zu arbeiten ___.',a:'brauche',o:['brauch','brauchen','braucht'],ex:'In a weil-clause the conjugated verb goes last, so brauche follows zu arbeiten.',tr:'I am glad because I do not have to work tomorrow.',say:'Ich bin froh, weil ich morgen nicht zu arbeiten brauche.'}
+
+];

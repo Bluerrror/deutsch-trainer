@@ -4,8 +4,8 @@
 
 # Deutsch Trainer
 
-**A beautiful, offline-first German trainer — from A0 to C2.**
-All four skills in Goethe-Zertifikat formats, 55 grammar lessons, slang, idioms and a 1,200-word dictionary — in a fast Duolingo-style app that installs to your home screen. No account, no ads, no tracking.
+**A complete German course — A0 to C2 — that runs offline on your phone.**
+A studio-d-style *Kursbuch* with Einheiten and Stationen, a grammar spine of 150+ lessons each with its own drills, spaced-repetition vocabulary, a verb trainer, and all four exam skills in Goethe formats. No account, no ads, no tracking.
 
 [![Open the app](https://img.shields.io/badge/▶_Open_the_app-Live-25b06e?style=for-the-badge)](https://bluerrror.github.io/deutsch-trainer/)
 &nbsp;
@@ -17,39 +17,99 @@ All four skills in Goethe-Zertifikat formats, 55 grammar lessons, slang, idioms 
 
 ---
 
-## ✨ Features
+## 📚 The Kursbuch — a real course, not a quiz app
 
-### 🎓 Exam trainer — all four skills
-- **Lesen** — short texts, small ads to match, true/false and multiple choice, in Goethe task shapes.
-- **Hören** — announcements, voicemail, radio, interviews and discussions, spoken by your device, with slow replay and a transcript you can unlock after answering.
-- **Schreiben** — guided writing tasks with content points to tick off, a tappable phrase bank, a live word counter, a saved draft, a self-check list and a full model answer.
-- **Sprechen** — Goethe-style speaking prompts with a preparation/speaking timer, Redemittel, examiner tips, a model answer you can hear and shadow, and optional self-recording (stays on your device).
-- **Full mock exam** — the four parts back to back at your level.
+The app is built like a coursebook. Each **Einheit** is a theme that works all four skills
+around a grammar focus, in the order a classroom would take them:
 
-### 📘 Grammar — 55 lessons, A0 → C2
-Clear explanations in English or Persian, with tables, contrast cards, numbered steps, rule and warning boxes, mini-dialogues with audio, and an **inline quick-check quiz** in most lessons.
-From the alphabet, negation, possessives and W-questions, through cases, relative clauses, da-/wo-compounds, the n-declension and Futur II, up to Konjunktiv I and reported speech, the passive and its four substitutes, nominal style, extended participial attributes, Funktionsverbgefüge, Modalpartikeln, register, idioms and essay architecture.
+| | Section | What happens |
+| --- | --- | --- |
+| 🚪 | **Einstieg** | the unit's key words, with audio |
+| 🎧 | **Hören** | a dialogue or monologue read aloud, then comprehension questions, transcript unlocked after |
+| 📖 | **Lesen** | an authentic-style text with a glossary and questions |
+| 💬 | **Dialog** | a model conversation to shadow line by line |
+| 📐 | **Grammatik** | the unit's grammar lessons — read, then drill them |
+| ✏️ | **Übungen** | 12+ drills on exactly this unit's material |
+| 🗣️ | **Sprechen** | a speaking task with Redemittel, a model answer and optional self-recording |
+| ✍️ | **Schreiben** | content points, a phrase bank, word counter, saved draft, model answer |
+| 🔊 | **Aussprache** | the sound this unit trains |
+| 📝 | **Wortschatz** | the unit word list — one tap adds it to your review deck |
+| ✅ | **Das kann ich auf Deutsch** | the can-do checklist that closes the unit |
 
-### 🧠 12 exercise types
-Multiple choice · **select-all** · **tap the word in the sentence** · **multi-gap cloze** · **sort into buckets** · **letter scramble** · sentence builder · match pairs · typing · dictation · listening · picture.
-Plus conversation questions with a real dialogue on screen, reading-comprehension texts, odd-one-out, and false-friend traps.
+Every fourth unit is a **Station**: a *Berufsbild* job profile, a *Magazin* culture page,
+and mixed revision of the previous four units.
 
-### 🗣️ Living German
-- **Slang & regional** — krass, Bock haben, Moin, Servus, Grüezi, gell — each with its neutral equivalent so you never use it in the wrong place.
-- **Redemittel** — 60 phrases grouped by what they *do*: giving an opinion, agreeing, disagreeing, complaining, presenting, hedging.
-- **Idioms & proverbs** — with their emotional colour marked, because using a negative one by mistake is worse than using none.
-- **Conversations** — 12 multi-turn dialogues (café, station, doctor, flat hunting, office, job interview, diplomatic disagreement) where you pick the line that fits.
-- **Pronunciation** — the fifteen rules that let you read any German word aloud correctly.
+## 📐 Grammar is the spine
 
-### 📈 Course & progress
-- **33-unit course path** across seven levels (A0 · A1 · A2 · B1 · B2 · C1 · C2) with locks, star ratings and a boss lesson per unit.
-- **Adaptive engine** — targets your weakest skill and resurfaces mistakes on a Leitner schedule.
-- **204 hand-written questions** blended with ~114 rule-based generators, so questions stay fresh.
-- **Massive dictionary** — 1,265 nouns with articles and plurals, 380 verbs with past forms, 223 adjectives, 175 phrases, all searchable, all with audio, including a Goethe-aligned wordlist by level and theme.
-- XP, hearts, streaks, combos, daily quests, a reward chest and an achievements wall.
+**150+ lessons from the alphabet to C2 style**, each built the same way: the rule, the
+*reason* behind it, a table, a contrast card where two things get confused, real examples
+with audio, a **warning box naming the mistake learners actually make**, and an inline
+quick-check.
 
-### ⚙️ Built for real phones
-Installable PWA · works fully offline after first load · English **or** Persian (فارسی) explanations · four German voices · safe-area and landscape layouts · tablet and desktop breakpoints · honours *reduce motion* · progress never leaves your device.
+Then you **drill that exact lesson** — every lesson has its own 8-exercise set that
+escalates from the plain case to the subtle one.
+
+A few examples of how it teaches rather than lists:
+
+- **Adjective endings** aren't three tables of 48 boxes — they're one principle:
+  *the case must be visible exactly once.* If the article shows it, the adjective relaxes.
+- **Verb position** is explained from *why* German can move things around (cases already
+  mark who does what), so `Heute lerne ich` stops being arbitrary.
+- **`soll` vs `will`** at C1 are taught as German's evidentials: who is making the claim,
+  and whether the speaker believes it.
+
+## 🎯 Know where you are, and what's next
+
+- **Einstufungstest** — a laddered placement test that finds your level, sets the course,
+  and lists the grammar topics you actually missed, each linked to its lesson.
+- **Tagesplan** — one real lesson's worth of work each day: the next Kursbuch section,
+  your due vocabulary, a grammar lesson with its drills, and your saved mistakes.
+- **Readiness dashboard** — per-level progress across grammar, units, can-do statements
+  and vocabulary, and a plain sentence telling you what is still blocking the next level.
+
+## 🧠 Vocabulary that actually sticks
+
+Unit word lists feed a **spaced-repetition deck** with eight intervals from one day to
+five months. The Words screen shows the deck split into new / learning / consolidated /
+secure, and the Tagesplan surfaces what's due.
+
+## 🧾 Verb trainer
+
+104 irregular and strong verbs with every form hand-checked: the three Stammformen,
+full Präsens and Präteritum tables, Perfekt, Plusquamperfekt, Futur, Konjunktiv II and
+the imperative — plus five drill types (Präteritum, Partizip II, haben-or-sein,
+Konjunktiv II, the du/er stem change).
+
+## 🎓 Exam trainer — all four skills in Goethe formats
+
+- **Lesen** — texts, small-ad matching, true/false, multiple choice
+- **Hören** — announcements, voicemail, radio, interviews, with slow replay
+- **Schreiben** — content points, phrase bank, word counter, self-check, model answer
+- **Sprechen** — prep/speak timers, examiner tips, a model to shadow, self-recording
+- **Full mock exam** — the four parts back to back
+- **Lesetexte** — an extensive-reading library with glossaries, questions, and one tap to
+  add the glossary to your review deck
+
+## 🧩 14 exercise types
+
+Multiple choice · select-all · tap-the-word-in-the-sentence · multi-gap cloze ·
+sort-into-buckets · letter scramble · sentence builder · match pairs · typing ·
+dictation · listening · picture · conversation with a dialogue on screen ·
+reading comprehension. Plus odd-one-out and false-friend traps.
+
+## 🗣️ Living German
+
+Slang and regional forms each paired with the neutral equivalent so you never use them in
+the wrong place · 60 Redemittel grouped by what they *do* · multi-turn conversations from
+the café to a diplomatic disagreement · idioms tagged by emotional colour · the
+pronunciation rules that let you read any German word aloud.
+
+## ⚙️ Built for real phones
+
+Installable PWA · fully offline after first load (705 KB gzipped for the whole course) ·
+explanations in **English or Persian (فارسی)** · four German voices · safe-area and
+landscape layouts · tablet and desktop breakpoints · honours *reduce motion* ·
+your progress never leaves your device.
 
 ## 📱 Screenshots
 
@@ -77,7 +137,8 @@ Installable PWA · works fully offline after first load · English **or** Persia
 2. Wait a few seconds so it caches for offline use.
 3. Tap the **Share** button (□↑) → **Add to Home Screen** → **Add**.
 
-You'll get a **"D" icon** on your home screen that opens **fullscreen** and **works offline**. On Android/Chrome, use the **⋮ menu → Install app**.
+You'll get a **"D" icon** that opens **fullscreen** and **works offline**.
+On Android/Chrome, use the **⋮ menu → Install app**.
 
 ## 🤖 Install on Android
 
@@ -85,37 +146,27 @@ Download the ready-made app: **[deutsch-trainer.apk](https://github.com/Bluerrro
 
 1. Open the downloaded file on your phone.
 2. If asked, allow installing from this source.
-3. Launch **Deutsch Trainer** from your app drawer — fullscreen, offline-capable (requires Chrome installed).
-
-Alternatively, open the web app in Chrome and use **⋮ → Install app**.
-
-## 🧠 Question types
-
-| Type | What you do |
-| --- | --- |
-| Multiple choice | Pick the correct article, case, ending, form… |
-| Select all | Tick *every* correct option — no partial credit |
-| Tap the word | Find the dative object, the mistake, the particle |
-| Multi-gap | Fill two or three blanks from one word bank |
-| Sort | Drop words into der/die/das, haben/sein, formal/casual |
-| Scramble | Rebuild a word from its letters |
-| Sentence build | Order word tiles into a correct sentence |
-| Conversation | Read a dialogue and choose the line that fits |
-| Reading | Short text, then comprehension questions |
-| Listening | Hear German, choose the word, phrase or meaning |
-| Dictation | Hear a whole sentence and type it |
-| Typing · Match · Picture · True/false | Write it, pair it, see it, judge it |
+3. Launch **Deutsch Trainer** from your app drawer — fullscreen, offline-capable.
 
 ## 🛠️ Tech
 
 - **Vanilla HTML, CSS and JavaScript. Zero dependencies, no build step.**
-- `index.html` holds the app; the content lives in plain data files beside it:
-  `vocab.js` · `goethe.js` (Goethe-aligned wordlist) · `bank.js` (authored questions) ·
-  `grammar.js` (55 lessons) · `advanced.js` (B1–C2 grammar data) ·
-  `spoken.js` (slang, Redemittel, conversations, drills) · `exams.js` (four-skill tasks) ·
-  `fa.js` (Persian pack).
-- Installable **PWA**: [`manifest.webmanifest`](manifest.webmanifest) + a service worker ([`sw.js`](sw.js)) for offline caching.
-- **Web Speech API** for pronunciation, **MediaRecorder** for speaking practice, **Web Audio API** for sound effects, `navigator.vibrate` for haptics.
+- `index.html` is the app; all content lives in plain data files beside it:
+
+| File | What's in it |
+| --- | --- |
+| `kurs_a0…c2.js` | the Kursbuch — Einheiten and Stationen per level |
+| `grammar.js`, `gram_a1…c1.js` | grammar lessons |
+| `drill_core.js`, `DRILL_*` in each pack | per-lesson exercise sets |
+| `verbs.js` | irregular verb tables |
+| `vocab.js`, `goethe.js` | the dictionary and a Goethe-aligned wordlist |
+| `bank.js`, `advanced.js`, `spoken.js` | authored questions, B1–C2 grammar data, slang & Redemittel |
+| `exams.js`, `read1.js` | four-skill exam tasks, extensive-reading library |
+| `fa.js` | the Persian pack |
+
+- Installable **PWA**: [`manifest.webmanifest`](manifest.webmanifest) + a service worker ([`sw.js`](sw.js)).
+- **Web Speech API** for pronunciation, **MediaRecorder** for speaking practice,
+  **Web Audio API** for sound effects, `navigator.vibrate` for haptics.
 - Hosted free on **GitHub Pages**.
 
 ## 💻 Run locally
